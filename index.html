@@ -17,14 +17,14 @@
 html { scroll-behavior: smooth; background: var(--black); overflow-x: hidden; }
 body { background: var(--black); color: var(--white); font-family: var(--font-serif); overflow-x: hidden; cursor: default; }
 ::selection { background: var(--gold); color: var(--black); }
-
+ 
 /* PRELOADER */
 .preloader { position: fixed; inset: 0; z-index: 10000; background: var(--black); display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 0.8s ease, visibility 0.8s ease; }
 .preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
 .preloader-text { font-family: var(--font-display); font-weight: 700; font-size: clamp(3rem, 10vw, 8rem); letter-spacing: 0.3em; color: var(--gold); animation: pulse 1.2s ease-in-out infinite; }
 .preloader-sub { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.4em; color: var(--gray); margin-top: 1rem; text-transform: uppercase; }
 @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
-
+ 
 /* NAV */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; }
 .nav-logo { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.35em; color: var(--white); text-decoration: none; transition: color 0.3s ease; }
@@ -36,7 +36,7 @@ nav.on-light .nav-logo { color: var(--black); }
 nav.on-light .nav-links a { color: var(--black); }
 nav.on-light .nav-links a::after { background: var(--black); }
 nav.on-light .nav-hamburger span { background: var(--black); }
-
+ 
 /* HERO */
 .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
 .hero-left { display: flex; flex-direction: column; justify-content: flex-end; padding: 0 0 8vh 3rem; position: relative; z-index: 2; }
@@ -58,7 +58,7 @@ nav.on-light .nav-hamburger span { background: var(--black); }
 .hero-geo-center { position: absolute; inset: 28%; display: flex; align-items: center; justify-content: center; background: transparent; border: none; }
 @keyframes geoSpin { to { transform: rotate(360deg); } }
 .hero-vertical-text { position: absolute; right: 3rem; top: 50%; transform: translateY(-50%) rotate(90deg); font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.5em; color: var(--gray); text-transform: uppercase; white-space: nowrap; opacity: 0; animation: fadeIn 1s ease forwards 2.8s; }
-
+ 
 /* IDENTITY */
 .identity { padding: 15vh 3rem; }
 .identity-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
@@ -66,7 +66,7 @@ nav.on-light .nav-hamburger span { background: var(--black); }
 .identity-label span { display: block; width: 40px; height: 1px; background: var(--gold); margin-bottom: 1rem; }
 .identity-text { font-family: var(--font-serif); font-size: clamp(1.6rem, 3vw, 2.8rem); line-height: 1.45; font-weight: 300; color: var(--off-white); }
 .identity-text em { color: var(--gold); font-style: italic; font-weight: 500; }
-
+ 
 /* STATS BAR */
 .stats-bar { border-top: 1px solid var(--gold-dim); border-bottom: 1px solid var(--gold-dim); display: grid; grid-template-columns: repeat(3, 1fr); }
 .stat { padding: 4rem 3rem; border-right: 1px solid var(--gold-dim); position: relative; overflow: hidden; }
@@ -77,7 +77,7 @@ nav.on-light .nav-hamburger span { background: var(--black); }
 .stat:hover .stat-number { color: var(--black); }
 .stat-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); margin-top: 1rem; position: relative; z-index: 1; transition: color 0.4s ease; }
 .stat:hover .stat-label { color: var(--black); }
-
+ 
 /* PROGRAM */
 .program { padding: 15vh 3rem; }
 .program-header { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; margin-bottom: 6rem; }
@@ -91,7 +91,7 @@ nav.on-light .nav-hamburger span { background: var(--black); }
 .program-item-icon { font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); padding: 0.4rem 0.8rem; border: 1px solid var(--gold); display: inline-block; margin-bottom: 1.5rem; }
 .program-item h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 1rem; }
 .program-item p { font-family: var(--font-serif); font-size: 1rem; line-height: 1.7; color: var(--gray); font-weight: 300; }
-
+ 
 /* RECRUITING — NOW A SINGLE BLOCK */
 .recruiting-block { padding: 10vh 3rem; }
 .recruiting-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
@@ -100,7 +100,7 @@ nav.on-light .nav-hamburger span { background: var(--black); }
 .recruiting-right p { font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.7; color: var(--gray); font-weight: 300; margin-bottom: 1.5rem; }
 .recruiting-right p:last-child { margin-bottom: 0; }
 .recruiting-right strong { color: var(--white); font-weight: 500; }
-
+ 
 /* TICKER */
 .ticker { overflow: hidden; white-space: nowrap; padding: 3rem 0; border-top: 1px solid var(--gold-dim); border-bottom: 1px solid var(--gold-dim); }
 .ticker-track { display: inline-flex; animation: tickerScroll 25s linear infinite; }
@@ -108,7 +108,7 @@ nav.on-light .nav-hamburger span { background: var(--black); }
 .ticker-item.outline { -webkit-text-stroke: 1px var(--gold); color: transparent; }
 .ticker-dot { color: var(--gold); padding: 0 1rem; font-size: clamp(1.5rem, 3vw, 3rem); }
 @keyframes tickerScroll { to { transform: translateX(-50%); } }
-
+ 
 /* UNBOXING — SIMPLIFIED */
 .unboxing { padding: 10vh 3rem; }
 .unboxing-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
@@ -117,7 +117,7 @@ nav.on-light .nav-hamburger span { background: var(--black); }
 .unboxing-right p { font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.7; color: var(--gray); font-weight: 300; margin-bottom: 1.5rem; }
 .unboxing-right p:last-child { margin-bottom: 0; }
 .unboxing-right strong { color: var(--white); font-weight: 500; }
-
+ 
 /* COACHES */
 .coaches { padding: 15vh 3rem; }
 .coaches-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 6rem; }
@@ -138,7 +138,7 @@ nav.on-light .nav-hamburger span { background: var(--black); }
 .coach-card-status { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; }
 .coach-card-status.confirmed { color: var(--gold); }
 .coach-card p { font-family: var(--font-serif); font-size: 1rem; line-height: 1.7; color: var(--gray); font-weight: 300; }
-
+ 
 /* MODEL BLOCK */
 .model-block { padding: 8rem 3rem; border-top: 1px solid var(--gold-dim); border-bottom: 1px solid var(--gold-dim); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
 .model-block-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; line-height: 0.95; }
@@ -147,7 +147,7 @@ nav.on-light .nav-hamburger span { background: var(--black); }
 .model-block-right p { font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.7; color: var(--gray); font-weight: 300; margin-bottom: 1.5rem; }
 .model-block-right p:last-child { margin-bottom: 0; }
 .model-block-right strong { color: var(--white); font-weight: 500; }
-
+ 
 /* SPONSOR CTA */
 .sponsor-cta { padding: 15vh 3rem; position: relative; overflow: hidden; }
 .sponsor-cta-bg { position: absolute; inset: 0; background: linear-gradient(135deg, var(--gold) 0%, #D4A804 100%); clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%); }
@@ -161,7 +161,7 @@ nav.on-light .nav-hamburger span { background: var(--black); }
 .cta-btn::after { content: '\2192'; transition: transform 0.3s ease; }
 .cta-btn:hover::after { transform: translateX(4px); }
 .cta-btn-outline { background: transparent; color: var(--black); border: 2px solid var(--black); }
-
+ 
 /* TIMELINE */
 .timeline { padding: 10vh 3rem 15vh; }
 .timeline-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; margin-bottom: 5rem; letter-spacing: 0.05em; }
@@ -173,7 +173,7 @@ nav.on-light .nav-hamburger span { background: var(--black); }
 .timeline-date { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
 .timeline-item h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
 .timeline-item p { font-family: var(--font-serif); font-size: 1rem; line-height: 1.6; color: var(--gray); font-weight: 300; }
-
+ 
 /* FOOTER */
 footer { border-top: 1px solid var(--gold-dim); padding: 6rem 3rem 3rem; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 6rem; }
@@ -184,7 +184,9 @@ footer { border-top: 1px solid var(--gold-dim); padding: 6rem 3rem 3rem; }
 .footer-col a:hover { color: var(--white); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 3rem; border-top: 1px solid var(--gold-dim); }
 .footer-copy, .footer-legal { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.3em; color: var(--gray); text-transform: uppercase; }
-
+.footer-legal a { color: var(--gray); text-decoration: none; transition: color 0.3s ease; }
+.footer-legal a:hover { color: var(--gold); }
+ 
 /* ANIMATIONS */
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -193,7 +195,7 @@ footer { border-top: 1px solid var(--gold-dim); padding: 6rem 3rem 3rem; }
 .grain { position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 256px 256px; }
 @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeIn { to { opacity: 1; } }
-
+ 
 /* HAMBURGER */
 .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; z-index: 1100; }
 .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform-origin: center; }
@@ -205,12 +207,12 @@ footer { border-top: 1px solid var(--gold-dim); padding: 6rem 3rem 3rem; }
 .nav-drawer a { font-family: var(--font-display); font-size: clamp(2rem, 8vw, 3.5rem); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); text-decoration: none; transition: color 0.3s ease; }
 .nav-drawer a:hover { color: var(--gold); }
 .nav-drawer-sub { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.4em; color: var(--gray); text-transform: uppercase; margin-top: 2rem; }
-
+ 
 nav { font-size: 1.1rem; letter-spacing: 0.35em; }
 .nav-logo { white-space: nowrap; flex-shrink: 0; }
-
+ 
 .hero-crest-mobile { display: none; }
-
+ 
 @media (max-width: 1100px) {
   nav { padding: 1rem 1.5rem; } .nav-links { display: none; } .nav-hamburger { display: flex; }
   .hero { grid-template-columns: 1fr; min-height: auto; } .hero-left { padding: 5rem 1.5rem 4rem; justify-content: flex-start; } .hero-right, .hero-vertical-text { display: none; }
@@ -232,7 +234,7 @@ nav { font-size: 1.1rem; letter-spacing: 0.35em; }
 <body>
 <div class="grain"></div>
 <div class="preloader" id="preloader"><div class="preloader-text">UMOJA</div><div class="preloader-sub">Loading Experience</div></div>
-
+ 
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">UMOJA SC</a>
@@ -261,7 +263,7 @@ nav { font-size: 1.1rem; letter-spacing: 0.35em; }
   <a href="https://portal.umojasoka.com" class="drawer-link">Player Portal</a>
   <div class="nav-drawer-sub">Umoja Sports Coalition · Clarkston, GA</div>
 </div>
-
+ 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
@@ -281,7 +283,7 @@ nav { font-size: 1.1rem; letter-spacing: 0.35em; }
   </div>
   <div class="hero-vertical-text">Umoja Sports Coalition &nbsp;·&nbsp; Optimizing Play</div>
 </section>
-
+ 
 <!-- IDENTITY -->
 <section class="identity" id="identity">
   <div class="identity-grid">
@@ -293,14 +295,14 @@ nav { font-size: 1.1rem; letter-spacing: 0.35em; }
     </div>
   </div>
 </section>
-
+ 
 <!-- STATS — 3 columns now, removed "70 schools" -->
 <div class="stats-bar">
   <div class="stat reveal"><div class="stat-bg"></div><div class="stat-number">24</div><div class="stat-label">Roster Spots</div></div>
   <div class="stat reveal"><div class="stat-bg"></div><div class="stat-number">100%</div><div class="stat-label">Free for Families</div></div>
   <div class="stat reveal"><div class="stat-bg"></div><div class="stat-number">4</div><div class="stat-label">Tournaments / Season</div></div>
 </div>
-
+ 
 <!-- PROGRAM — pulled back on specifics -->
 <section class="program" id="program">
   <div class="program-header">
@@ -330,7 +332,7 @@ nav { font-size: 1.1rem; letter-spacing: 0.35em; }
     </div>
   </div>
 </section>
-
+ 
 <!-- RECRUITING — single block, vague on process -->
 <section class="recruiting-block" id="recruiting">
   <div class="recruiting-inner">
@@ -341,7 +343,7 @@ nav { font-size: 1.1rem; letter-spacing: 0.35em; }
     </div>
   </div>
 </section>
-
+ 
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
@@ -355,7 +357,7 @@ nav { font-size: 1.1rem; letter-spacing: 0.35em; }
     <span class="ticker-item outline">Clarkston 2026</span><span class="ticker-dot">&#9670;</span>
   </div>
 </div>
-
+ 
 <!-- UNBOXING — simplified to a single block, no itemized list -->
 <section class="unboxing">
   <div class="unboxing-inner">
@@ -368,7 +370,7 @@ nav { font-size: 1.1rem; letter-spacing: 0.35em; }
     </div>
   </div>
 </section>
-
+ 
 <!-- COACHES -->
 <section class="coaches" id="coaches">
   <div class="coaches-header">
@@ -402,7 +404,7 @@ nav { font-size: 1.1rem; letter-spacing: 0.35em; }
     </div></div>
   </div>
 </section>
-
+ 
 <!-- MODEL -->
 <div class="model-block" id="model">
   <div class="reveal"><h2 class="model-block-title">HOW <span class="gold">IT</span><br><span class="outline">WORKS.</span></h2></div>
@@ -412,7 +414,7 @@ nav { font-size: 1.1rem; letter-spacing: 0.35em; }
     <p>Want the details? <a href="mailto:partner@umojasoka.com" style="color: var(--gold); text-decoration: underline;">Request our Partner Deck.</a></p>
   </div>
 </div>
-
+ 
 <!-- SPONSOR CTA -->
 <section class="sponsor-cta" id="sponsor">
   <div class="sponsor-cta-bg"></div>
@@ -427,7 +429,7 @@ nav { font-size: 1.1rem; letter-spacing: 0.35em; }
     </div>
   </div>
 </section>
-
+ 
 <!-- TIMELINE -->
 <section class="timeline">
   <h2 class="timeline-title reveal">THE ROAD TO <span class="gold">FALL 2026</span></h2>
@@ -438,17 +440,17 @@ nav { font-size: 1.1rem; letter-spacing: 0.35em; }
     <div class="timeline-item reveal"><div class="timeline-date">Fall 2026</div><h3>Inaugural Season</h3><p>Elite tournaments, friendlies, and the road to Jefferson Cup.</p></div>
   </div>
 </section>
-
+ 
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div><div class="footer-brand">UMOJA SC</div><div class="footer-tagline">Breaking barriers. Building champions.</div></div>
-    <div class="footer-col"><h4>Navigate</h4><a href="#identity">The Club</a><a href="#program">Program</a><a href="#recruiting">Recruiting</a><a href="#coaches">Staff</a><a href="faq.html">FAQ</a><a href="apply.html">Apply</a><a href="https://portal.umojasoka.com">Player Portal</a>
+    <div class="footer-col"><h4>Navigate</h4><a href="#identity">The Club</a><a href="#program">Program</a><a href="#recruiting">Recruiting</a><a href="#coaches">Staff</a><a href="faq.html">FAQ</a><a href="apply.html">Apply</a><a href="https://portal.umojasoka.com">Player Portal</a></div>
     <div class="footer-col"><h4>Connect</h4><a href="mailto:hello@umojasoka.com">hello@umojasoka.com</a><a href="https://instagram.com/UmojaSoka" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/UmojaSoka" target="_blank" rel="noopener">Twitter / X</a></div>
   </div>
-  <div class="footer-bottom"><div class="footer-copy">&copy; 2026 Umoja Sports Coalition LLC &middot; Clarkston, GA</div><div class="footer-legal">A Full90Impact Enterprise</div></div>
+  <div class="footer-bottom"><div class="footer-copy">&copy; 2026 Umoja Sports Coalition LLC &middot; Clarkston, GA</div><div class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a> &middot; A Full90Impact Enterprise</div></div>
 </footer>
-
+ 
 <script>
 // Nav color — switch to black text when scrolling over light/gold sections
 const navEl = document.querySelector('nav');
@@ -464,7 +466,7 @@ function updateNav() {
 }
 window.addEventListener('scroll', updateNav, { passive: true });
 updateNav();
-
+ 
 const hamburger = document.getElementById('hamburger');
 const navDrawer = document.getElementById('navDrawer');
 hamburger.addEventListener('click', () => {
