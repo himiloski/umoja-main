@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UMOJA SC — Breaking Barriers. Building Champions.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black: #000000; --gold: #F5C205; --gold-dim: #F5C20530; --gold-mid: #F5C20580;
+  --white: #FFFFFF; --off-white: #E8E4DD; --gray: #888888; --dark-gray: #1a1a1a;
+  --font-display: 'Oswald', sans-serif; --font-serif: 'Cormorant Garamond', serif;
+  --font-mono: 'Space Mono', monospace;
+}
+html { scroll-behavior: smooth; background: var(--black); overflow-x: hidden; }
+body { background: var(--black); color: var(--white); font-family: var(--font-serif); overflow-x: hidden; cursor: default; }
+::selection { background: var(--gold); color: var(--black); }
+
+/* PRELOADER */
+.preloader { position: fixed; inset: 0; z-index: 10000; background: var(--black); display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 0.8s ease, visibility 0.8s ease; }
+.preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+.preloader-text { font-family: var(--font-display); font-weight: 700; font-size: clamp(3rem, 10vw, 8rem); letter-spacing: 0.3em; color: var(--gold); animation: pulse 1.2s ease-in-out infinite; }
+.preloader-sub { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.4em; color: var(--gray); margin-top: 1rem; text-transform: uppercase; }
+@keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.35em; color: var(--white); text-decoration: none; transition: color 0.3s ease; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; position: relative; padding-bottom: 2px; transition: color 0.3s ease; }
+.nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.nav-links a:hover::after { width: 100%; }
+nav.on-light .nav-logo { color: var(--black); }
+nav.on-light .nav-links a { color: var(--black); }
+nav.on-light .nav-links a::after { background: var(--black); }
+nav.on-light .nav-hamburger span { background: var(--black); }
+
+/* HERO */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+.hero-left { display: flex; flex-direction: column; justify-content: flex-end; padding: 0 0 8vh 3rem; position: relative; z-index: 2; }
+.hero-right { position: relative; display: flex; align-items: center; justify-content: center; }
+.hero-badge { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease forwards 1.8s; }
+.hero-title { font-family: var(--font-display); font-weight: 700; line-height: 0.88; letter-spacing: -0.02em; opacity: 0; animation: fadeUp 1s ease forwards 2s; }
+.hero-title .line1 { font-size: clamp(3.5rem, 8vw, 8rem); color: var(--white); display: block; }
+.hero-title .line2 { font-size: clamp(3.5rem, 8vw, 8rem); -webkit-text-stroke: 2px var(--gold); color: transparent; display: block; }
+.hero-title .line3 { font-size: clamp(2rem, 4.5vw, 4.5rem); color: var(--gold); display: block; margin-top: 0.2em; font-weight: 300; letter-spacing: 0.05em; }
+.hero-scroll-hint { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); margin-top: 4rem; display: flex; align-items: center; gap: 1rem; opacity: 0; animation: fadeUp 0.8s ease forwards 2.6s; }
+.hero-scroll-line { width: 40px; height: 1px; background: var(--gold); animation: scrollPulse 2s ease-in-out infinite; }
+@keyframes scrollPulse { 0%, 100% { width: 40px; opacity: 1; } 50% { width: 60px; opacity: 0.5; } }
+.hero-geo { width: 50vmin; height: 50vmin; position: relative; opacity: 0; animation: fadeIn 1.5s ease forwards 2.2s; }
+.hero-geo-ring { position: absolute; border: 1px solid var(--gold-dim); border-radius: 50%; animation: geoSpin 30s linear infinite; }
+.hero-geo-ring:nth-child(1) { inset: 0; }
+.hero-geo-ring:nth-child(2) { inset: 10%; animation-direction: reverse; border-color: var(--gold-mid); }
+.hero-geo-ring:nth-child(3) { inset: 20%; animation-duration: 20s; }
+.hero-geo-ring:nth-child(4) { inset: 30%; animation-direction: reverse; animation-duration: 25s; border-color: var(--gold); }
+.hero-geo-center { position: absolute; inset: 28%; display: flex; align-items: center; justify-content: center; background: transparent; border: none; }
+@keyframes geoSpin { to { transform: rotate(360deg); } }
+.hero-vertical-text { position: absolute; right: 3rem; top: 50%; transform: translateY(-50%) rotate(90deg); font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.5em; color: var(--gray); text-transform: uppercase; white-space: nowrap; opacity: 0; animation: fadeIn 1s ease forwards 2.8s; }
+
+/* IDENTITY */
+.identity { padding: 15vh 3rem; }
+.identity-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
+.identity-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold); position: sticky; top: 30vh; }
+.identity-label span { display: block; width: 40px; height: 1px; background: var(--gold); margin-bottom: 1rem; }
+.identity-text { font-family: var(--font-serif); font-size: clamp(1.6rem, 3vw, 2.8rem); line-height: 1.45; font-weight: 300; color: var(--off-white); }
+.identity-text em { color: var(--gold); font-style: italic; font-weight: 500; }
+
+/* STATS BAR */
+.stats-bar { border-top: 1px solid var(--gold-dim); border-bottom: 1px solid var(--gold-dim); display: grid; grid-template-columns: repeat(3, 1fr); }
+.stat { padding: 4rem 3rem; border-right: 1px solid var(--gold-dim); position: relative; overflow: hidden; }
+.stat:last-child { border-right: none; }
+.stat:hover .stat-bg { transform: scaleY(1); }
+.stat-bg { position: absolute; inset: 0; background: var(--gold); transform: scaleY(0); transform-origin: bottom; transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.stat-number { font-family: var(--font-display); font-size: clamp(3rem, 5vw, 5rem); font-weight: 700; color: var(--gold); position: relative; z-index: 1; transition: color 0.4s ease; line-height: 1; }
+.stat:hover .stat-number { color: var(--black); }
+.stat-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); margin-top: 1rem; position: relative; z-index: 1; transition: color 0.4s ease; }
+.stat:hover .stat-label { color: var(--black); }
+
+/* PROGRAM */
+.program { padding: 15vh 3rem; }
+.program-header { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; margin-bottom: 6rem; }
+.program-title { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 6rem); font-weight: 700; line-height: 0.9; letter-spacing: -0.02em; }
+.program-title .gold { color: var(--gold); }
+.program-aside { display: flex; flex-direction: column; justify-content: flex-end; }
+.program-aside p { font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.7; color: var(--gray); font-weight: 300; }
+.program-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
+.program-item { padding: 3rem; border: 1px solid var(--gold-dim); position: relative; overflow: hidden; transition: all 0.5s ease; }
+.program-item:hover { background: var(--dark-gray); border-color: var(--gold-mid); }
+.program-item-icon { font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); padding: 0.4rem 0.8rem; border: 1px solid var(--gold); display: inline-block; margin-bottom: 1.5rem; }
+.program-item h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 1rem; }
+.program-item p { font-family: var(--font-serif); font-size: 1rem; line-height: 1.7; color: var(--gray); font-weight: 300; }
+
+/* RECRUITING — NOW A SINGLE BLOCK */
+.recruiting-block { padding: 10vh 3rem; }
+.recruiting-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.recruiting-title { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 700; line-height: 0.9; }
+.recruiting-title .gold { color: var(--gold); }
+.recruiting-right p { font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.7; color: var(--gray); font-weight: 300; margin-bottom: 1.5rem; }
+.recruiting-right p:last-child { margin-bottom: 0; }
+.recruiting-right strong { color: var(--white); font-weight: 500; }
+
+/* TICKER */
+.ticker { overflow: hidden; white-space: nowrap; padding: 3rem 0; border-top: 1px solid var(--gold-dim); border-bottom: 1px solid var(--gold-dim); }
+.ticker-track { display: inline-flex; animation: tickerScroll 25s linear infinite; }
+.ticker-item { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 4rem); font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0 2rem; color: var(--white); }
+.ticker-item.outline { -webkit-text-stroke: 1px var(--gold); color: transparent; }
+.ticker-dot { color: var(--gold); padding: 0 1rem; font-size: clamp(1.5rem, 3vw, 3rem); }
+@keyframes tickerScroll { to { transform: translateX(-50%); } }
+
+/* UNBOXING — SIMPLIFIED */
+.unboxing { padding: 10vh 3rem; }
+.unboxing-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.unboxing-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; margin-bottom: 1.5rem; }
+.unboxing-title .gold { color: var(--gold); }
+.unboxing-right p { font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.7; color: var(--gray); font-weight: 300; margin-bottom: 1.5rem; }
+.unboxing-right p:last-child { margin-bottom: 0; }
+.unboxing-right strong { color: var(--white); font-weight: 500; }
+
+/* COACHES */
+.coaches { padding: 15vh 3rem; }
+.coaches-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 6rem; }
+.coaches-title { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 6rem); font-weight: 700; line-height: 0.9; }
+.coaches-title .gold { color: var(--gold); }
+.coaches-desc { display: flex; align-items: flex-end; }
+.coaches-desc p { font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.7; color: var(--gray); font-weight: 300; }
+.coaches-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.coach-card { border: 1px solid var(--gold-dim); border-right: none; position: relative; overflow: hidden; transition: all 0.5s ease; }
+.coach-card:last-child { border-right: 1px solid var(--gold-dim); }
+.coach-card:hover { background: var(--dark-gray); }
+.coach-card:hover .coach-card-accent { transform: scaleX(1); }
+.coach-card-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.coach-card-inner { padding: 3.5rem 2.5rem; }
+.coach-card-position { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; }
+.coach-card-position::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+.coach-card-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); margin-bottom: 0.5rem; }
+.coach-card-status { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; }
+.coach-card-status.confirmed { color: var(--gold); }
+.coach-card p { font-family: var(--font-serif); font-size: 1rem; line-height: 1.7; color: var(--gray); font-weight: 300; }
+
+/* MODEL BLOCK */
+.model-block { padding: 8rem 3rem; border-top: 1px solid var(--gold-dim); border-bottom: 1px solid var(--gold-dim); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.model-block-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; line-height: 0.95; }
+.model-block-title .gold { color: var(--gold); }
+.model-block-title .outline { -webkit-text-stroke: 1.5px var(--white); color: transparent; }
+.model-block-right p { font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.7; color: var(--gray); font-weight: 300; margin-bottom: 1.5rem; }
+.model-block-right p:last-child { margin-bottom: 0; }
+.model-block-right strong { color: var(--white); font-weight: 500; }
+
+/* SPONSOR CTA */
+.sponsor-cta { padding: 15vh 3rem; position: relative; overflow: hidden; }
+.sponsor-cta-bg { position: absolute; inset: 0; background: linear-gradient(135deg, var(--gold) 0%, #D4A804 100%); clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%); }
+.sponsor-cta-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: center; padding: 6rem 0; }
+.sponsor-cta-title { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 6rem); font-weight: 700; line-height: 0.9; color: var(--black); letter-spacing: -0.02em; }
+.sponsor-cta-title .thin { font-weight: 200; display: block; }
+.sponsor-cta-sub { font-family: var(--font-serif); font-size: 1.2rem; color: var(--black); line-height: 1.6; margin-top: 2rem; font-weight: 400; max-width: 600px; }
+.sponsor-cta-action { display: flex; flex-direction: column; align-items: flex-end; gap: 1.5rem; }
+.cta-btn { display: inline-flex; align-items: center; gap: 1rem; padding: 1.2rem 2.5rem; background: var(--black); color: var(--gold); font-family: var(--font-display); font-size: 0.9rem; letter-spacing: 0.25em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: transform 0.3s ease; }
+.cta-btn:hover { transform: scale(1.03); }
+.cta-btn::after { content: '\2192'; transition: transform 0.3s ease; }
+.cta-btn:hover::after { transform: translateX(4px); }
+.cta-btn-outline { background: transparent; color: var(--black); border: 2px solid var(--black); }
+
+/* TIMELINE */
+.timeline { padding: 10vh 3rem 15vh; }
+.timeline-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; margin-bottom: 5rem; letter-spacing: 0.05em; }
+.timeline-title .gold { color: var(--gold); }
+.timeline-track { position: relative; padding-left: 3rem; }
+.timeline-track::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--gold), var(--gold-dim)); }
+.timeline-item { padding: 0 0 4rem 3rem; position: relative; }
+.timeline-item::before { content: ''; position: absolute; left: -3rem; top: 0.5rem; width: 10px; height: 10px; background: var(--gold); transform: rotate(45deg); margin-left: -4px; }
+.timeline-date { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+.timeline-item h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+.timeline-item p { font-family: var(--font-serif); font-size: 1rem; line-height: 1.6; color: var(--gray); font-weight: 300; }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--gold-dim); padding: 6rem 3rem 3rem; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 6rem; }
+.footer-brand { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 1.5rem; }
+.footer-tagline { font-family: var(--font-serif); font-size: 1.1rem; color: var(--gray); font-weight: 300; font-style: italic; line-height: 1.6; }
+.footer-col h4 { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+.footer-col a { display: block; font-family: var(--font-serif); font-size: 1rem; color: var(--gray); text-decoration: none; margin-bottom: 0.8rem; transition: color 0.3s ease; }
+.footer-col a:hover { color: var(--white); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 3rem; border-top: 1px solid var(--gold-dim); }
+.footer-copy, .footer-legal { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.3em; color: var(--gray); text-transform: uppercase; }
+.footer-legal a { color: var(--gray); text-decoration: none; transition: color 0.3s ease; }
+.footer-legal a:hover { color: var(--gold); }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-60px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.grain { position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 256px 256px; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { to { opacity: 1; } }
+
+/* HAMBURGER */
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; z-index: 1100; }
+.nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform-origin: center; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-drawer { position: fixed; inset: 0; z-index: 1050; background: var(--black); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2.5rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+.nav-drawer.open { opacity: 1; pointer-events: all; }
+.nav-drawer a { font-family: var(--font-display); font-size: clamp(2rem, 8vw, 3.5rem); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); text-decoration: none; transition: color 0.3s ease; }
+.nav-drawer a:hover { color: var(--gold); }
+.nav-drawer-sub { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.4em; color: var(--gray); text-transform: uppercase; margin-top: 2rem; }
+
+nav { font-size: 1.1rem; letter-spacing: 0.35em; }
+.nav-logo { white-space: nowrap; flex-shrink: 0; }
+
+.hero-crest-mobile { display: none; }
+
+@media (max-width: 1100px) {
+  nav { padding: 1rem 1.5rem; } .nav-links { display: none; } .nav-hamburger { display: flex; }
+  .hero { grid-template-columns: 1fr; min-height: auto; } .hero-left { padding: 5rem 1.5rem 4rem; justify-content: flex-start; } .hero-right, .hero-vertical-text { display: none; }
+  .hero-crest-mobile { display: flex; justify-content: center; margin-top: 0; margin-bottom: 3rem; width: 100%; }
+  .hero-crest-mobile .hero-geo { width: min(280px, 70vw); height: min(280px, 70vw); }
+  .identity { padding: 10vh 1.5rem; } .identity-grid { grid-template-columns: 1fr; gap: 2rem; } .identity-label { position: static; }
+  .stats-bar { grid-template-columns: 1fr; } .stat { border-right: none; border-bottom: 1px solid var(--gold-dim); }
+  .program { padding: 10vh 1.5rem; } .program-header { grid-template-columns: 1fr; gap: 2rem; } .program-grid { grid-template-columns: 1fr; }
+  .recruiting-block { padding: 8vh 1.5rem; } .recruiting-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .unboxing { padding: 8vh 1.5rem; } .unboxing-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .coaches { padding: 10vh 1.5rem; } .coaches-header { grid-template-columns: 1fr; gap: 2rem; } .coaches-grid { grid-template-columns: 1fr; } .coach-card { border-right: 1px solid var(--gold-dim); }
+  .model-block { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+  .sponsor-cta { padding: 10vh 1.5rem; } .sponsor-cta-inner { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 0; } .sponsor-cta-action { align-items: flex-start; }
+  .timeline { padding: 8vh 1.5rem; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; } footer { padding: 4rem 1.5rem 2rem; }
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="preloader" id="preloader"><div class="preloader-text">UMOJA</div><div class="preloader-sub">Loading Experience</div></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">UMOJA SC</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="tournament-teams.html">Tournament Teams</a></li>
+    <li><a href="staff.html">Staff</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="apply.html">Apply</a></li>
+    <li><a href="partner.html">Partner With Us</a></li>
+    <li><a href="https://portal.umojasoka.com">Player Portal</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a>
+  <a href="programs.html">Programs</a>
+  <a href="tournament-teams.html">Tournament Teams</a>
+  <a href="staff.html">Staff</a>
+  <a href="faq.html">FAQ</a>
+  <a href="apply.html">Apply</a>
+  <a href="partner.html">Partner With Us</a>
+  <a href="https://portal.umojasoka.com">Player Portal</a>
+  <div class="nav-drawer-sub">Umoja Sports Coalition · Clarkston, GA</div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-crest-mobile">
+      <div class="hero-geo"><div class="hero-geo-ring"></div><div class="hero-geo-ring"></div><div class="hero-geo-ring"></div><div class="hero-geo-ring"></div><div class="hero-geo-center" style="border-radius:50%;background:var(--black);overflow:hidden;"><img src="Gold-Umoja.png" alt="Umoja SC" style="width:100%;height:100%;object-fit:contain;"></div></div>
+    </div>
+    <div class="hero-badge">Clarkston, GA &nbsp;·&nbsp; Open Practices &nbsp;·&nbsp; Two Tournament Teams</div>
+    <h1 class="hero-title">
+      <span class="line1">BREAKING</span>
+      <span class="line2">BARRIERS.</span>
+      <span class="line3">Building champions.</span>
+    </h1>
+    <div class="hero-scroll-hint"><span class="hero-scroll-line"></span>Scroll to discover</div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-geo"><div class="hero-geo-ring"></div><div class="hero-geo-ring"></div><div class="hero-geo-ring"></div><div class="hero-geo-ring"></div><div class="hero-geo-center" style="border-radius: 50%; background: var(--black); overflow: hidden;"><img src="Gold-Umoja.png" alt="Umoja SC" style="width: 100%; height: 100%; object-fit: contain;"></div></div>
+  </div>
+  <div class="hero-vertical-text">Umoja Sports Coalition &nbsp;·&nbsp; Optimizing Play</div>
+</section>
+
+<!-- IDENTITY -->
+<section class="identity" id="identity">
+  <div class="identity-grid">
+    <div class="identity-label reveal-left"><span></span>The Club</div>
+    <div class="identity-text reveal">
+      Umoja SC is an elite soccer program in Clarkston, Georgia built on one conviction: <em>talent doesn't have a tax bracket.</em><br><br>
+      Our practices are open to every player ages 6&ndash;19 &mdash; any gender, any background, no cost. From that environment, we build the tournament rosters that represent us on the biggest stages.<br><br>
+      We play possession-based, high-tempo soccer &mdash; relentless in the press, disciplined in recovery, technically demanding in every session. On and off the pitch, <em>we're family.</em>
+    </div>
+  </div>
+</section>
+
+<!-- STATS — reflects open practices + 2 tournament teams -->
+<div class="stats-bar">
+  <div class="stat reveal"><div class="stat-bg"></div><div class="stat-number">6&ndash;19</div><div class="stat-label">Ages, Any Gender</div></div>
+  <div class="stat reveal"><div class="stat-bg"></div><div class="stat-number">100%</div><div class="stat-label">Free for Families</div></div>
+  <div class="stat reveal"><div class="stat-bg"></div><div class="stat-number">2</div><div class="stat-label">Tournament Teams</div></div>
+</div>
+
+<!-- PROGRAM — reframed around Open Practices + Tournament Teams -->
+<section class="program" id="program">
+  <div class="program-header">
+    <h2 class="program-title reveal">THE <span class="gold">PROGRAM</span></h2>
+    <div class="program-aside reveal"><p>Open practices for every player ages 6&ndash;19. Two tournament teams for those ready to compete. Elite training, college recruiting, custom kits &mdash; every cost covered. <a href="programs.html" style="color: var(--gold); text-decoration: underline;">See Programs &rarr;</a></p></div>
+  </div>
+  <div class="program-grid">
+    <div class="program-item reveal">
+      <div class="program-item-icon">01</div>
+      <h3>Open Practices</h3>
+      <p>Training is open to any player ages 6&ndash;19, any gender, any club affiliation. Sessions are run by our full coaching staff using the same methodology as our tournament rosters. No fees, no forms, no barriers.</p>
+    </div>
+    <div class="program-item reveal">
+      <div class="program-item-icon">02</div>
+      <h3>Tournament Teams</h3>
+      <p>Two competitive rosters &mdash; a U19 boys team launching Fall 2026 and a girls team currently being built around player interest. Tournament players receive custom kits, full travel, and college recruiting support.</p>
+    </div>
+    <div class="program-item reveal">
+      <div class="program-item-icon">03</div>
+      <h3>Elite Competition</h3>
+      <p>The coaching staff hand selects elite Southeastern showcases for our tournament rosters. Our U19 boys team will end its inaugural season at the Jefferson Cup in Virginia &mdash; one of the most prestigious tournaments in American youth soccer.</p>
+    </div>
+    <div class="program-item reveal">
+      <div class="program-item-icon">04</div>
+      <h3>Player Development</h3>
+      <p>We holistically develop our players. Umoja firmly upholds the belief that our team are people first. We focus on building strong-willed, confident, well-rounded members of our community who just so happen to play soccer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RECRUITING — single block, vague on process -->
+<section class="recruiting-block" id="recruiting">
+  <div class="recruiting-inner">
+    <h2 class="recruiting-title reveal">YOUR <span class="gold">NEXT</span><br>CHAPTER</h2>
+    <div class="recruiting-right reveal">
+      <p><strong>Every Umoja player receives individualized college recruiting support.</strong> We work diligently with each athlete to identify the right fit and actively connect them with college coaches.</p>
+      <p>Our players will never be left wondering if they have done enough. Umoja's staff builds comprehensive player profiles through our player portal, making the recruiting process easier for all involved.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">BREAKING BARRIERS</span><span class="ticker-dot">&#9670;</span>
+    <span class="ticker-item outline">BUILDING CHAMPIONS</span><span class="ticker-dot">&#9670;</span>
+    <span class="ticker-item">UMOJA SC</span><span class="ticker-dot">&#9670;</span>
+    <span class="ticker-item outline">Clarkston 2026</span><span class="ticker-dot">&#9670;</span>
+    <span class="ticker-item">BREAKING BARRIERS</span><span class="ticker-dot">&#9670;</span>
+    <span class="ticker-item outline">BUILDING CHAMPIONS</span><span class="ticker-dot">&#9670;</span>
+    <span class="ticker-item">UMOJA SC</span><span class="ticker-dot">&#9670;</span>
+    <span class="ticker-item outline">Clarkston 2026</span><span class="ticker-dot">&#9670;</span>
+  </div>
+</div>
+
+<!-- UNBOXING — simplified to a single block, no itemized list -->
+<section class="unboxing">
+  <div class="unboxing-inner">
+    <div class="reveal">
+      <h2 class="unboxing-title">DAY <span class="gold">ONE</span></h2>
+    </div>
+    <div class="unboxing-right reveal">
+      <p><strong>When you or your player makes the Umoja roster, you show up, and everything is waiting.</strong> Players receive custom kits, branded gear, team outerwear — no fees, no fundraisers, no hidden costs.</p>
+      <p>Every player is announced on our social channel and given a presence on our player portal. We treat players just like family from the very start.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MODEL -->
+<div class="model-block" id="model">
+  <div class="reveal"><h2 class="model-block-title">HOW <span class="gold">IT</span><br><span class="outline">WORKS.</span></h2></div>
+  <div class="model-block-right reveal">
+    <p><strong>Umoja SC is fully funded.</strong> Every cost is covered by corporate partners and community members who believe in the importance of investing in our players. In exchange for their dedication, they receive authentic community visibility and brand presence.</p>
+    <p>We are not a nonprofit or a charity. We're partners. Sponsors invest, players compete at the highest level, and our community thrives as a result.</p>
+    <p>Want the details? <a href="mailto:partner@umojasoka.com" style="color: var(--gold); text-decoration: underline;">Request our Partner Deck.</a></p>
+  </div>
+</div>
+
+<!-- SPONSOR CTA -->
+<section class="sponsor-cta" id="sponsor">
+  <div class="sponsor-cta-bg"></div>
+  <div class="sponsor-cta-inner">
+    <div>
+      <h2 class="sponsor-cta-title reveal">YOUR BRAND.<br><span class="thin">THEIR FUTURE.</span><br>REAL ROI.</h2>
+      <p class="sponsor-cta-sub reveal">Become a founding partner of Clarkston's most necessary youth soccer program. Your investment is a business expense and the potential is limitless.</p>
+    </div>
+    <div class="sponsor-cta-action reveal">
+      <a href="partner.html" class="cta-btn">Learn More</a>
+      <a href="mailto:partner@umojasoka.com" class="cta-btn cta-btn-outline">Request Partner Deck</a>
+      <a href="mailto:hello@umojasoka.com" class="cta-btn cta-btn-outline">Schedule a Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline">
+  <h2 class="timeline-title reveal">THE ROAD TO <span class="gold">FALL 2026</span></h2>
+  <div class="timeline-track">
+    <div class="timeline-item reveal"><div class="timeline-date">Ongoing</div><h3>Sponsor Outreach & Partnerships</h3><p>Building the founding sponsor coalition &mdash; reach out to request our founding partner deck.</p></div>
+    <div class="timeline-item reveal"><div class="timeline-date">Ongoing</div><h3>Open Practices</h3><p>Free, open training sessions for any player ages 6&ndash;19. Show up, train with our staff, and get evaluated for our tournament rosters.</p></div>
+    <div class="timeline-item reveal"><div class="timeline-date">Ongoing</div><h3>Girls Roster Discovery</h3><p>Collecting interest forms to set the age group and timeline for our first girls tournament team. <a href="girls-interest.html" style="color: var(--gold);">Submit interest &rarr;</a></p></div>
+    <div class="timeline-item reveal"><div class="timeline-date">Summer 2026</div><h3>U19 Boys Tryouts</h3><p>Two on-field sessions plus individual invitations to fill all 24 roster spots on Umoja's inaugural U19 boys tournament team.</p></div>
+    <div class="timeline-item reveal"><div class="timeline-date">August 2026</div><h3>Preseason</h3><p>Training and conditioning for the upcoming season begins.</p></div>
+    <div class="timeline-item reveal"><div class="timeline-date">Fall 2026</div><h3>Inaugural Season</h3><p>Elite tournaments, friendlies, and the road to Jefferson Cup.</p></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div><div class="footer-brand">UMOJA SC</div><div class="footer-tagline">Breaking barriers. Building champions.</div></div>
+    <div class="footer-col"><h4>Navigate</h4><a href="#identity">The Club</a><a href="programs.html">Programs</a><a href="tournament-teams.html">Tournament Teams</a><a href="staff.html">Staff</a><a href="faq.html">FAQ</a><a href="apply.html">Apply (U19 Boys)</a><a href="girls-interest.html">Girls Interest</a><a href="partner.html">Partner With Us</a><a href="https://portal.umojasoka.com">Player Portal</a></div>
+    <div class="footer-col"><h4>Connect</h4><a href="mailto:hello@umojasoka.com">hello@umojasoka.com</a><a href="https://instagram.com/UmojaSoka" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/UmojaSoka" target="_blank" rel="noopener">Twitter / X</a></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-copy">&copy; 2026 Umoja Sports Coalition LLC &middot; Clarkston, GA</div><div class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a> &middot; A Full90Impact Enterprise</div></div>
+</footer>
+
+<script>
+// Nav color — switch to black text when scrolling over light/gold sections
+const navEl = document.querySelector('nav');
+const lightSections = document.querySelectorAll('.sponsor-cta');
+function updateNav() {
+  const navBottom = navEl.getBoundingClientRect().bottom;
+  let onLight = false;
+  lightSections.forEach(sec => {
+    const r = sec.getBoundingClientRect();
+    if (navBottom > r.top && navBottom < r.bottom) onLight = true;
+  });
+  navEl.classList.toggle('on-light', onLight);
+}
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
+
+const hamburger = document.getElementById('hamburger');
+const navDrawer = document.getElementById('navDrawer');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navDrawer.classList.toggle('open');
+  document.body.style.overflow = navDrawer.classList.contains('open') ? 'hidden' : '';
+});
+document.querySelectorAll('.drawer-link').forEach(a => {
+  a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    navDrawer.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('preloader').classList.add('done')},1600)});
+const revealEls=document.querySelectorAll('.reveal,.reveal-left');
+const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.15,rootMargin:'0px 0px -50px 0px'});
+revealEls.forEach(el=>observer.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+</script>
+</body>
+</html>

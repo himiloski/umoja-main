@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Practice Player Guide — UMOJA SC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black: #000000; --gold: #F5C205; --gold-dim: #F5C20530; --gold-mid: #F5C20580;
+  --white: #FFFFFF; --off-white: #E8E4DD; --gray: #888888; --dark-gray: #1a1a1a;
+  --font-display: 'Oswald', sans-serif; --font-serif: 'Cormorant Garamond', serif;
+  --font-mono: 'Space Mono', monospace;
+}
+html { scroll-behavior: smooth; background: var(--black); overflow-x: hidden; }
+body { background: var(--black); color: var(--white); font-family: var(--font-serif); overflow-x: hidden; }
+::selection { background: var(--gold); color: var(--black); }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gold-dim); }
+.nav-logo { white-space: nowrap; flex-shrink: 0; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.35em; color: var(--white); text-decoration: none; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; position: relative; padding-bottom: 2px; }
+.nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--gold); }
+.nav-links a.active::after { width: 100%; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; z-index: 1100; }
+.nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform-origin: center; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-drawer { position: fixed; inset: 0; z-index: 1050; background: var(--black); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+.nav-drawer.open { opacity: 1; pointer-events: all; }
+.nav-drawer a { font-family: var(--font-display); font-size: clamp(1.6rem, 6vw, 2.8rem); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); text-decoration: none; transition: color 0.3s ease; }
+.nav-drawer a:hover { color: var(--gold); }
+.nav-drawer-sub { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.4em; color: var(--gray); text-transform: uppercase; margin-top: 2rem; }
+
+/* PAGE LAYOUT */
+.kit-header { padding: 12rem 3rem 3rem; }
+.kit-header-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+.kit-header-label::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+.kit-header h1 { font-family: var(--font-display); font-size: clamp(3rem, 7vw, 7rem); font-weight: 700; line-height: 0.9; letter-spacing: -0.02em; }
+.kit-header h1 .gold { color: var(--gold); }
+.kit-header-sub { font-family: var(--font-serif); font-size: 1.2rem; color: var(--gold); font-weight: 400; font-style: italic; margin-top: 2rem; max-width: 700px; line-height: 1.5; }
+
+.kit-actions { padding: 0 3rem 4rem; }
+.kit-actions-inner { display: flex; gap: 1rem; flex-wrap: wrap; max-width: 1100px; }
+.kit-btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 1.6rem; font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; font-weight: 600; transition: transform 0.3s ease; }
+.kit-btn.download { background: var(--gold); color: var(--black); }
+.kit-btn.download::after { content: '\2193'; transition: transform 0.3s ease; }
+.kit-btn.download:hover::after { transform: translateY(2px); }
+.kit-btn.back { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+.kit-btn.back::before { content: '\2190'; transition: transform 0.3s ease; }
+.kit-btn.back:hover::before { transform: translateX(-4px); }
+.kit-btn:hover { transform: scale(1.03); }
+
+/* CONTENT */
+.kit-content { padding: 2rem 3rem 8rem; max-width: 920px; margin: 0 auto; }
+.kit-content section { padding: 3rem 0; border-top: 1px solid var(--gold-dim); }
+.kit-content section:first-child { border-top: none; padding-top: 0; }
+.kit-content .section-num { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.kit-content h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 0.95; letter-spacing: -0.01em; margin-bottom: 1.5rem; color: var(--white); }
+.kit-content h2 .gold { color: var(--gold); }
+.kit-content h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--white); margin: 2rem 0 0.8rem; }
+.kit-content h4 { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin: 1.8rem 0 0.6rem; }
+.kit-content p { font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.75; color: var(--off-white); font-weight: 300; margin-bottom: 1.2rem; }
+.kit-content p strong { color: var(--white); font-weight: 500; }
+.kit-content p em { color: var(--gold); font-style: italic; font-weight: 500; }
+.kit-content ul { list-style: none; padding: 0; margin: 0 0 1.5rem; }
+.kit-content ul li { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.7; color: var(--off-white); font-weight: 300; padding: 0.4rem 0 0.4rem 1.8rem; position: relative; }
+.kit-content ul li::before { content: '\25C6'; color: var(--gold); position: absolute; left: 0; top: 0.4rem; font-size: 0.85rem; }
+.kit-content ul li strong { color: var(--white); font-weight: 500; }
+.kit-content ol { list-style: none; counter-reset: list; padding: 0; margin: 0 0 1.5rem; }
+.kit-content ol li { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.7; color: var(--off-white); font-weight: 300; padding: 0.4rem 0 0.4rem 2.4rem; position: relative; counter-increment: list; }
+.kit-content ol li::before { content: counter(list) '.'; color: var(--gold); position: absolute; left: 0; top: 0.4rem; font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; }
+.kit-content ol li strong { color: var(--white); font-weight: 500; }
+
+.callout { padding: 1.5rem 2rem; border-left: 3px solid var(--gold); background: var(--dark-gray); margin: 2rem 0; font-family: var(--font-serif); font-size: 1.2rem; line-height: 1.5; color: var(--white); font-weight: 400; font-style: italic; }
+.callout strong { color: var(--gold); font-style: normal; font-weight: 600; }
+
+.info-box { display: grid; grid-template-columns: 1fr 2fr; gap: 0; border: 1px solid var(--gold-dim); margin: 1.5rem 0; }
+.info-box-row { display: contents; }
+.info-box-row > div { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--gold-dim); }
+.info-box-row:last-child > div { border-bottom: none; }
+.info-box-label { background: var(--black); font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; }
+.info-box-value { font-family: var(--font-serif); font-size: 1rem; line-height: 1.6; color: var(--off-white); font-weight: 300; }
+.info-box-value strong { color: var(--white); font-weight: 500; }
+
+/* CLOSING */
+.kit-closing { padding: 5rem 3rem; text-align: center; border-top: 1px solid var(--gold-dim); }
+.kit-closing-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+.kit-closing-sub { font-family: var(--font-serif); font-size: 1.2rem; color: var(--gold); font-style: italic; margin-top: 0.8rem; }
+
+footer { border-top: 1px solid var(--gold-dim); padding: 4rem 3rem 2rem; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.footer-copy, .footer-legal { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.3em; color: var(--gray); text-transform: uppercase; }
+.footer-legal a { color: var(--gray); text-decoration: none; transition: color 0.3s ease; }
+.footer-legal a:hover { color: var(--gold); }
+
+.grain { position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 256px 256px; }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 1100px) {
+  nav { padding: 1rem 1.5rem; } .nav-links { display: none; } .nav-hamburger { display: flex; }
+  .kit-header { padding: 8rem 1.5rem 2rem; }
+  .kit-actions { padding: 0 1.5rem 3rem; }
+  .kit-content { padding: 1rem 1.5rem 5rem; }
+  .info-box { grid-template-columns: 1fr; }
+  .info-box-label { padding: 1rem 1.5rem 0.5rem !important; }
+  .info-box-value { padding-top: 0.5rem !important; }
+  .kit-closing { padding: 3rem 1.5rem; }
+  footer { padding: 3rem 1.5rem 2rem; } .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">UMOJA SC</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="tournament-teams.html">Tournament Teams</a></li>
+    <li><a href="staff.html">Staff</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="apply.html">Apply</a></li>
+    <li><a href="partner.html">Partner With Us</a></li>
+    <li><a href="https://portal.umojasoka.com">Player Portal</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a>
+  <a href="programs.html">Programs</a>
+  <a href="tournament-teams.html">Tournament Teams</a>
+  <a href="staff.html">Staff</a>
+  <a href="faq.html">FAQ</a>
+  <a href="apply.html">Apply</a>
+  <a href="partner.html">Partner With Us</a>
+  <a href="https://portal.umojasoka.com">Player Portal</a>
+  <div class="nav-drawer-sub">Umoja Sports Coalition · Clarkston, GA</div>
+</div>
+
+<div class="kit-header reveal">
+  <div class="kit-header-label">For Open Practice</div>
+  <h1><span class="">WELCOME TO</span><br><span class="gold">THE FIELD.</span></h1>
+  <p class="kit-header-sub">Open practices. No fees. No tryouts. Just soccer.</p>
+</div>
+
+<div class="kit-actions reveal">
+  <div class="kit-actions-inner">
+    <a href="onboarding/Umoja-SC_Open-Practice-Player-Guide.docx" class="kit-btn download" download>Download .docx</a>
+    <a href="onboarding.html" class="kit-btn back">All Kits</a>
+  </div>
+</div>
+
+<main class="kit-content">
+<section class="reveal">
+    <div class="section-num">01</div>
+    <h2>What Open <span class="gold">Practice Is</span></h2>
+    
+    <p>Umoja's open practices are exactly that: <strong>open.</strong> If you're between 6 and 19 years old &mdash; boy or girl, club or no club &mdash; you're welcome on our field. There's no application, no fee, and no tryout to attend a session.</p>
+    <div class="callout">Show up with your boots and water. We handle the rest.</div>
+    <p>You'll train with Umoja's full coaching staff using the same possession-based methodology our tournament rosters use. <em>Real coaching. Real development. No catch.</em></p>
+
+    <h3>Who's There</h3>
+    <ul>
+      <li><strong>Anyone ages 6&ndash;19</strong> &mdash; split into age-appropriate groups when needed</li>
+      <li><strong>Any gender</strong> &mdash; boys and girls train together at younger ages, with thoughtful grouping as needed</li>
+      <li><strong>Any club affiliation</strong> &mdash; currently on another team? Welcome. Not on a team? Welcome.</li>
+      <li><strong>Any experience level</strong> &mdash; we coach you where you are, not where someone thinks you should be</li>
+    </ul>
+  
+  </section>
+<section class="reveal">
+    <div class="section-num">02</div>
+    <h2>What to <span class="gold">Bring</span></h2>
+    
+    <p>Show up with:</p>
+    <ul>
+      <li>Cleats and shin guards</li>
+      <li>Athletic clothes appropriate for the weather</li>
+      <li>Water bottle (full, big)</li>
+      <li>A ball if you have one (we'll have extras if you don't)</li>
+      <li>A willingness to work, listen, and learn</li>
+    </ul>
+
+    <h3>What You Don't Need</h3>
+    <ul>
+      <li>Money &mdash; practices are free, period</li>
+      <li>A specific kit &mdash; wear what you have</li>
+      <li>An application or registration &mdash; just come</li>
+      <li>Prior club experience &mdash; we coach beginners and experienced players in the same environment</li>
+    </ul>
+  
+  </section>
+<section class="reveal">
+    <div class="section-num">03</div>
+    <h2>What to <span class="gold">Expect</span></h2>
+    
+    <h3>How a Session Runs</h3>
+    <ol>
+      <li><strong>Arrival warm-up</strong> &mdash; light technical work, free play with a ball</li>
+      <li><strong>Group splits</strong> &mdash; we may split by age, ability, or position depending on who's there</li>
+      <li><strong>Theme of the day</strong> &mdash; every session has a clear focus communicated to players</li>
+      <li><strong>Small-sided games</strong> &mdash; where real development happens</li>
+      <li><strong>Closing huddle</strong> &mdash; takeaway, recognition, what's next</li>
+    </ol>
+
+    <h3>How We Expect You to Behave</h3>
+    <ul>
+      <li><strong>Listen when the coach is talking.</strong> Eye contact. Respect.</li>
+      <li><strong>Compete hard, play fair.</strong> Win the ball, don't kick the player.</li>
+      <li><strong>Encourage teammates.</strong> We build people up here.</li>
+      <li><strong>Respect the field, the equipment, and each other.</strong> Pick up your trash. Help collect cones.</li>
+      <li><strong>Have fun.</strong> <em>Soccer is supposed to feel like joy. Keep that.</em></li>
+    </ul>
+  
+  </section>
+<section class="reveal">
+    <div class="section-num">04</div>
+    <h2>Moving Up to a <span class="gold">Tournament Team</span></h2>
+    
+    <p>Many players come to open practice just to train and improve &mdash; and that's enough. But for players who want to compete for a spot on one of our tournament rosters, here's how it works:</p>
+
+    <h3>Tournament Teams We Run</h3>
+    <ul>
+      <li><strong>U19 Boys</strong> &mdash; launching Fall 2026 with 24 roster spots</li>
+      <li><strong>Girls Team</strong> &mdash; age group being determined based on player interest</li>
+    </ul>
+
+    <h3>How to Get Considered</h3>
+    <ol>
+      <li><strong>Show up consistently.</strong> Coaches watch every session. <em>Effort over time gets noticed.</em></li>
+      <li><strong>Be coachable.</strong> Apply feedback. Ask thoughtful questions. Stay open.</li>
+      <li><strong>Compete with intensity at appropriate moments.</strong> Practice intensity in real game scenarios.</li>
+      <li><strong>Show character.</strong> How you treat teammates, refs, and the field matters as much as your touch.</li>
+      <li><strong>If invited, attend tryouts.</strong> Strong open-practice players will be invited to dedicated tournament tryouts.</li>
+    </ol>
+
+    <h3>What Tournament Players Receive</h3>
+    <p>If you make a tournament roster, your investment in showing up pays off:</p>
+    <ul>
+      <li>Full custom match kit, training gear, and team outerwear</li>
+      <li>All tournament travel and lodging covered</li>
+      <li>Individualized college recruiting support</li>
+      <li>Access to Umoja's full coaching staff and player portal</li>
+      <li><strong>All at zero cost to your family.</strong></li>
+    </ul>
+
+    <h3>If You're Not Interested in the Tournament Path</h3>
+    <p>Totally fine. Many of our practice players just want quality coaching in a serious environment, and that's exactly what open practices are. <em>Come, train, get better. No pressure.</em></p>
+  
+  </section>
+</main>
+
+<div class="kit-closing reveal">
+  <div class="kit-closing-title">WE'LL SEE YOU ON THE FIELD.</div>
+  <div class="kit-closing-sub">Questions? hello@umojasoka.com</div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 Umoja Sports Coalition LLC &nbsp;&middot;&nbsp; Clarkston, GA</div>
+    <div class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a> &middot; A Full90Impact Enterprise</div>
+  </div>
+</footer>
+
+<script>
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => observer.observe(el));
+const hamburger = document.getElementById('hamburger');
+const navDrawer = document.getElementById('navDrawer');
+hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navDrawer.classList.toggle('open'); });
+navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); navDrawer.classList.remove('open'); }));
+</script>
+</body>
+</html>

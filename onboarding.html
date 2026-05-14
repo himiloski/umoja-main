@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onboarding — UMOJA SC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black: #000000; --gold: #F5C205; --gold-dim: #F5C20530; --gold-mid: #F5C20580;
+  --white: #FFFFFF; --off-white: #E8E4DD; --gray: #888888; --dark-gray: #1a1a1a;
+  --font-display: 'Oswald', sans-serif; --font-serif: 'Cormorant Garamond', serif;
+  --font-mono: 'Space Mono', monospace;
+}
+html { scroll-behavior: smooth; background: var(--black); overflow-x: hidden; }
+body { background: var(--black); color: var(--white); font-family: var(--font-serif); overflow-x: hidden; }
+::selection { background: var(--gold); color: var(--black); }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gold-dim); }
+.nav-logo { white-space: nowrap; flex-shrink: 0; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.35em; color: var(--white); text-decoration: none; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; position: relative; padding-bottom: 2px; }
+.nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--gold); }
+.nav-links a.active::after { width: 100%; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; z-index: 1100; }
+.nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform-origin: center; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-drawer { position: fixed; inset: 0; z-index: 1050; background: var(--black); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+.nav-drawer.open { opacity: 1; pointer-events: all; }
+.nav-drawer a { font-family: var(--font-display); font-size: clamp(1.6rem, 6vw, 2.8rem); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); text-decoration: none; transition: color 0.3s ease; }
+.nav-drawer a:hover { color: var(--gold); }
+.nav-drawer-sub { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.4em; color: var(--gray); text-transform: uppercase; margin-top: 2rem; }
+
+.page-header { padding: 12rem 3rem 4rem; }
+.page-header-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+.page-header-label::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+.page-header h1 { font-family: var(--font-display); font-size: clamp(3rem, 7vw, 7rem); font-weight: 700; line-height: 0.9; letter-spacing: -0.02em; }
+.page-header h1 .outline { -webkit-text-stroke: 1.5px var(--white); color: transparent; }
+.page-header h1 .gold { color: var(--gold); }
+.page-header-sub { font-family: var(--font-serif); font-size: 1.2rem; color: var(--gray); font-weight: 300; margin-top: 2rem; max-width: 700px; line-height: 1.7; }
+.page-header-sub em { color: var(--gold); font-style: italic; }
+
+/* KIT CARDS */
+.kits-section { padding: 4rem 3rem 6rem; }
+.kits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: 1400px; margin: 0 auto; border: 1px solid var(--gold-dim); }
+.kit-card { padding: 3rem 2.5rem; border-right: 1px solid var(--gold-dim); position: relative; overflow: hidden; transition: background 0.5s ease; display: flex; flex-direction: column; }
+.kit-card:last-child { border-right: none; }
+.kit-card:hover { background: var(--dark-gray); }
+.kit-card-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.kit-card:hover .kit-card-accent { transform: scaleX(1); }
+.kit-card-label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
+.kit-card-label::before { content: ''; width: 18px; height: 1px; background: var(--gold); }
+.kit-card-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; line-height: 0.95; margin-bottom: 0.6rem; letter-spacing: -0.01em; }
+.kit-card-title .gold { color: var(--gold); }
+.kit-card-meta { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); margin-bottom: 1.5rem; }
+.kit-card-meta span { color: var(--off-white); }
+.kit-card p { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.7; color: var(--gray); font-weight: 300; margin-bottom: 1.5rem; flex-grow: 1; }
+.kit-card-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: auto; }
+.kit-btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 1.4rem; font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; font-weight: 600; transition: transform 0.3s ease; }
+.kit-btn.read { background: var(--gold); color: var(--black); }
+.kit-btn.read::after { content: '\2192'; transition: transform 0.3s ease; }
+.kit-btn.read:hover::after { transform: translateX(4px); }
+.kit-btn.download { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+.kit-btn.download::after { content: '\2193'; transition: transform 0.3s ease; }
+.kit-btn.download:hover::after { transform: translateY(2px); }
+.kit-btn:hover { transform: scale(1.03); }
+
+/* CONTEXT STRIP */
+.context-strip { padding: 4rem 3rem; border-top: 1px solid var(--gold-dim); border-bottom: 1px solid var(--gold-dim); }
+.context-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; max-width: 1400px; margin: 0 auto; }
+.context-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold); }
+.context-label span { display: block; width: 40px; height: 1px; background: var(--gold); margin-bottom: 1rem; }
+.context-text { font-family: var(--font-serif); font-size: clamp(1.2rem, 2.2vw, 1.7rem); line-height: 1.5; font-weight: 300; color: var(--off-white); }
+.context-text em { color: var(--gold); font-style: italic; font-weight: 500; }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--gold-dim); padding: 4rem 3rem 2rem; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.footer-copy, .footer-legal { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.3em; color: var(--gray); text-transform: uppercase; }
+.footer-legal a { color: var(--gray); text-decoration: none; transition: color 0.3s ease; }
+.footer-legal a:hover { color: var(--gold); }
+.grain { position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 256px 256px; }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 1100px) {
+  nav { padding: 1rem 1.5rem; } .nav-links { display: none; } .nav-hamburger { display: flex; }
+  .page-header { padding: 8rem 1.5rem 3rem; }
+  .kits-section { padding: 2rem 1.5rem 4rem; }
+  .kits-grid { grid-template-columns: 1fr; }
+  .kit-card { border-right: none; border-bottom: 1px solid var(--gold-dim); }
+  .kit-card:last-child { border-bottom: none; }
+  .context-strip { padding: 3rem 1.5rem; }
+  .context-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  footer { padding: 3rem 1.5rem 2rem; } .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">UMOJA SC</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="tournament-teams.html">Tournament Teams</a></li>
+    <li><a href="staff.html">Staff</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="apply.html">Apply</a></li>
+    <li><a href="partner.html">Partner With Us</a></li>
+    <li><a href="https://portal.umojasoka.com">Player Portal</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a>
+  <a href="programs.html">Programs</a>
+  <a href="tournament-teams.html">Tournament Teams</a>
+  <a href="staff.html">Staff</a>
+  <a href="faq.html">FAQ</a>
+  <a href="apply.html">Apply</a>
+  <a href="partner.html">Partner With Us</a>
+  <a href="https://portal.umojasoka.com">Player Portal</a>
+  <div class="nav-drawer-sub">Umoja Sports Coalition · Clarkston, GA</div>
+</div>
+
+<div class="page-header reveal">
+  <div class="page-header-label">Onboarding Kits</div>
+  <h1>EVERYONE GETS<br>THE <span class="gold">SAME PLAYBOOK.</span></h1>
+  <p class="page-header-sub">Whether you're a coach, a player on a tournament roster, a practice player, or a parent &mdash; <em>start here.</em> Each onboarding kit covers everything you need to know about Umoja, what's expected, and what's covered.</p>
+</div>
+
+<!-- KIT GRID -->
+<section class="kits-section">
+  <div class="kits-grid">
+    <div class="kit-card reveal">
+      <div class="kit-card-accent"></div>
+      <div class="kit-card-label">For Tournament Rosters</div>
+      <h2 class="kit-card-title">PLAYER<br><span class="gold">ONBOARDING KIT</span></h2>
+      <div class="kit-card-meta"><span>Comprehensive</span> &nbsp;&middot;&nbsp; <span>~10 Pages</span></div>
+      <p>For players who've earned a spot on a tournament roster. Standards and expectations, training culture, tournament logistics, kit and gear, the college recruiting process, player portal, and code of conduct.</p>
+      <div class="kit-card-actions">
+        <a href="onboarding-player.html" class="kit-btn read">Read Online</a>
+        <a href="onboarding/Umoja-SC_Tournament-Player-Onboarding-Kit.docx" class="kit-btn download" download>Download .docx</a>
+      </div>
+    </div>
+
+    <div class="kit-card reveal">
+      <div class="kit-card-accent"></div>
+      <div class="kit-card-label">For Open Practice</div>
+      <h2 class="kit-card-title">PRACTICE PLAYER<br><span class="gold">GUIDE</span></h2>
+      <div class="kit-card-meta"><span>Quick Read</span> &nbsp;&middot;&nbsp; <span>~5 Pages</span></div>
+      <p>For anyone ages 6&ndash;19 who wants to train at an Umoja open practice. What open practice is, who's there, what to bring, what to expect, and how to move up to a tournament team if you want to.</p>
+      <div class="kit-card-actions">
+        <a href="onboarding-practice.html" class="kit-btn read">Read Online</a>
+        <a href="onboarding/Umoja-SC_Open-Practice-Player-Guide.docx" class="kit-btn download" download>Download .docx</a>
+      </div>
+    </div>
+
+    <div class="kit-card reveal">
+      <div class="kit-card-accent"></div>
+      <div class="kit-card-label">For Families</div>
+      <h2 class="kit-card-title">PARENT /<br><span class="gold">GUARDIAN GUIDE</span></h2>
+      <div class="kit-card-meta"><span>Quick Read</span> &nbsp;&middot;&nbsp; <span>~7 Pages</span></div>
+      <p>For parents and guardians. The sponsor-funded model and what it means, the club's two-layer structure, what's covered vs. what isn't, sideline conduct, communication norms, and answers to the questions families ask most.</p>
+      <div class="kit-card-actions">
+        <a href="onboarding-parent.html" class="kit-btn read">Read Online</a>
+        <a href="onboarding/Umoja-SC_Parent-Guardian-Guide.docx" class="kit-btn download" download>Download .docx</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXT -->
+<section class="context-strip">
+  <div class="context-inner">
+    <div class="context-label reveal"><span></span>Why These Exist</div>
+    <div class="context-text reveal">
+      Onboarding kits aren't paperwork. They're <em>how we stay aligned.</em> Every kit answers the same core question for a different audience: "What is Umoja, and how do I show up?" Read it once, reference it often.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 Umoja Sports Coalition LLC &nbsp;&middot;&nbsp; Clarkston, GA</div>
+    <div class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a> &middot; A Full90Impact Enterprise</div>
+  </div>
+</footer>
+
+<script>
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => observer.observe(el));
+const hamburger = document.getElementById('hamburger');
+const navDrawer = document.getElementById('navDrawer');
+hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navDrawer.classList.toggle('open'); });
+navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); navDrawer.classList.remove('open'); }));
+</script>
+</body>
+</html>

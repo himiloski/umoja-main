@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staff — UMOJA SC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black: #000000; --gold: #F5C205; --gold-dim: #F5C20530; --gold-mid: #F5C20580;
+  --white: #FFFFFF; --off-white: #E8E4DD; --gray: #888888; --dark-gray: #1a1a1a;
+  --font-display: 'Oswald', sans-serif; --font-serif: 'Cormorant Garamond', serif;
+  --font-mono: 'Space Mono', monospace;
+}
+html { scroll-behavior: smooth; background: var(--black); overflow-x: hidden; }
+body { background: var(--black); color: var(--white); font-family: var(--font-serif); overflow-x: hidden; }
+::selection { background: var(--gold); color: var(--black); }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gold-dim); }
+.nav-logo { white-space: nowrap; flex-shrink: 0; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.35em; color: var(--white); text-decoration: none; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; position: relative; padding-bottom: 2px; }
+.nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--gold); }
+.nav-links a.active::after { width: 100%; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; z-index: 1100; }
+.nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform-origin: center; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-drawer { position: fixed; inset: 0; z-index: 1050; background: var(--black); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+.nav-drawer.open { opacity: 1; pointer-events: all; }
+.nav-drawer a { font-family: var(--font-display); font-size: clamp(1.6rem, 6vw, 2.8rem); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); text-decoration: none; transition: color 0.3s ease; }
+.nav-drawer a:hover { color: var(--gold); }
+.nav-drawer-sub { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.4em; color: var(--gray); text-transform: uppercase; margin-top: 2rem; }
+
+.page-header { padding: 12rem 3rem 5rem; }
+.page-header-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+.page-header-label::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+.page-header h1 { font-family: var(--font-display); font-size: clamp(3rem, 8vw, 8rem); font-weight: 700; line-height: 0.9; letter-spacing: -0.02em; }
+.page-header h1 .gold { color: var(--gold); }
+.page-header-sub { font-family: var(--font-serif); font-size: 1.3rem; color: var(--gray); font-weight: 300; margin-top: 2rem; max-width: 700px; line-height: 1.6; }
+.page-header-sub em { color: var(--gold); font-style: italic; }
+
+.staff-section { padding: 4rem 3rem 6rem; }
+.staff-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; max-width: 1400px; margin: 0 auto; border: 1px solid var(--gold-dim); }
+.staff-card { border-right: 1px solid var(--gold-dim); border-bottom: 1px solid var(--gold-dim); position: relative; overflow: hidden; transition: background 0.5s ease; }
+.staff-card:nth-child(2n) { border-right: none; }
+.staff-card:nth-last-child(-n+2) { border-bottom: none; }
+.staff-card:hover { background: var(--dark-gray); }
+.staff-card:hover .staff-card-accent { transform: scaleX(1); }
+.staff-card-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.staff-card-inner { padding: 3.5rem 2.5rem; }
+.staff-card-position { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; }
+.staff-card-position::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+.staff-card-name { font-family: var(--font-display); font-size: 1.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); margin-bottom: 0.5rem; }
+.staff-card-status { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; }
+.staff-card-status.confirmed { color: var(--gold); }
+.staff-card p { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.7; color: var(--off-white); font-weight: 300; }
+
+/* CONTACT BLOCK */
+.contact-block { padding: 6rem 3rem; background: linear-gradient(135deg, var(--gold) 0%, #D4A804 100%); position: relative; }
+.contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: center; }
+.contact-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; line-height: 0.9; color: var(--black); letter-spacing: -0.01em; }
+.contact-title .thin { font-weight: 200; display: block; }
+.contact-sub { font-family: var(--font-serif); font-size: 1.2rem; color: var(--black); line-height: 1.6; margin-top: 1.5rem; max-width: 600px; }
+.contact-actions { display: flex; flex-direction: column; gap: 1rem; align-items: flex-end; }
+.cta-btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 1rem 2rem; font-family: var(--font-display); font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: transform 0.3s ease; white-space: nowrap; }
+.cta-btn { background: var(--black); color: var(--white); }
+.cta-btn::after { content: '\2192'; transition: transform 0.3s ease; }
+.cta-btn:hover::after { transform: translateX(4px); }
+.cta-btn-outline { background: transparent; color: var(--black); border: 2px solid var(--black); }
+.cta-btn:hover { transform: scale(1.03); }
+
+/* PHILOSOPHY BLOCK */
+.philosophy { padding: 8rem 3rem; }
+.philosophy-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
+.philosophy-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold); }
+.philosophy-label span { display: block; width: 40px; height: 1px; background: var(--gold); margin-bottom: 1rem; }
+.philosophy-text { font-family: var(--font-serif); font-size: clamp(1.3rem, 2.5vw, 1.9rem); line-height: 1.5; font-weight: 300; color: var(--off-white); }
+.philosophy-text em { color: var(--gold); font-style: italic; font-weight: 500; }
+
+footer { border-top: 1px solid var(--gold-dim); padding: 4rem 3rem 2rem; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.footer-copy, .footer-legal { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.3em; color: var(--gray); text-transform: uppercase; }
+.footer-legal a { color: var(--gray); text-decoration: none; transition: color 0.3s ease; }
+.footer-legal a:hover { color: var(--gold); }
+
+.grain { position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 256px 256px; }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 1100px) {
+  nav { padding: 1rem 1.5rem; } .nav-links { display: none; } .nav-hamburger { display: flex; }
+  .page-header { padding: 8rem 1.5rem 3rem; }
+  .staff-section { padding: 2rem 1.5rem 4rem; }
+  .staff-grid { grid-template-columns: 1fr; }
+  .staff-card { border-right: none; border-bottom: 1px solid var(--gold-dim); }
+  .staff-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--gold-dim); }
+  .staff-card:last-child { border-bottom: none; }
+  .staff-card-inner { padding: 2.5rem 2rem; }
+  .contact-block { padding: 4rem 1.5rem; } .contact-inner { grid-template-columns: 1fr; gap: 2rem; } .contact-actions { align-items: flex-start; }
+  .philosophy { padding: 5rem 1.5rem; } .philosophy-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  footer { padding: 3rem 1.5rem 2rem; } .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">UMOJA SC</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="tournament-teams.html">Tournament Teams</a></li>
+    <li><a href="staff.html" class="active">Staff</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="apply.html">Apply</a></li>
+    <li><a href="partner.html">Partner With Us</a></li>
+    <li><a href="https://portal.umojasoka.com">Player Portal</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a>
+  <a href="programs.html">Programs</a>
+  <a href="tournament-teams.html">Tournament Teams</a>
+  <a href="staff.html">Staff</a>
+  <a href="faq.html">FAQ</a>
+  <a href="apply.html">Apply</a>
+  <a href="partner.html">Partner With Us</a>
+  <a href="https://portal.umojasoka.com">Player Portal</a>
+  <div class="nav-drawer-sub">Umoja Sports Coalition · Clarkston, GA</div>
+</div>
+
+<div class="page-header reveal">
+  <div class="page-header-label">Our Staff</div>
+  <h1>THE <span class="gold">STAFF.</span></h1>
+  <p class="page-header-sub">Built to deliver elite-level training, develop players as people, and guide them toward the next level. <em>Every member confirmed for our inaugural season.</em></p>
+</div>
+
+<!-- STAFF GRID -->
+<section class="staff-section">
+  <div class="staff-grid">
+    <div class="staff-card reveal">
+      <div class="staff-card-accent"></div>
+      <div class="staff-card-inner">
+        <div class="staff-card-position">Head Coach</div>
+        <div class="staff-card-name">Bosco Hakuzimana</div>
+        <div class="staff-card-status confirmed">Confirmed</div>
+        <p>Leading the tactical and technical vision for Umoja SC. Responsible for training methodology, match preparation, and building the competitive culture that defines this program.</p>
+      </div>
+    </div>
+    <div class="staff-card reveal">
+      <div class="staff-card-accent"></div>
+      <div class="staff-card-inner">
+        <div class="staff-card-position">Assistant Coach</div>
+        <div class="staff-card-name">Alhaji Tambadu</div>
+        <div class="staff-card-status confirmed">Confirmed</div>
+        <p>Supporting player development and daily training operations alongside the head coach, bringing additional tactical perspective and on-field expertise.</p>
+      </div>
+    </div>
+    <div class="staff-card reveal">
+      <div class="staff-card-accent"></div>
+      <div class="staff-card-inner">
+        <div class="staff-card-position">Assistant / GK Coach</div>
+        <div class="staff-card-name">Gad Nkurunziza</div>
+        <div class="staff-card-status confirmed">Confirmed</div>
+        <p>Running dedicated goalkeeper development and supporting field training. Builds out the goalkeeping pathway from open practices through tournament play.</p>
+      </div>
+    </div>
+    <div class="staff-card reveal">
+      <div class="staff-card-accent"></div>
+      <div class="staff-card-inner">
+        <div class="staff-card-position">Director of Player Pathways &amp; Registrar</div>
+        <div class="staff-card-name">Juliana Hill</div>
+        <div class="staff-card-status confirmed">Confirmed</div>
+        <p>Overseeing the college recruiting pipeline, program operations, and athlete placement strategy. Founder of Umoja Sports Coalition LLC.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="philosophy-inner">
+    <div class="philosophy-label reveal"><span></span>How We Coach</div>
+    <div class="philosophy-text reveal">
+      We coach <em>people first, soccer second.</em> Possession-based, high-tempo, technically demanding &mdash; and built around the conviction that every player deserves elite training, regardless of what their family can afford.
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-block">
+  <div class="contact-inner">
+    <div>
+      <h2 class="contact-title reveal">QUESTIONS?<br><span class="thin">REACH THE</span><br>STAFF.</h2>
+      <p class="contact-sub reveal">For coaching, training, or operational questions, email the staff directly. We respond to non-urgent messages within 48 hours.</p>
+    </div>
+    <div class="contact-actions reveal">
+      <a href="mailto:staff@umojasoka.com" class="cta-btn">Email the Staff</a>
+      <a href="mailto:hello@umojasoka.com" class="cta-btn cta-btn-outline">General Inquiries</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 Umoja Sports Coalition LLC &nbsp;&middot;&nbsp; Clarkston, GA</div>
+    <div class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a> &middot; A Full90Impact Enterprise</div>
+  </div>
+</footer>
+
+<script>
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => observer.observe(el));
+const hamburger = document.getElementById('hamburger');
+const navDrawer = document.getElementById('navDrawer');
+hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navDrawer.classList.toggle('open'); });
+navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); navDrawer.classList.remove('open'); }));
+</script>
+</body>
+</html>
