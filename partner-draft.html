@@ -17,7 +17,7 @@
 html { scroll-behavior: smooth; background: var(--black); overflow-x: hidden; }
 body { background: var(--black); color: var(--white); font-family: var(--font-serif); overflow-x: hidden; }
 ::selection { background: var(--gold); color: var(--black); }
-
+ 
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gold-dim); }
 .nav-logo { white-space: nowrap; flex-shrink: 0; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.35em; color: var(--white); text-decoration: none; }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -36,27 +36,28 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem
 .nav-drawer a { font-family: var(--font-display); font-size: clamp(1.6rem, 6vw, 2.8rem); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); text-decoration: none; transition: color 0.3s ease; }
 .nav-drawer a:hover { color: var(--gold); }
 .nav-drawer-sub { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.4em; color: var(--gray); text-transform: uppercase; margin-top: 2rem; }
-
+ 
 /* HERO */
 .hero { padding: 12rem 3rem 5rem; position: relative; }
 .hero-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
 .hero-label::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
 .hero h1 { font-family: var(--font-display); font-size: clamp(3rem, 8vw, 8rem); font-weight: 700; line-height: 0.9; letter-spacing: -0.02em; max-width: 1100px; }
-.hero h1 .thin { font-weight: 200; display: block; }
+.hero h1 .thin { font-weight: 200; display: block; font-style: italic; font-family: var(--font-serif); }
 .hero h1 .gold { color: var(--gold); display: block; }
-.hero-sub { font-family: var(--font-serif); font-size: clamp(1.2rem, 2vw, 1.5rem); color: var(--gray); font-weight: 300; margin-top: 2rem; max-width: 800px; line-height: 1.6; }
+.hero-sub { font-family: var(--font-serif); font-size: clamp(1.2rem, 2vw, 1.5rem); color: var(--off-white); font-weight: 300; margin-top: 2rem; max-width: 800px; line-height: 1.6; }
 .hero-sub em { color: var(--gold); font-style: italic; }
-
-/* THE THESIS */
+ 
+/* THESIS */
 .thesis { padding: 6rem 3rem; border-top: 1px solid var(--gold-dim); }
 .thesis-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
 .thesis-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold); }
 .thesis-label span { display: block; width: 40px; height: 1px; background: var(--gold); margin-bottom: 1rem; }
 .thesis-text { font-family: var(--font-serif); font-size: clamp(1.3rem, 2.5vw, 1.9rem); line-height: 1.5; font-weight: 300; color: var(--off-white); }
 .thesis-text em { color: var(--gold); font-style: italic; font-weight: 500; }
+.thesis-text .lede { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.8rem, 3.5vw, 2.8rem); letter-spacing: 0.02em; color: var(--white); line-height: 1.1; margin-bottom: 2rem; text-transform: uppercase; }
 .thesis-text p { margin-bottom: 1.5rem; }
 .thesis-text p:last-child { margin-bottom: 0; }
-
+ 
 /* WHY IT WORKS */
 .why { padding: 6rem 3rem; border-top: 1px solid var(--gold-dim); }
 .why-header { max-width: 1100px; margin: 0 auto 4rem; }
@@ -72,14 +73,14 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem
 .why-card-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 .why-card-num { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.4em; color: var(--gold); margin-bottom: 1.5rem; }
 .why-card-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--white); margin-bottom: 1rem; }
-.why-card p { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.7; color: var(--gray); font-weight: 300; }
-
+.why-card p { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.7; color: var(--off-white); font-weight: 300; }
+ 
 /* TIERS */
 .tiers { padding: 6rem 3rem; border-top: 1px solid var(--gold-dim); }
 .tiers-header { max-width: 1100px; margin: 0 auto 4rem; }
 .tiers-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 0.95; letter-spacing: -0.01em; }
 .tiers-title .gold { color: var(--gold); }
-.tiers-sub { font-family: var(--font-serif); font-size: 1.2rem; color: var(--gray); font-weight: 300; margin-top: 1.5rem; max-width: 700px; line-height: 1.6; }
+.tiers-sub { font-family: var(--font-serif); font-size: 1.2rem; color: var(--off-white); font-weight: 300; margin-top: 1.5rem; max-width: 700px; line-height: 1.6; }
 .tiers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; max-width: 1400px; margin: 0 auto; border: 1px solid var(--gold-dim); }
 .tier-card { padding: 3rem 2rem; border-right: 1px solid var(--gold-dim); position: relative; display: flex; flex-direction: column; transition: background 0.5s ease; }
 .tier-card:last-child { border-right: none; }
@@ -93,7 +94,13 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem
 .tier-card-desc { font-family: var(--font-serif); font-size: 1rem; line-height: 1.65; color: var(--off-white); font-weight: 300; margin-bottom: 2rem; flex-grow: 1; font-style: italic; }
 .tier-card-cta { display: inline-flex; align-items: center; justify-content: center; padding: 0.85rem 1.2rem; font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; text-decoration: none; transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease; background: transparent; color: var(--gold); border: 1.5px solid var(--gold); margin-top: auto; }
 .tier-card-cta:hover { background: var(--gold); color: var(--black); transform: scale(1.02); }
-
+ 
+/* STRUCTURE NOTE */
+.structure-note { padding: 3rem 3rem; border-top: 1px solid var(--gold-dim); background: var(--black); }
+.structure-note-inner { max-width: 1100px; margin: 0 auto; }
+.structure-note p { font-family: var(--font-mono); font-size: 0.75rem; line-height: 1.8; color: var(--gray); letter-spacing: 0.05em; max-width: 850px; }
+.structure-note p em { color: var(--off-white); font-style: normal; }
+ 
 /* CTA */
 .cta-block { padding: 8rem 3rem; background: linear-gradient(135deg, var(--gold) 0%, #D4A804 100%); position: relative; }
 .cta-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: center; }
@@ -106,45 +113,38 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem
 .cta-btn-primary::after { content: '\2192'; transition: transform 0.3s ease; }
 .cta-btn-primary:hover::after { transform: translateX(4px); }
 .cta-btn-outline { background: transparent; color: var(--black); border: 2px solid var(--black); }
-.cta-btn:hover { transform: scale(1.03); }
-
-footer { border-top: 1px solid var(--gold-dim); padding: 4rem 3rem 2rem; }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
-.footer-copy, .footer-legal { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.3em; color: var(--gray); text-transform: uppercase; }
-.footer-legal a { color: var(--gray); text-decoration: none; transition: color 0.3s ease; }
+.cta-btn-outline:hover { background: var(--black); color: var(--gold); }
+ 
+/* FOOTER */
+footer { padding: 3rem; background: var(--black); border-top: 1px solid var(--gold-dim); }
+.footer-bottom { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; color: var(--gray); text-transform: uppercase; }
+.footer-legal a { color: var(--gray); text-decoration: none; }
 .footer-legal a:hover { color: var(--gold); }
-
-.grain { position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 256px 256px; }
-.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+ 
+/* REVEAL ANIM */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-
-@media (max-width: 1400px) {
-  .tiers-grid { grid-template-columns: repeat(2, 1fr); }
-  .tier-card:nth-child(odd) { border-right: 1px solid var(--gold-dim); }
-  .tier-card:nth-child(even) { border-right: none; }
-  .tier-card:nth-child(1), .tier-card:nth-child(2) { border-bottom: 1px solid var(--gold-dim); }
-  .tier-card:last-child { border-right: none; }
-}
-
-@media (max-width: 1100px) {
-  nav { padding: 1rem 1.5rem; } .nav-links { display: none; } .nav-hamburger { display: flex; }
-  .hero { padding: 8rem 1.5rem 3rem; }
-  .thesis { padding: 4rem 1.5rem; } .thesis-inner { grid-template-columns: 1fr; gap: 1.5rem; }
-  .why { padding: 4rem 1.5rem; } .why-grid { grid-template-columns: 1fr; }
-  .why-card { border-right: none; border-bottom: 1px solid var(--gold-dim); }
-  .why-card:last-child { border-bottom: none; }
-  .tiers { padding: 4rem 1.5rem; } .tiers-grid { grid-template-columns: 1fr; }
-  .tier-card { border-right: none; border-bottom: 1px solid var(--gold-dim); }
-  .tier-card:last-child { border-bottom: none; }
-  .cta-block { padding: 4rem 1.5rem; } .cta-inner { grid-template-columns: 1fr; gap: 2rem; } .cta-actions { align-items: flex-start; }
-  footer { padding: 3rem 1.5rem 2rem; } .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+ 
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  nav { padding: 1.2rem 1.5rem; }
+  .hero { padding: 9rem 1.5rem 4rem; }
+  .thesis, .why, .tiers, .structure-note { padding: 4rem 1.5rem; }
+  .thesis-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .why-grid, .tiers-grid { grid-template-columns: 1fr; }
+  .why-card, .tier-card { border-right: none; border-bottom: 1px solid var(--gold-dim); }
+  .why-card:last-child, .tier-card:last-child { border-bottom: none; }
+  .cta-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .cta-actions { align-items: flex-start; }
+  .cta-block { padding: 5rem 1.5rem; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
 }
 </style>
 </head>
 <body>
-
-<div class="grain"></div>
-
+ 
 <nav>
   <a href="index.html" class="nav-logo">UMOJA SC</a>
   <ul class="nav-links">
@@ -154,8 +154,7 @@ footer { border-top: 1px solid var(--gold-dim); padding: 4rem 3rem 2rem; }
     <li><a href="staff.html">Staff</a></li>
     <li><a href="faq.html">FAQ</a></li>
     <li><a href="apply.html">Apply</a></li>
-    <li><a href="partner.html" class="active">Partner With Us</a></li>
-    <li><a href="https://portal.umojasoka.com">Player Portal</a></li>
+    <li><a href="partner.html" class="active">Partner</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -172,53 +171,54 @@ footer { border-top: 1px solid var(--gold-dim); padding: 4rem 3rem 2rem; }
   <a href="https://portal.umojasoka.com">Player Portal</a>
   <div class="nav-drawer-sub">Umoja Sports Coalition · Clarkston, GA</div>
 </div>
-
+ 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-label reveal">Partner With Us</div>
-  <h1 class="reveal">YOUR BRAND.<br><span class="thin">THEIR FUTURE.</span><span class="gold">REAL ROI.</span></h1>
-  <p class="hero-sub reveal">Umoja SC is built on a model that rewrites how American youth soccer is funded. Sponsors invest, players compete at the highest level at zero cost to families, and <em>partners get authentic community presence backed by a real tax-deductible business expense.</em></p>
+  <h1 class="reveal">YOUR BRAND.<span class="thin">Their future.</span><span class="gold">THIS COMMUNITY.</span></h1>
+  <p class="hero-sub reveal">Umoja SC is an elite youth soccer club rooted in Clarkston, Georgia. We are funded entirely by partners who see what we see &mdash; <em>that the next generation of American soccer talent is already here, already playing, already waiting to be seen.</em></p>
 </div>
-
-<!-- THE THESIS -->
+ 
+<!-- THESIS -->
 <section class="thesis">
   <div class="thesis-inner">
-    <div class="thesis-label reveal"><span></span>The Model</div>
+    <div class="thesis-label reveal"><span></span>Where We Are</div>
     <div class="thesis-text reveal">
-      <p>Umoja is funded entirely by corporate sponsors and community partners who deduct their investment as a marketing expense under <em>IRC Section 162</em> &mdash; the same mechanism that funds professional jerseys, stadium naming rights, and major league advertising.</p>
-      <p>We are not a nonprofit. We are not a charity. <em>We are partners.</em></p>
+      <p class="lede">In Clarkston, soccer is home.</p>
+      <p>Our coaches came here from other countries and found community in this sport. Now they coach the players walking the same path they walked.</p>
+      <p>Umoja is the only elite club in metro Atlanta built from <em>inside</em> this community rather than for it. That distinction is the entire reason we exist.</p>
     </div>
   </div>
 </section>
-
+ 
 <!-- WHY IT WORKS -->
 <section class="why">
   <div class="why-header reveal">
-    <div class="why-label">Why It Works</div>
-    <h2 class="why-title">A SPONSORSHIP, <span class="gold">NOT A DONATION.</span></h2>
+    <div class="why-label">Why Umoja</div>
+    <h2 class="why-title">A CLUB UNLIKE ANY <span class="gold">OTHER.</span></h2>
   </div>
   <div class="why-grid">
     <div class="why-card reveal">
       <div class="why-card-accent"></div>
       <div class="why-card-num">01</div>
-      <div class="why-card-title">Fully Tax-Deductible</div>
-      <p>Sponsorships are ordinary and necessary business expenses under IRC &sect;162 &mdash; structurally cleaner than charitable giving and not subject to the 2025 OBBBA limits on Section 170 deductions.</p>
+      <div class="why-card-title">Rooted In Clarkston</div>
+      <p>Our coaches grew up in this community. Our players are the ones who would otherwise be filtered out of elite soccer by cost, transportation, or nutrition. Umoja closes every gap so they can compete at the level their talent deserves. There is no other club in America with this story.</p>
     </div>
     <div class="why-card reveal">
       <div class="why-card-accent"></div>
       <div class="why-card-num">02</div>
-      <div class="why-card-title">Authentic Visibility</div>
-      <p>Your brand on real kits, real fields, real social. Tournament visibility, community presence, and direct integration into the most-scouted youth soccer environment in the Southeast.</p>
+      <div class="why-card-title">Built For Reposting</div>
+      <p>Every partner receives custom-produced content &mdash; photography, short-form video, behind-the-scenes coverage &mdash; delivered with full rights to repost on your channels. You are not paying for a logo. You are paying for a content engine that travels.</p>
     </div>
     <div class="why-card reveal">
       <div class="why-card-accent"></div>
       <div class="why-card-num">03</div>
-      <div class="why-card-title">Measurable Impact</div>
-      <p>Custom impact reporting tied to your investment &mdash; player milestones, college signings, community engagement, and the brand exposure you helped make possible.</p>
+      <div class="why-card-title">Founding Year Pricing, Locked</div>
+      <p>Sign as a founding partner now and your rate is locked even as we grow. Year 2, Year 3, and beyond &mdash; your investment holds steady while audience, reach, and tournament presence expand around it. Founding status cannot be replicated later.</p>
     </div>
   </div>
 </section>
-
+ 
 <!-- TIERS -->
 <section class="tiers">
   <div class="tiers-header reveal">
@@ -227,7 +227,7 @@ footer { border-top: 1px solid var(--gold-dim); padding: 4rem 3rem 2rem; }
   </div>
   <div class="tiers-grid">
     <div class="tier-card reveal">
-      <div class="tier-card-tag">Tier 03</div>
+      <div class="tier-card-tag">Tier 04</div>
       <div class="tier-card-name">Community<br>Partner</div>
       <ul>
         <li>Recognition on website partner page</li>
@@ -238,43 +238,56 @@ footer { border-top: 1px solid var(--gold-dim); padding: 4rem 3rem 2rem; }
       <a href="mailto:partner@umojasoka.com?subject=Community%20Partner%20%E2%80%94%20Deck%20Request" class="tier-card-cta">Request Partner Deck</a>
     </div>
     <div class="tier-card featured reveal">
-      <div class="tier-card-tag">Tier 02 &middot; Most Popular</div>
+      <div class="tier-card-tag">Tier 03 &middot; Most Popular</div>
       <div class="tier-card-name">Team<br>Partner</div>
       <ul>
-        <li>Logo placement on match-day kit (location TBD)</li>
-        <li>Branded content with players (with consent)</li>
-        <li>Quarterly impact reports</li>
-        <li>Featured partner status on website</li>
+        <li>Shared logo placement on team gear</li>
+        <li>Eight branded content pieces per year</li>
+        <li>Full repost rights on all delivered content</li>
+        <li>Annual partner performance report</li>
         <li>All Community Partner benefits</li>
       </ul>
       <a href="mailto:partner@umojasoka.com?subject=Team%20Partner%20%E2%80%94%20Deck%20Request" class="tier-card-cta">Request Partner Deck</a>
     </div>
     <div class="tier-card reveal">
-      <div class="tier-card-tag">Tier 01 &middot; Founding</div>
+      <div class="tier-card-tag">Tier 02 &middot; Category Exclusive</div>
       <div class="tier-card-name">Brand<br>Partner</div>
       <ul>
-        <li>Premium jersey real estate (chest or back)</li>
-        <li>Naming opportunities (training programs, tournaments)</li>
-        <li>Custom branded content production via Pace90Futbol</li>
-        <li>Direct involvement in inaugural-season strategy</li>
+        <li>Premium jersey real estate</li>
+        <li>Category exclusivity within program</li>
+        <li>Twelve branded content pieces per year</li>
+        <li>Quarterly performance reporting</li>
         <li>All Team Partner benefits</li>
       </ul>
       <a href="mailto:partner@umojasoka.com?subject=Brand%20Partner%20%E2%80%94%20Deck%20Request" class="tier-card-cta">Request Partner Deck</a>
     </div>
     <div class="tier-card reveal">
-      <div class="tier-card-tag">Open Invitation</div>
-      <div class="tier-card-name">Friend<br>of Umoja</div>
-      <p class="tier-card-desc">For anyone who believes in the mission. Any contribution welcome. No formal deliverables &mdash; just community.</p>
-      <a href="mailto:partner@umojasoka.com?subject=Friend%20of%20Umoja%20%E2%80%94%20Deck%20Request" class="tier-card-cta">Request Partner Deck</a>
+      <div class="tier-card-tag">Tier 01 &middot; Founding</div>
+      <div class="tier-card-name">Cross-Program<br>Partner</div>
+      <ul>
+        <li>Top-tier category exclusivity across both programs</li>
+        <li>Twenty branded content pieces per year</li>
+        <li>Dedicated branded mini-series</li>
+        <li>Team tent placement at all events</li>
+        <li>All Brand Partner benefits</li>
+      </ul>
+      <a href="mailto:partner@umojasoka.com?subject=Cross-Program%20Partner%20%E2%80%94%20Deck%20Request" class="tier-card-cta">Request Partner Deck</a>
     </div>
   </div>
 </section>
-
+ 
+<!-- STRUCTURE NOTE -->
+<section class="structure-note">
+  <div class="structure-note-inner">
+    <p><em>A note on structure.</em> Umoja Sports Coalition LLC is a Georgia for-profit social impact company. Partner contributions are structured as ordinary marketing and advertising expenses. Your accountant will know what to do with the invoice.</p>
+  </div>
+</section>
+ 
 <!-- CTA -->
 <section class="cta-block">
   <div class="cta-inner">
     <div>
-      <h2 class="cta-title reveal">LET'S BUILD<br><span class="thin">SOMETHING</span><br>TOGETHER.</h2>
+      <h2 class="cta-title reveal">LET'S BUILD<br><span class="thin">something</span><br>TOGETHER.</h2>
       <p class="cta-sub reveal">Request our founding partner deck or schedule a call. We respond within one business day.</p>
     </div>
     <div class="cta-actions reveal">
@@ -283,14 +296,14 @@ footer { border-top: 1px solid var(--gold-dim); padding: 4rem 3rem 2rem; }
     </div>
   </div>
 </section>
-
+ 
 <footer>
   <div class="footer-bottom">
     <div class="footer-copy">&copy; 2026 Umoja Sports Coalition LLC &nbsp;&middot;&nbsp; Clarkston, GA</div>
-    <div class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a> &middot; A Full90Impact Enterprise</div>
+    <div class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a></div>
   </div>
 </footer>
-
+ 
 <script>
 const revealEls = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
@@ -302,3 +315,4 @@ navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
 </script>
 </body>
 </html>
+ 
