@@ -103,7 +103,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem
  
 /* CTA */
 .cta-block { padding: 8rem 3rem; background: linear-gradient(135deg, var(--gold) 0%, #D4A804 100%); position: relative; }
-.cta-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: center; }
+.cta-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .cta-title { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 6rem); font-weight: 700; line-height: 0.9; color: var(--black); letter-spacing: -0.02em; }
 .cta-title .thin { font-weight: 200; display: block; }
 .cta-sub { font-family: var(--font-serif); font-size: 1.3rem; color: var(--black); line-height: 1.6; margin-top: 2rem; max-width: 600px; }
@@ -114,6 +114,24 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem
 .cta-btn-primary:hover::after { transform: translateX(4px); }
 .cta-btn-outline { background: transparent; color: var(--black); border: 2px solid var(--black); }
 .cta-btn-outline:hover { background: var(--black); color: var(--gold); }
+
+/* PARTNER FORM */
+.partner-form { display: flex; flex-direction: column; gap: 0.9rem; width: 100%; }
+.partner-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+.partner-form label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--black); margin-bottom: 0.35rem; display: block; font-weight: 700; }
+.partner-form input, .partner-form select, .partner-form textarea { width: 100%; padding: 0.85rem 1rem; background: var(--black); color: var(--white); border: 1.5px solid var(--black); font-family: var(--font-serif); font-size: 1rem; transition: border-color 0.3s ease; -webkit-appearance: none; appearance: none; border-radius: 0; }
+.partner-form input:focus, .partner-form select:focus, .partner-form textarea:focus { outline: none; border-color: var(--white); }
+.partner-form input::placeholder, .partner-form textarea::placeholder { color: var(--gray); font-style: italic; }
+.partner-form select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23F5C205' d='M1 1l5 5 5-5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; cursor: pointer; }
+.partner-form select option { background: var(--black); color: var(--white); }
+.partner-form textarea { min-height: 90px; resize: vertical; font-family: var(--font-serif); line-height: 1.5; }
+.partner-form-submit { background: var(--black); color: var(--white); border: none; padding: 1.1rem 2.2rem; font-family: var(--font-display); font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; cursor: pointer; transition: transform 0.3s ease; display: inline-flex; align-items: center; gap: 0.6rem; justify-content: center; margin-top: 0.5rem; }
+.partner-form-submit::after { content: '\2192'; transition: transform 0.3s ease; }
+.partner-form-submit:hover::after { transform: translateX(4px); }
+.partner-form-note { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.15em; color: var(--black); text-transform: uppercase; margin-top: 0.5rem; opacity: 0.7; }
+.partner-form-success { display: none; padding: 2rem; background: var(--black); color: var(--white); text-align: center; font-family: var(--font-serif); font-size: 1.1rem; line-height: 1.6; }
+.partner-form-success.visible { display: block; }
+.partner-form-success strong { font-family: var(--font-display); font-size: 1.4rem; color: var(--gold); display: block; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
  
 /* FOOTER */
 footer { padding: 3rem; background: var(--black); border-top: 1px solid var(--gold-dim); }
@@ -139,6 +157,7 @@ footer { padding: 3rem; background: var(--black); border-top: 1px solid var(--go
   .cta-inner { grid-template-columns: 1fr; gap: 2rem; }
   .cta-actions { align-items: flex-start; }
   .cta-block { padding: 5rem 1.5rem; }
+  .partner-form-row { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
 }
 </style>
@@ -230,25 +249,21 @@ footer { padding: 3rem; background: var(--black); border-top: 1px solid var(--go
       <div class="tier-card-tag">Tier 04</div>
       <div class="tier-card-name">Community<br>Partner</div>
       <p class="tier-card-desc">For community members and local businesses who want to support Umoja's mission and receive meaningful public recognition.</p>
-      <a href="mailto:partner@umojasoka.com?subject=Community%20Partner%20%E2%80%94%20Deck%20Request" class="tier-card-cta">Request Partner Deck</a>
     </div>
     <div class="tier-card featured reveal">
       <div class="tier-card-tag">Tier 03 &middot; Most Popular</div>
       <div class="tier-card-name">Team<br>Partner</div>
       <p class="tier-card-desc">For businesses ready to commit to professional branded content, physical asset placement, and ongoing partnership presence.</p>
-      <a href="mailto:partner@umojasoka.com?subject=Team%20Partner%20%E2%80%94%20Deck%20Request" class="tier-card-cta">Request Partner Deck</a>
     </div>
     <div class="tier-card reveal">
       <div class="tier-card-tag">Tier 02 &middot; Category Exclusive</div>
       <div class="tier-card-name">Brand<br>Partner</div>
       <p class="tier-card-desc">Premium positioning with category exclusivity within a program, professional content production, and quarterly performance reporting.</p>
-      <a href="mailto:partner@umojasoka.com?subject=Brand%20Partner%20%E2%80%94%20Deck%20Request" class="tier-card-cta">Request Partner Deck</a>
     </div>
     <div class="tier-card reveal">
       <div class="tier-card-tag">Tier 01 &middot; Founding</div>
       <div class="tier-card-name">Cross-Program<br>Partner</div>
       <p class="tier-card-desc">Our top tier. Category exclusivity across both programs, dedicated content production, and full partnership integration.</p>
-      <a href="mailto:partner@umojasoka.com?subject=Cross-Program%20Partner%20%E2%80%94%20Deck%20Request" class="tier-card-cta">Request Partner Deck</a>
     </div>
   </div>
 </section>
@@ -265,11 +280,45 @@ footer { padding: 3rem; background: var(--black); border-top: 1px solid var(--go
   <div class="cta-inner">
     <div>
       <h2 class="cta-title reveal">LET'S BUILD<br><span class="thin">something</span><br>TOGETHER.</h2>
-      <p class="cta-sub reveal">Request our founding partner deck or schedule a call. We respond within one business day.</p>
+      <p class="cta-sub reveal">Founding partnerships are limited. We respond within one business day.</p>
     </div>
     <div class="cta-actions reveal">
-      <a href="mailto:partner@umojasoka.com?subject=Founding%20Partner%20Deck%20Request" class="cta-btn cta-btn-primary">Request Partner Deck</a>
-      <a href="mailto:partner@umojasoka.com?subject=Schedule%20a%20Call" class="cta-btn cta-btn-outline">Schedule a Call</a>
+      <form class="partner-form" id="partnerForm" action="https://formspree.io/f/xkoenrvy" method="POST">
+        <div class="partner-form-row">
+          <div>
+            <label for="pf-name">Name</label>
+            <input type="text" id="pf-name" name="name" required placeholder="Your name">
+          </div>
+          <div>
+            <label for="pf-email">Email</label>
+            <input type="email" id="pf-email" name="email" required placeholder="you@company.com">
+          </div>
+        </div>
+        <div>
+          <label for="pf-company">Company / Organization</label>
+          <input type="text" id="pf-company" name="company" required placeholder="Your business">
+        </div>
+        <div>
+          <label for="pf-tier">Tier of Interest</label>
+          <select id="pf-tier" name="tier" required>
+            <option value="" disabled selected>Select a tier</option>
+            <option value="Community Partner">Community Partner</option>
+            <option value="Team Partner">Team Partner</option>
+            <option value="Brand Partner">Brand Partner</option>
+            <option value="Cross-Program Partner">Cross-Program Partner</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="pf-message">Message <span style="opacity:0.5">(optional)</span></label>
+          <textarea id="pf-message" name="message" placeholder="Anything we should know before we reach out?"></textarea>
+        </div>
+        <button type="submit" class="partner-form-submit">Send Inquiry</button>
+      </form>
+      <div class="partner-form-success" id="partnerFormSuccess">
+        <strong>Thank you.</strong>
+        Your inquiry is in. We'll be in touch within one business day.
+      </div>
     </div>
   </div>
 </section>
@@ -289,8 +338,35 @@ const hamburger = document.getElementById('hamburger');
 const navDrawer = document.getElementById('navDrawer');
 hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); navDrawer.classList.toggle('open'); });
 navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); navDrawer.classList.remove('open'); }));
+
+const partnerForm = document.getElementById('partnerForm');
+const partnerFormSuccess = document.getElementById('partnerFormSuccess');
+partnerForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const submitBtn = partnerForm.querySelector('.partner-form-submit');
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = 'Sending...';
+  submitBtn.disabled = true;
+  try {
+    const response = await fetch(partnerForm.action, {
+      method: 'POST',
+      body: new FormData(partnerForm),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      partnerForm.style.display = 'none';
+      partnerFormSuccess.classList.add('visible');
+    } else {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+      alert('Something went wrong. Please email partner@umojasoka.com directly.');
+    }
+  } catch (err) {
+    submitBtn.textContent = originalText;
+    submitBtn.disabled = false;
+    alert('Something went wrong. Please email partner@umojasoka.com directly.');
+  }
+});
 </script>
 </body>
 </html>
- 
- 
