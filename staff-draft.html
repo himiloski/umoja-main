@@ -61,28 +61,16 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem
 .staff-card-status.confirmed { color: var(--gold); }
 .staff-card p { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.7; color: var(--off-white); font-weight: 300; }
 
-/* STAFF EMAIL ELEMENTS — four variants, one family */
+/* STAFF EMAIL ELEMENTS */
 .staff-contact { margin-top: 1.8rem; }
 
-/* Variant 1 — Head Coach: solid gold pill (the headliner) */
+/* Head Coach: solid gold pill (the headliner) */
 .staff-contact-pill { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1.3rem; background: var(--gold); color: var(--black); font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: transform 0.3s ease, background 0.3s ease; }
 .staff-contact-pill::after { content: '\2192'; transition: transform 0.3s ease; }
 .staff-contact-pill:hover { background: var(--white); }
 .staff-contact-pill:hover::after { transform: translateX(4px); }
 
-/* Variant 2 — Associate Coach: minimal underlined text link */
-.staff-contact-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--off-white); text-decoration: none; padding-bottom: 4px; border-bottom: 1px solid var(--gold-dim); transition: color 0.3s ease, border-color 0.3s ease; }
-.staff-contact-link .envelope { font-size: 0.85rem; transition: transform 0.3s ease; }
-.staff-contact-link:hover { color: var(--gold); border-bottom-color: var(--gold); }
-.staff-contact-link:hover .envelope { transform: translateX(3px); }
-
-/* Variant 3 — GK Coach: bracketed mono tag, echoes position label */
-.staff-contact-tag { display: inline-flex; align-items: center; gap: 0.7rem; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); text-decoration: none; padding: 0.6rem 0; transition: letter-spacing 0.3s ease; }
-.staff-contact-tag::before { content: ''; width: 20px; height: 1px; background: var(--gold); transition: width 0.3s ease; }
-.staff-contact-tag .bracket { color: var(--gold-mid); }
-.staff-contact-tag:hover::before { width: 32px; }
-
-/* Variant 4 — Executive Director: outlined button, mirrors CTA family */
+/* Everyone else: outlined gold button */
 .staff-contact-outline { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1.3rem; background: transparent; border: 1px solid var(--gold); color: var(--gold); font-family: var(--font-display); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: background 0.3s ease, color 0.3s ease; }
 .staff-contact-outline::after { content: '\2192'; transition: transform 0.3s ease; }
 .staff-contact-outline:hover { background: var(--gold); color: var(--black); }
@@ -196,7 +184,7 @@ footer { border-top: 1px solid var(--gold-dim); padding: 4rem 3rem 2rem; }
         <div class="staff-card-status confirmed">Confirmed</div>
         <p>Helps run training and works with players individually. Supports the head coach on tactics and game-day decisions.</p>
         <div class="staff-contact">
-          <a href="mailto:" class="staff-contact-link"><span class="envelope">&#9993;</span> Send a Message</a>
+          <a href="mailto:" class="staff-contact-outline">Email Coach Alhaji</a>
         </div>
       </div>
     </div>
@@ -208,7 +196,7 @@ footer { border-top: 1px solid var(--gold-dim); padding: 4rem 3rem 2rem; }
         <div class="staff-card-status confirmed">Confirmed</div>
         <p>Trains the goalkeepers and helps with field sessions. Works with each keeper on technique, positioning, and game reading.</p>
         <div class="staff-contact">
-          <a href="mailto:" class="staff-contact-tag"><span class="bracket">[</span>Reach Out<span class="bracket">]</span></a>
+          <a href="mailto:" class="staff-contact-outline">Email Coach Gad</a>
         </div>
       </div>
     </div>
