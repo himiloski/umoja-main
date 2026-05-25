@@ -81,6 +81,50 @@ nav {
   font-weight: 300; margin-top: 2rem; max-width: 600px; line-height: 1.7;
 }
 
+/* TRYOUT DETAILS STRIP */
+.details-wrap { max-width: 720px; margin: 0 auto; padding: 0 3rem 3rem; }
+.details-strip {
+  padding: 2rem; border: 1px solid var(--gold-dim);
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+  background: var(--dark-gray);
+}
+.details-item h4 {
+  font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.4em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem;
+}
+.details-item p {
+  font-family: var(--font-display); font-size: 1rem; font-weight: 500;
+  letter-spacing: 0.05em; color: var(--white); text-transform: uppercase;
+}
+.details-item .tbd {
+  color: var(--gray); font-style: italic; text-transform: none;
+  font-family: var(--font-serif); font-weight: 300; font-size: 0.95rem;
+}
+
+/* QUESTIONS BLOCK */
+.questions-block {
+  margin-top: 3rem; padding: 2.5rem;
+  border: 1px solid var(--gold-dim); text-align: center;
+  background: var(--dark-gray);
+}
+.questions-label {
+  font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.5em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+}
+.questions-text {
+  font-family: var(--font-serif); font-size: 1.05rem; color: var(--gray);
+  font-weight: 300; line-height: 1.6; margin-bottom: 1.5rem;
+  max-width: 480px; margin-left: auto; margin-right: auto;
+}
+.questions-email {
+  display: inline-block; font-family: var(--font-display);
+  font-size: 1.1rem; font-weight: 500; letter-spacing: 0.08em;
+  color: var(--gold); text-decoration: none;
+  padding: 0.75rem 1.5rem; border: 1px solid var(--gold);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.questions-email:hover { background: var(--gold); color: var(--black); }
+
 /* FORM LAYOUT */
 .form-layout {
   max-width: 720px; margin: 0 auto;
@@ -246,11 +290,17 @@ footer {
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
   .page-header { padding: 8rem 1.5rem 3rem; }
+  .details-wrap { padding: 0 1.5rem 2.5rem; }
+  .details-strip { grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1.5rem; }
   .form-layout { padding: 0 1.5rem 6rem; }
   .form-container { padding: 2rem 1.5rem; }
   .form-row-double { grid-template-columns: 1fr; }
+  .questions-block { padding: 2rem 1.5rem; }
   footer { padding: 3rem 1.5rem 2rem; }
   .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+}
+@media (max-width: 600px) {
+  .details-strip { grid-template-columns: 1fr; gap: 1.25rem; }
 }
 </style>
 </head>
@@ -290,6 +340,28 @@ footer {
   <div class="page-header-label">U19 Boys — Tryout Registration</div>
   <h1>SIGN UP.<br><span class="gold">SHOW UP.</span></h1>
   <p class="page-header-sub">Register for Umoja SC's U19 Boys tryout. Free to register. Date and location will be confirmed by email.</p>
+</div>
+
+<!-- TRYOUT DETAILS STRIP -->
+<div class="details-wrap reveal">
+  <div class="details-strip">
+    <div class="details-item">
+      <h4>Date</h4>
+      <p class="tbd">TBD</p>
+    </div>
+    <div class="details-item">
+      <h4>Location</h4>
+      <p class="tbd">TBD</p>
+    </div>
+    <div class="details-item">
+      <h4>Cost</h4>
+      <p>Free</p>
+    </div>
+    <div class="details-item">
+      <h4>Eligibility</h4>
+      <p>U19 Boys</p>
+    </div>
+  </div>
 </div>
 
 <div class="form-layout">
@@ -361,6 +433,15 @@ footer {
       <h3>Registration Received</h3>
       <p>You're on the list. Tryout date, location, and final details will be sent to the email you provided. Train hard until then — we'll see you on the pitch.</p>
     </div>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div class="questions-block reveal">
+    <div class="questions-label">Questions?</div>
+    <p class="questions-text">
+      For anything tryout-related — eligibility, logistics, what to expect — reach out directly.
+    </p>
+    <a href="mailto:tryouts@umojasoka.com" class="questions-email">tryouts@umojasoka.com</a>
   </div>
 </div>
 
