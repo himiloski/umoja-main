@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tryout Check-In — UMOJA SC</title>
+<title>Registration — UMOJA SC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -30,45 +30,64 @@ body { background: var(--black); color: var(--white); font-family: var(--font-se
 /* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center;
+  padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center;
   background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--gold-dim);
 }
-.nav-logo {
-  font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+.nav-logo { white-space: nowrap; flex-shrink: 0;
+  font-family: var(--font-display); font-weight: 700; font-size: 1.1rem;
   letter-spacing: 0.35em; color: var(--white); text-decoration: none;
 }
-.nav-back {
-  font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--gray); text-decoration: none;
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--white); text-decoration: none;
+  position: relative; padding-bottom: 2px;
 }
-.nav-back:hover { color: var(--gold); }
-
-/* PAGE WRAPPER — narrow for mobile-first */
-.wrapper {
-  max-width: 520px; margin: 0 auto; padding: 6rem 1.5rem 4rem;
+.nav-links a::after {
+  content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px;
+  background: var(--gold); transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--gold); }
+.nav-links a.active::after { width: 100%; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; z-index: 1100; }
+.nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform-origin: center; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-drawer { position: fixed; inset: 0; z-index: 1050; background: var(--black); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2.5rem; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+.nav-drawer.open { opacity: 1; pointer-events: all; }
+.nav-drawer a { font-family: var(--font-display); font-size: clamp(2rem, 8vw, 3.5rem); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); text-decoration: none; transition: color 0.3s ease; }
+.nav-drawer a:hover { color: var(--gold); }
+.nav-drawer-sub { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.4em; color: var(--gray); text-transform: uppercase; margin-top: 2rem; }
 
-/* HEADER */
-.page-header { margin-bottom: 2.5rem; }
+/* PAGE HEADER */
+.page-header {
+  padding: 12rem 3rem 4rem; position: relative; max-width: 1100px; margin: 0 auto;
+}
 .page-header-label {
-  font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.4em;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
-  display: flex; align-items: center; gap: 0.8rem;
+  font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.5em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 2rem;
+  display: flex; align-items: center; gap: 1rem;
 }
-.page-header-label::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+.page-header-label::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
 .page-header h1 {
-  font-family: var(--font-display); font-size: clamp(2.5rem, 10vw, 3.5rem);
-  font-weight: 700; line-height: 0.95; letter-spacing: -0.02em;
+  font-family: var(--font-display); font-size: clamp(3rem, 7vw, 7rem);
+  font-weight: 700; line-height: 0.9; letter-spacing: -0.02em;
 }
 .page-header h1 .gold { color: var(--gold); }
 .page-header-sub {
-  font-family: var(--font-serif); font-size: 1.05rem; color: var(--gray);
-  font-weight: 300; margin-top: 1.25rem; line-height: 1.6;
+  font-family: var(--font-serif); font-size: 1.2rem; color: var(--gray);
+  font-weight: 300; margin-top: 2rem; max-width: 600px; line-height: 1.7;
 }
 
-/* FORM */
+/* FORM LAYOUT */
+.form-layout {
+  max-width: 720px; margin: 0 auto;
+  padding: 0 3rem 10rem;
+}
 .form-container {
-  border: 1px solid var(--gold-dim); padding: 1.75rem 1.5rem;
+  border: 1px solid var(--gold-dim); padding: 3rem;
   position: relative;
 }
 .form-container::before {
@@ -76,19 +95,29 @@ nav {
   height: 3px; background: var(--gold);
 }
 
-.form-row { margin-bottom: 1.25rem; }
+.form-section-label {
+  font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.4em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; margin-top: 2.5rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.form-section-label:first-child { margin-top: 0; }
+.form-section-label::before { content: ''; width: 12px; height: 1px; background: var(--gold); }
+
+.form-row { margin-bottom: 1.5rem; }
+.form-row-double { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
 
 .form-label {
   display: block; font-family: var(--font-display); font-size: 0.75rem;
   letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray);
-  margin-bottom: 0.5rem; font-weight: 400;
+  margin-bottom: 0.6rem; font-weight: 400;
 }
 .form-label .required { color: var(--gold); }
+.form-helper { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.1em; color: #666; margin-top: 0.5rem; line-height: 1.5; text-transform: uppercase; }
 
 .form-input, .form-select {
-  width: 100%; padding: 0.95rem 1rem;
+  width: 100%; padding: 0.9rem 1rem;
   background: var(--black); border: 1px solid var(--gold-dim);
-  color: var(--white); font-family: var(--font-serif); font-size: 1.05rem;
+  color: var(--white); font-family: var(--font-serif); font-size: 1rem;
   transition: border-color 0.3s ease; outline: none;
   -webkit-appearance: none; appearance: none; border-radius: 0;
 }
@@ -101,12 +130,12 @@ nav {
 }
 .form-select option { background: var(--black); color: var(--white); }
 
-/* CHECKBOX */
+/* GK CHECKBOX */
 .form-checkbox {
   display: flex; align-items: center; gap: 0.85rem;
   padding: 1rem 1.1rem; border: 1px solid var(--gold-dim);
   cursor: pointer; transition: border-color 0.3s ease;
-  font-family: var(--font-serif); font-size: 1.05rem; color: var(--white);
+  font-family: var(--font-serif); font-size: 1rem; color: var(--white);
 }
 .form-checkbox:hover { border-color: var(--gold-mid); }
 .form-checkbox input[type="checkbox"] {
@@ -126,14 +155,13 @@ nav {
   font-family: var(--font-display); font-weight: 700; font-size: 1rem;
 }
 
-/* CONSENT (longer text, top-aligned) */
-.consent-divider {
-  height: 1px; background: var(--gold-dim); margin: 1.75rem 0 1.25rem;
-}
+/* CONSENT */
 .consent-row {
   display: flex; gap: 0.85rem; align-items: flex-start;
-  padding: 1rem 1.1rem; border: 1px solid var(--gold-dim);
+  padding: 1.25rem; border: 1px solid var(--gold-dim);
+  background: var(--dark-gray);
   cursor: pointer; transition: border-color 0.3s ease;
+  margin-bottom: 1rem;
 }
 .consent-row:hover { border-color: var(--gold-mid); }
 .consent-row input[type="checkbox"] {
@@ -149,37 +177,55 @@ nav {
   font-family: var(--font-display); font-weight: 700; font-size: 1rem;
 }
 .consent-text {
-  font-family: var(--font-serif); font-size: 0.9rem; line-height: 1.55;
+  font-family: var(--font-serif); font-size: 0.95rem; line-height: 1.6;
   color: var(--off-white); font-weight: 300;
 }
 .consent-text strong { color: var(--gold); font-weight: 500; }
 
 .form-submit {
-  margin-top: 1.5rem; width: 100%; padding: 1.2rem;
+  margin-top: 2.5rem; width: 100%; padding: 1.2rem;
   background: var(--gold); color: var(--black);
   font-family: var(--font-display); font-size: 0.9rem;
   letter-spacing: 0.25em; text-transform: uppercase;
   border: none; cursor: pointer; border-radius: 0;
-  transition: background 0.3s ease; font-weight: 600;
+  transition: transform 0.3s ease, background 0.3s ease;
+  font-weight: 600;
 }
-.form-submit:hover { background: #d4a804; }
-.form-submit:active { background: #b89003; }
-.form-submit:disabled { background: var(--gold-dim); cursor: not-allowed; }
+.form-submit:hover { transform: scale(1.01); background: #d4a804; }
+.form-submit:disabled { background: var(--gold-dim); cursor: not-allowed; transform: none; }
+
+.form-disclaimer {
+  margin-top: 1.5rem;
+  font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.1em;
+  color: #555; line-height: 1.8; text-align: center;
+}
 
 /* SUCCESS */
-.form-success { display: none; text-align: center; padding: 2.5rem 1rem; }
+.form-success { display: none; text-align: center; padding: 4rem 2rem; }
 .form-success.show { display: block; }
 .form-success-icon {
-  font-family: var(--font-display); font-size: 3.5rem; color: var(--gold);
-  margin-bottom: 1rem;
+  font-family: var(--font-display); font-size: 4rem; color: var(--gold);
+  margin-bottom: 1.5rem;
 }
 .form-success h3 {
-  font-family: var(--font-display); font-size: 1.4rem; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;
+  font-family: var(--font-display); font-size: 1.6rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;
 }
 .form-success p {
-  font-family: var(--font-serif); font-size: 1rem; color: var(--gray);
-  font-weight: 300; line-height: 1.6;
+  font-family: var(--font-serif); font-size: 1.1rem; color: var(--gray);
+  font-weight: 300; line-height: 1.7;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--gold-dim); padding: 4rem 3rem 2rem;
+}
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-copy, .footer-legal {
+  font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.3em;
+  color: var(--gray); text-transform: uppercase;
 }
 
 /* GRAIN */
@@ -189,10 +235,22 @@ nav {
   background-repeat: repeat; background-size: 256px 256px;
 }
 
-.footer-copy {
-  margin-top: 3rem; text-align: center;
-  font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.3em;
-  color: #444; text-transform: uppercase;
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 1100px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .page-header { padding: 8rem 1.5rem 3rem; }
+  .form-layout { padding: 0 1.5rem 6rem; }
+  .form-container { padding: 2rem 1.5rem; }
+  .form-row-double { grid-template-columns: 1fr; }
+  footer { padding: 3rem 1.5rem 2rem; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
 }
 </style>
 </head>
@@ -202,28 +260,57 @@ nav {
 
 <nav>
   <a href="index.html" class="nav-logo">UMOJA SC</a>
-  <a href="index.html" class="nav-back">← Home</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="tournament-teams.html">Tournament Teams</a></li>
+    <li><a href="staff.html">Staff</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="apply.html">Apply</a></li>
+    <li><a href="partner.html">Partner With Us</a></li>
+    <li><a href="https://portal.umojasoka.com">Player Portal</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a>
+  <a href="programs.html">Programs</a>
+  <a href="tournament-teams.html">Tournament Teams</a>
+  <a href="staff.html">Staff</a>
+  <a href="faq.html">FAQ</a>
+  <a href="apply.html">Apply</a>
+  <a href="partner.html">Partner With Us</a>
+  <a href="https://portal.umojasoka.com">Player Portal</a>
+  <div class="nav-drawer-sub">Umoja Sports Coalition · Clarkston, GA</div>
+</div>
 
-<div class="wrapper">
+<div class="page-header reveal">
+  <div class="page-header-label">U19 Boys — Tryout Registration</div>
+  <h1>SIGN UP.<br><span class="gold">SHOW UP.</span></h1>
+  <p class="page-header-sub">Register for Umoja SC's U19 Boys tryout. Free to register. Date and location will be confirmed by email.</p>
+</div>
 
-  <div class="page-header">
-    <div class="page-header-label">U19 Boys — Tryout Check-In</div>
-    <h1>YOU'RE<br><span class="gold">IN.</span></h1>
-    <p class="page-header-sub">Quick check-in so we have your info on file. Takes about 30 seconds.</p>
-  </div>
-
-  <div class="form-container">
+<div class="form-layout">
+  <div class="form-container reveal">
     <div id="formContent">
 
+      <div class="form-section-label">Player Information</div>
       <div class="form-row">
         <label class="form-label">Full Name <span class="required">*</span></label>
         <input type="text" class="form-input" id="fullName" placeholder="First and last name" autocomplete="name" required>
       </div>
 
-      <div class="form-row">
-        <label class="form-label">Phone Number <span class="required">*</span></label>
-        <input type="tel" class="form-input" id="phone" placeholder="(XXX) XXX-XXXX" autocomplete="tel" required>
+      <div class="form-row-double">
+        <div class="form-row">
+          <label class="form-label">Date of Birth <span class="required">*</span></label>
+          <input type="date" class="form-input" id="dob" required>
+        </div>
+        <div class="form-row">
+          <label class="form-label">Phone <span class="required">*</span></label>
+          <input type="tel" class="form-input" id="phone" placeholder="(XXX) XXX-XXXX" autocomplete="tel" required>
+        </div>
       </div>
 
       <div class="form-row">
@@ -232,60 +319,79 @@ nav {
       </div>
 
       <div class="form-row">
-        <label class="form-label">Date of Birth <span class="required">*</span></label>
-        <input type="date" class="form-input" id="dob" required>
+        <label class="form-label">Current / Most Recent Club or School</label>
+        <input type="text" class="form-input" id="club" placeholder="Optional">
       </div>
 
       <div class="form-row">
         <label class="form-checkbox">
           <input type="checkbox" id="goalkeeper">
           <span class="checkbox-box"></span>
-          <span class="checkbox-text">I'm a goalkeeper</span>
+          <span>I'm a goalkeeper</span>
         </label>
       </div>
 
-      <div class="form-row">
-        <label class="form-label">Current / Most Recent Club or School</label>
-        <input type="text" class="form-input" id="club" placeholder="Optional">
+      <div class="form-section-label">Liability & Media Consent</div>
+
+      <label class="consent-row">
+        <input type="checkbox" id="liability" required>
+        <span class="checkbox-box"></span>
+        <span class="consent-text">
+          <strong>Liability acknowledgment.</strong> I understand soccer involves physical risk and inherent possibility of injury. Umoja Sports Coalition LLC, its staff, coaches, and volunteers are not liable for injuries sustained during tryouts. I confirm I am physically able to participate.
+        </span>
+      </label>
+
+      <label class="consent-row">
+        <input type="checkbox" id="media">
+        <span class="checkbox-box"></span>
+        <span class="consent-text">
+          <strong>Media release.</strong> I consent to photos and video taken during tryouts being used by Umoja SC for marketing, social media, and recruiting materials. Optional — leave unchecked if you decline.
+        </span>
+      </label>
+
+      <button type="button" class="form-submit" id="submitBtn">Submit Registration →</button>
+      <div class="form-disclaimer">
+        Registration confirms intent to attend — not roster placement.<br>
+        Tryout date and location will be sent by email.
       </div>
-
-      <div class="consent-divider"></div>
-
-      <div class="form-row">
-        <label class="consent-row">
-          <input type="checkbox" id="liability" required>
-          <span class="checkbox-box"></span>
-          <span class="consent-text">
-            <strong>Liability acknowledgment.</strong> I understand soccer involves physical risk and injury. Umoja Sports Coalition LLC, its staff, and coaches are not liable for injuries sustained during tryouts. I confirm I'm physically able to participate.
-          </span>
-        </label>
-      </div>
-
-      <div class="form-row">
-        <label class="consent-row">
-          <input type="checkbox" id="media">
-          <span class="checkbox-box"></span>
-          <span class="consent-text">
-            <strong>Media release.</strong> I consent to photos and video taken during tryouts being used by Umoja SC for marketing, social media, and recruiting materials. (Optional — leave unchecked if you decline.)
-          </span>
-        </label>
-      </div>
-
-      <button type="button" class="form-submit" id="submitBtn">Submit Check-In →</button>
     </div>
 
     <div class="form-success" id="formSuccess">
       <div class="form-success-icon">◆</div>
-      <h3>You're Checked In</h3>
-      <p>Hand the phone back to staff and get warmed up.</p>
+      <h3>Registration Received</h3>
+      <p>You're on the list. Tryout date, location, and final details will be sent to the email you provided. Train hard until then — we'll see you on the pitch.</p>
     </div>
   </div>
-
-  <div class="footer-copy">&copy; 2026 Umoja SC · Clarkston, GA</div>
-
 </div>
 
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 Umoja Sports Coalition LLC &nbsp;·&nbsp; Clarkston, GA</div>
+    <div class="footer-legal"><a href="privacy-policy.html" style="color: var(--gray); text-decoration: none;">Privacy Policy</a></div>
+  </div>
+</footer>
+
 <script>
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => observer.observe(el));
+
+// Hamburger
+const hamburger = document.getElementById('hamburger');
+const navDrawer = document.getElementById('navDrawer');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navDrawer.classList.toggle('open');
+});
+navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  hamburger.classList.remove('open');
+  navDrawer.classList.remove('open');
+}));
+
+// Form submit
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xnjwgbpq';
 
 document.getElementById('submitBtn').addEventListener('click', async () => {
@@ -313,13 +419,13 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
   btn.disabled = true;
 
   const formData = {
-    _subject: 'Umoja SC — U19 Boys Tryout Check-In',
+    _subject: 'Umoja SC — U19 Boys Tryout Registration',
     'Full Name': document.getElementById('fullName').value,
+    'Date of Birth': document.getElementById('dob').value,
     'Phone': document.getElementById('phone').value,
     'Email': document.getElementById('email').value,
-    'Date of Birth': document.getElementById('dob').value,
-    'Goalkeeper': document.getElementById('goalkeeper').checked ? 'Yes' : 'No',
     'Club / School': document.getElementById('club').value || '—',
+    'Goalkeeper': document.getElementById('goalkeeper').checked ? 'Yes' : 'No',
     'Liability Acknowledged': document.getElementById('liability').checked ? 'Yes' : 'No',
     'Media Consent': document.getElementById('media').checked ? 'Yes' : 'No'
   };
@@ -333,13 +439,13 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
     if (res.ok) {
       document.getElementById('formContent').style.display = 'none';
       document.getElementById('formSuccess').classList.add('show');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: document.querySelector('.form-container').offsetTop - 100, behavior: 'smooth' });
     } else {
-      btn.textContent = 'Try again';
+      btn.textContent = 'Something went wrong — try again';
       btn.disabled = false;
     }
   } catch {
-    btn.textContent = 'Try again';
+    btn.textContent = 'Something went wrong — try again';
     btn.disabled = false;
   }
 });
