@@ -139,6 +139,64 @@ nav {
   height: 3px; background: var(--gold);
 }
 
+/* STEP INDICATOR */
+.step-indicator {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1rem; margin-bottom: 3rem; padding-bottom: 2rem;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.step-dot {
+  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+}
+.step-dot span {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1.5px solid var(--gold-dim); background: var(--black);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 0.9rem; font-weight: 600;
+  color: var(--gold-dim); transition: all 0.3s ease;
+}
+.step-dot.active span { border-color: var(--gold); color: var(--gold); }
+.step-dot.complete span { background: var(--gold); color: var(--black); border-color: var(--gold); }
+.step-dot label {
+  font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--gold-dim); transition: color 0.3s ease;
+}
+.step-dot.active label, .step-dot.complete label { color: var(--gold); }
+.step-line {
+  flex: 0 1 80px; height: 1px; background: var(--gold-dim);
+  margin-bottom: 1.4rem; transition: background 0.3s ease;
+}
+.step-line.complete { background: var(--gold); }
+
+/* WAIVER SCROLL BOX */
+.waiver-box {
+  border: 1px solid var(--gold-dim); background: var(--dark-gray);
+  margin-bottom: 1rem; position: relative;
+}
+.waiver-scroll {
+  max-height: 240px; overflow-y: auto;
+  padding: 1.5rem;
+  font-family: var(--font-serif); font-size: 0.95rem; line-height: 1.7;
+  color: var(--off-white); font-weight: 300;
+}
+.waiver-scroll p { margin-bottom: 1rem; }
+.waiver-scroll p:last-child { margin-bottom: 0; }
+.waiver-scroll strong { color: var(--gold); font-weight: 500; }
+/* Custom scrollbar */
+.waiver-scroll::-webkit-scrollbar { width: 6px; }
+.waiver-scroll::-webkit-scrollbar-track { background: var(--black); }
+.waiver-scroll::-webkit-scrollbar-thumb { background: var(--gold-dim); }
+.waiver-scroll::-webkit-scrollbar-thumb:hover { background: var(--gold-mid); }
+
+/* BACK BUTTON */
+.step-back {
+  background: none; border: none; cursor: pointer;
+  font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--gray); padding: 0;
+  margin-bottom: 2rem; transition: color 0.3s ease;
+}
+.step-back:hover { color: var(--gold); }
+
 .form-section-label {
   font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.4em;
   text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; margin-top: 2.5rem;
@@ -370,7 +428,16 @@ footer {
 
 <div class="form-layout">
   <div class="form-container reveal">
-    <div id="formContent">
+
+    <!-- STEP INDICATOR -->
+    <div class="step-indicator" id="stepIndicator">
+      <div class="step-dot active" data-step="1"><span>1</span><label>Your Info</label></div>
+      <div class="step-line"></div>
+      <div class="step-dot" data-step="2"><span>2</span><label>Waiver</label></div>
+    </div>
+
+    <!-- STEP 1: BASIC INFO -->
+    <div id="step1">
 
       <div class="form-section-label">Player Information</div>
       <div class="form-row">
@@ -407,31 +474,64 @@ footer {
         </label>
       </div>
 
-      <div class="form-section-label">Liability & Media Consent</div>
+      <button type="button" class="form-submit" id="continueBtn">Continue to Waiver →</button>
+      <div class="form-disclaimer">
+        Step 1 of 2 — Liability and media release on the next step.
+      </div>
+    </div>
+
+    <!-- STEP 2: WAIVER & CONSENT -->
+    <div id="step2" style="display: none;">
+
+      <button type="button" class="step-back" id="backBtn">← Back to your info</button>
+
+      <div class="form-section-label">Liability Waiver</div>
+      <div class="waiver-box">
+        <div class="waiver-scroll">
+          <p><strong>[PLACEHOLDER — REPLACE WITH FULL LIABILITY WAIVER TEXT]</strong></p>
+          <p>This is placeholder text for the full liability waiver. Replace this entire block with the complete waiver language that participants must read before agreeing.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+          <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+          <p>By checking the box below, the participant (or their parent/guardian if under 18) acknowledges they have read and understood this waiver in full.</p>
+        </div>
+      </div>
 
       <label class="consent-row">
         <input type="checkbox" id="liability" required>
         <span class="checkbox-box"></span>
         <span class="consent-text">
-          <strong>Liability acknowledgment.</strong> I understand soccer involves physical risk and inherent possibility of injury. Umoja Sports Coalition LLC, its staff, coaches, and volunteers are not liable for injuries sustained during tryouts. I confirm I am physically able to participate.
+          <strong>I have read and agree to the liability waiver above.</strong> I confirm the participant is physically able to participate and assume all risks associated with the tryout.
         </span>
       </label>
+
+      <div class="form-section-label">Media Release</div>
+      <div class="waiver-box">
+        <div class="waiver-scroll">
+          <p><strong>[PLACEHOLDER — REPLACE WITH FULL MEDIA RELEASE TEXT]</strong></p>
+          <p>This is placeholder text for the full media release. Replace this entire block with the complete media release language.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Media consent is optional. Declining will not affect tryout participation, but the participant's image may still incidentally appear in wide team or facility shots.</p>
+        </div>
+      </div>
 
       <label class="consent-row">
         <input type="checkbox" id="media">
         <span class="checkbox-box"></span>
         <span class="consent-text">
-          <strong>Media release.</strong> I consent to photos and video taken during tryouts being used by Umoja SC for marketing, social media, and recruiting materials. Optional — leave unchecked if you decline.
+          <strong>I consent to the media release above.</strong> Photos and video from the tryout may be used by Umoja SC for marketing, social media, and recruiting materials. Optional.
         </span>
       </label>
 
       <button type="button" class="form-submit" id="submitBtn">Submit Registration →</button>
       <div class="form-disclaimer">
-        Registration confirms intent to attend — not roster placement.<br>
-        Tryout date and location will be sent by email.
+        Step 2 of 2 — Final submission.<br>
+        Registration confirms intent to attend, not roster placement.
       </div>
     </div>
 
+    <!-- SUCCESS -->
     <div class="form-success" id="formSuccess">
       <div class="form-success-icon">◆</div>
       <h3>Registration Received</h3>
@@ -476,11 +576,65 @@ navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   navDrawer.classList.remove('open');
 }));
 
-// Form submit
+// Form — two-step flow
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xnjwgbpq';
 
-document.getElementById('submitBtn').addEventListener('click', async () => {
-  const required = document.querySelectorAll('#formContent [required]');
+const step1 = document.getElementById('step1');
+const step2 = document.getElementById('step2');
+const continueBtn = document.getElementById('continueBtn');
+const backBtn = document.getElementById('backBtn');
+const submitBtn = document.getElementById('submitBtn');
+const stepIndicator = document.getElementById('stepIndicator');
+const stepDots = stepIndicator.querySelectorAll('.step-dot');
+const stepLine = stepIndicator.querySelector('.step-line');
+
+function scrollToFormTop() {
+  const target = document.querySelector('.form-container').offsetTop - 100;
+  window.scrollTo({ top: target, behavior: 'smooth' });
+}
+
+// STEP 1 → STEP 2
+continueBtn.addEventListener('click', () => {
+  const required = step1.querySelectorAll('[required]');
+  let valid = true;
+  required.forEach(field => {
+    if (!field.value.trim()) {
+      field.style.borderColor = '#ff4444';
+      valid = false;
+      field.addEventListener('input', () => { field.style.borderColor = ''; }, { once: true });
+      field.addEventListener('change', () => { field.style.borderColor = ''; }, { once: true });
+    }
+  });
+  if (!valid) return;
+
+  step1.style.display = 'none';
+  step2.style.display = 'block';
+
+  // Update step indicator
+  stepDots[0].classList.remove('active');
+  stepDots[0].classList.add('complete');
+  stepDots[1].classList.add('active');
+  stepLine.classList.add('complete');
+
+  scrollToFormTop();
+});
+
+// STEP 2 → STEP 1 (back)
+backBtn.addEventListener('click', () => {
+  step2.style.display = 'none';
+  step1.style.display = 'block';
+
+  stepDots[1].classList.remove('active');
+  stepDots[0].classList.remove('complete');
+  stepDots[0].classList.add('active');
+  stepLine.classList.remove('complete');
+
+  scrollToFormTop();
+});
+
+// FINAL SUBMIT
+submitBtn.addEventListener('click', async () => {
+  const required = step2.querySelectorAll('[required]');
   let valid = true;
   required.forEach(field => {
     if (field.type === 'checkbox') {
@@ -490,18 +644,12 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
         valid = false;
         field.addEventListener('change', () => { if (row) row.style.borderColor = ''; }, { once: true });
       }
-    } else if (!field.value.trim()) {
-      field.style.borderColor = '#ff4444';
-      valid = false;
-      field.addEventListener('input', () => { field.style.borderColor = ''; }, { once: true });
-      field.addEventListener('change', () => { field.style.borderColor = ''; }, { once: true });
     }
   });
   if (!valid) return;
 
-  const btn = document.getElementById('submitBtn');
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
+  submitBtn.textContent = 'Sending…';
+  submitBtn.disabled = true;
 
   const formData = {
     _subject: 'Umoja SC — U19 Boys Tryout Registration',
@@ -522,16 +670,17 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
       body: JSON.stringify(formData)
     });
     if (res.ok) {
-      document.getElementById('formContent').style.display = 'none';
+      step2.style.display = 'none';
+      stepIndicator.style.display = 'none';
       document.getElementById('formSuccess').classList.add('show');
-      window.scrollTo({ top: document.querySelector('.form-container').offsetTop - 100, behavior: 'smooth' });
+      scrollToFormTop();
     } else {
-      btn.textContent = 'Something went wrong — try again';
-      btn.disabled = false;
+      submitBtn.textContent = 'Something went wrong — try again';
+      submitBtn.disabled = false;
     }
   } catch {
-    btn.textContent = 'Something went wrong — try again';
-    btn.disabled = false;
+    submitBtn.textContent = 'Something went wrong — try again';
+    submitBtn.disabled = false;
   }
 });
 </script>
