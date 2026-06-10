@@ -439,6 +439,92 @@
   footer a:hover { color: var(--gold); }
   footer .dot { color: var(--ink-dim); margin: 0 10px; }
 
+  /* File upload */
+  .file-drop { position: relative; }
+  .file-drop input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+  }
+  .file-drop__label {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 22px 24px;
+    border: 1px dashed var(--line-strong);
+    cursor: pointer;
+    transition: all .2s ease;
+    font-family: var(--mono) !important;
+    font-size: 11px !important;
+    letter-spacing: 0.22em !important;
+    text-transform: uppercase !important;
+    color: var(--ink-mute) !important;
+  }
+  .file-drop__label:hover {
+    border-color: var(--gold);
+    border-style: solid;
+  }
+  .file-drop__label:hover .file-drop__text { color: var(--gold); }
+  .file-drop input[type="file"]:focus-visible + .file-drop__label {
+    border-color: var(--gold);
+    border-style: solid;
+  }
+  .file-drop__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: var(--mono);
+    font-size: 18px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .file-drop__text { color: var(--ink); transition: color .2s ease; }
+  .file-drop__filename {
+    color: var(--ink-dim);
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    font-family: var(--serif);
+    font-size: 15px;
+    margin-left: auto;
+    max-width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .file-drop.has-file .file-drop__filename { color: var(--gold); }
+  .file-drop.has-file .file-drop__label { border-style: solid; border-color: var(--gold); }
+  .field__note {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-mute);
+    line-height: 1.55;
+    margin-top: 4px;
+  }
+  .field__note strong {
+    font-style: normal;
+    color: var(--ink);
+    font-family: var(--display);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 6px;
+  }
+  @media (max-width: 560px) {
+    .file-drop__label { flex-wrap: wrap; padding: 18px 20px; }
+    .file-drop__filename { margin-left: 0; width: 100%; max-width: 100%; }
+  }
+
   /* Error state */
   .form-error {
     display: none;
@@ -482,45 +568,6 @@
       <p class="hero__lead">
         One form for every player. Tell us about yourself or your athlete — whether you're here for our <em>tournament rosters</em>, our <em>open practices</em>, or you're not sure yet. We'll take it from there.
       </p>
-    </div>
-  </section>
-
-  <section class="process">
-    <div class="wrap">
-      <div class="sec-label"><span>What Happens Next</span></div>
-      <div class="steps">
-        <div class="step">
-          <span class="step__num">01</span>
-          <h3 class="step__title">You Register</h3>
-          <p class="step__body">Submit this form once. It covers tournament team interest, open practices, and general club inquiries.</p>
-        </div>
-        <div class="step">
-          <span class="step__num">02</span>
-          <h3 class="step__title">We Reach Out</h3>
-          <p class="step__body">A coach or staff member will follow up directly with what's next for your player — tryouts, practice schedule, or paperwork.</p>
-        </div>
-        <div class="step">
-          <span class="step__num">03</span>
-          <h3 class="step__title">You Train With Us</h3>
-          <p class="step__body">Open practices are running now, ages 6–19, any gender. You don't need to wait to start training with our staff.</p>
-        </div>
-        <div class="step">
-          <span class="step__num">04</span>
-          <h3 class="step__title">You Compete</h3>
-          <p class="step__body">When tournament rosters are set, selected players receive full kits, travel, and college recruiting support — every cost covered.</p>
-        </div>
-      </div>
-
-      <div class="callouts">
-        <div class="callout">
-          <strong>Why we ask about sizing.</strong>
-          Tournament players receive full custom kits and team gear at no cost. Having sizing in advance helps us plan with our kit partner.
-        </div>
-        <div class="callout">
-          <strong>One form. Every player.</strong>
-          This page replaces the old boys and girls forms. Pick your interest below — we route from there.
-        </div>
-      </div>
     </div>
   </section>
 
@@ -771,6 +818,28 @@
           </div>
         </fieldset>
 
+        <!-- ===== Headshot ===== -->
+        <fieldset class="fieldset">
+          <legend class="fieldset__legend">Player Headshot</legend>
+          <div class="grid grid--full">
+            <div class="field">
+              <label for="headshot">Upload Photo <span class="req">*</span></label>
+              <div class="file-drop" id="fileDrop">
+                <input type="file" id="headshot" name="headshot" accept="image/jpeg,image/jpg,image/png,image/heic,image/webp" required>
+                <label for="headshot" class="file-drop__label">
+                  <span class="file-drop__icon">+</span>
+                  <span class="file-drop__text">Choose Photo</span>
+                  <span class="file-drop__filename" id="headshotName">No file selected</span>
+                </label>
+              </div>
+              <p class="field__note">
+                <strong>A selfie works great.</strong>
+                Just make sure your full face is clearly visible, you're looking at the camera, and there's nothing distracting in the background — a plain wall is perfect. JPG, PNG, HEIC, or WebP. Max 10MB.
+              </p>
+            </div>
+          </div>
+        </fieldset>
+
         <!-- ===== Additional ===== -->
         <fieldset class="fieldset">
           <legend class="fieldset__legend">Additional Info</legend>
@@ -829,6 +898,29 @@
   const formView = document.getElementById('formView');
   const okView   = document.getElementById('successView');
   const ENDPOINT = 'https://formspree.io/f/maqzdqdq';
+
+  // Headshot filename display
+  const headshotInput = document.getElementById('headshot');
+  const headshotName  = document.getElementById('headshotName');
+  const fileDrop      = document.getElementById('fileDrop');
+  const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+
+  headshotInput.addEventListener('change', function() {
+    const file = this.files[0];
+    if (!file) {
+      headshotName.textContent = 'No file selected';
+      fileDrop.classList.remove('has-file');
+      return;
+    }
+    if (file.size > MAX_FILE_SIZE) {
+      headshotName.textContent = 'File too large — max 10MB';
+      fileDrop.classList.remove('has-file');
+      this.value = '';
+      return;
+    }
+    headshotName.textContent = file.name;
+    fileDrop.classList.add('has-file');
+  });
 
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
