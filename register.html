@@ -643,13 +643,28 @@
           </div>
         </fieldset>
 
-        <!-- ===== Parent / Guardian Contact ===== -->
+        <!-- ===== Player Contact ===== -->
         <fieldset class="fieldset">
-          <legend class="fieldset__legend">Parent / Guardian Contact</legend>
+          <legend class="fieldset__legend">Player Contact</legend>
           <div class="grid">
             <div class="field">
-              <label for="parentName">Parent / Guardian Name <span class="req">*</span></label>
-              <input type="text" id="parentName" name="parentName" required>
+              <label for="playerEmail">Player Email <span class="req">*</span></label>
+              <input type="email" id="playerEmail" name="playerEmail" required autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="playerPhone">Player Phone <span class="req">*</span></label>
+              <input type="tel" id="playerPhone" name="playerPhone" required autocomplete="tel">
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- ===== Parent / Guardian Contact ===== -->
+        <fieldset class="fieldset">
+          <legend class="fieldset__legend">Parent / Guardian Contact <span style="color: var(--ink-dim); font-weight:400; letter-spacing: 0.06em; text-transform: none; font-family: var(--serif); font-style: italic;">— optional, recommended for players under 18</span></legend>
+          <div class="grid">
+            <div class="field">
+              <label for="parentName">Parent / Guardian Name</label>
+              <input type="text" id="parentName" name="parentName">
             </div>
             <div class="field">
               <label for="relationship">Relationship</label>
@@ -662,27 +677,12 @@
               </select>
             </div>
             <div class="field">
-              <label for="parentEmail">Email <span class="req">*</span></label>
-              <input type="email" id="parentEmail" name="parentEmail" required autocomplete="email">
+              <label for="parentEmail">Parent Email</label>
+              <input type="email" id="parentEmail" name="parentEmail">
             </div>
             <div class="field">
-              <label for="parentPhone">Phone <span class="req">*</span></label>
-              <input type="tel" id="parentPhone" name="parentPhone" required autocomplete="tel">
-            </div>
-          </div>
-        </fieldset>
-
-        <!-- ===== Player Contact ===== -->
-        <fieldset class="fieldset">
-          <legend class="fieldset__legend">Player Contact <span style="color: var(--ink-dim); font-weight:400; letter-spacing: 0.06em; text-transform: none; font-family: var(--serif); font-style: italic;">— optional, recommended for ages 14+</span></legend>
-          <div class="grid">
-            <div class="field">
-              <label for="playerEmail">Player Email</label>
-              <input type="email" id="playerEmail" name="playerEmail">
-            </div>
-            <div class="field">
-              <label for="playerPhone">Player Phone</label>
-              <input type="tel" id="playerPhone" name="playerPhone">
+              <label for="parentPhone">Parent Phone</label>
+              <input type="tel" id="parentPhone" name="parentPhone">
             </div>
           </div>
         </fieldset>
