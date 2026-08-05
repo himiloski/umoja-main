@@ -78,6 +78,42 @@
   }
   .tagline b{color:var(--gold);font-weight:600}
 
+  .cta{
+    display:inline-flex;
+    align-items:center;
+    gap:.6rem;
+    margin-top:.6rem;
+    padding:.95rem 2.4rem;
+    background:var(--gold);
+    color:var(--ink);
+    font-family:'Archivo',system-ui,sans-serif;
+    font-weight:600;
+    font-size:clamp(.95rem,2.2vw,1.15rem);
+    letter-spacing:.04em;
+    text-decoration:none;
+    border-radius:999px;
+    box-shadow:0 10px 30px rgba(245,194,5,.28);
+    transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+    opacity:0;
+    animation:rise .8s .68s ease forwards;
+  }
+  .cta:hover,.cta:focus-visible{
+    background:var(--gold-deep);
+    transform:translateY(-2px);
+    box-shadow:0 14px 38px rgba(245,194,5,.38);
+    outline:none;
+  }
+  .cta .arrow{font-size:.9em;transition:transform .18s ease}
+  .cta:hover .arrow,.cta:focus-visible .arrow{transform:translateX(3px)}
+
+  .cta-note{
+    font-size:clamp(.72rem,1.8vw,.85rem);
+    color:var(--muted);
+    margin-top:-.4rem;
+    opacity:0;
+    animation:rise .8s .8s ease forwards;
+  }
+
   .socials{
     display:flex;
     gap:1.6rem;
@@ -125,7 +161,11 @@
 
     <h1 class="headline">Under<br><span>Construction</span></h1>
 
-    <p class="tagline">Umoja Soccer Club is building a new home. <b>We'll be back shortly.</b> Follow along in the meantime.</p>
+    <p class="tagline">Umoja Soccer Club is building a new home. <b>The new site is on its way.</b> Our giving page is already live.</p>
+
+    <a class="cta" href="build-umoja.html">Build Umoja <span class="arrow">&rarr;</span></a>
+
+    <p class="cta-note">Give, partner, or fundraise now &mdash; the rest of the site is still coming together.</p>
 
     <nav class="socials" aria-label="Social links">
       <a href="https://instagram.com/UmojaSoka">Instagram</a>
