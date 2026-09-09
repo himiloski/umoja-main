@@ -1017,20 +1017,25 @@
      element or opens a Givebutter checkout. -->
 <script async src="https://widgets.givebutter.com/latest.umd.cjs?acct=pjIhzptMh71wOY8x&p=other"></script>
 <style>
-/* Givebutter giving form.
-
-   Centring the title and the widget separately kept putting them on
-   different axes, because the widget's card renders at its own width
-   inside its host element. So instead the wrapper SHRINKS TO THE CARD
-   (width:fit-content, centred in the page). The title then centres
-   inside a box that is exactly as wide as the card, which makes the two
-   line up by construction rather than by matching numbers. */
-.gb-block{width:fit-content;max-width:100%;margin-inline:auto}
-.gb-title{text-align:center;font-size:clamp(1.25rem,2.6vw,1.7rem);line-height:1.1;margin:0 0 20px}
-.gb-form{padding:0;border:none;background:none}
-.gb-form givebutter-giving-form{display:block}
-.gb-fallback{color:var(--gray);font-weight:300;margin:0;padding:20px;text-align:center}
+/* Give: the widget sits left at a real size, with the ask beside it.
+   Deliberately not centred — a lone card in the middle of a dark page
+   reads as small no matter how it is aligned. */
+.gb-block{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);
+  gap:clamp(28px,4vw,60px);align-items:start}
+@media(max-width:900px){.gb-block{grid-template-columns:1fr;gap:26px}}
+.gb-form{padding:0;border:none;background:none;min-width:0}
+.gb-form givebutter-giving-form{display:block;width:100%}
+.gb-say{min-width:0;padding-top:4px}
+.gb-title{font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.02;margin:0 0 16px}
+.gb-say p{color:var(--gray);font-weight:300;font-size:1.02rem;line-height:1.55;margin:0 0 14px;max-width:46ch}
+.gb-say p strong{color:var(--white);font-weight:600}
+.gb-points{list-style:none;margin:20px 0 0;padding:0;border-top:1px solid var(--line-2);max-width:46ch}
+.gb-points li{color:var(--gray-2);font-weight:300;font-size:.93rem;padding:11px 0 11px 20px;
+  position:relative;border-bottom:1px solid var(--line-2)}
+.gb-points li::before{content:"";position:absolute;left:0;top:20px;width:9px;height:1.5px;background:var(--gold)}
+.gb-fallback{color:var(--gray);font-weight:300;margin:0;padding:20px}
 .gb-fallback a{color:var(--gold)}
+@media(max-width:900px){.gb-say{order:-1}.gb-title{margin-bottom:12px}}
 </style>
 </head><body>
 <div class="utility"><div class="wrap">
@@ -1111,12 +1116,21 @@
 
 <section class="wg-sec" id="give"><div class="wrap">
   <div class="gb-block">
-  <h2 class="gb-title">Make a gift</h2>
-  <div class="gb-form">
-    <givebutter-giving-form campaign="LW5OS7"></givebutter-giving-form>
-    <noscript><p class="gb-fallback">Our giving form needs JavaScript. You can also give at
-      <a href="https://givebutter.com/LW5OS7">givebutter.com/LW5OS7</a>.</p></noscript>
-  </div>
+    <div class="gb-form">
+      <givebutter-giving-form campaign="LW5OS7"></givebutter-giving-form>
+      <noscript><p class="gb-fallback">Our giving form needs JavaScript. You can also give at
+        <a href="https://givebutter.com/LW5OS7">givebutter.com/LW5OS7</a>.</p></noscript>
+    </div>
+    <div class="gb-say">
+      <h2 class="gb-title">Make a gift</h2>
+      <p>Every gift goes to the real cost of playing &mdash; coaching, competition, transportation, nutrition, equipment and travel &mdash; and lands wherever the need is largest that season.</p>
+      <p><strong>Monthly is the one the club can plan around.</strong> A recurring gift lets Umoja commit to a player for a season rather than hoping the money arrives in time.</p>
+      <ul class="gb-points">
+        <li>Give once or monthly, and change or cancel at any time</li>
+        <li>Card details are handled by our donation provider, never by Umoja</li>
+        <li>You will get a receipt by email straight away</li>
+      </ul>
+    </div>
   </div>
 </div></section>
 
