@@ -924,22 +924,25 @@
 <style>
 /* Join panel, centred.
 
-   The earlier rules set `margin:0 0 24px` on .intro and .uc-fine, which
-   beats a later `margin-left:auto` at the same specificity — so those
-   blocks stayed pinned left while their text centred inside them. These
-   selectors are more specific, so they win outright.
+   Width is set on the CONTAINER, never on <givebutter-widget> itself.
+   The widget renders an iframe that fills the space it is given, so a
+   narrower parent makes a narrower card. Putting max-width on the
+   element instead lets the iframe overflow it, which is what pushed the
+   card off-axis earlier. This is the same arrangement that works on the
+   Give page, where the widget sits in a narrower column.
 
-   And no width on <givebutter-widget>: its card renders at its own width
-   inside the element, so forcing the host narrower makes the card
-   overflow and sit off-axis. */
+   The .intro and .uc-fine rules earlier in the file set `margin:0`, so
+   these selectors are deliberately more specific in order to win. */
 .uc-join{text-align:center}
 .uc-sec .uc-join > h2,
 .uc-sec .uc-join > .intro,
 .uc-sec .uc-join > .uc-fine{margin-left:auto;margin-right:auto}
 .uc-sec .uc-join > .intro{max-width:44ch}
 .uc-sec .uc-join > .uc-fine{max-width:60ch}
-.uc-widget{display:grid;justify-items:center;margin:26px 0 10px;width:100%}
-.uc-widget givebutter-widget{display:block}
+
+.uc-widget{width:100%;max-width:520px;margin:26px auto 10px}
+.uc-widget givebutter-widget{display:block;width:100%}
+
 .uc-join .uc-actions{justify-content:center}
 .uc-join::after{right:auto;left:50%;transform:translate(-50%,28%);opacity:.05}
 </style>
