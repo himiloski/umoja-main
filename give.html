@@ -1296,9 +1296,18 @@ var TRYOUT_WINDOW = "closed";
    "month", so the processor creates a real subscription. Umoja does not
    re-charge anyone manually.
    =================================================================== */
+  /* ── GIVEBUTTER ───────────────────────────────────────────────────
+     The widget loader is installed on this page. To go live, create the
+     campaign in Givebutter and paste its URL into checkoutUrl, e.g.
+       checkoutUrl: "https://givebutter.com/your-campaign"
+     Givebutter handles the card entry, the receipt and recurring gifts,
+     so nothing about payments is stored here. Leave sessionEndpoint
+     null — that is only for a processor that needs a server-created
+     session, which Givebutter does not.
+     ──────────────────────────────────────────────────────────────── */
 var GIVING = {
 
-  /* 1 */ provider: null,
+  /* 1 */ provider: "givebutter",
           publicKey: null,
 
   /* 2 */ checkoutUrl: null,
@@ -1429,4 +1438,7 @@ var GIVING = {
   paint();
 })();
 </script>
+<!-- Givebutter widget loader. Required on any page that renders a
+     Givebutter element or opens a Givebutter checkout. -->
+<script async src="https://widgets.givebutter.com/latest.umd.cjs?acct=pjIhzptMh71wOY8x&p=other"></script>
 </body></html>

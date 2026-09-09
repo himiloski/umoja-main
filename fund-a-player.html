@@ -1198,8 +1198,17 @@ var PROGRAM_COSTS = {
    seasonOptions are built from PROGRAM_COSTS automatically — a level
    only appears as a button once it has a real figure.
    ================================================================== */
+  /* ── GIVEBUTTER ───────────────────────────────────────────────────
+     The widget loader is installed on this page. To go live, create the
+     campaign in Givebutter and paste its URL into checkoutUrl, e.g.
+       checkoutUrl: "https://givebutter.com/your-campaign"
+     Givebutter handles the card entry, the receipt and recurring gifts,
+     so nothing about payments is stored here. Leave sessionEndpoint
+     null — that is only for a processor that needs a server-created
+     session, which Givebutter does not.
+     ──────────────────────────────────────────────────────────────── */
 var FUND = {
-  provider: null, publicKey: null,
+  provider: "givebutter", publicKey: null,
   checkoutUrl: null, sessionEndpoint: null,
   successUrl: null, cancelUrl: null,
   partAmounts: [50, 100, 250, 500],
@@ -1360,4 +1369,7 @@ var FUND = {
   paint();
 })();
 </script>
+<!-- Givebutter widget loader. Required on any page that renders a
+     Givebutter element or opens a Givebutter checkout. -->
+<script async src="https://widgets.givebutter.com/latest.umd.cjs?acct=pjIhzptMh71wOY8x&p=other"></script>
 </body></html>

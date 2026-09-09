@@ -1142,8 +1142,17 @@ var TRYOUT_WINDOW = "closed";
              refused with a message pointing to give.html, rather than
              quietly accepted.
    =================================================================== */
+  /* ── GIVEBUTTER ───────────────────────────────────────────────────
+     The widget loader is installed on this page. To go live, create the
+     campaign in Givebutter and paste its URL into checkoutUrl, e.g.
+       checkoutUrl: "https://givebutter.com/your-campaign"
+     Givebutter handles the card entry, the receipt and recurring gifts,
+     so nothing about payments is stored here. Leave sessionEndpoint
+     null — that is only for a processor that needs a server-created
+     session, which Givebutter does not.
+     ──────────────────────────────────────────────────────────────── */
 var CIRCLE = {
-  provider: null,
+  provider: "givebutter",
   publicKey: null,
   checkoutUrl: null,
   sessionEndpoint: null,
@@ -1247,4 +1256,7 @@ var CIRCLE = {
   paint();
 })();
 </script>
+<!-- Givebutter widget loader. Required on any page that renders a
+     Givebutter element or opens a Givebutter checkout. -->
+<script async src="https://widgets.givebutter.com/latest.umd.cjs?acct=pjIhzptMh71wOY8x&p=other"></script>
 </body></html>
