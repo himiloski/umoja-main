@@ -1017,17 +1017,20 @@
      element or opens a Givebutter checkout. -->
 <script async src="https://widgets.givebutter.com/latest.umd.cjs?acct=pjIhzptMh71wOY8x&p=other"></script>
 <style>
-/* Givebutter giving form: a plain centred title above the widget. The
-   page's .wg-h header component is a space-between flex row, which is
-   why it kept pulling the label to the edge — it is not used here. */
-.gb-block{max-width:560px;margin:0 auto}
-.gb-title{text-align:center;font-size:clamp(1.25rem,2.6vw,1.7rem);line-height:1.1;
-  margin:0 0 20px}
-.gb-form{width:100%;padding:0;border:none;background:none}
-.gb-form givebutter-giving-form{display:block;width:100%}
+/* Givebutter giving form.
+
+   Do not put a max-width on this block. The widget renders its own card
+   at its own width; if the wrapper is narrower the card overflows it and
+   the heading — centred inside the wrapper — ends up on a different axis
+   to the card. Instead the block is a centred flex column, so the title
+   and the card are both centred on the same line whatever width the
+   widget decides to be. */
+.gb-block{display:flex;flex-direction:column;align-items:center;width:100%}
+.gb-title{text-align:center;font-size:clamp(1.25rem,2.6vw,1.7rem);line-height:1.1;margin:0 0 20px}
+.gb-form{padding:0;border:none;background:none;width:100%;display:flex;justify-content:center}
+.gb-form givebutter-giving-form{display:block;width:100%;max-width:560px}
 .gb-fallback{color:var(--gray);font-weight:300;margin:0;padding:20px;text-align:center}
 .gb-fallback a{color:var(--gold)}
-@media(max-width:600px){.gb-block{max-width:none}}
 </style>
 </head><body>
 <div class="utility"><div class="wrap">
