@@ -1012,6 +1012,19 @@
     rgba(16,15,14,.08) 22%,rgba(16,15,14,.62) 58%,rgba(16,15,14,.95) 88%,rgba(16,15,14,.98) 100%)}
 }
 </style>
+<!-- Givebutter widgets library. Givebutter specifies this goes in
+     <head>. Required on any page that renders a <givebutter-*>
+     element or opens a Givebutter checkout. -->
+<script async src="https://widgets.givebutter.com/latest.umd.cjs?acct=pjIhzptMh71wOY8x&p=other"></script>
+<style>
+/* Givebutter giving form. It brings its own styling, so this only gives
+   it room and keeps it inside the page's rhythm. */
+.gb-form{border:1px solid var(--line);background:var(--ink-1);padding:clamp(14px,2vw,22px);
+  min-height:280px}
+.gb-form givebutter-giving-form{display:block;width:100%}
+.gb-fallback{color:var(--gray);font-weight:300;margin:0;padding:20px}
+.gb-fallback a{color:var(--gold)}
+</style>
 </head><body>
 <div class="utility"><div class="wrap">
   <span>Clarkston, Georgia <span class="dot">&bull;</span> Youth Soccer <span class="dot">&bull;</span> Est. 2025</span>
@@ -1091,23 +1104,10 @@
 
 <section class="wg-sec" id="give"><div class="wrap">
   <div class="wg-h"><h2>Make a gift</h2><span class="rt">Monthly or one time</span></div>
-  <div class="console">
-    <div class="console-l">
-      <div class="freq" role="group" aria-label="Giving frequency">
-        <button type="button" id="f-month" aria-pressed="true">Monthly</button>
-        <button type="button" id="f-once" aria-pressed="false">One time</button>
-      </div>
-      <div class="amts" id="amts"></div>
-    </div>
-    <div class="console-r">
-      <div class="readout">
-        <p class="k">Your gift</p>
-        <p class="v" id="gv-amount">$50</p>
-        <p class="per" id="gv-per">Every month</p>
-        <a class="btn btn-gold go" id="gv-go" href="#">Continue <span class="a">&rarr;</span></a>
-        <p class="fine" id="gv-fine"></p>
-      </div>
-    </div>
+  <div class="gb-form">
+    <givebutter-giving-form campaign="LW5OS7"></givebutter-giving-form>
+    <noscript><p class="gb-fallback">Our giving form needs JavaScript. You can also give at
+      <a href="https://givebutter.com/LW5OS7">givebutter.com/LW5OS7</a>.</p></noscript>
   </div>
 </div></section>
 
@@ -1297,13 +1297,28 @@ var TRYOUT_WINDOW = "closed";
    re-charge anyone manually.
    =================================================================== */
   /* ── GIVEBUTTER ───────────────────────────────────────────────────
-     The widget loader is installed on this page. To go live, create the
-     campaign in Givebutter and paste its URL into checkoutUrl, e.g.
-       checkoutUrl: "https://givebutter.com/your-campaign"
-     Givebutter handles the card entry, the receipt and recurring gifts,
-     so nothing about payments is stored here. Leave sessionEndpoint
-     null — that is only for a processor that needs a server-created
-     session, which Givebutter does not.
+     The widgets library is loaded in <head> on this page.
+
+     TWO WAYS TO GO LIVE, pick one:
+
+     A. EMBEDDED WIDGET — donor never leaves the page. Get the six-
+        character campaign code from the Givebutter dashboard (top of the
+        campaign, near the title) and drop one of these into the page
+        where the giving console sits:
+
+          <givebutter-giving-form campaign="CODE"></givebutter-giving-form>
+          <givebutter-button campaign="CODE"></givebutter-button>
+
+        Tell me the code and I will swap the console for the real form.
+
+     B. HOSTED LINK — keep the console we built and hand off at the end.
+        Paste the campaign URL into checkoutUrl:
+          checkoutUrl: "https://givebutter.com/your-campaign"
+
+     Either way Givebutter handles the card, the receipt and recurring
+     gifts. No card data touches this site. Leave sessionEndpoint null —
+     that is for processors needing a server-created session, which
+     Givebutter does not.
      ──────────────────────────────────────────────────────────────── */
 var GIVING = {
 
@@ -1438,7 +1453,4 @@ var GIVING = {
   paint();
 })();
 </script>
-<!-- Givebutter widget loader. Required on any page that renders a
-     Givebutter element or opens a Givebutter checkout. -->
-<script async src="https://widgets.givebutter.com/latest.umd.cjs?acct=pjIhzptMh71wOY8x&p=other"></script>
 </body></html>
