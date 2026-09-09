@@ -1017,17 +1017,18 @@
      element or opens a Givebutter checkout. -->
 <script async src="https://widgets.givebutter.com/latest.umd.cjs?acct=pjIhzptMh71wOY8x&p=other"></script>
 <style>
-/* Givebutter giving form. It renders its own white card, so we add no
-   box of our own — just centre it and give it a sensible measure so the
-   card is not floating in a wide dark frame. */
-.gb-form{max-width:560px;margin:0 auto;padding:0;border:none;background:none}
+/* Givebutter giving form. The heading and the card share one centred
+   block, so they cannot drift onto different axes. The widget brings
+   its own white card — we add no frame of our own. */
+.gb-block{max-width:560px;margin:0 auto;display:flex;flex-direction:column;align-items:stretch}
+.gb-block .wg-h{justify-content:center;text-align:center;flex-direction:column;gap:6px;
+  margin-bottom:18px}
+.gb-block .wg-h h2{width:100%}
+.gb-form{width:100%;padding:0;border:none;background:none}
 .gb-form givebutter-giving-form{display:block;width:100%}
 .gb-fallback{color:var(--gray);font-weight:300;margin:0;padding:20px;text-align:center}
 .gb-fallback a{color:var(--gold)}
-/* the heading above it centres with the card */
-#give .wg-h{justify-content:center;text-align:center}
-#give .wg-h h2{width:100%}
-@media(max-width:600px){.gb-form{max-width:none}}
+@media(max-width:600px){.gb-block{max-width:none}}
 </style>
 </head><body>
 <div class="utility"><div class="wrap">
@@ -1107,11 +1108,13 @@
 </div></section>
 
 <section class="wg-sec" id="give"><div class="wrap">
+  <div class="gb-block">
   <div class="wg-h"><h2>Make a gift</h2><span class="rt">Monthly or one time</span></div>
   <div class="gb-form">
     <givebutter-giving-form campaign="LW5OS7"></givebutter-giving-form>
     <noscript><p class="gb-fallback">Our giving form needs JavaScript. You can also give at
       <a href="https://givebutter.com/LW5OS7">givebutter.com/LW5OS7</a>.</p></noscript>
+  </div>
   </div>
 </div></section>
 
