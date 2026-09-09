@@ -940,13 +940,12 @@
 .uc-sec .uc-join > .intro{max-width:44ch}
 .uc-sec .uc-join > .uc-fine{max-width:60ch}
 
-.uc-widget{width:100%;max-width:520px;margin:26px auto 10px;text-align:center}
-/* The widget draws an iframe that is narrower than the 520px container, and
-   it left-aligns inside it. Flex on the custom element centres that iframe
-   without touching its width. The margin rule is a fallback for the case
-   where the iframe is a block-level child rather than a flex item. */
-.uc-widget givebutter-widget{display:flex;justify-content:center;width:100%}
-.uc-widget givebutter-widget iframe{margin-left:auto;margin-right:auto}
+/* The widget renders at its own width (~455px) and left-aligns inside its
+   container, so the container is sized to match it and centred. Do not put
+   flex or grid on <givebutter-widget> — that makes the iframe collapse to
+   its intrinsic width and the card gets narrower. */
+.uc-widget{width:100%;max-width:460px;margin:26px auto 10px}
+.uc-widget givebutter-widget{display:block;width:100%}
 
 .uc-join .uc-actions{justify-content:center}
 .uc-join::after{right:auto;left:50%;transform:translate(-50%,28%);opacity:.05}
