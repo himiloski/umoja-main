@@ -918,29 +918,25 @@
   .nav-cta .give,.nav-cta .login{padding:7px 9px;font-size:.55rem;letter-spacing:.02em}
 }
 </style>
-<style>
-/* Givebutter widget for the Circle. It brings its own card, so no frame
-   of ours around it — just room, and the copy stays above. */
-.uc-widget{margin:22px 0 4px}
-.uc-widget givebutter-widget{display:block;width:100%}
-.uc-widget .uc-fine{padding:18px 0}
-.uc-widget .uc-fine a{color:var(--gold)}
-</style>
 <!-- Givebutter widgets library. Givebutter specifies this goes in
      <head>. Required for the <givebutter-widget> on this page. -->
 <script async src="https://widgets.givebutter.com/latest.umd.cjs?acct=pjIhzptMh71wOY8x&p=other"></script>
 <style>
-/* Join panel: everything on one centred axis, including the widget. */
+/* Join panel, centred.
+
+   Do NOT set a width or max-width on <givebutter-widget>. Its card is
+   rendered inside the element at the card's own width; if the host is
+   forced narrower, the card overflows it and no amount of centring the
+   host will centre the card. Left unconstrained inside a grid with
+   justify-items:center, the host sizes to the card and the card centres
+   with everything else. */
 .uc-join{text-align:center}
-.uc-join h2{margin-left:auto;margin-right:auto}
-.uc-join .intro{margin-left:auto;margin-right:auto}
-.uc-widget{display:flex;justify-content:center;margin:26px 0 6px}
-.uc-widget givebutter-widget{display:block;width:100%;max-width:540px}
+.uc-join > *{margin-left:auto;margin-right:auto}
+.uc-widget{display:grid;justify-items:center;margin:26px 0 6px;width:100%}
+.uc-widget givebutter-widget{display:block}
 .uc-join .uc-actions{justify-content:center}
-.uc-join .uc-fine{margin-left:auto;margin-right:auto;max-width:62ch}
-/* the crest watermark reads better behind a centred block */
+.uc-join .uc-fine{max-width:62ch}
 .uc-join::after{right:auto;left:50%;transform:translate(-50%,28%);opacity:.05}
-@media(max-width:600px){.uc-widget givebutter-widget{max-width:none}}
 </style>
 </head><body>
 <div class="utility"><div class="wrap">
