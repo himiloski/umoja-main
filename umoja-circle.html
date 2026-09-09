@@ -918,6 +918,17 @@
   .nav-cta .give,.nav-cta .login{padding:7px 9px;font-size:.55rem;letter-spacing:.02em}
 }
 </style>
+<style>
+/* Givebutter widget for the Circle. It brings its own card, so no frame
+   of ours around it — just room, and the copy stays above. */
+.uc-widget{margin:22px 0 4px}
+.uc-widget givebutter-widget{display:block;width:100%}
+.uc-widget .uc-fine{padding:18px 0}
+.uc-widget .uc-fine a{color:var(--gold)}
+</style>
+<!-- Givebutter widgets library. Givebutter specifies this goes in
+     <head>. Required for the <givebutter-widget> on this page. -->
+<script async src="https://widgets.givebutter.com/latest.umd.cjs?acct=pjIhzptMh71wOY8x&p=other"></script>
 </head><body>
 <div class="utility"><div class="wrap">
   <span>Clarkston, Georgia <span class="dot">&bull;</span> Youth Soccer <span class="dot">&bull;</span> Est. 2025</span>
@@ -1033,17 +1044,15 @@
   <div class="uc-join">
     <h2>Join the Umoja Circle</h2>
     <p class="intro">Give $5,000 or more today, or reach $5,000 in total charitable giving during the year.<br><span class="sm">Monthly and recurring gifts count toward your annual total.</span></p>
-    <div class="uc-amts" id="uc-amts"></div>
-    <div class="uc-readout">
-      <span class="v" id="uc-amount">$5,000</span>
-      <span class="per" id="uc-per">Annual gift</span>
+    <div class="uc-widget">
+      <givebutter-widget id="gKZbYJ"></givebutter-widget>
+      <noscript><p class="uc-fine">Our giving form needs JavaScript. Write to
+        <a href="mailto:hello@umojasoka.com?subject=Umoja%20Circle">hello@umojasoka.com</a>
+        and we will set it up with you.</p></noscript>
     </div>
-    <span class="uc-err" id="uc-err" hidden></span>
     <div class="uc-actions">
-      <a class="btn btn-gold" id="uc-go" href="#">Join the Circle <span class="a">&rarr;</span></a>
       <a class="btn btn-ghost" href="mailto:hello@umojasoka.com?subject=Umoja%20Circle%20conversation">Start a conversation <span class="a">&rarr;</span></a>
     </div>
-    <p class="uc-fine" id="uc-fine"></p>
     <p class="uc-fine">A conversation is the right route for a restricted charitable purpose, a donor-advised fund, a gift of stock or property, or any other major-gift arrangement. Umoja can recognise support associated with a donor-advised fund; how recognition is handled is arranged case by case so that it stays consistent with DAF rules and our acknowledgment practices.</p>
   </div>
 </div></section>
@@ -1129,134 +1138,5 @@ var TRYOUT_WINDOW = "closed";
 })();
 </script>
 
-<script>
-/* ===================================================================
-   UMOJA CIRCLE — annual gift, $5,000 minimum.
 
-   Same payment architecture as give.html: no card data is ever
-   collected, transmitted or stored here. The donor is handed to the
-   processor's own checkout, which is the only thing that sees a card.
-   Configure the identical four steps documented on give.html.
-
-   minimum   the floor for Circle membership. A smaller amount is
-             refused with a message pointing to give.html, rather than
-             quietly accepted.
-   =================================================================== */
-  /* ── GIVEBUTTER ───────────────────────────────────────────────────
-     The widget loader is installed on this page. To go live, create the
-     campaign in Givebutter and paste its URL into checkoutUrl, e.g.
-       checkoutUrl: "https://givebutter.com/your-campaign"
-     Givebutter handles the card entry, the receipt and recurring gifts,
-     so nothing about payments is stored here. Leave sessionEndpoint
-     null — that is only for a processor that needs a server-created
-     session, which Givebutter does not.
-     ──────────────────────────────────────────────────────────────── */
-var CIRCLE = {
-  provider: "givebutter",
-  publicKey: null,
-  checkoutUrl: null,
-  sessionEndpoint: null,
-  successUrl: null,
-  cancelUrl: null,
-
-  minimum: 5000,
-  amounts: [5000, 10000, 25000, 50000],
-  defaultAmount: 5000,
-
-  campaign: "umoja-circle",
-  source: "website-umoja-circle",
-  email: "hello@umojasoka.com"
-};
-
-(function(){
-  var C=CIRCLE, amount=C.defaultAmount, custom=false;
-  var wrap=document.getElementById('uc-amts'); if(!wrap) return;
-  var out=document.getElementById('uc-amount'), go=document.getElementById('uc-go'),
-      fine=document.getElementById('uc-fine'), err=document.getElementById('uc-err');
-  function money(n){ return '$'+Number(n).toLocaleString('en-US'); }
-  function ready(){ return !!(C.checkoutUrl || C.sessionEndpoint); }
-
-  wrap.innerHTML = C.amounts.map(function(a){
-      return '<button type="button" class="uc-amt" data-a="'+a+'" aria-pressed="false">'+money(a)+'</button>';
-    }).join('') +
-    '<label class="uc-custom"><span>$</span>'+
-    '<input type="text" inputmode="numeric" id="uc-custom" placeholder="Another amount" aria-label="Custom annual gift"></label>';
-
-  var buttons=[].slice.call(wrap.querySelectorAll('.uc-amt'));
-  var input=document.getElementById('uc-custom');
-
-  function gift(){
-    return {
-      amount: amount,
-      amountCents: Math.round(amount*100),
-      frequency: 'annual',
-      recurring: false,
-      currency: 'usd',
-      campaign: C.campaign,
-      source: C.source,
-      reference: 'CIRCLE-'+new Date().toISOString().slice(0,10).replace(/-/g,'')+'-'+
-                 Math.random().toString(36).slice(2,6).toUpperCase()
-    };
-  }
-  function handoff(g){
-    if(!C.checkoutUrl) return null;
-    var q='amount='+g.amount+'&frequency='+g.frequency+
-          '&campaign='+encodeURIComponent(g.campaign)+
-          '&source='+encodeURIComponent(g.source)+
-          '&ref='+encodeURIComponent(g.reference);
-    if(C.successUrl) q+='&success_url='+encodeURIComponent(C.successUrl+'?ref='+g.reference);
-    if(C.cancelUrl)  q+='&cancel_url='+encodeURIComponent(C.cancelUrl);
-    return C.checkoutUrl+(C.checkoutUrl.indexOf('?')>-1?'&':'?')+q;
-  }
-
-  function paint(){
-    buttons.forEach(function(b){
-      b.setAttribute('aria-pressed',(!custom && +b.dataset.a===amount)?'true':'false'); });
-    out.textContent = amount ? money(amount) : '$—';
-    var below = amount>0 && amount<C.minimum;
-    if(below){
-      err.innerHTML='The Circle begins at '+money(C.minimum)+' a year. '+
-        'A gift of any size is just as welcome on <a href="give.html" style="color:var(--gold)">Ways to Give</a>.';
-      err.hidden=false;
-    } else err.hidden=true;
-    fine.textContent = ready()
-      ? 'Secure checkout. Card details are handled by our payment processor.'
-      : 'Online giving opens shortly. Either button writes to us and we will set it up with you personally.';
-    go.href = (!below && ready() && handoff(gift())) ||
-      ('mailto:'+C.email+'?subject='+encodeURIComponent(
-        'Umoja Circle'+(amount?' — '+money(amount)+' annual gift':'')));
-  }
-
-  go.addEventListener('click', function(e){
-    if(amount>0 && amount<C.minimum){ e.preventDefault(); input && input.focus(); return; }
-    if(!C.sessionEndpoint) return;
-    e.preventDefault();
-    var g=gift(); go.setAttribute('aria-busy','true');
-    fetch(C.sessionEndpoint,{method:'POST',
-      headers:{'Content-Type':'application/json',Accept:'application/json'},
-      body:JSON.stringify(Object.assign({},g,{
-        successUrl: C.successUrl ? C.successUrl+'?ref='+g.reference : null,
-        cancelUrl: C.cancelUrl }))})
-      .then(function(r){ return r.json(); })
-      .then(function(d){ if(!d||!d.url) throw 0; window.location.href=d.url; })
-      .catch(function(){
-        go.removeAttribute('aria-busy');
-        window.location.href='mailto:'+C.email+'?subject='+encodeURIComponent('Umoja Circle — '+money(g.amount));
-      });
-  });
-
-  wrap.addEventListener('click',function(e){
-    var b=e.target.closest('.uc-amt'); if(!b) return;
-    custom=false; input.value=''; amount=+b.dataset.a; paint();
-  });
-  input.addEventListener('input',function(){
-    var v=parseInt(String(input.value).replace(/[^0-9]/g,''),10);
-    custom=!!input.value; amount=isNaN(v)?0:v; paint();
-  });
-  paint();
-})();
-</script>
-<!-- Givebutter widget loader. Required on any page that renders a
-     Givebutter element or opens a Givebutter checkout. -->
-<script async src="https://widgets.givebutter.com/latest.umd.cjs?acct=pjIhzptMh71wOY8x&p=other"></script>
 </body></html>
