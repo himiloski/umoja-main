@@ -924,15 +924,19 @@
 <style>
 /* Join panel, centred.
 
-   Width is set on the CONTAINER, never on <givebutter-widget> itself.
-   The widget renders an iframe that fills the space it is given, so a
-   narrower parent makes a narrower card. Putting max-width on the
-   element instead lets the iframe overflow it, which is what pushed the
-   card off-axis earlier. This is the same arrangement that works on the
-   Give page, where the widget sits in a narrower column.
+   WHY THIS IS SHAPED THIS WAY — the Givebutter iframe sets its own
+   width and ignores width/max-width on its host and on the host's
+   parent. Capping the wrapper therefore did not shrink the card; it
+   just let the card overflow a narrower box, which is what kept
+   knocking it off the page's centre line.
 
-   The .intro and .uc-fine rules earlier in the file set `margin:0`, so
-   these selectors are deliberately more specific in order to win. */
+   So no width is set anywhere near it. The wrapper uses fit-content, so
+   it hugs whatever width the iframe actually renders at, and auto
+   margins centre that. Correct regardless of the card's size.
+
+   TO CHANGE THE CARD'S WIDTH: it is a setting on the widget itself in
+   the Givebutter dashboard (Sharing -> Widgets), not something this
+   stylesheet can control. */
 .uc-join{text-align:center}
 .uc-sec .uc-join > h2,
 .uc-sec .uc-join > .intro,
@@ -940,11 +944,13 @@
 .uc-sec .uc-join > .intro{max-width:44ch}
 .uc-sec .uc-join > .uc-fine{max-width:60ch}
 
-.uc-widget{width:100%;max-width:520px;margin:26px auto 10px}
-.uc-widget givebutter-widget{display:block;width:100%}
+.uc-widget{width:fit-content;max-width:100%;margin:26px auto 10px}
+.uc-widget givebutter-widget{display:block}
 
 .uc-join .uc-actions{justify-content:center}
-.uc-join::after{right:auto;left:50%;transform:translate(-50%,28%);opacity:.05}
+/* the panel clipped anything that overflowed, which hid the symptom */
+.uc-join{overflow:visible}
+.uc-join::after{right:auto;left:50%;transform:translate(-50%,28%);opacity:.05;pointer-events:none}
 </style>
 </head><body>
 <div class="utility"><div class="wrap">
