@@ -811,6 +811,15 @@ html:not(.js) .acc-body{overflow:visible}
 .s-sec > p.lede{color:var(--white);font-weight:300;font-size:clamp(1.12rem,2.1vw,1.42rem);
   line-height:1.45;max-width:44ch;margin-bottom:18px}
 
+/* one oversized statement per page, breaking the even rhythm */
+.s-statement{padding:clamp(44px,6vw,86px) 0;border-top:1px solid var(--line);position:relative;overflow:hidden}
+.s-statement::after{content:"";position:absolute;right:-6%;top:50%;transform:translateY(-50%);
+  width:min(52vh,520px);aspect-ratio:1;background:var(--crest) center/contain no-repeat;opacity:.05}
+.s-statement .wrap{position:relative;z-index:2}
+.s-statement p{font-family:"Anton",sans-serif;text-transform:uppercase;line-height:1.02;
+  font-size:clamp(1.7rem,4.6vw,3.4rem);max-width:18ch;margin:0;letter-spacing:.01em}
+.s-statement p em{font-style:normal;color:var(--gold)}
+.s-statement .by{margin-top:20px;color:var(--gray);font-weight:300;font-size:1.02rem;max-width:56ch}
 
 /* list rows come alive on hover and carry an index */
 .s-row{position:relative;transition:padding-left .24s var(--ease),background .24s var(--ease)}
@@ -917,6 +926,10 @@ html:not(.js) .acc-body{overflow:visible}
   .nav-cta .give,.nav-cta .login{padding:7px 9px;font-size:.55rem;letter-spacing:.02em}
 }
 </style>
+<style>
+/* Foundations and Rec have no travel line, so their strip is one cell */
+.acc-extra.one{grid-template-columns:1fr}
+</style>
 </head><body>
 <div class="utility"><div class="wrap">
   <span>Clarkston, Georgia <span class="dot">&bull;</span> Youth Soccer <span class="dot">&bull;</span> Est. 2025</span>
@@ -995,11 +1008,10 @@ html:not(.js) .acc-body{overflow:visible}
           <span class="pricebox"><span class="amt">$525<small>Per year</small></span><span class="chev" aria-hidden="true"></span></span>
         </summary>
         <div class="acc-body"><div class="acc-inner">
-          <h4>What your fee covers at this level</h4>
+          <h4>What the fee covers at this level</h4>
           <p>Coaching, fields, and player registration and insurance. Sessions are coach-run, so there is no referee line and no league entry at this age.</p>
-          <div class="acc-extra">
-            <div><span class="k">Kit</span><span class="v">$350</span><span class="d">Bought once every two years, not annually</span></div>
-            <div><span class="k">Travel</span><span class="v">Planned in June</span><span class="d">From the real schedule, once rosters are set</span></div>
+          <div class="acc-extra one">
+            <div><span class="k">Kit</span><span class="v">$100</span><span class="d">Bought once every two years, not annually</span></div>
           </div>
           <p class="acc-more"><a href="programs.html">What this level actually is <span>&rarr;</span></a></p>
           
@@ -1010,11 +1022,10 @@ html:not(.js) .acc-body{overflow:visible}
           <span class="pricebox"><span class="amt">$425<small>Per year</small></span><span class="chev" aria-hidden="true"></span></span>
         </summary>
         <div class="acc-body"><div class="acc-inner">
-          <h4>What your fee covers at this level</h4>
+          <h4>What the fee covers at this level</h4>
           <p>Coaching, fields, referees, league and team registration, and player registration and insurance. A full season, close to home.</p>
-          <div class="acc-extra">
-            <div><span class="k">Kit</span><span class="v">$350</span><span class="d">Bought once every two years, not annually</span></div>
-            <div><span class="k">Travel</span><span class="v">Planned in June</span><span class="d">From the real schedule, once rosters are set</span></div>
+          <div class="acc-extra one">
+            <div><span class="k">Kit</span><span class="v">$100</span><span class="d">Bought once every two years, not annually</span></div>
           </div>
           <p class="acc-more"><a href="programs.html">What this level actually is <span>&rarr;</span></a></p>
           
@@ -1035,7 +1046,7 @@ html:not(.js) .acc-body{overflow:visible}
           <span class="pricebox"><span class="amt">$1,700<small>Per year</small></span><span class="chev" aria-hidden="true"></span></span>
         </summary>
         <div class="acc-body"><div class="acc-inner">
-          <h4>What your fee covers at this level</h4>
+          <h4>What the fee covers at this level</h4>
           <p>Coaching, fields, referees, league and team registration, player registration and insurance, and normal competition and event entry fees.</p>
           <div class="acc-extra">
             <div><span class="k">Kit</span><span class="v">$350</span><span class="d">Bought once every two years, not annually</span></div>
@@ -1050,7 +1061,7 @@ html:not(.js) .acc-body{overflow:visible}
           <span class="pricebox"><span class="amt">$1,725<small>Per year</small></span><span class="chev" aria-hidden="true"></span></span>
         </summary>
         <div class="acc-body"><div class="acc-inner">
-          <h4>What your fee covers at this level</h4>
+          <h4>What the fee covers at this level</h4>
           <p>The same as Development, against a stronger fixture list across metro Atlanta. Coaching, fields, referees, registration, insurance and event entry.</p>
           <div class="acc-extra">
             <div><span class="k">Kit</span><span class="v">$350</span><span class="d">Bought once every two years, not annually</span></div>
@@ -1075,7 +1086,7 @@ html:not(.js) .acc-body{overflow:visible}
           <span class="pricebox"><span class="amt">$3,250&ndash;$3,450<small>Per year, by age</small></span><span class="chev" aria-hidden="true"></span></span>
         </summary>
         <div class="acc-body"><div class="acc-inner">
-          <h4>What your fee covers at this level</h4>
+          <h4>What the fee covers at this level</h4>
           <p>Coaching, fields, referees, registration, insurance and event entry across a season built from tournaments, showcases and friendlies. Player travel is separate and planned in June.</p>
           <div class="acc-extra">
             <div><span class="k">Kit</span><span class="v">$350</span><span class="d">Bought once every two years, not annually</span></div>
@@ -1090,7 +1101,7 @@ html:not(.js) .acc-body{overflow:visible}
           <span class="pricebox"><span class="amt">$3,550&ndash;$4,325<small>Per year, by age</small></span><span class="chev" aria-hidden="true"></span></span>
         </summary>
         <div class="acc-body"><div class="acc-inner">
-          <h4>What your fee covers at this level</h4>
+          <h4>What the fee covers at this level</h4>
           <p>Everything above, across the strongest schedule we can assemble and a national showcase calendar. Player travel is separate and planned in June.</p>
           <div class="acc-extra">
             <div><span class="k">Kit</span><span class="v">$350</span><span class="d">Bought once every two years, not annually</span></div>
@@ -1107,12 +1118,17 @@ html:not(.js) .acc-body{overflow:visible}
 </div></section>
 
 <section class="s-sec"><div class="wrap">
-  <h2>What your fee covers.</h2>
+  <h2>What the fee covers.</h2>
   <ul class="s-run">
     <li>Coaching</li><li>Fields</li><li>Referees</li>
     <li>League &amp; team registration</li><li>Event entry</li><li>Player insurance</li>
   </ul>
   <p class="s-note"><b>Not in the fee:</b> player travel &mdash; lodging, airfare, motorcoach and meals &mdash; and the kit, which runs on its own two-year cycle.</p>
+</div></section>
+
+<section class="s-statement"><div class="wrap">
+  <p>One published fee.<br><em>No invoice you did not expect.</em></p>
+  <p class="by">Most clubs advertise a number and bill you again all season. Ours does not. What travel costs is worked out once, in June, from the real schedule.</p>
 </div></section>
 
 
