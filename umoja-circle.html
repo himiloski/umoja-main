@@ -924,18 +924,23 @@
 <style>
 /* Join panel, centred.
 
-   Do NOT set a width or max-width on <givebutter-widget>. Its card is
-   rendered inside the element at the card's own width; if the host is
-   forced narrower, the card overflows it and no amount of centring the
-   host will centre the card. Left unconstrained inside a grid with
-   justify-items:center, the host sizes to the card and the card centres
-   with everything else. */
+   The earlier rules set `margin:0 0 24px` on .intro and .uc-fine, which
+   beats a later `margin-left:auto` at the same specificity — so those
+   blocks stayed pinned left while their text centred inside them. These
+   selectors are more specific, so they win outright.
+
+   And no width on <givebutter-widget>: its card renders at its own width
+   inside the element, so forcing the host narrower makes the card
+   overflow and sit off-axis. */
 .uc-join{text-align:center}
-.uc-join > *{margin-left:auto;margin-right:auto}
-.uc-widget{display:grid;justify-items:center;margin:26px 0 6px;width:100%}
+.uc-sec .uc-join > h2,
+.uc-sec .uc-join > .intro,
+.uc-sec .uc-join > .uc-fine{margin-left:auto;margin-right:auto}
+.uc-sec .uc-join > .intro{max-width:44ch}
+.uc-sec .uc-join > .uc-fine{max-width:60ch}
+.uc-widget{display:grid;justify-items:center;margin:26px 0 10px;width:100%}
 .uc-widget givebutter-widget{display:block}
 .uc-join .uc-actions{justify-content:center}
-.uc-join .uc-fine{max-width:62ch}
 .uc-join::after{right:auto;left:50%;transform:translate(-50%,28%);opacity:.05}
 </style>
 </head><body>
