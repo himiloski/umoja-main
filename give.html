@@ -1019,16 +1019,16 @@
 <style>
 /* Givebutter giving form.
 
-   Do not put a max-width on this block. The widget renders its own card
-   at its own width; if the wrapper is narrower the card overflows it and
-   the heading — centred inside the wrapper — ends up on a different axis
-   to the card. Instead the block is a centred flex column, so the title
-   and the card are both centred on the same line whatever width the
-   widget decides to be. */
-.gb-block{display:flex;flex-direction:column;align-items:center;width:100%}
+   Centring the title and the widget separately kept putting them on
+   different axes, because the widget's card renders at its own width
+   inside its host element. So instead the wrapper SHRINKS TO THE CARD
+   (width:fit-content, centred in the page). The title then centres
+   inside a box that is exactly as wide as the card, which makes the two
+   line up by construction rather than by matching numbers. */
+.gb-block{width:fit-content;max-width:100%;margin-inline:auto}
 .gb-title{text-align:center;font-size:clamp(1.25rem,2.6vw,1.7rem);line-height:1.1;margin:0 0 20px}
-.gb-form{padding:0;border:none;background:none;width:100%;display:flex;justify-content:center}
-.gb-form givebutter-giving-form{display:block;width:100%;max-width:560px}
+.gb-form{padding:0;border:none;background:none}
+.gb-form givebutter-giving-form{display:block}
 .gb-fallback{color:var(--gray);font-weight:300;margin:0;padding:20px;text-align:center}
 .gb-fallback a{color:var(--gold)}
 </style>
