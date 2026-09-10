@@ -122,7 +122,7 @@
 
   .climb{margin-top:46px}
   .climb .step{display:block;text-decoration:none;color:inherit;margin-bottom:12px}
-  .climb .bar{width:var(--w);min-width:280px;border:1px solid var(--line);background:var(--ink-1);
+  .climb .bar{width:var(--w);min-width:280px;margin:0 auto;border:1px solid var(--line);background:var(--ink-1);
     padding:clamp(18px,2.2vw,26px) clamp(20px,2.4vw,30px);position:relative;
     display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;
     transition:width .45s var(--ease),border-color .28s var(--ease),background .28s var(--ease)}
@@ -511,34 +511,34 @@
     <div class="lad-group reveal">
       <p class="lad-lbl">Play the game <em>&mdash; complete programs, not a waiting room</em></p>
       <div class="play">
-        <a href="programs.html"><span class="nm">Foundations</span>
+        <a href="programs.html#foundations"><span class="nm">Foundations</span>
           <span class="ds">Where a child learns to play. Small-sided sessions built around touches on the ball. Nobody is assessed and nobody is cut.</span></a>
-        <a href="programs.html"><span class="nm">Rec</span>
+        <a href="programs.html#rec"><span class="nm">Rec</span>
           <span class="ds">Real football on your own terms &mdash; a proper season, coached well, without the competitive calendar.</span></a>
       </div>
     </div>
 
     <div class="lad-group climb reveal">
       <p class="lad-lbl">Chase the game <em>&mdash; each level asks for more, and gives more</em></p>
-      <a class="step" href="programs.html">
+      <a class="step" href="programs.html#elite">
         <div class="bar" style="--w:52%">
-          <div><span class="nm">Development</span>
-            <span class="ds">The entry point to competitive football. Players start being asked tactical questions.</span></div>
+          <div><span class="nm">Elite</span>
+            <span class="ds">The top of the club. Built so a player can be recruited out of Umoja without ever leaving it.</span></div>
           <span class="st">Forming</span></div></a>
-      <a class="step live" href="programs.html">
+      <a class="step live" href="programs.html#premier">
         <div class="bar" style="--w:66%">
-          <div><span class="nm">Evolution</span>
-            <span class="ds">A step up in standard, and in who you play. The same work held to a higher line.</span></div>
-          <span class="st now">Playing now</span></div></a>
-      <a class="step live" href="programs.html">
-        <div class="bar" style="--w:80%">
           <div><span class="nm">Premier</span>
             <span class="ds">Football beyond the local market. Tournaments, showcases and strong opposition further afield.</span></div>
           <span class="st now">Playing now</span></div></a>
-      <a class="step" href="programs.html">
+      <a class="step live" href="programs.html#evolution">
+        <div class="bar" style="--w:80%">
+          <div><span class="nm">Evolution</span>
+            <span class="ds">A step up in standard, and in who you play. The same work held to a higher line.</span></div>
+          <span class="st now">Playing now</span></div></a>
+      <a class="step" href="programs.html#development">
         <div class="bar" style="--w:94%">
-          <div><span class="nm">Elite</span>
-            <span class="ds">The top of the club. Built so a player can be recruited out of Umoja without ever leaving it.</span></div>
+          <div><span class="nm">Development</span>
+            <span class="ds">The entry point to competitive football. Players start being asked tactical questions.</span></div>
           <span class="st">Forming</span></div></a>
     </div>
 

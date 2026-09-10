@@ -754,6 +754,30 @@ html:not(.js) .acc-body{overflow:visible}
   max-width:66ch;margin-top:20px}
 .s-note b{color:var(--white);font-weight:600}
 .s-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+
+/* ── one block per program ───────────────────────────────────────────
+   Each level gets a real description and its own anchor, so the
+   pyramid on the home page can land a visitor on the level they
+   clicked rather than at the top of this page. */
+.pg{border-top:1px solid var(--line-2);padding:34px 0 38px;scroll-margin-top:96px}
+.pg:first-of-type{border-top:none}
+.pg-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.pg-head h3{font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.02em;
+  font-size:clamp(1.7rem,4vw,2.6rem);line-height:.95;margin:0}
+.pg-head .tag{font-size:.56rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gray-2);border:1px solid var(--line);padding:6px 10px}
+.pg-head .tag.now{color:var(--ink);background:var(--gold);border-color:var(--gold)}
+.pg .id{display:block;color:var(--white);font-size:clamp(1.02rem,2vw,1.2rem);font-weight:400;
+  margin-top:14px;max-width:46ch}
+.pg p{color:var(--gray);font-weight:300;font-size:.99rem;margin:14px 0 0;max-width:68ch}
+.pg .fits{border-left:3px solid var(--gold);padding-left:16px;margin-top:20px;color:var(--gray);max-width:68ch}
+.pg .fits b{color:var(--white);font-weight:600}
+.pg-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin-top:24px;max-width:760px}
+@media(max-width:680px){.pg-facts{grid-template-columns:1fr 1fr}}
+.pg-facts > div{background:var(--ink-1);padding:16px 18px}
+.pg-facts .k{font-size:.55rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gray-2)}
+.pg-facts .v{display:block;margin-top:7px;font-size:.92rem;color:var(--white);font-weight:300}
 </style>
 <style>
 /* ── Character, without adding components ────────────────────────────
@@ -916,15 +940,39 @@ html:not(.js) .acc-body{overflow:visible}
 
 <section class="s-sec"><div class="wrap">
   <h2>Two ways to play.</h2>
-  <p class="lede">Foundations and Rec are complete programs in their own right, not a waiting room for the competitive side. The four levels below them are a pathway a player moves along when they are ready.</p>
+  <p class="lede">Foundations and Rec are complete programs in their own right, not a waiting room for the competitive side. The four levels below them are a pathway a player moves along when they are ready. Each one is described in full below &mdash; what it asks for, what it gives, and who it suits.</p>
   <p>You do not need to pick. Come to a tryout and our coaches will tell you where your player fits.</p>
 </div></section>
 
 <section class="s-sec"><div class="wrap">
-  <p class="s-lbl">Play the game</p>
-  <div class="s-list">
-    <div class="s-row"><h3>Foundations</h3><span class="tag">Forming</span><p><span class="id">Where a child learns to play.</span> Small-sided sessions built entirely around touches on the ball. Coach-officiated, no referees, no league table. Nobody is assessed and nobody is cut.</p><p class="meta" style="grid-column:1/-1;margin-top:8px">U6 – U10 &middot; Twice a week &middot; No travel</p></div>
-    <div class="s-row"><h3>Rec</h3><span class="tag">Forming</span><p><span class="id">Real football, on your own terms.</span> A proper season, coached well, without the commitment or the calendar of the competitive side. Choosing Rec is a decision about time, not ability.</p><p class="meta" style="grid-column:1/-1;margin-top:8px">U11 – U19 &middot; Weekly &middot; No travel</p></div>
+  <p class="s-lbl">Play the game &mdash; complete programs, not a waiting room</p>
+
+  <div class="pg" id="foundations">
+    <div class="pg-head"><h3>Foundations</h3><span class="tag">Forming</span></div>
+    <span class="id">Where a child learns to play.</span>
+    <p>Small-sided sessions built entirely around touches on the ball. Coach-officiated, no referees, no league table, no score anybody writes down. At this age the coach decides more about a player&rsquo;s future than the fixture does, which is why Umoja staffs this level deliberately rather than with whoever is available.</p>
+    <p>Nobody is assessed and nobody is cut. A child who has never kicked a ball and a child who already plays every day are both in the right place here.</p>
+    <div class="pg-facts">
+      <div><span class="k">Ages</span><span class="v">U6 &ndash; U10</span></div>
+      <div><span class="k">Training</span><span class="v">Twice a week</span></div>
+      <div><span class="k">Season</span><span class="v">Year-round, optional</span></div>
+      <div><span class="k">Travel</span><span class="v">None</span></div>
+    </div>
+    <p class="fits"><b>This is right for you if</b> your child is new to the game, or young enough that the only thing that matters is time on the ball.</p>
+  </div>
+
+  <div class="pg" id="rec">
+    <div class="pg-head"><h3>Rec</h3><span class="tag">Forming</span></div>
+    <span class="id">Real football, on your own terms.</span>
+    <p>A proper season, coached well, without the commitment or the calendar of the competitive side. Saturdays, a team, a coach who knows your name &mdash; and the rest of your week back.</p>
+    <p>Choosing Rec is a decision about time, not ability. Plenty of players here could play competitively and have decided they want a life outside sport as well. Nobody in Rec is being evaluated. That said, our coaches are asked to speak up if a player is clearly playing below their level, because sometimes a family simply did not know the competitive program existed or assumed it was out of reach financially.</p>
+    <div class="pg-facts">
+      <div><span class="k">Ages</span><span class="v">U11 &ndash; U19</span></div>
+      <div><span class="k">Training</span><span class="v">Weekly</span></div>
+      <div><span class="k">Season</span><span class="v">Saturdays in season</span></div>
+      <div><span class="k">Travel</span><span class="v">None</span></div>
+    </div>
+    <p class="fits"><b>This is right for you if</b> your player loves the game and your family needs the week to belong to school, work, faith or family.</p>
   </div>
 </div></section>
 
@@ -935,14 +983,66 @@ html:not(.js) .acc-body{overflow:visible}
 
 
 <section class="s-sec"><div class="wrap">
-  <p class="s-lbl">Chase the game</p>
-  <div class="s-list">
-    <div class="s-row"><h3>Development</h3><span class="tag">Forming</span><p><span class="id">The entry point to competitive football.</span> The technical work continues, but players start being asked tactical questions — where to stand, when to press, what the player next to them is doing.</p><p class="meta" style="grid-column:1/-1;margin-top:8px">U11 – U19 &middot; Several sessions a week &middot; Minimal travel</p></div>
-    <div class="s-row"><h3>Evolution</h3><span class="tag now">Playing now</span><p><span class="id">A step up in standard, and in who you play.</span> The same work held to a higher line, against stronger opposition across metro Atlanta.</p><p class="meta" style="grid-column:1/-1;margin-top:8px">U11 – U19 &middot; Several sessions a week &middot; Some travel</p></div>
-    <div class="s-row"><h3>Premier</h3><span class="tag now">Playing now</span><p><span class="id">Football beyond the local market.</span> Training load steps up and the season is built from tournaments, showcases and friendlies against strong opposition further afield.</p><p class="meta" style="grid-column:1/-1;margin-top:8px">U11 – U19 &middot; High load &middot; Travel planned each season</p></div>
-    <div class="s-row"><h3>Elite</h3><span class="tag">Forming</span><p><span class="id">The top of the club.</span> The strongest schedule we can assemble and a national showcase calendar. Built so a player can be recruited out of the club without ever having to leave it.</p><p class="meta" style="grid-column:1/-1;margin-top:8px">U11 – U18/19 &middot; Year-round &middot; Travel planned each season</p></div>
+  <p class="s-lbl">Chase the game &mdash; each level asks for more, and gives more</p>
+
+  <div class="pg" id="development">
+    <div class="pg-head"><h3>Development</h3><span class="tag">Forming</span></div>
+    <span class="id">The entry point to competitive football.</span>
+    <p>The technical work continues, but players start being asked tactical questions &mdash; where to stand, when to press, what the player next to them is doing. Training moves from several touches to several decisions.</p>
+    <p>This level sits inside the years where most children quit sport altogether, so it is built to keep them rather than to sort them. The demands are real and the intensity is deliberately not cranked up. A twelve-year-old has enough going on.</p>
+    <div class="pg-facts">
+      <div><span class="k">Ages</span><span class="v">U11 &ndash; U19</span></div>
+      <div><span class="k">Training</span><span class="v">Several sessions a week</span></div>
+      <div><span class="k">Season</span><span class="v">Local fixtures</span></div>
+      <div><span class="k">Travel</span><span class="v">Minimal</span></div>
+    </div>
+    <p class="fits"><b>This is right for you if</b> your player wants to be coached seriously and is ready to train more than once a week.</p>
   </div>
+
+  <div class="pg" id="evolution">
+    <div class="pg-head"><h3>Evolution</h3><span class="tag now">Playing now</span></div>
+    <span class="id">A step up in standard, and in who you play.</span>
+    <p>The same work, held to a higher line, against stronger opposition across metro Atlanta. Players are expected at training rather than invited to it, and the coach is planning a season rather than a session.</p>
+    <p>What changes here is the standard of the opponent as much as the standard of the work. Playing better teams asks questions a training ground cannot.</p>
+    <div class="pg-facts">
+      <div><span class="k">Ages</span><span class="v">U11 &ndash; U19</span></div>
+      <div><span class="k">Training</span><span class="v">Several sessions a week</span></div>
+      <div><span class="k">Season</span><span class="v">Metro Atlanta fixtures</span></div>
+      <div><span class="k">Travel</span><span class="v">Some, in state</span></div>
+    </div>
+    <p class="fits"><b>This is right for you if</b> your player is committed to the season and wants to be tested by better opposition.</p>
+  </div>
+
+  <div class="pg" id="premier">
+    <div class="pg-head"><h3>Premier</h3><span class="tag now">Playing now</span></div>
+    <span class="id">Football beyond the local market.</span>
+    <p>Training load steps up and the season is built from tournaments, showcases and friendlies against strong opposition further afield. Weekends start belonging to the fixture list.</p>
+    <p>Travel is where most clubs quietly hand families a second bill &mdash; a hotel, fuel, meals, days off work. At Umoja the club drives, houses and feeds the team, and that is inside the price rather than on top of it.</p>
+    <div class="pg-facts">
+      <div><span class="k">Ages</span><span class="v">U11 &ndash; U19</span></div>
+      <div><span class="k">Training</span><span class="v">High load</span></div>
+      <div><span class="k">Season</span><span class="v">Tournaments &amp; showcases</span></div>
+      <div><span class="k">Travel</span><span class="v">Planned each season</span></div>
+    </div>
+    <p class="fits"><b>This is right for you if</b> your player wants a demanding season and a schedule that takes them out of the local market.</p>
+  </div>
+
+  <div class="pg" id="elite">
+    <div class="pg-head"><h3>Elite</h3><span class="tag">Forming</span></div>
+    <span class="id">The top of the club.</span>
+    <p>The strongest schedule we can assemble and a national showcase calendar. Full-time coaching, a year-round commitment, and a standard that reaches back down into how every age below it is coached.</p>
+    <p>Built so a player can be recruited out of Umoja without ever having to leave it. A family should not need to buy their way into a bigger club to be seen.</p>
+    <div class="pg-facts">
+      <div><span class="k">Ages</span><span class="v">U11 &ndash; U18/19</span></div>
+      <div><span class="k">Training</span><span class="v">Year-round</span></div>
+      <div><span class="k">Season</span><span class="v">National showcase calendar</span></div>
+      <div><span class="k">Travel</span><span class="v">Planned each season</span></div>
+    </div>
+    <p class="fits"><b>This is right for you if</b> your player intends to play beyond Umoja and is ready for the commitment that requires.</p>
+  </div>
+
   <p class="s-note"><b>These are Umoja program levels, not league memberships.</b> Where our teams do not yet hold a place in a national league, we build the strongest independent schedule we can. We will say so plainly when that changes rather than before.</p>
+  <p class="s-note" style="border-left-color:var(--line)"><b>Cost is not what decides this.</b> Every level carries the same support &mdash; rides to training, meals, gear &mdash; and a family who needs help with fees applies once. <a href="pricing.html">See pricing and scholarships</a>.</p>
 </div></section>
 
 <section class="s-sec last"><div class="wrap">
