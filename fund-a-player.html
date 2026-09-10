@@ -914,6 +914,13 @@
 .fp-read .v{font-family:"Anton",sans-serif;color:var(--gold);font-size:clamp(1.9rem,4.2vw,2.8rem);
   line-height:1;font-variant-numeric:tabular-nums}
 .fp-read .per{font-size:.6rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gray-2)}
+/* The Givebutter form renders at a fixed 440px and left-aligns inside
+   whatever container it is given, so the container is set to 440px.
+   Do not put flex or grid on <givebutter-widget> — that collapses the
+   iframe to its intrinsic width and the card gets narrower. */
+.fp-widget{width:100%;max-width:440px;margin:4px 0 4px}
+.fp-widget givebutter-widget{display:block;width:100%}
+.btn-row givebutter-widget{display:inline-block}
 .fp-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
 .fp-actions .btn{padding:16px 28px;font-size:.8rem}
 .fp-fine{color:var(--gray-2);font-weight:300;font-size:.84rem;margin-top:14px;max-width:58ch}
@@ -1004,7 +1011,8 @@
   <p class="sub">Every Umoja player brings something different to the club &mdash; a position, a personality, a family, a goal, and a reason they love the game. What they should never have to bring is proof that their family can afford the opportunity.</p>
   <p class="sub">Fund a Player helps cover the real cost of participation for players receiving financial support: coaching, competition, travel, transportation, meals, equipment, and the other things it takes to stay on the field.</p>
   <div class="btn-row" style="margin-top:26px">
-    <a class="btn btn-gold" href="#fund">Fund a player <span class="a">&darr;</span></a>
+    <!-- Givebutter donate button. Opens Givebutter's own checkout. -->
+    <givebutter-widget id="LYORqK"></givebutter-widget>
     <a class="btn btn-ghost" href="#players">Meet Umoja <span class="a">&darr;</span></a>
   </div>
 </div></section>
@@ -1031,26 +1039,15 @@
     <h2>Ways to fund a player</h2>
     <p class="intro">Fund a full season at a level of play, contribute part of one, or give whatever amount works for you. Monthly gifts are welcome and are the easiest kind for the club to plan around.</p>
 
-    <div class="fp-freq" role="group" aria-label="Giving frequency">
-      <button type="button" id="fp-month" aria-pressed="false">Monthly</button>
-      <button type="button" id="fp-once" aria-pressed="true">One time</button>
+    <!-- Givebutter giving form. Amounts, frequency, receipting and
+         recurring gifts are all configured in Givebutter, not here. -->
+    <div class="fp-widget">
+      <givebutter-widget id="LvNQoa"></givebutter-widget>
     </div>
 
-    <p class="fp-lbl" id="fp-season-lbl">Fund a season</p>
-    <div class="fp-opts" id="fp-seasons"></div>
-
-    <p class="fp-lbl" style="margin-top:24px">Fund part of a season</p>
-    <div class="fp-opts" id="fp-parts"></div>
-
-    <div class="fp-read">
-      <span class="v" id="fp-amount">$0</span>
-      <span class="per" id="fp-per">One time</span>
-    </div>
     <div class="fp-actions">
-      <a class="btn btn-gold" id="fp-go" href="#">Fund a player <span class="a">&rarr;</span></a>
       <a class="btn btn-ghost" href="mailto:hello@umojasoka.com?subject=Fund%20a%20player">Start a conversation <span class="a">&rarr;</span></a>
     </div>
-    <p class="fp-fine" id="fp-fine"></p>
     <p class="fp-fine">Gifts support players receiving financial assistance across the club. Umoja decides how that support is allocated.</p>
   </div>
 </div></section>
@@ -1190,32 +1187,13 @@ var PROGRAM_COSTS = {
   ]
 };
 
-/* ── 3. GIVING ─────────────────────────────────────────────────────
-   Same architecture as give.html. No card data is collected here; the
-   donor is handed to the processor's own checkout. Configure the same
-   four steps documented on the Ways to Give page.
-
-   seasonOptions are built from PROGRAM_COSTS automatically — a level
-   only appears as a button once it has a real figure.
-   ================================================================== */
-  /* ── GIVEBUTTER ───────────────────────────────────────────────────
-     The widget loader is installed on this page. To go live, create the
-     campaign in Givebutter and paste its URL into checkoutUrl, e.g.
-       checkoutUrl: "https://givebutter.com/your-campaign"
-     Givebutter handles the card entry, the receipt and recurring gifts,
-     so nothing about payments is stored here. Leave sessionEndpoint
-     null — that is only for a processor that needs a server-created
-     session, which Givebutter does not.
-     ──────────────────────────────────────────────────────────────── */
-var FUND = {
-  provider: "givebutter", publicKey: null,
-  checkoutUrl: null, sessionEndpoint: null,
-  successUrl: null, cancelUrl: null,
-  partAmounts: [50, 100, 250, 500],
-  campaign: "fund-a-player",
-  source: "website-fund-a-player",
-  email: "hello@umojasoka.com"
-};
+/* ── 3. GIVING ───────────────────────────────────────────
+   Nothing to configure here. Giving on this page runs entirely through
+   Givebutter: the donate button in the hero (widget LYORqK) and the
+   giving form in the Ways to Fund a Player section (widget LvNQoa).
+   Amounts, frequency, receipting and recurring gifts are all set inside
+   Givebutter. No card data touches this page.
+   ═════════════════════════════════════════════════════════════════ */
 
 (function(){
   function esc(s){ return String(s).replace(/[&<>"]/g,function(c){
@@ -1283,90 +1261,6 @@ var FUND = {
       : 'A gift at these levels helps fund a season of participation; Umoja allocates support across players by need.';
   }
 
-  /* ---- giving ---- */
-  var seasons=$('fp-seasons'), parts=$('fp-parts'), out=$('fp-amount'),
-      per=$('fp-per'), go=$('fp-go'), fine=$('fp-fine'),
-      bMonth=$('fp-month'), bOnce=$('fp-once');
-  if(!seasons) return;
-  var freq='once', amount=0, custom=false;
-  function ready(){ return !!(FUND.checkoutUrl || FUND.sessionEndpoint); }
-
-  var withFigures=PROGRAM_COSTS.levels.filter(function(l){ return l.amount!=null; });
-  if(withFigures.length){
-    seasons.innerHTML=withFigures.map(function(l){
-      return '<button type="button" class="fp-opt" data-a="'+l.amount+'" aria-pressed="false">'+
-             money(l.amount)+'<small>'+esc(l.level)+'</small></button>'; }).join('');
-  } else {
-    seasons.innerHTML='';
-    $('fp-season-lbl').style.display='none';
-  }
-  parts.innerHTML=FUND.partAmounts.map(function(a){
-      return '<button type="button" class="fp-opt" data-a="'+a+'" aria-pressed="false">'+money(a)+'</button>';
-    }).join('') +
-    '<label class="fp-custom"><span>$</span><input type="text" inputmode="numeric" id="fp-custom" '+
-    'placeholder="Any amount" aria-label="Custom amount"></label>';
-  var input=$('fp-custom');
-  var buttons=[].slice.call(document.querySelectorAll('.fp-opt'));
-
-  function gift(){
-    return { amount:amount, amountCents:Math.round(amount*100),
-      frequency: freq==='monthly'?'monthly':'once',
-      recurring: freq==='monthly', interval: freq==='monthly'?'month':null,
-      currency:'usd', campaign:FUND.campaign, source:FUND.source,
-      reference:'FAP-'+new Date().toISOString().slice(0,10).replace(/-/g,'')+'-'+
-                Math.random().toString(36).slice(2,6).toUpperCase() };
-  }
-  function handoff(g){
-    if(!FUND.checkoutUrl) return null;
-    var q='amount='+g.amount+'&frequency='+g.frequency+
-          '&campaign='+encodeURIComponent(g.campaign)+'&source='+encodeURIComponent(g.source)+
-          '&ref='+encodeURIComponent(g.reference);
-    if(FUND.successUrl) q+='&success_url='+encodeURIComponent(FUND.successUrl+'?ref='+g.reference);
-    if(FUND.cancelUrl)  q+='&cancel_url='+encodeURIComponent(FUND.cancelUrl);
-    return FUND.checkoutUrl+(FUND.checkoutUrl.indexOf('?')>-1?'&':'?')+q;
-  }
-  function paint(){
-    buttons.forEach(function(b){
-      b.setAttribute('aria-pressed',(!custom && +b.dataset.a===amount && amount>0)?'true':'false'); });
-    out.textContent = amount ? money(amount) : '$0';
-    per.textContent = freq==='monthly' ? 'Every month' : 'One time';
-    fine.textContent = ready()
-      ? 'Secure checkout. Card details are handled by our payment processor.'
-      : 'Online giving opens shortly. Either button writes to us and we will set it up with you.';
-    go.href = (amount>0 && ready() && handoff(gift())) ||
-      ('mailto:'+FUND.email+'?subject='+encodeURIComponent(
-        'Fund a player'+(amount?' — '+money(amount)+(freq==='monthly'?' monthly':''):'')));
-  }
-  document.addEventListener('click',function(e){
-    var b=e.target.closest('.fp-opt'); if(!b) return;
-    custom=false; if(input) input.value=''; amount=+b.dataset.a; paint();
-  });
-  if(input) input.addEventListener('input',function(){
-    var v=parseInt(String(input.value).replace(/[^0-9]/g,''),10);
-    custom=!!input.value; amount=isNaN(v)?0:v; paint();
-  });
-  function setFreq(f){
-    freq=f;
-    bMonth.setAttribute('aria-pressed', f==='monthly'?'true':'false');
-    bOnce.setAttribute('aria-pressed', f==='once'?'true':'false');
-    paint();
-  }
-  bMonth.addEventListener('click',function(){ setFreq('monthly'); });
-  bOnce.addEventListener('click',function(){ setFreq('once'); });
-  go.addEventListener('click',function(e){
-    if(!FUND.sessionEndpoint || !amount) return;
-    e.preventDefault();
-    var g=gift();
-    fetch(FUND.sessionEndpoint,{method:'POST',
-      headers:{'Content-Type':'application/json',Accept:'application/json'},
-      body:JSON.stringify(Object.assign({},g,{
-        successUrl:FUND.successUrl?FUND.successUrl+'?ref='+g.reference:null, cancelUrl:FUND.cancelUrl}))})
-      .then(function(r){ return r.json(); })
-      .then(function(d){ if(!d||!d.url) throw 0; window.location.href=d.url; })
-      .catch(function(){ window.location.href='mailto:'+FUND.email+'?subject='+
-        encodeURIComponent('Fund a player — '+money(g.amount)); });
-  });
-  paint();
 })();
 </script>
 <!-- Givebutter widget loader. Required on any page that renders a
