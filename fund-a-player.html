@@ -885,10 +885,15 @@
 .fp-cost .d{color:var(--gray);font-weight:300;font-size:.9rem;margin:12px 0 0}
 
 /* ── ways to fund ───────────────────────────────────────────────── */
+/* The box frames its contents rather than the column: it is sized to the
+   440px giving widget plus its padding, centred on the page, and every
+   line inside it is centred too. */
 .fp-give{border:1px solid var(--gold);background:linear-gradient(150deg,rgba(245,194,5,.11),transparent 64%);
-  padding:clamp(26px,3.6vw,46px)}
+  padding:clamp(26px,3.6vw,46px);max-width:536px;margin:0 auto;text-align:center}
 .fp-give h2{font-size:clamp(1.5rem,3.2vw,2.1rem);margin:0 0 8px}
-.fp-give .intro{color:var(--gray);font-weight:300;max-width:56ch;margin:0 0 22px}
+.fp-give .intro{color:var(--gray);font-weight:300;max-width:42ch;margin:0 auto 22px}
+.fp-give .fp-fine{max-width:44ch;margin-left:auto;margin-right:auto}
+.fp-give .fp-actions{justify-content:center}
 .fp-freq{display:inline-grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);margin-bottom:18px}
 .fp-freq button{font-family:inherit;background:transparent;border:none;color:var(--gray);cursor:pointer;
   padding:12px 26px;font-size:.74rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
@@ -918,7 +923,7 @@
    whatever container it is given, so the container is set to 440px.
    Do not put flex or grid on <givebutter-widget> — that collapses the
    iframe to its intrinsic width and the card gets narrower. */
-.fp-widget{width:100%;max-width:440px;margin:4px 0 4px}
+.fp-widget{width:100%;max-width:440px;margin:4px auto}
 .fp-widget givebutter-widget{display:block;width:100%}
 .btn-row givebutter-widget{display:inline-block}
 .fp-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
