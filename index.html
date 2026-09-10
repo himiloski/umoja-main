@@ -101,18 +101,29 @@
   .welcome .photo .ph{color:var(--gray-2);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase}
   .welcome .photo::after{content:"";position:absolute;right:-30%;bottom:-20%;width:80%;aspect-ratio:1;background:var(--crest) center/contain no-repeat;opacity:.06}
 
-  /* teams — kit tiles */
-  .teams .sec-head{margin-bottom:48px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
-  .kit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .kit{position:relative;background:var(--ink-1);border:1px solid var(--line);padding:34px 30px 28px;min-height:310px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;transition:border-color .3s var(--ease),transform .3s var(--ease)}
-  .kit:hover{border-color:var(--gold);transform:translateY(-5px)}
-  .kit .no{position:absolute;top:-22px;right:8px;font-family:"Anton",sans-serif;font-size:10rem;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--line);transition:-webkit-text-stroke .3s var(--ease)}
-  .kit:hover .no{-webkit-text-stroke:1.5px rgba(245,194,5,.55)}
-  .kit .lbl{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;position:relative}
-  .kit h3{font-size:2rem;margin-bottom:12px;position:relative}
-  .kit p{font-size:.94rem;color:var(--gray);position:relative;margin-bottom:20px;font-weight:300}
-  .kit .go{font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--white);display:inline-flex;gap:.4em;position:relative}
-  .kit:hover .go{color:var(--gold)}
+  /* the pathway — a ladder of program levels, not team tiles */
+  .teams .sec-head{margin-bottom:44px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .lad-lbl{font-size:.62rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-2);margin-bottom:14px}
+  .lad{border-top:1px solid var(--line)}
+  .lad-group+.lad-group{margin-top:40px}
+  .lad .rung{display:grid;grid-template-columns:minmax(150px,auto) 1fr auto;gap:clamp(14px,2.6vw,34px);
+    align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;
+    transition:padding-left .24s var(--ease),background .24s var(--ease)}
+  .lad .rung:hover{padding-left:14px;background:linear-gradient(90deg,rgba(245,194,5,.055),transparent 58%)}
+  .lad .nm{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:clamp(1.35rem,3vw,2.05rem);
+    line-height:1;letter-spacing:.03em;transition:color .24s var(--ease)}
+  .lad .rung:hover .nm{color:var(--gold)}
+  .lad .ds{color:var(--gray);font-weight:300;font-size:.95rem;max-width:58ch}
+  .lad .st{font-size:.57rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gray-2);
+    border:1px solid var(--line);padding:6px 10px;white-space:nowrap}
+  .lad .st.now{color:var(--ink);background:var(--gold);border-color:var(--gold)}
+  @media(max-width:820px){
+    .lad .rung{grid-template-columns:1fr auto;gap:10px}
+    .lad .ds{grid-column:1/-1;max-width:none}
+  }
+  .lad-note{color:var(--gray-2);font-weight:300;font-size:.9rem;margin-top:26px;padding-left:18px;
+    border-left:3px solid var(--gold);max-width:70ch}
+  .lad-note b{color:var(--white);font-weight:600}
 
   /* programs */
   .programs{background:var(--ink-1);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
@@ -207,7 +218,7 @@
   @media(max-width:980px){
     .welcome .grid{grid-template-columns:1fr;gap:36px}
     .welcome .photo{aspect-ratio:16/10}
-    .kit-grid,.prog-grid,.news-grid{grid-template-columns:1fr 1fr}
+    .prog-grid,.news-grid{grid-template-columns:1fr 1fr}
     .way-grid{grid-template-columns:1fr}
     .logo-wall{grid-template-columns:repeat(3,1fr)}
     .foot-top{grid-template-columns:1fr 1fr;gap:32px}
@@ -229,7 +240,7 @@
     .menu.open a{display:block;padding:16px 28px}
     .menu.open a::after{display:none}
     .band{padding:66px 0}
-    .kit-grid,.prog-grid,.news-grid,.logo-wall{grid-template-columns:1fr}
+    .prog-grid,.news-grid,.logo-wall{grid-template-columns:1fr}
     .logo-wall{grid-template-columns:1fr 1fr}
     .foot-top{grid-template-columns:1fr;gap:30px}
   }
@@ -284,8 +295,6 @@
 
 /* The team cards are bottom-aligned, so a card whose copy runs a line longer
    starts higher than the rest. Reserving three lines keeps the row level. */
-.kit-grid .kit p{min-height:4.9em}
-@media(max-width:900px){.kit-grid .kit p{min-height:0}}
 
 .tryout-bar{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-top:20px;
   border:1px solid var(--line);border-left:3px solid var(--gold);background:var(--ink-1);
@@ -475,23 +484,50 @@
   </div>
 </section>
 
-<section class="band teams" id="teams">
+<section class="band teams" id="pathway">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div><span class="eyebrow">Our Teams</span><h2 style="margin-top:12px">Where players grow.</h2></div>
-      <a href="programs.html" class="link-gold">View all teams <span class="a">&rarr;</span></a>
+      <div><span class="eyebrow">The Pathway</span><h2 style="margin-top:12px">Where players grow.</h2></div>
+      <a href="programs.html" class="link-gold">All programs <span class="a">&rarr;</span></a>
     </div>
-    <div class="kit-grid">
-      <div class="kit reveal"><span class="no">12</span><span class="lbl">Youth Boys &middot; Evolution</span><h3>U12</h3>
-        <p>First touch, technical development and the beginnings of tactical understanding.</p>
-        <a href="programs.html" class="go">View team <span>&rarr;</span></a></div>
-      <div class="kit reveal"><span class="no">12</span><span class="lbl">Youth Boys &middot; Premier</span><h3>U12</h3>
-        <p>Our stronger U12 side. Technical work at pace, with real tactical demands.</p>
-        <a href="programs.html" class="go">View team <span>&rarr;</span></a></div>
-      <div class="kit reveal"><span class="no">19</span><span class="lbl">Senior Boys</span><h3>U18/19</h3>
-        <p>Players who understand the game deeply and intend to pursue it beyond Umoja.</p>
-        <a href="programs.html" class="go">View team <span>&rarr;</span></a></div>
+
+    <div class="lad-group reveal">
+      <p class="lad-lbl">Play the game</p>
+      <div class="lad">
+        <a class="rung" href="programs.html">
+          <span class="nm">Foundations</span>
+          <span class="ds">Where a child learns to play. Small-sided sessions built around touches on the ball. Nobody is assessed and nobody is cut.</span>
+          <span class="st">Forming</span></a>
+        <a class="rung" href="programs.html">
+          <span class="nm">Rec</span>
+          <span class="ds">Real football on your own terms &mdash; a proper season, coached well, without the competitive calendar.</span>
+          <span class="st">Forming</span></a>
+      </div>
     </div>
+
+    <div class="lad-group reveal">
+      <p class="lad-lbl">Chase the game</p>
+      <div class="lad">
+        <a class="rung" href="programs.html">
+          <span class="nm">Development</span>
+          <span class="ds">The entry point to competitive football. Technical work continues, and players start being asked tactical questions.</span>
+          <span class="st">Forming</span></a>
+        <a class="rung" href="programs.html">
+          <span class="nm">Evolution</span>
+          <span class="ds">A step up in standard, and in who you play. The same work held to a higher line across metro Atlanta.</span>
+          <span class="st now">Playing now</span></a>
+        <a class="rung" href="programs.html">
+          <span class="nm">Premier</span>
+          <span class="ds">Football beyond the local market. A season built from tournaments, showcases and strong opposition further afield.</span>
+          <span class="st now">Playing now</span></a>
+        <a class="rung" href="programs.html">
+          <span class="nm">Elite</span>
+          <span class="ds">The top of the club. Built so a player can be recruited out of Umoja without ever having to leave it.</span>
+          <span class="st">Forming</span></a>
+      </div>
+    </div>
+
+    <p class="lad-note reveal"><b>These are Umoja program levels, not league memberships.</b> A place in the club is durable; a place on a team is earned each year. Come to a tryout and our coaches will tell you where your player fits.</p>
 
     <div class="tryout-bar reveal">
       <div>
