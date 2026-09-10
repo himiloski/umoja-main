@@ -357,6 +357,24 @@
   .nav-cta .give,.nav-cta .login{padding:7px 9px;font-size:.55rem;letter-spacing:.02em}
 }
 </style>
+<style>
+/* ── GIVE MENU — two grouped columns ───────────────────────────────
+   Six links that all looked alike were really two families: giving to
+   the club, and organisations that want a relationship with it. The
+   dropdown is split accordingly, which also halves its height. */
+.submenu-cols{display:flex;left:auto;right:-22px;min-width:0;padding:14px 0}
+.submenu-cols>.sub-col{flex:0 0 auto;min-width:196px}
+.submenu-cols>.sub-col+.sub-col{border-left:1px solid var(--line)}
+.submenu-cols .sub-h{font-size:.56rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gray-2);padding:2px 24px 9px;margin:0}
+.submenu-cols .sub-col>ul{list-style:none;margin:0;padding:0}
+@media(max-width:900px){
+  .menu.open .submenu-cols{display:block;right:auto;padding:0}
+  .menu.open .submenu-cols>.sub-col{min-width:0}
+  .menu.open .submenu-cols>.sub-col+.sub-col{border-left:none;border-top:1px solid var(--line-2)}
+  .menu.open .submenu-cols .sub-h{padding:14px 28px 6px 46px}
+}
+</style>
 </head><body>
 <div class="utility"><div class="wrap">
   <span>Clarkston, Georgia <span class="dot">&bull;</span> Youth Soccer <span class="dot">&bull;</span> Est. 2025</span>
@@ -399,13 +417,23 @@
           <li><a href="help-policies.html">Help &amp; Policies</a></li>
           </ul></li>
         <li class="has-sub"><a href="give.html">Give<span class="caret">&#9660;</span></a>
-          <ul class="submenu">
-          <li><a href="give.html">Ways to Give</a></li>
-          <li><a href="fund-a-player.html">Fund a Player</a></li>
-          <li><a href="umoja-circle.html">Umoja Circle</a></li>
-          <li><a href="sponsors.html">Sponsors</a></li>
-          <li><a href="partners.html">Partners</a></li>
-          <li><a href="campaign.html">Home Ground</a></li>
+          <ul class="submenu submenu-cols">
+          <li class="sub-col">
+            <p class="sub-h">Give</p>
+            <ul>
+              <li><a href="give.html">Ways to Give</a></li>
+              <li><a href="fund-a-player.html">Fund a Player</a></li>
+              <li><a href="umoja-circle.html">Umoja Circle</a></li>
+              <li><a href="campaign.html">Home Ground</a></li>
+            </ul>
+          </li>
+          <li class="sub-col">
+            <p class="sub-h">Work With Us</p>
+            <ul>
+              <li><a href="sponsors.html">Sponsors</a></li>
+              <li><a href="partners.html">Partners</a></li>
+            </ul>
+          </li>
           </ul></li>
         <li class="m-only"><a href="tryouts.html" id="nav-cta-m"></a></li>
         <li class="m-only"><a href="https://playmetrics.com/signup?clubToken=TG9naW4tQ2x1Yi52MS0zMTM0LTE3ODkwNTg5OTN8SlNMdVFpM2dUNmlRNXQ2T1BKS2Y3OS9HeVlkTFBzR25XV2ZLQ0xaZjNGUT0=">Login &middot; PlayMetrics</a></li>
@@ -425,11 +453,11 @@
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="wrap">
     <span class="eyebrow reveal"><span class="pipe"></span> Umoja Soccer Club</span>
-    <h1 class="reveal">Built to<span class="g"> change the game.</span></h1>
-    <p class="lede reveal">Umoja sets our standard at every age, challenging our players and the system.</p>
+    <h1 class="reveal">Built to the <span class="g">top of the game.</span></h1>
+    <p class="lede reveal">A player can be recruited out of Umoja without ever leaving the club. That standard reaches into every session, at every age.</p>
     <div class="hero-actions reveal">
       <a href="tryouts.html" class="btn btn-gold">Join the Club <span class="a">&rarr;</span></a>
-      <a href="programs.html" class="btn btn-ghost">Our Programs<span class="a">&rarr;</span></a>
+      <a href="programs.html" class="btn btn-ghost">Programs &amp; Prices <span class="a">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -438,10 +466,10 @@
   <div class="wrap grid">
     <div class="reveal">
       <span class="eyebrow">Welcome to Umoja</span>
-      <h2>A club for every player.</h2>
-      <p>Umoja Soccer Club is rooted in Clarkston, Georgia, and was created to serve players across the metro Atlanta area.</p>
-      <p><strong>We were designed with intention.</strong> We are dedicated to player development, safety, and support.</p>
-      <p>Today, Umoja serves over 50 players, and we are excited to expand well beyond our current programs.</p>
+      <h2>A real club, for real players.</h2>
+      <p>Umoja Soccer Club is rooted in Clarkston, Georgia, the most diverse square mile in America. Soccer is already home here. We are a vessel for it.</p>
+      <p><strong>We are not the biggest club in Atlanta — we intend to be the best one to play for.</strong> The most serious about developing players, and the easiest to be a part of.</p>
+      <p>Three squads today, and about forty-five players. In early 2027 we hold tryouts and open the age groups in between.</p>
     </div>
     <div class="photo reveal"><img src="u19-group.jpg" alt="Umoja U18/19 squad together on the field" style="width:100%;height:100%;object-fit:cover;object-position:center 38%"></div>
   </div>
@@ -451,24 +479,24 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <div><span class="eyebrow">Our Teams</span><h2 style="margin-top:12px">Where players grow.</h2></div>
-      <a href="programs.html" class="link-gold">View all programs <span class="a">&rarr;</span></a>
+      <a href="programs.html" class="link-gold">View all teams <span class="a">&rarr;</span></a>
     </div>
     <div class="kit-grid">
       <div class="kit reveal"><span class="no">12</span><span class="lbl">Youth Boys &middot; Evolution</span><h3>U12</h3>
-        <p>Learning the game beyond the foundations. Focusing on refining first touch, technical development and tactical understanding.</p>
-        <a href="programs.html" class="go">Learn More <span>&rarr;</span></a></div>
-      <div class="kit reveal"><span class="no">12</span><span class="lbl">Youth Boys &middot; Elite</span><h3>U12</h3>
-        <p>Our more experienced U12 side. Technical work at pace, with real tactical demands.</p>
-        <a href="programs.html" class="go">Learn More <span>&rarr;</span></a></div>
-      <div class="kit reveal"><span class="no">19</span><span class="lbl">Senior Elite Boys</span><h3>U18/19</h3>
+        <p>First touch, technical development and the beginnings of tactical understanding.</p>
+        <a href="programs.html" class="go">View team <span>&rarr;</span></a></div>
+      <div class="kit reveal"><span class="no">12</span><span class="lbl">Youth Boys &middot; Premier</span><h3>U12</h3>
+        <p>Our stronger U12 side. Technical work at pace, with real tactical demands.</p>
+        <a href="programs.html" class="go">View team <span>&rarr;</span></a></div>
+      <div class="kit reveal"><span class="no">19</span><span class="lbl">Senior Boys</span><h3>U18/19</h3>
         <p>Players who understand the game deeply and intend to pursue it beyond Umoja.</p>
-        <a href="programs.html" class="go">Learn More <span>&rarr;</span></a></div>
+        <a href="programs.html" class="go">View team <span>&rarr;</span></a></div>
     </div>
 
     <div class="tryout-bar reveal">
       <div>
         <span class="when">Tryouts &middot; Early 2027</span>
-        <p>Expanding our programs. Free to attend, open to any player.</p>
+        <p>We open the age groups between our youngest and our oldest. Free to attend, open to any player.</p>
       </div>
       <a href="tryouts.html" class="btn btn-gold">How to join <span class="a">&rarr;</span></a>
     </div>
@@ -478,8 +506,8 @@
   <div class="hs-crest" aria-hidden="true"></div>
   <div class="wrap"><div class="hs-inner reveal">
     <span class="eyebrow">Scholarship</span>
-    <h2>Cost should not define a player's potential.</h2>
-    <p>Nothing about your family's finances will ever limit your player's ability to step onto the pitch. Umoja applies support against the published price.</p>
+    <h2>If the price is the barrier, the price moves.</h2>
+    <p>Nothing about your family's finances is part of the conversation at tryouts, at selection, or ever. Support is applied against the published price.</p>
     <a href="scholarship.html" class="btn btn-gold">How it works <span class="a">&rarr;</span></a>
   </div></div>
 </section>
@@ -495,7 +523,7 @@
             <span class="mark" role="img" aria-label="Umoja Soccer Club crest"></span>
             <span class="name">UMOJA<small>Soccer Club</small></span>
           </a>
-          <p>A youth soccer club rooted in Clarkston, Georgia. Breaking Barriers. Building Champions.</p>
+          <p>A youth soccer club rooted in Clarkston, Georgia. We find whatever is keeping a child off the field, and we remove it.</p>
         </div>
         <div class="foot-col"><h5>Club</h5>
           <a href="about.html">Our Story</a>

@@ -821,6 +821,24 @@ html:not(.js) .acc-body{overflow:visible}
   .nav-cta .give,.nav-cta .login{padding:7px 9px;font-size:.55rem;letter-spacing:.02em}
 }
 </style>
+<style>
+/* ── GIVE MENU — two grouped columns ───────────────────────────────
+   Six links that all looked alike were really two families: giving to
+   the club, and organisations that want a relationship with it. The
+   dropdown is split accordingly, which also halves its height. */
+.submenu-cols{display:flex;left:auto;right:-22px;min-width:0;padding:14px 0}
+.submenu-cols>.sub-col{flex:0 0 auto;min-width:196px}
+.submenu-cols>.sub-col+.sub-col{border-left:1px solid var(--line)}
+.submenu-cols .sub-h{font-size:.56rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gray-2);padding:2px 24px 9px;margin:0}
+.submenu-cols .sub-col>ul{list-style:none;margin:0;padding:0}
+@media(max-width:900px){
+  .menu.open .submenu-cols{display:block;right:auto;padding:0}
+  .menu.open .submenu-cols>.sub-col{min-width:0}
+  .menu.open .submenu-cols>.sub-col+.sub-col{border-left:none;border-top:1px solid var(--line-2)}
+  .menu.open .submenu-cols .sub-h{padding:14px 28px 6px 46px}
+}
+</style>
 </head><body>
 <div class="utility"><div class="wrap">
   <span>Clarkston, Georgia <span class="dot">&bull;</span> Youth Soccer <span class="dot">&bull;</span> Est. 2025</span>
@@ -863,13 +881,23 @@ html:not(.js) .acc-body{overflow:visible}
           <li><a href="help-policies.html">Help &amp; Policies</a></li>
           </ul></li>
         <li class="has-sub"><a href="give.html">Give<span class="caret">&#9660;</span></a>
-          <ul class="submenu">
-          <li><a href="give.html">Ways to Give</a></li>
-          <li><a href="fund-a-player.html">Fund a Player</a></li>
-          <li><a href="umoja-circle.html">Umoja Circle</a></li>
-          <li><a href="sponsors.html">Sponsors</a></li>
-          <li><a href="partners.html">Partners</a></li>
-          <li><a href="campaign.html">Home Ground</a></li>
+          <ul class="submenu submenu-cols">
+          <li class="sub-col">
+            <p class="sub-h">Give</p>
+            <ul>
+              <li><a href="give.html">Ways to Give</a></li>
+              <li><a href="fund-a-player.html">Fund a Player</a></li>
+              <li><a href="umoja-circle.html">Umoja Circle</a></li>
+              <li><a href="campaign.html">Home Ground</a></li>
+            </ul>
+          </li>
+          <li class="sub-col">
+            <p class="sub-h">Work With Us</p>
+            <ul>
+              <li><a href="sponsors.html">Sponsors</a></li>
+              <li><a href="partners.html">Partners</a></li>
+            </ul>
+          </li>
           </ul></li>
         <li class="m-only"><a href="tryouts.html" id="nav-cta-m"></a></li>
         <li class="m-only"><a href="https://playmetrics.com/signup?clubToken=TG9naW4tQ2x1Yi52MS0zMTM0LTE3ODkwNTg5OTN8SlNMdVFpM2dUNmlRNXQ2T1BKS2Y3OS9HeVlkTFBzR25XV2ZLQ0xaZjNGUT0=">Login &middot; PlayMetrics</a></li>

@@ -1037,6 +1037,24 @@
 .gb-fallback a{color:var(--gold)}
 @media(max-width:900px){.gb-say{order:-1}.gb-title{margin-bottom:12px}}
 </style>
+<style>
+/* ── GIVE MENU — two grouped columns ───────────────────────────────
+   Six links that all looked alike were really two families: giving to
+   the club, and organisations that want a relationship with it. The
+   dropdown is split accordingly, which also halves its height. */
+.submenu-cols{display:flex;left:auto;right:-22px;min-width:0;padding:14px 0}
+.submenu-cols>.sub-col{flex:0 0 auto;min-width:196px}
+.submenu-cols>.sub-col+.sub-col{border-left:1px solid var(--line)}
+.submenu-cols .sub-h{font-size:.56rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gray-2);padding:2px 24px 9px;margin:0}
+.submenu-cols .sub-col>ul{list-style:none;margin:0;padding:0}
+@media(max-width:900px){
+  .menu.open .submenu-cols{display:block;right:auto;padding:0}
+  .menu.open .submenu-cols>.sub-col{min-width:0}
+  .menu.open .submenu-cols>.sub-col+.sub-col{border-left:none;border-top:1px solid var(--line-2)}
+  .menu.open .submenu-cols .sub-h{padding:14px 28px 6px 46px}
+}
+</style>
 </head><body>
 <div class="utility"><div class="wrap">
   <span>Clarkston, Georgia <span class="dot">&bull;</span> Youth Soccer <span class="dot">&bull;</span> Est. 2025</span>
@@ -1079,13 +1097,23 @@
           <li><a href="help-policies.html">Help &amp; Policies</a></li>
           </ul></li>
         <li class="has-sub"><a href="give.html" class="active">Give<span class="caret">&#9660;</span></a>
-          <ul class="submenu">
-          <li><a href="give.html" class="active">Ways to Give</a></li>
-          <li><a href="fund-a-player.html">Fund a Player</a></li>
-          <li><a href="umoja-circle.html">Umoja Circle</a></li>
-          <li><a href="sponsors.html">Sponsors</a></li>
-          <li><a href="partners.html">Partners</a></li>
-          <li><a href="campaign.html">Home Ground</a></li>
+          <ul class="submenu submenu-cols">
+          <li class="sub-col">
+            <p class="sub-h">Give</p>
+            <ul>
+              <li><a href="give.html" class="active">Ways to Give</a></li>
+              <li><a href="fund-a-player.html">Fund a Player</a></li>
+              <li><a href="umoja-circle.html">Umoja Circle</a></li>
+              <li><a href="campaign.html">Home Ground</a></li>
+            </ul>
+          </li>
+          <li class="sub-col">
+            <p class="sub-h">Work With Us</p>
+            <ul>
+              <li><a href="sponsors.html">Sponsors</a></li>
+              <li><a href="partners.html">Partners</a></li>
+            </ul>
+          </li>
           </ul></li>
         <li class="m-only"><a href="tryouts.html" id="nav-cta-m"></a></li>
         <li class="m-only"><a href="https://playmetrics.com/signup?clubToken=TG9naW4tQ2x1Yi52MS0zMTM0LTE3ODkwNTg5OTN8SlNMdVFpM2dUNmlRNXQ2T1BKS2Y3OS9HeVlkTFBzR25XV2ZLQ0xaZjNGUT0=">Login &middot; PlayMetrics</a></li>
@@ -1141,7 +1169,7 @@
     <div class="wg-level"><span class="amt">$25</span><span class="nm">Supporter</span><p class="d">Helps meet the everyday costs that keep players participating.</p></div>
     <div class="wg-level"><span class="amt">$100</span><span class="nm">Teammate</span><p class="d">Helps cover equipment, meals, registration, transportation or another immediate player need.</p></div>
     <div class="wg-level"><span class="amt">$250</span><span class="nm">Starter</span><p class="d">A meaningful contribution toward putting a young player on the field for a season.</p></div>
-    <div class="wg-level"><span class="amt">$500</span><span class="nm">Game Changer</span><p class="d">Helps close a substantial part of the gap for a player receiving financial support.</p></div>
+    <div class="wg-level"><span class="amt">$500</span><span class="nm">Playmaker</span><p class="d">Helps close a substantial part of the gap for a player receiving financial support.</p></div>
     <div class="wg-level"><span class="amt">$1,000</span><span class="nm">Barrier Breaker</span><p class="d">Covers a major share of competitive participation and the support that makes it possible.</p></div>
     <div class="wg-level"><span class="amt">$2,500</span><span class="nm">Champion</span><p class="d">Can fund most or all of a lower-tier scholarship season, or make a major contribution toward a higher-level player.</p></div>
     <div class="wg-level"><span class="amt">$5,000+</span><span class="nm"><a href="umoja-circle.html">Umoja Circle</a></span><p class="d">A major investment in keeping high-level soccer accessible.</p></div>
