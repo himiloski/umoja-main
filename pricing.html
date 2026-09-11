@@ -665,6 +665,20 @@
 .acc-more a{font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
   color:var(--gold);display:inline-flex;gap:.45em;border-bottom:1px solid rgba(245,194,5,.35);padding-bottom:3px}
 .acc-more a:hover{border-bottom-color:var(--gold)}
+/* Spring pricing — the existing band rows, laid out as a small grid so
+   half-year figures sit beside the annual ones without a new component. */
+.spring{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin-top:30px}
+@media(max-width:900px){.spring{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.spring{grid-template-columns:1fr}}
+.spring .spr-card{background:var(--ink-1);padding:24px 22px 20px}
+.spring .spr-card h3{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:1.15rem;
+  letter-spacing:.03em;margin:0}
+.spring .bands{margin-top:12px;border-top:none}
+.spring .bands .brow{padding:10px 0}
+.spring .bands .brow .pr{font-size:1.25rem}
+.spring .spr-note{color:var(--gray-2);font-weight:300;font-size:.8rem;margin-top:6px}
+
 .acc-note{color:var(--gray-2);font-weight:300;font-size:.88rem;margin-top:14px;padding-left:14px;
   border-left:2px solid var(--line);max-width:64ch}
 .bands{margin-top:24px;border-top:1px solid var(--line)}
@@ -1043,7 +1057,7 @@ html:not(.js) .acc-body{overflow:visible}
         </summary>
         <div class="acc-body"><div class="acc-inner">
           <h4>What the fee covers at this level</h4>
-          <p>Coaching, fields, and player registration and insurance. One coached 60-minute practice a week and one Saturday play day, over a 13-week period. Saturday play is run by the coaches in house, so there is no referee line and no league entry at this age.</p>
+          <p>Coaching, fields, and player registration and insurance. One coached 60-minute practice a week and one Saturday play day, over a 13-week period. Saturday play is run by the coaches in house, so there is no referee line and no league table at this age.</p>
           <p class="acc-note">Two 13-week periods are offered each year. A family can register for either one, or both.</p>
           <div class="acc-extra one">
             <div><span class="k">Kit</span><span class="v">$100</span><span class="d">Bought once every two years, not annually</span></div>
@@ -1057,7 +1071,7 @@ html:not(.js) .acc-body{overflow:visible}
         </summary>
         <div class="acc-body"><div class="acc-inner">
           <h4>What the fee covers at this level</h4>
-          <p>Fields, referees, league and team registration as applicable, player registration and insurance, and planned event entry. Two 75-minute practices a week with volunteer coaches, playing in the RIAS recreational league.</p>
+          <p>Fields, referees, league and team registration as applicable, player registration and insurance, and planned event entry. Two 75-minute practices a week with volunteer coaches, playing in the RIAS recreational league, with one local Rec event in the annual plan.</p>
           <p class="acc-note">Two 13-week periods are offered each year. A family can register for either one, or both.</p>
           <div class="acc-extra one">
             <div><span class="k">Kit</span><span class="v">$100</span><span class="d">Bought once every two years, not annually</span></div>
@@ -1088,12 +1102,12 @@ html:not(.js) .acc-body{overflow:visible}
             <div><span class="k">Travel</span><span class="v">Planned separately</span><span class="d">From the real season schedule, once rosters are set</span></div>
           </div>
           <p class="acc-more"><a href="programs.html#development">What this level actually is <span>&rarr;</span></a></p>
-          <div class="bands"><p class="bhd">Age bands and program fees</p><div class="brow"><span class="ag">U11 &ndash; U12</span><span class="pr">$1,750</span></div><div class="brow"><span class="ag">U13 &ndash; U14</span><span class="pr">$1,575</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$1,275</span></div></div>
+          <div class="bands"><p class="bhd">Age bands and program fees</p><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$1,750</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$1,275</span></div></div>
         </div></div>
       </details><details class="acc a2">
         <summary>
           <span class="hd"><h3>Evolution</h3><p class="line">A step up in standard, and in who you play.</p></span>
-          <span class="pricebox"><span class="amt">$1,900&ndash;$2,600<small>Per year, by age</small></span><span class="chev" aria-hidden="true"></span></span>
+          <span class="pricebox"><span class="amt">$1,925&ndash;$2,600<small>Per year, by age</small></span><span class="chev" aria-hidden="true"></span></span>
         </summary>
         <div class="acc-body"><div class="acc-inner">
           <h4>What the fee covers at this level</h4>
@@ -1104,7 +1118,7 @@ html:not(.js) .acc-body{overflow:visible}
             <div><span class="k">Travel</span><span class="v">Planned separately</span><span class="d">From the real season schedule, once rosters are set</span></div>
           </div>
           <p class="acc-more"><a href="programs.html#evolution">What this level actually is <span>&rarr;</span></a></p>
-          <div class="bands"><p class="bhd">Age bands and program fees</p><div class="brow"><span class="ag">U11 &ndash; U12</span><span class="pr">$2,600</span></div><div class="brow"><span class="ag">U13 &ndash; U14</span><span class="pr">$2,250</span></div><div class="brow"><span class="ag">U15</span><span class="pr">$1,925</span></div><div class="brow"><span class="ag">U16</span><span class="pr">$1,900</span></div><div class="brow"><span class="ag">U17 &ndash; U19</span><span class="pr">$1,925</span></div></div>
+          <div class="bands"><p class="bhd">Age bands and program fees</p><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$2,600</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$1,925</span></div></div>
         </div></div>
       </details>
       </div>
@@ -1119,7 +1133,7 @@ html:not(.js) .acc-body{overflow:visible}
 <details class="acc a3">
         <summary>
           <span class="hd"><h3>Premier</h3><p class="line">Football beyond the local market.</p></span>
-          <span class="pricebox"><span class="amt">$2,300&ndash;$2,825<small>Per year, by age</small></span><span class="chev" aria-hidden="true"></span></span>
+          <span class="pricebox"><span class="amt">$2,350&ndash;$2,825<small>Per year, by age</small></span><span class="chev" aria-hidden="true"></span></span>
         </summary>
         <div class="acc-body"><div class="acc-inner">
           <h4>What the fee covers at this level</h4>
@@ -1130,7 +1144,7 @@ html:not(.js) .acc-body{overflow:visible}
             <div><span class="k">Travel</span><span class="v">Planned separately</span><span class="d">From the real season schedule, once rosters are set</span></div>
           </div>
           <p class="acc-more"><a href="programs.html#premier">What this level actually is <span>&rarr;</span></a></p>
-          <div class="bands"><p class="bhd">Age bands and program fees</p><div class="brow"><span class="ag">U11</span><span class="pr">$2,800</span></div><div class="brow"><span class="ag">U12</span><span class="pr">$2,825</span></div><div class="brow"><span class="ag">U13 &ndash; U14</span><span class="pr">$2,650</span></div><div class="brow"><span class="ag">U15</span><span class="pr">$2,300</span></div><div class="brow"><span class="ag">U16</span><span class="pr">$2,325</span></div><div class="brow"><span class="ag">U17</span><span class="pr">$2,350</span></div><div class="brow"><span class="ag">U18/19</span><span class="pr">$2,325</span></div></div>
+          <div class="bands"><p class="bhd">Age bands and program fees</p><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$2,825</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$2,350</span></div></div>
         </div></div>
       </details><details class="acc a4">
         <summary>
@@ -1146,7 +1160,7 @@ html:not(.js) .acc-body{overflow:visible}
             <div><span class="k">Travel</span><span class="v">Planned separately</span><span class="d">From the real season schedule, once rosters are set</span></div>
           </div>
           <p class="acc-more"><a href="programs.html#elite">What this level actually is <span>&rarr;</span></a></p>
-          <div class="bands"><p class="bhd">Age bands and program fees</p><div class="brow"><span class="ag">U11 &ndash; U12</span><span class="pr">$4,600</span></div><div class="brow"><span class="ag">U13 &ndash; U14</span><span class="pr">$4,050</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$3,725</span></div></div>
+          <div class="bands"><p class="bhd">Age bands and program fees</p><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$4,600</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$3,725</span></div></div>
         </div></div>
       </details>
       </div>
@@ -1159,10 +1173,25 @@ html:not(.js) .acc-body{overflow:visible}
   <h2>What the fee covers.</h2>
   <ul class="s-run">
     <li>Coaching</li><li>Fields</li><li>Referees</li>
-    <li>League &amp; team registration</li><li>Event entry</li><li>Player registration &amp; insurance</li>
+    <li>Home-game field allocation</li><li>League &amp; team registration</li>
+    <li>Planned event entry</li><li>Player registration &amp; insurance</li>
   </ul>
   <p class="s-note"><b>Separate from the program fee:</b> player travel &mdash; airfare and transportation, lodging and meals on the road &mdash; the kit and personal equipment such as cleats, shin guards and balls, coach travel expenses, and any postseason costs that only arise if a team earns a berth.</p>
   <p class="s-note" style="border-left-color:var(--line)">Event entry for the planned competition calendar is inside the program fee. The travel to reach those events is not.</p>
+</div></section>
+
+<section class="s-sec"><div class="wrap">
+  <h2>Spring 2027.</h2>
+  <p>Foundations and Rec are seasonal programs already, so spring is simply their normal 13-week price. For the competitive pathway, spring is half a year of programming and costs half the annual fee.</p>
+  <div class="spring">
+    <div class="spr-card"><h3>Foundations</h3><div class="bands"><div class="brow"><span class="ag">U6 &ndash; U10</span><span class="pr">$185</span></div><div class="brow"><span class="ag">Per period</span><span class="pr">13 weeks</span></div></div></div>
+    <div class="spr-card"><h3>Rec</h3><div class="bands"><div class="brow"><span class="ag">U11 &ndash; U19</span><span class="pr">$275</span></div><div class="brow"><span class="ag">Per period</span><span class="pr">13 weeks</span></div></div></div>
+    <div class="spr-card"><h3>Development</h3><div class="bands"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$875</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$637.50</span></div></div></div>
+    <div class="spr-card"><h3>Evolution</h3><div class="bands"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$1,300</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$962.50</span></div></div></div>
+    <div class="spr-card"><h3>Premier</h3><div class="bands"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$1,412.50</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$1,175</span></div></div></div>
+    <div class="spr-card"><h3>Elite</h3><div class="bands"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$2,300</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$1,862.50</span></div></div></div>
+  </div>
+  <p class="s-note">Kit and travel work the same way in spring as they do across a full year: the kit runs on its own two-year cycle, and travel is planned separately from the real season schedule once rosters are set.</p>
 </div></section>
 
 <section class="s-statement"><div class="wrap">
