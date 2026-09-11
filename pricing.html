@@ -644,13 +644,10 @@
 .acc .hd h3{font-family:"Anton",sans-serif;text-transform:uppercase;line-height:1;margin:0;
   font-size:clamp(1.35rem,2.6vw,2rem)}
 .acc .hd .line{color:var(--gray);font-weight:300;font-size:.95rem;margin:10px 0 0;max-width:44ch}
-.acc .pricebox{display:flex;align-items:center;gap:clamp(12px,2vw,24px);white-space:nowrap;text-align:right}
-.acc .pricebox .amt{font-family:"Anton",sans-serif;color:var(--gold);line-height:.9;
-  font-size:clamp(2.1rem,5.2vw,3.5rem)}
-.acc .pricebox .amt small{display:block;font-family:"Archivo",sans-serif;font-size:.58rem;font-weight:700;
-  letter-spacing:.15em;color:var(--gray-2);margin-top:9px}
-.fam.compete .acc .pricebox .amt{font-size:clamp(2.2rem,5.6vw,3.9rem)}
-.fam.perform .acc .pricebox .amt{font-size:clamp(1.9rem,4.6vw,3.1rem)}
+/* The collapsed row carries the program name and its line only. Pricing
+   lives inside the panel, so the page reads as programs rather than as
+   a wall of dollar figures. */
+.acc .pricebox{display:flex;align-items:center;justify-content:flex-end;white-space:nowrap}
 .acc .chev{width:12px;height:12px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);
   transform:rotate(45deg) translateY(-3px);transition:transform .3s var(--ease);flex:0 0 auto}
 .acc[open] .chev{transform:rotate(-135deg) translateY(-3px)}
@@ -658,10 +655,33 @@
 .acc-body{overflow:hidden;background:transparent}
 .acc-inner{padding:2px 0 30px}
 .acc-inner h4{font-size:.66rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--gold);margin:0 0 12px}
+  color:var(--gold);margin:28px 0 12px}
+.acc-inner h4:first-child{margin-top:0}
+.acc-inner .inc{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:7px 26px;margin:0;padding:0}
+@media(max-width:620px){.acc-inner .inc{grid-template-columns:1fr}}
+.acc-inner .inc li{color:var(--gray);font-weight:300;font-size:.92rem;position:relative;padding-left:16px}
+.acc-inner .inc li::before{content:"";position:absolute;left:0;top:.66em;width:7px;height:1px;background:var(--gold)}
+.acc-inner .sep{color:var(--gray-2);font-weight:300;font-size:.9rem;margin:0;max-width:64ch}
+.acc-inner .fee{margin:0;border-top:1px solid var(--line)}
+.acc-inner .fee .brow{display:flex;justify-content:space-between;align-items:baseline;gap:20px;
+  padding:13px 0;border-bottom:1px solid var(--line-2);max-width:420px}
+.acc-inner .fee .ag{font-size:.92rem;font-weight:600;color:var(--white)}
+.acc-inner .fee .pr{font-family:"Anton",sans-serif;color:var(--gold);font-size:1.45rem;line-height:1}
+.acc-inner .fee .pr small{font-family:"Archivo",sans-serif;font-size:.6rem;font-weight:700;
+  letter-spacing:.12em;color:var(--gray-2);margin-left:7px}
 .acc-inner > p{color:var(--gray);font-weight:300;margin:0;max-width:60ch;font-size:.99rem}
 
-.acc-more{margin:18px 0 0}
+/* Financial aid, stated before anyone opens a price. Deliberately a
+   quiet rule-and-text block rather than a banner. */
+.aidnote{display:flex;justify-content:space-between;align-items:center;gap:18px 30px;flex-wrap:wrap;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:18px 0;margin:26px 0 0}
+.aidnote p{color:var(--white);font-weight:300;font-size:1rem;margin:0;max-width:58ch}
+.aidnote a{font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);
+  display:inline-flex;gap:.45em;white-space:nowrap;border-bottom:1px solid rgba(245,194,5,.35);padding-bottom:3px}
+.aidnote a:hover{border-bottom-color:var(--gold)}
+
+.acc-more{margin:26px 0 0}
 .acc-more a{font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
   color:var(--gold);display:inline-flex;gap:.45em;border-bottom:1px solid rgba(245,194,5,.35);padding-bottom:3px}
 .acc-more a:hover{border-bottom-color:var(--gold)}
@@ -1048,6 +1068,10 @@ html:not(.js) .acc-body{overflow:visible}
 
 <section class="s-sec"><div class="wrap">
   <p class="lede">Clear program pricing. Pick a level to see what it covers.</p>
+  <div class="aidnote reveal">
+    <p>Financial aid is available across Umoja programs. Cost should not be the reason a player cannot participate.</p>
+    <a href="scholarship.html">Learn about financial aid <span>&rarr;</span></a>
+  </div>
 <div class="fam play">
     <div class="fam-in">
       <div class="fam-tag"><span class="idx">01</span><h2>Play</h2>
@@ -1056,12 +1080,17 @@ html:not(.js) .acc-body{overflow:visible}
 <details class="acc a0">
         <summary>
           <span class="hd"><h3>Foundations</h3><p class="line">Where a child learns to play.</p></span>
-          <span class="pricebox"><span class="amt">$185<small>Per 13-week period</small></span><span class="chev" aria-hidden="true"></span></span>
+          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
         </summary>
         <div class="acc-body"><div class="acc-inner">
-          <h4>What the fee covers at this level</h4>
-          <p>Coaching, fields, and player registration and insurance. One coached 60-minute practice a week and one Saturday play day, over a 13-week period. Saturday play is run by the coaches in house, so there is no referee line and no league table at this age.</p>
-          <p class="acc-note">Two 13-week periods are offered each year. A family can register for either one, or both.</p>
+          <h4>The program</h4>
+          <p>One coached 60-minute practice a week and one Saturday small-sided play day, across a 13-week period. Saturday play is run by the coaches in house, so there is no paid referee and no formal league table at this age. Two 13-week periods are offered each year, and a family can register for either one or both.</p>
+          <h4>Program fee</h4>
+          <div class="fee"><div class="brow"><span class="ag">U6 &ndash; U10</span><span class="pr">$185<small>per 13-week period</small></span></div></div>
+          <h4>What the fee includes</h4>
+          <ul class="inc"><li>Coaching</li><li>Fields</li><li>Player registration and insurance</li></ul>
+          <h4>Separate from the fee</h4>
+          <p class="sep">Kit and personal equipment.</p>
           <div class="acc-extra one">
             <div><span class="k">Kit</span><span class="v">$100</span><span class="d">Bought once every two years, not annually</span></div>
           </div>
@@ -1070,12 +1099,18 @@ html:not(.js) .acc-body{overflow:visible}
       </details><details class="acc a0">
         <summary>
           <span class="hd"><h3>Rec</h3><p class="line">Real football, on your own terms.</p></span>
-          <span class="pricebox"><span class="amt">$275<small>Per 13-week period</small></span><span class="chev" aria-hidden="true"></span></span>
+          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
         </summary>
         <div class="acc-body"><div class="acc-inner">
-          <h4>What the fee covers at this level</h4>
-          <p>Fields, referees, league and team registration as applicable, player registration and insurance, and planned event entry. Two 75-minute practices a week with volunteer coaches, playing in the RIAS recreational league, with one local Rec event in the annual plan.</p>
-          <p class="acc-note">Two 13-week periods are offered each year. A family can register for either one, or both.</p>
+          <h4>The program</h4>
+          <p>Two 75-minute practices a week with volunteer coaches, playing in the RIAS recreational league, with one local Rec event in the annual plan. Two 13-week periods are offered each year, and a family can register for either one or both.</p>
+          <h4>Program fee</h4>
+          <div class="fee"><div class="brow"><span class="ag">U11 &ndash; U19</span><span class="pr">$275<small>per 13-week period</small></span></div></div>
+          <h4>What the fee includes</h4>
+          <ul class="inc"><li>Fields</li><li>Referees</li><li>League and team registration as applicable</li>
+            <li>Planned event entry</li><li>Player registration and insurance</li></ul>
+          <h4>Separate from the fee</h4>
+          <p class="sep">Kit and personal equipment. Rec coaching is volunteer.</p>
           <div class="acc-extra one">
             <div><span class="k">Kit</span><span class="v">$100</span><span class="d">Bought once every two years, not annually</span></div>
           </div>
@@ -1094,34 +1129,48 @@ html:not(.js) .acc-body{overflow:visible}
 <details class="acc a1">
         <summary>
           <span class="hd"><h3>Development</h3><p class="line">The entry point to competitive football.</p></span>
-          <span class="pricebox"><span class="amt">$1,275&ndash;$1,750<small>Per year, by age</small></span><span class="chev" aria-hidden="true"></span></span>
+          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
         </summary>
         <div class="acc-body"><div class="acc-inner">
-          <h4>What the fee covers at this level</h4>
-          <p>Coaching, fields, referees, league and team registration, player registration and insurance, and event entry for the planned competition calendar. Two 75-minute practices a week on the SCCL pathway, with two local events across the year.</p>
+          <h4>The program</h4>
+          <p>Two 75-minute practices a week on the SCCL-level pathway, with two local events in the annual plan.</p>
           <p class="acc-note">U15 and above: 24 weeks at the normal club training load, plus a supplemental training pool equivalent to 12 further weeks. The calendar is built around the high-school soccer season rather than asking a player to carry a full club load through it.</p>
+          <h4>Program fee</h4>
+          <div class="fee"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$1,750<small>/ year</small></span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$1,275<small>/ year</small></span></div></div>
+          <h4>What the fee includes</h4>
+          <ul class="inc"><li>Coaching</li><li>Training fields</li><li>Home-game field allocation</li>
+            <li>Referees</li><li>League and team registration</li><li>Planned event and tournament entry</li>
+            <li>Player registration and insurance</li></ul>
+          <h4>Separate from the fee</h4>
+          <p class="sep">Player transportation and airfare, lodging, meals, kit and personal equipment, coach travel costs, and any postseason costs that only arise if a team earns a berth. Travel is planned separately from the actual season schedule once rosters are set.</p>
           <div class="acc-extra">
             <div><span class="k">Kit</span><span class="v">$350</span><span class="d">Bought once every two years, not annually</span></div>
-            <div><span class="k">Travel</span><span class="v">Planned separately</span><span class="d">From the real season schedule, once rosters are set</span></div>
+            <div><span class="k">Travel</span><span class="v">Planned separately</span><span class="d">From the actual season schedule, once rosters are set</span></div>
           </div>
           <p class="acc-more"><a href="programs.html#development">What this level actually is <span>&rarr;</span></a></p>
-          <div class="bands"><p class="bhd">Age bands and program fees</p><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$1,750</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$1,275</span></div></div>
         </div></div>
       </details><details class="acc a2">
         <summary>
           <span class="hd"><h3>Evolution</h3><p class="line">A step up in standard, and in who you play.</p></span>
-          <span class="pricebox"><span class="amt">$1,925&ndash;$2,600<small>Per year, by age</small></span><span class="chev" aria-hidden="true"></span></span>
+          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
         </summary>
         <div class="acc-body"><div class="acc-inner">
-          <h4>What the fee covers at this level</h4>
-          <p>Coaching, fields, referees, league and team registration, player registration and insurance, and event entry for the planned competition calendar. Three 85-minute practices a week, on the N1 and SCCL Champions League pathway as age and placement permit, with three local events and one regional event planned across the year.</p>
+          <h4>The program</h4>
+          <p>Three 85-minute practices a week on the N1 and SCCL Champions League-level pathway, with three local events and one regional event in the annual plan.</p>
           <p class="acc-note">U15 and above: 24 weeks at the normal club training load, plus a supplemental training pool equivalent to 12 further weeks. The calendar is built around the high-school soccer season rather than asking a player to carry a full club load through it.</p>
+          <h4>Program fee</h4>
+          <div class="fee"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$2,600<small>/ year</small></span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$1,925<small>/ year</small></span></div></div>
+          <h4>What the fee includes</h4>
+          <ul class="inc"><li>Coaching</li><li>Training fields</li><li>Home-game field allocation</li>
+            <li>Referees</li><li>League and team registration</li><li>Planned event and tournament entry</li>
+            <li>Player registration and insurance</li></ul>
+          <h4>Separate from the fee</h4>
+          <p class="sep">Player transportation and airfare, lodging, meals, kit and personal equipment, coach travel costs, and any postseason costs that only arise if a team earns a berth. Travel is planned separately from the actual season schedule once rosters are set.</p>
           <div class="acc-extra">
             <div><span class="k">Kit</span><span class="v">$350</span><span class="d">Bought once every two years, not annually</span></div>
-            <div><span class="k">Travel</span><span class="v">Planned separately</span><span class="d">From the real season schedule, once rosters are set</span></div>
+            <div><span class="k">Travel</span><span class="v">Planned separately</span><span class="d">From the actual season schedule, once rosters are set</span></div>
           </div>
           <p class="acc-more"><a href="programs.html#evolution">What this level actually is <span>&rarr;</span></a></p>
-          <div class="bands"><p class="bhd">Age bands and program fees</p><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$2,600</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$1,925</span></div></div>
         </div></div>
       </details>
       </div>
@@ -1136,34 +1185,48 @@ html:not(.js) .acc-body{overflow:visible}
 <details class="acc a3">
         <summary>
           <span class="hd"><h3>Premier</h3><p class="line">Football beyond the local market.</p></span>
-          <span class="pricebox"><span class="amt">$2,350&ndash;$2,825<small>Per year, by age</small></span><span class="chev" aria-hidden="true"></span></span>
+          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
         </summary>
         <div class="acc-body"><div class="acc-inner">
-          <h4>What the fee covers at this level</h4>
-          <p>Coaching, fields, referees, league and team registration, player registration and insurance, and event entry for the planned competition calendar. Three 90-minute practices a week. U11 and U12 are Umoja&rsquo;s in-house Pre-ECRL pathway; from U13 the program targets ECRL-level competition.</p>
+          <h4>The program</h4>
+          <p>Three 90-minute practices a week. U11 and U12 play Umoja&rsquo;s in-house Pre-ECRL pathway; from U13 the program targets ECRL-level competition.</p>
           <p class="acc-note">U15 and above: 24 weeks at the normal club training load, plus a supplemental training pool equivalent to 12 further weeks. The calendar is built around the high-school soccer season rather than asking a player to carry a full club load through it.</p>
+          <h4>Program fee</h4>
+          <div class="fee"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$2,825<small>/ year</small></span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$2,350<small>/ year</small></span></div></div>
+          <h4>What the fee includes</h4>
+          <ul class="inc"><li>Coaching</li><li>Training fields</li><li>Home-game field allocation</li>
+            <li>Referees</li><li>League and team registration</li><li>Planned event and tournament entry</li>
+            <li>Player registration and insurance</li></ul>
+          <h4>Separate from the fee</h4>
+          <p class="sep">Player transportation and airfare, lodging, meals, kit and personal equipment, coach travel costs, and any postseason costs that only arise if a team earns a berth. Travel is planned separately from the actual season schedule once rosters are set.</p>
           <div class="acc-extra">
             <div><span class="k">Kit</span><span class="v">$350</span><span class="d">Bought once every two years, not annually</span></div>
-            <div><span class="k">Travel</span><span class="v">Planned separately</span><span class="d">From the real season schedule, once rosters are set</span></div>
+            <div><span class="k">Travel</span><span class="v">Planned separately</span><span class="d">From the actual season schedule, once rosters are set</span></div>
           </div>
           <p class="acc-more"><a href="programs.html#premier">What this level actually is <span>&rarr;</span></a></p>
-          <div class="bands"><p class="bhd">Age bands and program fees</p><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$2,825</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$2,350</span></div></div>
         </div></div>
       </details><details class="acc a4">
         <summary>
           <span class="hd"><h3>Elite</h3><p class="line">The top of the club.</p></span>
-          <span class="pricebox"><span class="amt">$3,725&ndash;$4,600<small>Per year, by age</small></span><span class="chev" aria-hidden="true"></span></span>
+          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
         </summary>
         <div class="acc-body"><div class="acc-inner">
-          <h4>What the fee covers at this level</h4>
-          <p>Coaching, fields, referees, league and team registration, player registration and insurance, and national and showcase event entry for the planned calendar. Four two-hour practices a week at full load. U11 and U12 are Umoja&rsquo;s in-house Pre-ECNL pathway; from U13 the program targets ECNL-level competition.</p>
+          <h4>The program</h4>
+          <p>The club&rsquo;s highest-performance pathway, training four times a week at full load. U11 and U12 play Umoja&rsquo;s in-house Pre-ECNL pathway; from U13 the program targets ECNL-level competition.</p>
           <p class="acc-note">U15 and above: 24 weeks at the normal club training load, plus a supplemental training pool equivalent to 12 further weeks. The calendar is built around the high-school soccer season rather than asking a player to carry a full club load through it.</p>
+          <h4>Program fee</h4>
+          <div class="fee"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$4,600<small>/ year</small></span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$3,725<small>/ year</small></span></div></div>
+          <h4>What the fee includes</h4>
+          <ul class="inc"><li>Coaching</li><li>Training fields</li><li>Home-game field allocation</li>
+            <li>Referees</li><li>League and team registration</li><li>Planned event and tournament entry</li>
+            <li>Player registration and insurance</li></ul>
+          <h4>Separate from the fee</h4>
+          <p class="sep">Player transportation and airfare, lodging, meals, kit and personal equipment, coach travel costs, and any postseason costs that only arise if a team earns a berth. Travel is planned separately from the actual season schedule once rosters are set.</p>
           <div class="acc-extra">
             <div><span class="k">Kit</span><span class="v">$350</span><span class="d">Bought once every two years, not annually</span></div>
-            <div><span class="k">Travel</span><span class="v">Planned separately</span><span class="d">From the real season schedule, once rosters are set</span></div>
+            <div><span class="k">Travel</span><span class="v">Planned separately</span><span class="d">From the actual season schedule, once rosters are set</span></div>
           </div>
           <p class="acc-more"><a href="programs.html#elite">What this level actually is <span>&rarr;</span></a></p>
-          <div class="bands"><p class="bhd">Age bands and program fees</p><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$4,600</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$3,725</span></div></div>
         </div></div>
       </details>
       </div>
