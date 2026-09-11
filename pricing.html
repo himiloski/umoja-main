@@ -669,6 +669,7 @@
 .acc-inner .fee .pr{font-family:"Anton",sans-serif;color:var(--gold);font-size:1.45rem;line-height:1}
 .acc-inner .fee .pr small{font-family:"Archivo",sans-serif;font-size:.6rem;font-weight:700;
   letter-spacing:.12em;color:var(--gray-2);margin-left:7px}
+.acc-inner .feenote{color:var(--gray-2);font-weight:300;font-size:.86rem;margin:12px 0 0;max-width:60ch}
 .acc-inner > p{color:var(--gray);font-weight:300;margin:0;max-width:60ch;font-size:.99rem}
 
 /* Financial aid, stated before anyone opens a price. Deliberately a
@@ -685,23 +686,6 @@
 .acc-more a{font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
   color:var(--gold);display:inline-flex;gap:.45em;border-bottom:1px solid rgba(245,194,5,.35);padding-bottom:3px}
 .acc-more a:hover{border-bottom-color:var(--gold)}
-/* Spring pricing — the existing band rows, laid out as a small grid so
-   half-year figures sit beside the annual ones without a new component. */
-.spring{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
-  border:1px solid var(--line);margin-top:30px}
-@media(max-width:900px){.spring{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.spring{grid-template-columns:1fr}}
-.spring .spr-card{background:var(--ink-1);padding:24px 22px 20px}
-.spring .spr-card h3{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:1.15rem;
-  letter-spacing:.03em;margin:0}
-.spring .bands{margin-top:12px;border-top:none}
-/* Band rows start hidden and are revealed by the accordion's open
-   animation. These cards are not accordions, so show them outright. */
-.spring .bands .brow{opacity:1;transform:none}
-.spring .bands .brow{padding:10px 0}
-.spring .bands .brow .pr{font-size:1.25rem}
-.spring .spr-note{color:var(--gray-2);font-weight:300;font-size:.8rem;margin-top:6px}
-
 .acc-note{color:var(--gray-2);font-weight:300;font-size:.88rem;margin-top:14px;padding-left:14px;
   border-left:2px solid var(--line);max-width:64ch}
 .bands{margin-top:24px;border-top:1px solid var(--line)}
@@ -1087,6 +1071,7 @@ html:not(.js) .acc-body{overflow:visible}
           <p>One coached 60-minute practice a week and one Saturday small-sided play day, across a 13-week period. Saturday play is run by the coaches in house, so there is no paid referee and no formal league table at this age. Two 13-week periods are offered each year, and a family can register for either one or both.</p>
           <h4>Program fee</h4>
           <div class="fee"><div class="brow"><span class="ag">U6 &ndash; U10</span><span class="pr">$185<small>per 13-week period</small></span></div></div>
+          <p class="feenote">The same price applies to either 13-week period, including spring 2027.</p>
           <h4>What the fee includes</h4>
           <ul class="inc"><li>Coaching</li><li>Fields</li><li>Player registration and insurance</li></ul>
           <h4>Separate from the fee</h4>
@@ -1106,6 +1091,7 @@ html:not(.js) .acc-body{overflow:visible}
           <p>Two 75-minute practices a week with volunteer coaches, playing in the RIAS recreational league, with one local Rec event in the annual plan. Two 13-week periods are offered each year, and a family can register for either one or both.</p>
           <h4>Program fee</h4>
           <div class="fee"><div class="brow"><span class="ag">U11 &ndash; U19</span><span class="pr">$275<small>per 13-week period</small></span></div></div>
+          <p class="feenote">The same price applies to either 13-week period, including spring 2027.</p>
           <h4>What the fee includes</h4>
           <ul class="inc"><li>Fields</li><li>Referees</li><li>League and team registration as applicable</li>
             <li>Planned event entry</li><li>Player registration and insurance</li></ul>
@@ -1137,6 +1123,7 @@ html:not(.js) .acc-body{overflow:visible}
           <p class="acc-note">U15 and above: 24 weeks at the normal club training load, plus a supplemental training pool equivalent to 12 further weeks. The calendar is built around the high-school soccer season rather than asking a player to carry a full club load through it.</p>
           <h4>Program fee</h4>
           <div class="fee"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$1,750<small>/ year</small></span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$1,275<small>/ year</small></span></div></div>
+          <p class="feenote">A player can start in the spring as well as at the beginning of the year. Joining for the spring half of 2027 is half the fee &mdash; $875 for U11&ndash;U14 and $637.50 for U15&ndash;U19.</p>
           <h4>What the fee includes</h4>
           <ul class="inc"><li>Coaching</li><li>Training fields</li><li>Home-game field allocation</li>
             <li>Referees</li><li>League and team registration</li><li>Planned event and tournament entry</li>
@@ -1160,6 +1147,7 @@ html:not(.js) .acc-body{overflow:visible}
           <p class="acc-note">U15 and above: 24 weeks at the normal club training load, plus a supplemental training pool equivalent to 12 further weeks. The calendar is built around the high-school soccer season rather than asking a player to carry a full club load through it.</p>
           <h4>Program fee</h4>
           <div class="fee"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$2,600<small>/ year</small></span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$1,925<small>/ year</small></span></div></div>
+          <p class="feenote">A player can start in the spring as well as at the beginning of the year. Joining for the spring half of 2027 is half the fee &mdash; $1,300 for U11&ndash;U14 and $962.50 for U15&ndash;U19.</p>
           <h4>What the fee includes</h4>
           <ul class="inc"><li>Coaching</li><li>Training fields</li><li>Home-game field allocation</li>
             <li>Referees</li><li>League and team registration</li><li>Planned event and tournament entry</li>
@@ -1193,6 +1181,7 @@ html:not(.js) .acc-body{overflow:visible}
           <p class="acc-note">U15 and above: 24 weeks at the normal club training load, plus a supplemental training pool equivalent to 12 further weeks. The calendar is built around the high-school soccer season rather than asking a player to carry a full club load through it.</p>
           <h4>Program fee</h4>
           <div class="fee"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$2,825<small>/ year</small></span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$2,350<small>/ year</small></span></div></div>
+          <p class="feenote">A player can start in the spring as well as at the beginning of the year. Joining for the spring half of 2027 is half the fee &mdash; $1,412.50 for U11&ndash;U14 and $1,175 for U15&ndash;U19.</p>
           <h4>What the fee includes</h4>
           <ul class="inc"><li>Coaching</li><li>Training fields</li><li>Home-game field allocation</li>
             <li>Referees</li><li>League and team registration</li><li>Planned event and tournament entry</li>
@@ -1216,6 +1205,7 @@ html:not(.js) .acc-body{overflow:visible}
           <p class="acc-note">U15 and above: 24 weeks at the normal club training load, plus a supplemental training pool equivalent to 12 further weeks. The calendar is built around the high-school soccer season rather than asking a player to carry a full club load through it.</p>
           <h4>Program fee</h4>
           <div class="fee"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$4,600<small>/ year</small></span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$3,725<small>/ year</small></span></div></div>
+          <p class="feenote">A player can start in the spring as well as at the beginning of the year. Joining for the spring half of 2027 is half the fee &mdash; $2,300 for U11&ndash;U14 and $1,862.50 for U15&ndash;U19.</p>
           <h4>What the fee includes</h4>
           <ul class="inc"><li>Coaching</li><li>Training fields</li><li>Home-game field allocation</li>
             <li>Referees</li><li>League and team registration</li><li>Planned event and tournament entry</li>
@@ -1244,20 +1234,6 @@ html:not(.js) .acc-body{overflow:visible}
   </ul>
   <p class="s-note"><b>Separate from the program fee:</b> player travel &mdash; airfare and transportation, lodging and meals on the road &mdash; the kit and personal equipment such as cleats, shin guards and balls, coach travel expenses, and any postseason costs that only arise if a team earns a berth.</p>
   <p class="s-note" style="border-left-color:var(--line)">Event entry for the planned competition calendar is inside the program fee. The travel to reach those events is not.</p>
-</div></section>
-
-<section class="s-sec"><div class="wrap">
-  <h2>Spring 2027.</h2>
-  <p>Foundations and Rec are seasonal programs already, so spring is simply their normal 13-week price. For the competitive pathway, spring is half a year of programming and costs half the annual fee.</p>
-  <div class="spring">
-    <div class="spr-card"><h3>Foundations</h3><div class="bands"><div class="brow"><span class="ag">U6 &ndash; U10</span><span class="pr">$185</span></div><div class="brow"><span class="ag">Per period</span><span class="pr">13 weeks</span></div></div></div>
-    <div class="spr-card"><h3>Rec</h3><div class="bands"><div class="brow"><span class="ag">U11 &ndash; U19</span><span class="pr">$275</span></div><div class="brow"><span class="ag">Per period</span><span class="pr">13 weeks</span></div></div></div>
-    <div class="spr-card"><h3>Development</h3><div class="bands"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$875</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$637.50</span></div></div></div>
-    <div class="spr-card"><h3>Evolution</h3><div class="bands"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$1,300</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$962.50</span></div></div></div>
-    <div class="spr-card"><h3>Premier</h3><div class="bands"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$1,412.50</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$1,175</span></div></div></div>
-    <div class="spr-card"><h3>Elite</h3><div class="bands"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$2,300</span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$1,862.50</span></div></div></div>
-  </div>
-  <p class="s-note">Kit and travel work the same way in spring as they do across a full year: the kit runs on its own two-year cycle, and travel is planned separately from the real season schedule once rosters are set.</p>
 </div></section>
 
 <section class="s-statement"><div class="wrap">
