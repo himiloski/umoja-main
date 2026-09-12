@@ -13,7 +13,7 @@
    TO GO LIVE: set SHOW_SAMPLES to false, or delete the sample records.
    Nothing else needs changing.
    =================================================================== */
-var SHOW_SAMPLES = true;
+var SHOW_SAMPLES = false;
 
 var RECRUITING = {
 
