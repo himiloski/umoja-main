@@ -870,10 +870,11 @@
 .fp-small{color:var(--gray-2);font-weight:300;font-size:.88rem;max-width:66ch;margin-top:16px}
 
 /* ── what a season costs ────────────────────────────────────────── */
-.fp-costs{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);
+.fp-costs{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);
   border:1px solid var(--line);margin-top:22px}
-@media(max-width:1100px){.fp-costs{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:700px){.fp-costs{grid-template-columns:1fr}}
+@media(max-width:1240px){.fp-costs{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.fp-costs{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:460px){.fp-costs{grid-template-columns:1fr}}
 .fp-cost{background:var(--ink);padding:22px 20px 20px}
 .fp-cost .lvl{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:1.08rem;
   letter-spacing:.02em;margin:0 0 12px}
@@ -882,6 +883,9 @@
   letter-spacing:.1em;text-transform:uppercase;color:var(--gray-2)}
 .fp-cost .cap{display:block;font-size:.55rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
   color:var(--gray-2);margin-top:8px}
+.fp-cost .amt + .amt{margin-top:14px}
+.fp-cost .plus{font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--gray-2);margin:14px 0 0;padding-top:12px;border-top:1px solid var(--line)}
 .fp-cost .d{color:var(--gray);font-weight:300;font-size:.9rem;margin:12px 0 0}
 
 /* ── ways to fund ───────────────────────────────────────────────── */
@@ -1203,18 +1207,22 @@ var PLAYERS = [];
 var PLAYER_SLOTS = 3;   /* labelled placeholders shown while PLAYERS is empty */
 
 /* ── 2. WHAT A SEASON COSTS ────────────────────────────────────────
-   amount   the current figure for that level. Leave null and the card
-            reads "figure to come" rather than showing a guess.
+   bands    one or more price bands for that level. Each band has a
+            label (the age range or billing period) and an amount.
+            Leave bands empty and the card reads "figure to come"
+            rather than showing a guess.
+   travel   true adds a "+ travel costs" line under the figures.
    note     what goes into a season at that level.
    ================================================================== */
 var PROGRAM_COSTS = {
   note: "Figures are published here once each season's costs are finalised.",
   levels: [
-    { level:"Foundations", amount:null, note:"" },
-    { level:"Development", amount:null, note:"" },
-    { level:"Evolution",   amount:null, note:"" },
-    { level:"Premier",     amount:null, note:"" },
-    { level:"Elite",       amount:null, note:"" }
+    { level:"Foundations", bands:[ {label:"13 weeks", amount:185} ], travel:false, note:"" },
+    { level:"Rec",         bands:[ {label:"13 weeks", amount:275} ], travel:false, note:"" },
+    { level:"Development", bands:[ {label:"U11\u2013U14", amount:1750}, {label:"U15\u2013U19", amount:1275} ], travel:false, note:"" },
+    { level:"Evolution",   bands:[ {label:"U11\u2013U14", amount:2600}, {label:"U15\u2013U19", amount:1925} ], travel:true,  note:"" },
+    { level:"Premier",     bands:[ {label:"U11\u2013U14", amount:2825}, {label:"U15\u2013U19", amount:2350} ], travel:true,  note:"" },
+    { level:"Elite",       bands:[ {label:"U11\u2013U14", amount:4600}, {label:"U15\u2013U19", amount:3725} ], travel:true,  note:"" }
   ]
 };
 
@@ -1280,13 +1288,22 @@ var PROGRAM_COSTS = {
   var costs=$('fp-costs');
   if(costs){
     costs.innerHTML=PROGRAM_COSTS.levels.map(function(l){
-      var amt = (l.amount===null || l.amount===undefined)
-        ? '<p class="amt pending">Figure to come</p>'
-        : '<p class="amt">'+money(l.amount)+'<span class="cap">A season</span></p>';
+      var bands = l.bands || [];
+      var amt;
+      if(!bands.length){
+        amt = '<p class="amt pending">Figure to come</p>';
+      } else {
+        amt = bands.map(function(b){
+          return '<p class="amt">'+money(b.amount)+
+                 '<span class="cap">'+esc(b.label)+'</span></p>';
+        }).join('');
+      }
       return '<div class="fp-cost"><p class="lvl">'+esc(l.level)+'</p>'+amt+
+             (l.travel?'<p class="plus">+ travel costs</p>':'')+
              (l.note?'<p class="d">'+esc(l.note)+'</p>':'')+'</div>';
     }).join('');
-    var missing=PROGRAM_COSTS.levels.filter(function(l){ return l.amount==null; }).length;
+    var missing=PROGRAM_COSTS.levels.filter(function(l){
+      return !l.bands || !l.bands.length; }).length;
     $('fp-costs-note').textContent = missing
       ? PROGRAM_COSTS.note
       : 'A gift at these levels helps fund a season of participation; Umoja allocates support across players by need.';
