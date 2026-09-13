@@ -310,6 +310,36 @@
   .ccard .clinks a:hover{color:var(--gold)}
   .ccard .clinks a span{color:var(--gray-2);font-weight:300;font-size:.9rem;display:block;margin-top:2px}
 
+  /* ── Contact form + direct routes ─────────────────────────────── */
+  .cgrid{display:grid;grid-template-columns:1.12fr .88fr;gap:58px;align-items:start}
+  .cform-wrap h2{font-size:clamp(1.9rem,4vw,2.8rem);margin:14px 0 12px}
+  .cform-intro{color:var(--gray);font-weight:300;font-size:1.02rem;max-width:46ch;margin-bottom:30px}
+  .cform{display:flex;flex-direction:column;gap:20px}
+  .f-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .f-field{display:flex;flex-direction:column;gap:8px}
+  .f-field > span{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-2)}
+  .f-field input,.f-field select,.f-field textarea{
+    font-family:inherit;font-size:1rem;font-weight:300;color:var(--white);
+    background:var(--ink-2);border:1px solid var(--line);padding:14px 16px;width:100%;
+    transition:border-color .2s var(--ease),background .2s var(--ease)}
+  .f-field textarea{resize:vertical;min-height:160px;line-height:1.6}
+  .f-field input:focus,.f-field select:focus,.f-field textarea:focus{outline:none;border-color:var(--gold);background:var(--ink-3)}
+  .f-field input::placeholder,.f-field textarea::placeholder{color:var(--gray-2);opacity:.65}
+  .f-field select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:44px;
+    background-image:linear-gradient(45deg,transparent 50%,var(--gray-2) 50%),linear-gradient(135deg,var(--gray-2) 50%,transparent 50%);
+    background-position:calc(100% - 21px) calc(50% + 2px),calc(100% - 15px) calc(50% + 2px);
+    background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+  .f-field select option{background:var(--ink-2);color:var(--white)}
+  .cform .gotcha{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+  .cform .btn{align-self:flex-start;margin-top:4px}
+  .f-fine{font-size:.85rem;color:var(--gray-2);font-weight:300;max-width:50ch;margin-top:-4px}
+  .croutes{display:flex;flex-direction:column;gap:16px}
+  .croutes .ccard{padding:28px 26px}
+  .croutes .ccard h3{font-size:1.25rem}
+  .croutes .ccard p{font-size:.94rem;margin-bottom:18px}
+  @media(max-width:1000px){.cgrid{grid-template-columns:1fr;gap:48px}}
+  @media(max-width:640px){.f-row{grid-template-columns:1fr}}
+
   /* schedule */
   .sched-feature{position:relative;overflow:hidden;border:1px solid var(--gold);background:linear-gradient(160deg,rgba(245,194,5,.08),transparent 62%);padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:44px}
   .sched-feature .lbl{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
@@ -588,39 +618,85 @@
     </div></header>
 <section class="pagehero"><div class="pagehero-bg"></div><div class="pagehero-crest" aria-hidden="true"></div>
   <div class="wrap"><div class="crumb"><a href="index.html">Home</a><span>/</span>Contact</div>
-  <h1>Contact</h1><p class="sub">One inbox, read by the people who run the club. We answer.</p></div>
+  <h1>Contact</h1><p class="sub">Tryouts, sponsorship, or anything else — every message reaches a person who runs the club. We answer.</p></div>
 </section>
 <section class="band"><div class="wrap">
-  <div class="contact-grid">
-    <div class="ccard reveal">
-      <span class="lbl">Tryouts</span>
-      <h3>Join the club</h3>
-      <p>Tryouts are in January 2027. Send your son's name, birth year and where you are based.</p>
-      <a class="mail" href="mailto:hello@umojasoka.com?subject=Tryouts%20-%20January%202027">hello@umojasoka.com</a>
-      <span class="who">Open to any player</span>
+  <div class="cgrid">
+
+    <div class="cform-wrap reveal">
+      <span class="eyebrow">Send a message</span>
+      <h2>Tell us what you need.</h2>
+      <p class="cform-intro">Pick a subject and it goes to the right inbox. A person reads it, and a person answers.</p>
+
+      <form class="cform" action="https://formspree.io/f/xwlkdbjp" method="POST">
+        <input class="gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="f-row">
+          <label class="f-field">
+            <span>Name</span>
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label class="f-field">
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+        </div>
+
+        <label class="f-field">
+          <span>What is this about</span>
+          <select name="_subject" required>
+            <option value="" disabled selected>Choose a subject</option>
+            <option value="Tryouts">Tryouts and joining the club</option>
+            <option value="Sponsorship">Sponsorship or partnership</option>
+            <option value="Scholarships and cost">Scholarships and cost</option>
+            <option value="Giving">Giving and donations</option>
+            <option value="Volunteering">Volunteering</option>
+            <option value="Something else">Something else</option>
+          </select>
+        </label>
+
+        <label class="f-field">
+          <span>Message</span>
+          <textarea name="message" rows="6" placeholder="If it's about a player, include their birth year and where you're based." required></textarea>
+        </label>
+
+        <button class="btn btn-gold" type="submit">Send message <span class="a">&rarr;</span></button>
+        <p class="f-fine">Prefer email? The addresses below go to the same people.</p>
+      </form>
     </div>
-    <div class="ccard reveal">
-      <span class="lbl">Partnerships</span>
-      <h3>Stand with Umoja</h3>
-      <p>Interested in partnering with the club? Reach out and we'll find the right fit.</p>
-      <a class="mail" href="mailto:hello@umojasoka.com?subject=Partnership">hello@umojasoka.com</a>
-      <span class="who">Juliana &middot; Executive Director</span>
-    </div>
-    <div class="ccard reveal">
-      <span class="lbl">General</span>
-      <h3>Questions</h3>
-      <p>Anything else about the club, scholarship, or giving — we're always glad to hear from you.</p>
-      <a class="mail" href="mailto:hello@umojasoka.com">hello@umojasoka.com</a>
-    </div>
-    <div class="ccard reveal">
-      <span class="lbl">Online</span>
-      <h3>Find us</h3>
-      <p>The club's world lives here day to day — the players, the training, the match days.</p>
-      <div class="clinks">
-        <a href="https://instagram.com/UmojaSoka" target="_blank" rel="noopener">Instagram<span>@UmojaSoka</span></a>
-        <a href="https://youtube.com/@umojasc" target="_blank" rel="noopener">YouTube<span>@umojasc</span></a>
+
+    <aside class="croutes">
+      <div class="ccard reveal">
+        <span class="lbl">Tryouts</span>
+        <h3>Join the club</h3>
+        <p>Tryouts are in January 2027. Send your son's name, birth year and where you are based.</p>
+        <a class="mail" href="mailto:tryouts@umojasoka.com?subject=Tryouts%20-%20January%202027">tryouts@umojasoka.com</a>
+        <span class="who">Open to any player</span>
       </div>
-    </div>
+      <div class="ccard reveal">
+        <span class="lbl">Sponsorships</span>
+        <h3>Stand with Umoja</h3>
+        <p>Interested in partnering with the club? Reach out and we'll find the right fit.</p>
+        <a class="mail" href="mailto:sponsors@umojasoka.com?subject=Sponsorship">sponsors@umojasoka.com</a>
+        <span class="who">Juliana &middot; Executive Director</span>
+      </div>
+      <div class="ccard reveal">
+        <span class="lbl">General</span>
+        <h3>Questions</h3>
+        <p>Anything else about the club, scholarship, or giving — we're always glad to hear from you.</p>
+        <a class="mail" href="mailto:help@umojasoka.com">help@umojasoka.com</a>
+      </div>
+      <div class="ccard reveal">
+        <span class="lbl">Online</span>
+        <h3>Find us</h3>
+        <p>The club's world lives here day to day — the players, the training, the match days.</p>
+        <div class="clinks">
+          <a href="https://instagram.com/UmojaSoka" target="_blank" rel="noopener">Instagram<span>@UmojaSoka</span></a>
+          <a href="https://youtube.com/@umojasc" target="_blank" rel="noopener">YouTube<span>@umojasc</span></a>
+        </div>
+      </div>
+    </aside>
+
   </div>
 </div></section>
 
@@ -634,10 +710,6 @@
   <div class="photo reveal"><img src="team-u19.jpg" alt="The Umoja U18/19 squad" style="width:100%;height:100%;object-fit:cover"></div>
 </div></section>
 
-<section class="cstrip"><div class="wrap">
-  <div><h3>Questions? We're easy to reach.</h3><p>Clarkston, Georgia &middot; Umoja Soccer Club</p></div>
-  <a href="contact.html" class="btn btn-dark">Get in touch &rarr;</a>
-</div></section>
 <footer><div class="wrap">
       <div class="foot-top">
         <div class="foot-brand">
