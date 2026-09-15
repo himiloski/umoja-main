@@ -1,0 +1,44 @@
+UMOJA WEBSITE — POSITIONING REVISION
+Serious soccer club with an access model, not a charity.
+
+SITEWIDE (all 50 pages)
+- Footer brand line: "We find whatever is keeping a child off the field, and
+  we remove it." -> "Breaking Barriers. Building Champions."
+  (48 pages carried the old line; only index.html had the tagline.)
+- Nav: "Development" added to the About submenu.
+- Footer: "Development" added to the Club column.
+- Juliana's title is now "Founder & General Manager" everywhere
+  (was Executive Director on about.html and contact.html).
+
+NEW PAGE
+- development.html — "Development at Umoja". Built on the our-standard.html
+  shell so it inherits the same stylesheet and layout. Sections: the
+  four-stage through-line, how we coach, what development is not, and a
+  two-card families/funders split.
+
+PAGE EDITS
+- index.html   Hero eyebrow now carries the tagline; new lede. Welcome band
+               rewritten as "A soccer club, first." New "Our Standard" band
+               (3 cells) above the pathway. New "Development at Umoja" band
+               below it. Support band reframed to "Talent is everywhere.
+               Opportunity isn't." Meta description updated.
+- about.html   Opening section rewritten to the opportunity-distribution
+               thesis. Founder's note untouched. Page-hero sub updated.
+- our-standard.html  Intro and two cells strengthened; Development added to
+               the closing CTA row. Page otherwise intact.
+- programs.html  Framed as developmental environments; link to development.
+- pricing.html   Aid note strengthened and moved to the front of the mind;
+               selection-before-finances made explicit.
+- scholarship.html  Lede now leads with placement, then support.
+- give.html    Hero rewritten to "Talent is everywhere. Opportunity isn't."
+               Donor copy shifted from covering costs to funding development.
+               Giving-level amounts and descriptions left alone.
+- fund-a-player.html  Copy shifted to development inputs.
+- sponsors.html  Lede: "Put your business behind talent that deserves to be
+               developed." Sponsorship tiers and terms untouched.
+
+NOT CHANGED
+- All prices, tiers, sponsorship inventory, scholarship calculator logic,
+  Givebutter embeds, PlayMetrics links, visual design and layout.
+- Two junk files were dropped from the folder: the nested umoja-main-main.zip
+  backup and a Word lock file (~$_Club_Soccer_Form_R002-1.docx).
