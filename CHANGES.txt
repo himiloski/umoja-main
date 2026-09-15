@@ -35,10 +35,49 @@ PAGE EDITS
                Giving-level amounts and descriptions left alone.
 - fund-a-player.html  Copy shifted to development inputs.
 - sponsors.html  Lede: "Put your business behind talent that deserves to be
-               developed." Sponsorship tiers and terms untouched.
+               developed." Sponsorship tiers and amounts untouched.
+               "What is not automatic" trimmed from nine items to five:
+               naming, category exclusivity, contact lists, player access,
+               and influence over programming. Dropped the fixed social
+               quotas, unverified impressions, match-kit placement and
+               Home Ground recognition lines.
+               Removed the "On apparel" footnote under the tiers — each tier
+               already states its own apparel eligibility. The "Above
+               $25,000" footnote stays, since it routes money rather than
+               declining it.
 
 NOT CHANGED
 - All prices, tiers, sponsorship inventory, scholarship calculator logic,
   Givebutter embeds, PlayMetrics links, visual design and layout.
 - Two junk files were dropped from the folder: the nested umoja-main-main.zip
   backup and a Word lock file (~$_Club_Soccer_Form_R002-1.docx).
+
+
+================================================================
+LATER REVISION — pages removed
+================================================================
+
+DELETED  our-standard.html
+DELETED  development.html
+
+Both pages were making the same argument in different words, and
+neither had a season behind it to stand on. Removed entirely.
+
+Sitewide (48 pages):
+  - "Our Standard" and "Development" removed from the About
+    submenu in the navigation.
+  - Both removed from the footer Club column.
+
+index.html:
+  - The "Our Standard / Serious soccer. Human club." band removed
+    in full (three cells plus the "Read our standard in full" link).
+  - The "Development at Umoja" band KEPT. Its ghost button pointing
+    at the deleted page was removed; the band reads fine without it.
+
+programs.html:
+  - "What development means at Umoja" inline link removed.
+  - "Development at Umoja" button removed from the closing CTA row.
+
+Validation: 0 references to either deleted page remain, 0 broken
+internal links across all 48 pages, HTML well-formed on every
+edited page.
