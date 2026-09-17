@@ -81,3 +81,95 @@ programs.html:
 Validation: 0 references to either deleted page remain, 0 broken
 internal links across all 48 pages, HTML well-formed on every
 edited page.
+
+================================================================
+LATER REVISION — launching with Premier and Elite only
+================================================================
+
+Foundations, Rec, Development and Evolution removed from the public
+site. They are shelved, not cancelled — copy and figures for all four
+are preserved in this changelog's predecessor and in version control,
+so they can be restored when they open.
+
+programs.html
+  - "Play the game" section deleted (Foundations + Rec blocks).
+  - Development and Evolution blocks deleted.
+  - Intro rewritten: "Two ways to play." -> "Two levels, open now.",
+    stating that further levels are being built.
+  - Section label "Chase the game — ..." -> "Each level asks for more,
+    and gives more" (its paired label is gone).
+  - "Where the club is today" no longer names a retired level. Now
+    reads "two U12 sides and a U18/19" rather than relabeling the
+    Evolution squad as Premier.
+
+pricing.html
+  - Groups 01 Play and 02 Compete deleted (four accordions).
+  - Surviving group renumbered 03 -> 01.
+  - Stale CSS comment about Foundations/Rec strip cleaned.
+  - Premier and Elite fees, bands and fee breakdowns untouched.
+
+index.html
+  - Recreational ladder group (Foundations + Rec) deleted.
+  - Evolution and Development steps deleted from the climb.
+  - Ladder label -> "The pathway — open now, and still being built".
+  - Two remaining bars rebalanced (52/66% -> 62/88%) so the pyramid
+    still reads with two rungs.
+  - Stale CSS comment cleaned.
+  - Typo fixed: "approiate" -> "appropriate".
+  - The "Development at Umoja" band is about player development, not
+    the retired tier. Left in place.
+
+scholarship.html
+  - Calculator config: foundations, rec, development and evolution
+    program objects removed. Five remain (premier_a/b, elite_a/b/c).
+  - "TWO FLOORS" note rewritten as "ONE FLOOR" — everything published
+    now sits at the 185% line.
+  - Config re-validated as parseable JSON. Thresholds, multipliers and
+    automatic-qualification list untouched.
+
+give.html
+  - Champion level no longer names retired programs. No new impact
+    equivalencies added.
+
+fund-a-player.html
+  - PROGRAM_COSTS reduced to Premier and Elite.
+  - "A season at Foundations" -> "A season at Premier".
+
+sjfbswfnwu49.html
+  - Four program-table rows removed.
+  - Stat "6 program levels" -> "2 program levels open now"; pathway
+    start U6 -> U11.
+
+season-travel-preview.html
+  - fees table reduced to premier and elite.
+  - tier enum reduced to premier | elite.
+  - DEVELOPMENT / SCCL note removed.
+  - Test teams reduced to the one Elite record.
+
+Also applied here (requested previously, not yet in this repo):
+  - our-standard.html and development.html deleted. Their nav and
+    footer links were already gone from this copy, so the files were
+    orphaned.
+
+NOT CHANGED — flagged instead:
+  - sponsors.html is missing from this repo and 48 pages still link
+    to it. sponsors-draft.html is present in its place. Left alone;
+    renaming the draft is a call to make, not a cleanup.
+  - League names (ECNL, ECRL, NCAA divisions) left as they were.
+    These are competition references, not Umoja levels.
+
+Validation: no retired tier name or anchor remains anywhere; no
+broken internal links other than the pre-existing sponsors.html;
+HTML well-formed on every edited page; 48 pages.
+
+umoja-data.js (central club data — read by every family-facing tool)
+  - fees reduced to premier and elite.
+  - Test teams reduced to the one Elite record.
+  - NOTE, not changed: this file's Premier/Elite fees (3250/3450 and
+    3550/4100/4325) do not match the fees published on pricing.html
+    and in the scholarship calculator (3150/3275 and 3375/3925/4150).
+    That mismatch predates this revision. Left as found — which set is
+    correct is a pricing decision.
+
+Dropped from the package: the nested umoja-main-main.zip backup and a
+Word lock file (~$_Club_Soccer_Form_R002-1.docx).

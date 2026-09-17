@@ -1051,10 +1051,6 @@ var UMOJA = {
    right number rather than remember it.
    =================================================================== */
   fees: {
-    foundations:  { "U6-U10": 525 },
-    rec:          { "U11-U19": 425 },
-    development:  { "U11-U19": 1700 },
-    evolution:    { "U11-U19": 1725 },
     premier:      { "U11-U12": 3150, "U13-U19": 3275 },
     elite:        { "U11-U12": 3375, "U13-U14": 3925, "U15-U18/19": 4150 }
   },
@@ -1069,19 +1065,13 @@ var UMOJA = {
      displayName         exactly what a family should see
      ageGroup            "U6" … "U18/19"   (U18/19 is one age group)
      gender              "Boys" | "Girls" | "Coed"   (U6–U10 are coed)
-     tier                foundations | rec | development | evolution
-                         | premier | elite
-     competition         optional. e.g. "SCCL". Omit where a tier has
+     tier                premier | elite
+     competition         optional league name. Omit where a tier has
                          no league designation.
      competitionDivision optional. e.g. "Champions", "Premier 2".
      programFee          the published annual fee for that tier and age
      active              only active teams are shown to families
 
-   DEVELOPMENT / SCCL: an age and gender may carry MORE THAN ONE
-   Development team, each in its own SCCL division. The model puts no
-   limit on how many; six is what SCCL currently tends to run, not a
-   rule, and Umoja is not expected to field them all. Add as many
-   records as actually exist and no more.
 
    NOTHING BELOW IS REAL YET. `teams` is deliberately empty. Add real
    records here and they appear to families immediately.
@@ -1099,18 +1089,8 @@ var UMOJA = {
    =================================================================== */
   useTestTeams: false,
   testTeams: [
-    { id:"test-u12-development-p1", displayName:"TEST — U12 Boys Development (SCCL Premier 1)",
-      ageGroup:"U12", gender:"Boys", tier:"development",
-      competition:"SCCL", competitionDivision:"Premier 1", programFee:1700, active:true },
-    { id:"test-u12-development-p2", displayName:"TEST — U12 Boys Development (SCCL Premier 2)",
-      ageGroup:"U12", gender:"Boys", tier:"development",
-      competition:"SCCL", competitionDivision:"Premier 2", programFee:1700, active:true },
-    { id:"test-u12-evolution", displayName:"TEST — U12 Boys Evolution",
-      ageGroup:"U12", gender:"Boys", tier:"evolution", programFee:1725, active:true },
     { id:"test-u14-girls-elite", displayName:"TEST — U14 Girls Elite",
-      ageGroup:"U14", gender:"Girls", tier:"elite", programFee:3925, active:true },
-    { id:"test-u8-foundations", displayName:"TEST — U8 Foundations",
-      ageGroup:"U8", gender:"Coed", tier:"foundations", programFee:525, active:true }
+      ageGroup:"U14", gender:"Girls", tier:"elite", programFee:3925, active:true }
   ],
 
 /* ===================================================================

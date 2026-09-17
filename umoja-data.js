@@ -23,10 +23,6 @@ var UMOJA = {
    2. PUBLISHED PROGRAM FEES — reference
    =================================================================== */
   fees: {
-    foundations:  { "U6-U10": 525 },
-    rec:          { "U11-U19": 425 },
-    development:  { "U11-U19": 1700 },
-    evolution:    { "U11-U19": 1725 },
     premier:      { "U11-U12": 3250, "U13-U19": 3450 },
     elite:        { "U11-U12": 3550, "U13-U14": 4100, "U15-U18/19": 4325 }
   },
@@ -49,18 +45,8 @@ var UMOJA = {
    =================================================================== */
   useTestTeams: false,
   testTeams: [
-    { id:"test-u12-development-p1", displayName:"TEST — U12 Boys Development (SCCL Premier 1)",
-      ageGroup:"U12", gender:"Boys", tier:"development",
-      competition:"SCCL", competitionDivision:"Premier 1", programFee:1700, active:true },
-    { id:"test-u12-development-p2", displayName:"TEST — U12 Boys Development (SCCL Premier 2)",
-      ageGroup:"U12", gender:"Boys", tier:"development",
-      competition:"SCCL", competitionDivision:"Premier 2", programFee:1700, active:true },
-    { id:"test-u12-evolution", displayName:"TEST — U12 Boys Evolution",
-      ageGroup:"U12", gender:"Boys", tier:"evolution", programFee:1725, active:true },
     { id:"test-u14-girls-elite", displayName:"TEST — U14 Girls Elite",
-      ageGroup:"U14", gender:"Girls", tier:"elite", programFee:4100, active:true },
-    { id:"test-u8-foundations", displayName:"TEST — U8 Foundations",
-      ageGroup:"U8", gender:"Coed", tier:"foundations", programFee:525, active:true }
+      ageGroup:"U14", gender:"Girls", tier:"elite", programFee:4100, active:true }
   ],
 
 /* ===================================================================
