@@ -173,3 +173,51 @@ umoja-data.js (central club data — read by every family-facing tool)
 
 Dropped from the package: the nested umoja-main-main.zip backup and a
 Word lock file (~$_Club_Soccer_Form_R002-1.docx).
+
+================================================================
+LATER REVISION — /give simplified
+================================================================
+
+give.html — page rebuilt to four sections. Header, footer, colors,
+type and all existing classes reused; no new CSS added.
+
+  1. Make a gift — the Givebutter form, unchanged, now the only
+     primary action on the page. Copy cut to two short paragraphs
+     plus three practical points. Any amount, once or monthly.
+  2. Give in-kind — five categories of goods and one mailto to
+     give@umojasoka.com. No form, no application.
+  3. Umoja Circle — short panel, links to umoja-circle.html. The
+     $5,000 figure is stated; nothing else is reproduced.
+  4. Home Ground — short panel, links to campaign.html. Ghost
+     button, not gold, so it does not compete with Make a gift.
+
+  Removed: all seven named giving levels (Supporter, Teammate,
+  Starter, Game Changer, Barrier Breaker, Champion, and the Circle
+  row); the "Anyone can invest in our mission" section; the Fund a
+  Player panel; "Other ways to give" (monthly, in-kind, DAFs and
+  grants, major gifts); and the "How do you want to help?" chooser.
+  No replacement tier system was added.
+
+  Also: the supplementary <style> block was deleted — it existed
+  only to style the Fund a Player panel and the giving-levels
+  ladder, both of which are gone. Title and meta description
+  updated from "Ways to Give" to "Give".
+
+Navigation (48 pages)
+  - The Give menu was a two-column submenu (Give: Ways to Give /
+    Fund a Player / Umoja Circle / Home Ground — Work With Us:
+    Sponsors). It is now a single flat list: Give, Umoja Circle,
+    Home Ground, Sponsors. Active states preserved per page.
+  - Footer: "Fund a Player" removed from Support Umoja;
+    "Ways to Give" renamed to "Give".
+
+Not deleted, as instructed
+  - fund-a-player.html still exists and is untouched. It is simply
+    no longer linked from anywhere. The same is true of
+    in-kind-gift.html, which the old "Other ways to give" section
+    was the only link to.
+
+Still outstanding
+  - sponsors.html is still missing from the repo; 48 pages link to
+    it, including the Sponsors item in the new Give menu. The file
+    is present as sponsors-draft.html.

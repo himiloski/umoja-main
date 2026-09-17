@@ -1,0 +1,527 @@
+UMOJA — RETIRED LEVELS, PRESERVED
+Foundations, Rec, Development and Evolution as they appeared before
+the site was cut back to Premier and Elite. Everything below is the
+exact markup and data removed, ready to paste back when they open.
+Extracted 2026-09-17
+====================================================================
+
+
+## programs.html — the 'Play the game' section (Foundations + Rec)
+
+<section class="s-sec"><div class="wrap">
+  <p class="s-lbl">Play the game &mdash; complete programs, not a waiting room</p>
+
+  <div class="pg" id="foundations">
+    <div class="pg-head"><h3>Foundations</h3><span class="tag">Forming</span></div>
+    <span class="id">Where a child learns to play.</span>
+    <p>One coached practice and one Saturday play day each week &mdash; a teaching day and a playing day. Small-sided, built entirely around touches on the ball, run by the coaches in house with no referees and no league table. At this age the coach decides more about a player&rsquo;s future than the fixture does, which is why Umoja staffs this level deliberately rather than with whoever is available.</p>
+    <p>Nobody is assessed and nobody is cut. A child who has never kicked a ball and a child who already plays every day are both in the right place here.</p>
+    <div class="pg-facts">
+      <div><span class="k">Ages</span><span class="v">U6 &ndash; U10</span></div>
+      <div><span class="k">Training</span><span class="v">One 60-min practice a week</span></div>
+      <div><span class="k">Season</span><span class="v">13-week periods</span></div>
+      <div><span class="k">Travel</span><span class="v">None</span></div>
+    </div>
+    <p class="fits"><b>This is right for you if</b> your child is new to the game, or young enough that the only thing that matters is time on the ball.</p>
+  </div>
+
+  <div class="pg" id="rec">
+    <div class="pg-head"><h3>Rec</h3><span class="tag">Forming</span></div>
+    <span class="id">Real football, on your own terms.</span>
+    <p>A proper season in the RIAS recreational league, without the commitment or the calendar of the competitive side. Two practices a week with volunteer coaches, one local event in the year, a team, a coach who knows your name &mdash; and the rest of your week back.</p>
+    <p>Choosing Rec is a decision about time, not ability. Plenty of players here could play competitively and have decided they want a life outside sport as well. Nobody in Rec is being evaluated. That said, our coaches are asked to speak up if a player is clearly playing below their level, because sometimes a family simply did not know the competitive program existed or assumed it was out of reach financially.</p>
+    <div class="pg-facts">
+      <div><span class="k">Ages</span><span class="v">U11 &ndash; U19</span></div>
+      <div><span class="k">Training</span><span class="v">Two 75-min practices a week</span></div>
+      <div><span class="k">Season</span><span class="v">13-week periods, RIAS league</span></div>
+      <div><span class="k">Travel</span><span class="v">None</span></div>
+    </div>
+    <p class="fits"><b>This is right for you if</b> your player loves the game and your family needs the week to belong to school, work, faith or family.</p>
+  </div>
+</div></section>
+
+
+## programs.html — Development and Evolution blocks
+
+<div class="pg" id="development">
+    <div class="pg-head"><h3>Development</h3><span class="tag">Forming</span></div>
+    <span class="id">The entry point to competitive football.</span>
+    <p>The technical work continues, but players start being asked tactical questions &mdash; where to stand, when to press, what the player next to them is doing. Training moves from several touches to several decisions.</p>
+    <p>This level sits inside the years where most children quit sport altogether, so it is built to keep them rather than to sort them. The demands are real and the intensity is deliberately not cranked up. A twelve-year-old has enough going on.</p>
+    <div class="pg-facts">
+      <div><span class="k">Ages</span><span class="v">U11 &ndash; U19</span></div>
+      <div><span class="k">Training</span><span class="v">Two 75-min practices a week</span></div>
+      <div><span class="k">Season</span><span class="v">Full year &middot; two local events</span></div>
+      <div><span class="k">Travel</span><span class="v">Minimal</span></div>
+    </div>
+    <p class="fits"><b>This is right for you if</b> your player wants to be coached seriously and is ready to train more than once a week.</p>
+    <p class="fits" style="border-left-color:var(--line)"><b>U15 and above:</b> 24 weeks at the normal club training load plus a supplemental training pool equivalent to 12 further weeks, built around the high-school soccer season.</p>
+  </div>
+
+  <div class="pg" id="evolution">
+    <div class="pg-head"><h3>Evolution</h3><span class="tag now">Playing now</span></div>
+    <span class="id">A step up in standard, and in who you play.</span>
+    <p>The same work, held to a higher line, against stronger opposition across metro Atlanta. Players are expected at training rather than invited to it, and the coach is planning a season rather than a session.</p>
+    <p>What changes here is the standard of the opponent as much as the standard of the work. Playing better teams asks questions a training ground cannot.</p>
+    <div class="pg-facts">
+      <div><span class="k">Ages</span><span class="v">U11 &ndash; U19</span></div>
+      <div><span class="k">Training</span><span class="v">Three 85-min practices a week</span></div>
+      <div><span class="k">Season</span><span class="v">Three local events &middot; one regional</span></div>
+      <div><span class="k">Travel</span><span class="v">Some, in state</span></div>
+    </div>
+    <p class="fits"><b>This is right for you if</b> your player is committed to the season and wants to be tested by better opposition.</p>
+    <p class="fits" style="border-left-color:var(--line)"><b>U15 and above:</b> 24 weeks at the normal club training load plus a supplemental training pool equivalent to 12 further weeks, built around the high-school soccer season.</p>
+  </div>
+
+
+## programs.html — original intro and 'today' copy
+
+<h2>Two ways to play.</h2>
+<p class="lede">Foundations and Rec are complete programs in their own right. The four levels listed below them are a pathway a player moves through as they develop.</p>
+<p class="s-lbl">Chase the game &mdash; each level asks for more, and gives more</p>
+<p>Three squads are training and playing: a U12 side at Evolution, a U12 side at Premier, and U18/19. The rest of the pathway is forming, and tryouts in early 2027 open the age groups in between.</p>
+
+
+## pricing.html — groups 01 Play and 02 Compete
+
+<div class="fam play">
+    <div class="fam-in">
+      <div class="fam-tag"><span class="idx">01</span><h2>Play</h2>
+        <p>Learn it, love it, keep playing it. Complete programs in their own right.</p></div>
+      <div class="fam-rows">
+<details class="acc a0">
+        <summary>
+          <span class="hd"><h3>Foundations</h3><p class="line">Where a child learns to play.</p></span>
+          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
+        </summary>
+        <div class="acc-body"><div class="acc-inner">
+          <h4>The program</h4>
+          <p>One coached 60-minute practice a week and one Saturday small-sided play day, across a 13-week period. Saturday play is run by the coaches in house, so there is no paid referee and no formal league table at this age. Two 13-week periods are offered each year, and a family can register for either one or both.</p>
+          <h4>Program fee</h4>
+          <div class="fee"><div class="brow"><span class="ag">U6 &ndash; U10</span><span class="pr">$185<small>per 13-week period</small></span></div></div>
+          <p class="feenote">This is the price for one 13-week period. A family can register for either period, or both.</p>
+          <h4>What the fee includes</h4>
+          <ul class="inc"><li>Coaching</li><li>Fields</li><li>Player registration and insurance</li></ul>
+          <h4>Separate from the fee</h4>
+          <p class="sep">Kit and personal equipment.</p>
+          <div class="acc-extra one">
+            <div><span class="k">Kit</span><span class="v">$100</span><span class="d">Bought once every two years, not annually</span></div>
+          </div>
+          <p class="acc-more"><a href="programs.html#foundations">What this level actually is <span>&rarr;</span></a></p>
+        </div></div>
+      </details><details class="acc a0">
+        <summary>
+          <span class="hd"><h3>Rec</h3><p class="line">Real football, on your own terms.</p></span>
+          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
+        </summary>
+        <div class="acc-body"><div class="acc-inner">
+          <h4>The program</h4>
+          <p>Two 75-minute practices a week with volunteer coaches, playing in the RIAS recreational league, with one local Rec event in the annual plan. Two 13-week periods are offered each year, and a family can register for either one or both.</p>
+          <h4>Program fee</h4>
+          <div class="fee"><div class="brow"><span class="ag">U11 &ndash; U19</span><span class="pr">$275<small>per 13-week period</small></span></div></div>
+          <p class="feenote">This is the price for one 13-week period. A family can register for either period, or both.</p>
+          <h4>What the fee includes</h4>
+          <ul class="inc"><li>Fields</li><li>Referees</li><li>League and team registration as applicable</li>
+            <li>Planned event entry</li><li>Player registration and insurance</li></ul>
+          <h4>Separate from the fee</h4>
+          <p class="sep">Kit and personal equipment. Rec coaching is volunteer.</p>
+          <div class="acc-extra one">
+            <div><span class="k">Kit</span><span class="v">$100</span><span class="d">Bought once every two years, not annually</span></div>
+          </div>
+          <p class="acc-more"><a href="programs.html#rec">What this level actually is <span>&rarr;</span></a></p>
+        </div></div>
+      </details>
+      </div>
+    </div>
+  </div>
+
+  <div class="fam compete">
+    <div class="fam-in">
+      <div class="fam-tag"><span class="idx">02</span><h2>Compete</h2>
+        <p>A competitive season, a real fixture list, and coaching that pushes.</p></div>
+      <div class="fam-rows">
+<details class="acc a1">
+        <summary>
+          <span class="hd"><h3>Development</h3><p class="line">The entry point to competitive football.</p></span>
+          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
+        </summary>
+        <div class="acc-body"><div class="acc-inner">
+          <h4>The program</h4>
+          <p>Two 75-minute practices a week on the SCCL-level pathway, with two local events in the annual plan.</p>
+          <p class="acc-note">U15 and above: 24 weeks at the normal club training load, plus a supplemental training pool equivalent to 12 further weeks. The calendar is built around the high-school soccer season rather than asking a player to carry a full club load through it.</p>
+          <h4>Program fee</h4>
+          <div class="fee"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$1,750<small>/ season</small></span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$1,275<small>/ season</small></span></div></div>
+          <p class="feenote">PlayMetrics displays pricing for spring 2027, which is half a season &mdash; $875 for U11&ndash;U14 and $637.50 for U15&ndash;U19.</p>
+          <h4>What the fee includes</h4>
+          <ul class="inc"><li>Coaching</li><li>Training fields</li><li>Home-game field allocation</li>
+            <li>Referees</li><li>League and team registration</li><li>Planned event and tournament entry</li>
+            <li>Player registration and insurance</li></ul>
+          <h4>Separate from the fee</h4>
+          <p class="sep">Player transportation and airfare, lodging, meals, kit and personal equipment, coach travel costs, and any postseason costs that only arise if a team earns a berth. Travel is planned separately from the actual season schedule once rosters are set.</p>
+          <div class="acc-extra">
+            <div><span class="k">Kit</span><span class="v">$350</span><span class="d">Bought once every two years, not annually</span></div>
+            <div><span class="k">Travel</span><span class="v">Planned separately</span><span class="d">From the actual season schedule, once rosters are set</span></div>
+          </div>
+          <p class="acc-more"><a href="programs.html#development">What this level actually is <span>&rarr;</span></a></p>
+        </div></div>
+      </details><details class="acc a2">
+        <summary>
+          <span class="hd"><h3>Evolution</h3><p class="line">A step up in standard, and in who you play.</p></span>
+          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
+        </summary>
+        <div class="acc-body"><div class="acc-inner">
+          <h4>The program</h4>
+          <p>Three 85-minute practices a week on the N1 and SCCL Champions League-level pathway, with three local events and one regional event in the annual plan.</p>
+          <p class="acc-note">U15 and above: 24 weeks at the normal club training load, plus a supplemental training pool equivalent to 12 further weeks. The calendar is built around the high-school soccer season rather than asking a player to carry a full club load through it.</p>
+          <h4>Program fee</h4>
+          <div class="fee"><div class="brow"><span class="ag">U11 &ndash; U14</span><span class="pr">$2,600<small>/ season</small></span></div><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$1,925<small>/ season</small></span></div></div>
+          <p class="feenote">PlayMetrics displays pricing for spring 2027, which is half a season &mdash; $1,300 for U11&ndash;U14 and $962.50 for U15&ndash;U19.</p>
+          <h4>What the fee includes</h4>
+          <ul class="inc"><li>Coaching</li><li>Training fields</li><li>Home-game field allocation</li>
+            <li>Referees</li><li>League and team registration</li><li>Planned event and tournament entry</li>
+            <li>Player registration and insurance</li></ul>
+          <h4>Separate from the fee</h4>
+          <p class="sep">Player transportation and airfare, lodging, meals, kit and personal equipment, coach travel costs, and any postseason costs that only arise if a team earns a berth. Travel is planned separately from the actual season schedule once rosters are set.</p>
+          <div class="acc-extra">
+            <div><span class="k">Kit</span><span class="v">$350</span><span class="d">Bought once every two years, not annually</span></div>
+            <div><span class="k">Travel</span><span class="v">Planned separately</span><span class="d">From the actual season schedule, once rosters are set</span></div>
+          </div>
+          <p class="acc-more"><a href="programs.html#evolution">What this level actually is <span>&rarr;</span></a></p>
+        </div></div>
+      </details>
+      </div>
+    </div>
+  </div>
+
+
+## index.html — recreational ladder group
+
+    <div class="lad-group reveal">
+      <p class="lad-lbl">Play the game <em>&mdash; our recreational programs</em></p>
+      <div class="play">
+        <a href="programs.html#foundations"><span class="nm">Foundations</span>
+          <span class="ds">Small-sided sessions built around touches on the ball. Nobody is assessed and nobody is cut.</span></a>
+        <a href="programs.html#rec"><span class="nm">Rec</span>
+          <span class="ds">Real football on your own terms &mdash; a proper season, coached well, without the competitive calendar.</span></a>
+      </div>
+    </div>
+
+
+## index.html — Evolution and Development ladder steps
+
+      <a class="step live" href="programs.html#evolution">
+        <div class="bar" style="--w:80%">
+          <div><span class="nm">Evolution</span>
+            <span class="ds">A change in pace for players who have mastered tactical and technical fundamentals.</span></div>
+          <span class="st now">Playing now</span></div></a>
+      <a class="step" href="programs.html#development">
+        <div class="bar" style="--w:94%">
+          <div><span class="nm">Development</span>
+            <span class="ds">The entry point to Umoja's competitive pathway. For players looking to develop their game awareness and understanding.</span></div>
+          <span class="st">Forming</span></div></a>
+
+Original bar widths: Elite --w:52%, Premier --w:66%, Evolution --w:80%, Development --w:94%
+
+
+## scholarship.html — removed calculator program objects
+
+{
+      "id": "foundations",
+      "name": "Foundations",
+      "ages": "U6\u2013U10",
+      "price": 525,
+      "floor": 1.3,
+      "multiplier": 2.0847,
+      "pays": [
+        0,
+        131,
+        262,
+        394,
+        525
+      ],
+      "rows": [
+        [
+          20748,
+          24923,
+          29097,
+          33272
+        ],
+        [
+          28132,
+          33792,
+          39453,
+          45113
+        ],
+        [
+          35516,
+          42662,
+          49808,
+          56954
+        ],
+        [
+          42900,
+          51532,
+          60163,
+          68795
+        ],
+        [
+          50284,
+          60401,
+          70519,
+          80636
+        ],
+        [
+          57668,
+          69271,
+          80874,
+          92477
+        ],
+        [
+          65052,
+          78141,
+          91229,
+          104318
+        ],
+        [
+          72436,
+          87010,
+          101585,
+          116159
+        ]
+      ]
+    },
+{
+      "id": "rec",
+      "name": "Rec",
+      "ages": "U11\u2013U19",
+      "price": 425,
+      "floor": 1.3,
+      "multiplier": 2.0125,
+      "pays": [
+        0,
+        106,
+        212,
+        319,
+        425
+      ],
+      "rows": [
+        [
+          20748,
+          24539,
+          28329,
+          32120
+        ],
+        [
+          28132,
+          33272,
+          38411,
+          43551
+        ],
+        [
+          35516,
+          42005,
+          48493,
+          54982
+        ],
+        [
+          42900,
+          50738,
+          58575,
+          66413
+        ],
+        [
+          50284,
+          59471,
+          68657,
+          77844
+        ],
+        [
+          57668,
+          68204,
+          78739,
+          89275
+        ],
+        [
+          65052,
+          76937,
+          88821,
+          100706
+        ],
+        [
+          72436,
+          85670,
+          98903,
+          112137
+        ]
+      ]
+    },
+{
+      "id": "development",
+      "name": "Development",
+      "ages": "U11\u2013U19",
+      "price": 1700,
+      "floor": 1.3,
+      "multiplier": 3.1667,
+      "pays": [
+        0,
+        425,
+        850,
+        1275,
+        1700
+      ],
+      "rows": [
+        [
+          20748,
+          30679,
+          40610,
+          50541
+        ],
+        [
+          28132,
+          41597,
+          55062,
+          68527
+        ],
+        [
+          35516,
+          52515,
+          69515,
+          86514
+        ],
+        [
+          42900,
+          63434,
+          83967,
+          104501
+        ],
+        [
+          50284,
+          74352,
+          98420,
+          122488
+        ],
+        [
+          57668,
+          85270,
+          112873,
+          140475
+        ],
+        [
+          65052,
+          96189,
+          127325,
+          158462
+        ],
+        [
+          72436,
+          107107,
+          141778,
+          176449
+        ]
+      ]
+    },
+{
+      "id": "evolution",
+      "name": "Evolution",
+      "ages": "U11\u2013U19",
+      "price": 1725,
+      "floor": 1.3,
+      "multiplier": 3.1833,
+      "pays": [
+        0,
+        431,
+        862,
+        1294,
+        1725
+      ],
+      "rows": [
+        [
+          20748,
+          30767,
+          40786,
+          50805
+        ],
+        [
+          28132,
+          41717,
+          55302,
+          68887
+        ],
+        [
+          35516,
+          52667,
+          69817,
+          86968
+        ],
+        [
+          42900,
+          63616,
+          84333,
+          105049
+        ],
+        [
+          50284,
+          74566,
+          98848,
+          123130
+        ],
+        [
+          57668,
+          85516,
+          113363,
+          141211
+        ],
+        [
+          65052,
+          96465,
+          127879,
+          159292
+        ],
+        [
+          72436,
+          107415,
+          142394,
+          177373
+        ]
+      ]
+    },
+
+
+## fund-a-player.html — removed cost rows
+
+{ level:"Foundations", bands:[ {label:"13 weeks", amount:185} ], travel:false, note:"" },
+{ level:"Rec",         bands:[ {label:"13 weeks", amount:275} ], travel:false, note:"" },
+{ level:"Development", bands:[ {label:"U11\u2013U14", amount:1750}, {label:"U15\u2013U19", amount:1275} ], travel:false, note:"" },
+{ level:"Evolution",   bands:[ {label:"U11\u2013U14", amount:2600}, {label:"U15\u2013U19", amount:1925} ], travel:true,  note:"" },
+
+
+## umoja-data.js and season-travel-preview.html — removed fee entries
+
+    foundations:  { "U6-U10": 525 },
+    rec:          { "U11-U19": 425 },
+    development:  { "U11-U19": 1700 },
+    evolution:    { "U11-U19": 1725 },
+
+(umoja-data.js carried the same four keys; its Premier/Elite values
+ differed from the published pages — see CHANGES.txt.)
+
+Removed tier enum line:
+     tier                foundations | rec | development | evolution | premier | elite
+
+
+## sjfbswfnwu49.html — removed program-table rows
+
+      <div class="program-row">
+        <div data-label="Program"><strong>Foundations</strong></div><div data-label="Ages">U6–U10</div><div data-label="Published fee"><span class="price">$525</span></div><div data-label="Season standard">2 sessions/week · 60 minutes · local play only · no travel events</div><div data-label="Competition level">Local / age-appropriate play</div>
+      </div>
+      <div class="program-row">
+        <div data-label="Program"><strong>Rec</strong></div><div data-label="Ages">U11–U19</div><div data-label="Published fee"><span class="price">$425</span></div><div data-label="Season standard">2 practices/week · local games · low-pressure participation · no travel events</div><div data-label="Competition level">Local recreational league</div>
+      </div>
+      <div class="program-row">
+        <div data-label="Program"><strong>Development</strong></div><div data-label="Ages">U11–U19</div><div data-label="Published fee"><span class="price">$1,700</span></div><div data-label="Season standard">3 practices/week · appropriate local league/division · 1 local or in-state event</div><div data-label="Competition level">SCCL-type developmental competition</div>
+      </div>
+      <div class="program-row">
+        <div data-label="Program"><strong>Evolution</strong></div><div data-label="Ages">U11–U19</div><div data-label="Published fee"><span class="price">$1,725</span></div><div data-label="Season standard">3 practices/week · 75 minutes · 2 in-state tournaments/events</div><div data-label="Competition level">N1-type competitive environment</div>
+      </div>
+
+Original stats: '6 / Program levels from Foundations through Elite' and 'U6 / Where the pathway begins'
