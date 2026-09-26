@@ -23,8 +23,8 @@ var UMOJA = {
    2. PUBLISHED PROGRAM FEES — reference
    =================================================================== */
   fees: {
-    premier:      { "U11-U12": 3250, "U13-U19": 3450 },
-    elite:        { "U11-U12": 3550, "U13-U14": 4100, "U15-U18/19": 4325 }
+    evolution:    { "U11-U14": 2500, "U15-U19": 2350 },
+    elite:        { "U11-U19": 3500 }
   },
 
 /* ===================================================================
@@ -32,10 +32,10 @@ var UMOJA = {
    Actual team records. Keep empty until real teams are published.
 
    Example shape:
-   { id:"u15-girls-premier", displayName:"U15 Girls Premier",
-     ageGroup:"U15", gender:"Girls", tier:"premier",
-     competition:"ECRL", competitionDivision:"...",
-     programFee:3450, active:true }
+   { id:"u15-boys-evolution", displayName:"U15 Boys Evolution",
+     ageGroup:"U15", gender:"Boys", tier:"evolution",
+     competition:"...", competitionDivision:"...",
+     programFee:2350, active:true }
    =================================================================== */
   teams: [],
 
@@ -45,8 +45,8 @@ var UMOJA = {
    =================================================================== */
   useTestTeams: false,
   testTeams: [
-    { id:"test-u14-girls-elite", displayName:"TEST — U14 Girls Elite",
-      ageGroup:"U14", gender:"Girls", tier:"elite", programFee:4100, active:true }
+    { id:"test-u14-boys-elite", displayName:"TEST — U14 Boys Elite",
+      ageGroup:"U14", gender:"Boys", tier:"elite", programFee:3500, active:true }
   ],
 
 /* ===================================================================

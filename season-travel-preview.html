@@ -1039,8 +1039,8 @@ var UMOJA = {
    right number rather than remember it.
    =================================================================== */
   fees: {
-    premier:      { "U11-U12": 3150, "U13-U19": 3275 },
-    elite:        { "U11-U12": 3375, "U13-U14": 3925, "U15-U18/19": 4150 }
+    evolution:    { "U11-U14": 2500, "U15-U19": 2350 },
+    elite:        { "U11-U19": 3500 }
   },
 
 /* ===================================================================
@@ -1053,7 +1053,7 @@ var UMOJA = {
      displayName         exactly what a family should see
      ageGroup            "U6" … "U18/19"   (U18/19 is one age group)
      gender              "Boys" | "Girls" | "Coed"   (U6–U10 are coed)
-     tier                premier | elite
+     tier                evolution | elite
      competition         optional league name. Omit where a tier has
                          no league designation.
      competitionDivision optional. e.g. "Champions", "Premier 2".
@@ -1065,8 +1065,8 @@ var UMOJA = {
    records here and they appear to families immediately.
    =================================================================== */
   teams: [
-    { id:"test-u15-girls-premier", displayName:"TEST — U15 Girls Premier",
-      ageGroup:"U15", gender:"Girls", tier:"premier", programFee:3275, active:true }
+    { id:"test-u15-boys-evolution", displayName:"TEST — U15 Boys Evolution",
+      ageGroup:"U15", gender:"Boys", tier:"evolution", programFee:2350, active:true }
   ],
 
 /* ===================================================================
@@ -1077,8 +1077,8 @@ var UMOJA = {
    =================================================================== */
   useTestTeams: false,
   testTeams: [
-    { id:"test-u14-girls-elite", displayName:"TEST — U14 Girls Elite",
-      ageGroup:"U14", gender:"Girls", tier:"elite", programFee:3925, active:true }
+    { id:"test-u14-boys-elite", displayName:"TEST — U14 Boys Elite",
+      ageGroup:"U14", gender:"Boys", tier:"elite", programFee:3500, active:true }
   ],
 
 /* ===================================================================
@@ -1128,7 +1128,7 @@ var UMOJA = {
    EMPTY ON PURPOSE. No team or travel estimate is published until the actual roster, event calendar and hotel information exist.
    =================================================================== */
   travel: {
-    "test-u15-girls-premier": {
+    "test-u15-boys-evolution": {
       lodging: [
         { event:"Jefferson Cup", short:"Jefferson Cup", hotel:"TEST — Richmond Riverfront Hotel", nightlyRate:203, nights:3, estimatedTaxesFees:91 },
         { event:"Raleigh Showcase", short:"Raleigh Showcase", hotel:"TEST — Raleigh Team Hotel", nightlyRate:189, nights:3, estimatedTaxesFees:83 },
