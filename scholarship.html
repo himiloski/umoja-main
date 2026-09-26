@@ -1015,9 +1015,12 @@ menu.addEventListener('click',function(e){if(e.target.tagName==='A'&&!e.target.q
    REVIEW EVERY JANUARY. Approved against Umoja_scholarship_thresholds.xlsx.
 
    ONE FLOOR
-   Evolution and Elite sit at 185%, the reduced-price lunch line,
-   because those fees are large. Levels added later may carry
-   their own floor.
+   Elite sits at 185%, the reduced-price lunch line, because that
+   fee is large. Evolution sits at 130%, the free-lunch line, like
+   the other lower-cost tiers. Evolution multipliers are interpolated
+   from the approved 130% tiers in the thresholds workbook
+   (Development $1,700 = 3.1667, Competitive $1,725 = 3.1833,
+   Foundations $525 = 2.0847) -- confirm before January review.
 
    THE RULE
    A household's poverty guideline is povertyGuideline1 plus
@@ -1066,64 +1069,64 @@ var SCHOLARSHIP_DATA = {
       "id": "evolution_a",
       "name": "Evolution",
       "ages": "U11\u2013U14",
-      "price": 2500,
-      "floor": 1.85,
-      "multiplier": 3.5697,
+      "price": 1750,
+      "floor": 1.3,
+      "multiplier": 3.1999,
       "pays": [
         0,
-        625,
-        1250,
-        1875,
-        2500
+        438,
+        875,
+        1312,
+        1750
       ],
       "rows": [
         [
-          29526,
-          38675,
-          47823,
-          56972
+          20748,
+          30855,
+          40963,
+          51070
         ],
         [
-          40034,
-          52439,
-          64843,
-          77248
+          28132,
+          41837,
+          55541,
+          69246
         ],
         [
-          50542,
-          66203,
-          81863,
-          97524
+          35516,
+          52818,
+          70119,
+          87421
         ],
         [
-          61050,
-          79967,
-          98883,
-          117800
+          42900,
+          63799,
+          84698,
+          105597
         ],
         [
-          71558,
-          93731,
-          115903,
-          138076
+          50284,
+          74780,
+          99276,
+          123772
         ],
         [
-          82066,
-          107495,
-          132923,
-          158352
+          57668,
+          85761,
+          113855,
+          141948
         ],
         [
-          92574,
-          121259,
-          149943,
-          178628
+          65052,
+          96742,
+          128433,
+          160123
         ],
         [
-          103082,
-          135023,
-          166963,
-          198904
+          72436,
+          107723,
+          143011,
+          178298
         ]
       ]
     },
@@ -1131,64 +1134,64 @@ var SCHOLARSHIP_DATA = {
       "id": "evolution_b",
       "name": "Evolution",
       "ages": "U15\u2013U19",
-      "price": 2350,
-      "floor": 1.85,
-      "multiplier": 3.5349,
+      "price": 1275,
+      "floor": 1.3,
+      "multiplier": 2.7753,
       "pays": [
         0,
-        588,
-        1175,
-        1762,
-        2350
+        319,
+        638,
+        956,
+        1275
       ],
       "rows": [
         [
-          29526,
-          38490,
-          47453,
-          56417
+          20748,
+          28597,
+          36445,
+          44294
         ],
         [
-          40034,
-          52188,
-          64341,
-          76495
+          28132,
+          38774,
+          49415,
+          60057
         ],
         [
-          50542,
-          65886,
-          81229,
-          96573
+          35516,
+          48951,
+          62386,
+          75821
         ],
         [
-          61050,
-          79584,
-          98118,
-          116652
+          42900,
+          59128,
+          75357,
+          91585
         ],
         [
-          71558,
-          93282,
-          115006,
-          136730
+          50284,
+          69306,
+          88327,
+          107349
         ],
         [
-          82066,
-          106980,
-          131894,
-          156808
+          57668,
+          79483,
+          101297,
+          123112
         ],
         [
-          92574,
-          120678,
-          148782,
-          176886
+          65052,
+          89660,
+          114268,
+          138876
         ],
         [
-          103082,
-          134376,
-          165671,
-          196965
+          72436,
+          99837,
+          127239,
+          154640
         ]
       ]
     },

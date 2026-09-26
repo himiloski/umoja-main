@@ -236,22 +236,21 @@ Every address now goes to the department inbox that handles it.
 Staff personal addresses on staff.html unchanged.
 
 =====================================================================
-BUDGET ALIGNMENT — Sep 26, 2026
-Aligned to Umoja_Planning_Budget_Evolution_Elite.xlsx
-- Launch programs are Evolution and Elite (Premier renamed to Evolution
-  on index, programs, pricing, fund-a-player, calculator, data files).
-- Fees: Evolution $2,500 (U11–U14) / $2,350 (U15–U19); Elite $3,500
-  all ages. Spring 2027 half season: $1,250 / $1,175 / $1,750.
-- Training: both programs three 90-minute practices a week.
-  Evolution 30 weeks (U11–U14) / 18 weeks (U15+);
-  Elite 32 weeks (U11–U14) / 36 weeks (U15+).
+BUDGET ALIGNMENT — Sep 26, 2026 (revised)
+Evolution replaces Development (not Premier). Launch: Evolution + Elite.
+- Evolution: $1,750 (U11–U14) / $1,275 (U15–U19); spring 2027 half
+  season $875 / $637.50. Two 75-minute practices a week; 40 training
+  weeks U11–U14, 36 U15+. Local league and two local tournaments; no
+  overnight travel.
+- Elite: $3,500 all ages (spring $1,750). Three 90-minute practices a
+  week; 32 weeks U11–U14, 36 U15+. Travel billed separately.
 - League names removed from pricing and programs.
-- Scholarship calculator: three programs, same 185% floor and the same
-  price-to-multiplier line as the approved table (Evolution 3.5697 /
-  3.5349, Elite 3.8023). Cards now sit three across.
-- Add-on menu retired: choose-support.html now redirects to Financial
-  Support; that page and the scholarship application explain snacks for
-  every player and equipment/transport support with scholarships.
+- Scholarship calculator: Evolution at the 130% floor, multipliers
+  interpolated from the approved 130% tiers (3.1999 / 2.7753); Elite
+  at 185% (3.8023). Cards three across.
+- Add-on menu retired: choose-support.html redirects to Financial
+  Support; snacks for every player; equipment and transport support
+  come with scholarships.
 - Transportation: carpool-match emails each season; two vans on set
-  routes from 2027–28 with seats reserved for scholarship players.
-- Sample and example data switched to boys Evolution teams.
+  routes from 2027–28, seats reserved for scholarship players.
+- Sample and example data switched to boys teams; travel sample is Elite.

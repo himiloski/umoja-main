@@ -23,7 +23,7 @@ var UMOJA = {
    2. PUBLISHED PROGRAM FEES — reference
    =================================================================== */
   fees: {
-    evolution:    { "U11-U14": 2500, "U15-U19": 2350 },
+    evolution:    { "U11-U14": 1750, "U15-U19": 1275 },
     elite:        { "U11-U19": 3500 }
   },
 
@@ -35,7 +35,7 @@ var UMOJA = {
    { id:"u15-boys-evolution", displayName:"U15 Boys Evolution",
      ageGroup:"U15", gender:"Boys", tier:"evolution",
      competition:"...", competitionDivision:"...",
-     programFee:2350, active:true }
+     programFee:1275, active:true }
    =================================================================== */
   teams: [],
 
