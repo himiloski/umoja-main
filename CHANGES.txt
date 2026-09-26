@@ -221,3 +221,16 @@ Still outstanding
   - sponsors.html is still missing from the repo; 48 pages link to
     it, including the Sponsors item in the new Give menu. The file
     is present as sponsors-draft.html.
+
+EMAIL ROUTING (Sept 26, 2026)
+Every address now goes to the department inbox that handles it.
+- Footer "Reach Us", general help, recruiting, volunteer, travel -> office@
+- Tryouts (contact card, tryouts page) -> registrar@
+- Sponsors, Partner with Umoja -> sponsorships@ (was sponsors@)
+- Give, in-kind, Fund a Player, Umoja Circle, Home Ground gifts -> development@ (was hello@/give@)
+- Home Ground "Have land?" -> facilities@
+- Privacy requests -> records@
+- Injury refund fallback -> finance@ (new refundEmail in umoja-data.js)
+- contact.html: new "Departments" card listing development@, grants@,
+  finance@, facilities@, social@, records@ (same card style as the others)
+Staff personal addresses on staff.html unchanged.

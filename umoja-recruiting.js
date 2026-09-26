@@ -25,7 +25,7 @@ var RECRUITING = {
    ================================================================== */
   form: {
     endpoint: "https://formspree.io/f/xnpqogod",
-    email: "hello@umojasoka.com",
+    email: "office@umojasoka.com",
     replyLine: "Thanks — we received your message. Umoja Recruiting will follow up with the information you requested."
   },
 
