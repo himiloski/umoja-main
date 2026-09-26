@@ -1,0 +1,4 @@
+# Branded short links. Format: /path  destination  status
+# To update: replace the destination URL. To remove: delete the line.
+/playmetrics  https://app.playmetrics.com/signup?clubToken=TG9naW4tQ2x1Yi52MS0zMTM0LTE3OTU1NjMyMTR8WW9udHIwZkRPMFpSak9FR1A0U01YWGMyakc2L0IrcERxU1g4RE1iZ0hYTT0  302
+/PlayMetrics  https://app.playmetrics.com/signup?clubToken=TG9naW4tQ2x1Yi52MS0zMTM0LTE3OTU1NjMyMTR8WW9udHIwZkRPMFpSak9FR1A0U01YWGMyakc2L0IrcERxU1g4RE1iZ0hYTT0  302
