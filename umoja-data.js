@@ -23,16 +23,18 @@ var UMOJA = {
    2. PUBLISHED PROGRAM FEES — reference
    =================================================================== */
   fees: {
-    spring2027: { "U12 Evolution": 825, "U12 Premier": 988, "U14 Premier": 1218,
-                  "U17 Elite": 1465, "U23 UPSL": 1252 },
-    foundations:  { "U6-U8": 415 },
+    spring2027: { "U12 Evolution": 825, "U12 Premier": 994, "U14 Premier": 1225,
+                  "U17 Elite": 1540, "U23 UPSL": 1324 },
+    foundations:  { "U6-U8": 438 },
     rec:          { "per 12-week season": 190, "both seasons": 380 },
     momentum:     { "U9-U19": 1335 },
     evolution:    { "U9-U19": 1650 },
-    juniorPremier:{ "U11-U12": 1975, "U13-U14": 2435 },
+    juniorPremier:{ "U11-U12": 1987, "U13-U14": 2450 },
     seniorPremier:{ "U15-U19": 2125 },
-    juniorElite:  { "U11-U12": 2200, "U13-U14": 3115 },
-    seniorElite:  { "U15-U19": 2930 }
+    juniorElite:  { "U11-U12": 2353, "U13-U14": 3331 },
+    seniorElite:  { "U15-U19": 3079 },
+    upsl:         { "U23": 2647 },
+    adult:        { "18+": 184 }
   },
 
 /* ===================================================================
@@ -54,7 +56,7 @@ var UMOJA = {
   useTestTeams: false,
   testTeams: [
     { id:"test-u14-boys-elite", displayName:"TEST — U14 Boys Elite",
-      ageGroup:"U14", gender:"Boys", tier:"juniorElite", programFee:3115, active:true }
+      ageGroup:"U14", gender:"Boys", tier:"juniorElite", programFee:3331, active:true }
   ],
 
 /* ===================================================================
