@@ -1053,7 +1053,7 @@
 <section class="fp-sec"><div class="wrap">
   <p class="fp-lbl">What a season costs</p>
   <h2>Different levels, different numbers.</h2>
-  <p>A season at Momentum and a season at Elite are not the same undertaking. More coaching, stronger opposition, further to travel &mdash; the cost rises because the development does. These are the current figures for each level of play.</p>
+  <p>A season at Momentum and a season at Elite are not the same undertaking. More coaching, stronger opposition, further to travel &mdash; the cost rises because the development does. These are the 2027&ndash;28 figures for each level of play.</p>
   <div class="fp-costs" id="fp-costs"></div>
   <p class="fp-small" id="fp-costs-note"></p>
 </div></section>
@@ -1100,7 +1100,6 @@
           <a href="scholarship.html">Scholarships</a>
           <a href="tryouts.html">Tryouts</a>
           <a href="season-travel.html">Season Travel</a>
-          <a href="sei-refund.html">Injury Refund</a>
         </div>
         <div class="foot-col"><h5>Support Umoja</h5>
           <a href="give.html">Give</a>
@@ -1203,8 +1202,14 @@ var PLAYER_SLOTS = 3;   /* labelled placeholders shown while PLAYERS is empty */
 var PROGRAM_COSTS = {
   note: "Figures are published here once each season's costs are finalised.",
   levels: [
-    { level:"Momentum",   bands:[ {label:"U11\u2013U14", amount:1750}, {label:"U15\u2013U19", amount:1275} ], travel:false,  note:"" },
-    { level:"Elite",       bands:[ {label:"U11\u2013U19", amount:3500} ], travel:true,  note:"" }
+    { level:"Foundations",  bands:[ {label:"U6\u2013U8", amount:415} ], travel:false, note:"" },
+    { level:"Rec",          bands:[ {label:"One 12-week season", amount:190}, {label:"Both seasons", amount:380} ], travel:false, note:"" },
+    { level:"Momentum",     bands:[ {label:"U9\u2013U19", amount:1335} ], travel:false, note:"" },
+    { level:"Evolution",    bands:[ {label:"U9\u2013U19", amount:1650} ], travel:false, note:"" },
+    { level:"Junior Premier", bands:[ {label:"U11\u2013U12", amount:1975}, {label:"U13\u2013U14", amount:2435} ], travel:true, note:"" },
+    { level:"Senior Premier", bands:[ {label:"U15\u2013U19", amount:2125} ], travel:true, note:"" },
+    { level:"Junior Elite", bands:[ {label:"U11\u2013U12", amount:2200}, {label:"U13\u2013U14", amount:3115} ], travel:true, note:"" },
+    { level:"Senior Elite", bands:[ {label:"U15\u2013U19", amount:2930} ], travel:true, note:"" }
   ]
 };
 

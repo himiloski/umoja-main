@@ -23,8 +23,16 @@ var UMOJA = {
    2. PUBLISHED PROGRAM FEES — reference
    =================================================================== */
   fees: {
-    evolution:    { "U11-U14": 1750, "U15-U19": 1275 },
-    elite:        { "U11-U19": 3500 }
+    spring2027: { "U12 Evolution": 825, "U12 Junior Premier": 988, "U14 Junior Premier": 1218,
+                  "U17 Senior Elite": 1465, "U23 UPSL": 1252 },
+    foundations:  { "U6-U8": 415 },
+    rec:          { "per 12-week season": 190, "both seasons": 380 },
+    momentum:     { "U9-U19": 1335 },
+    evolution:    { "U9-U19": 1650 },
+    juniorPremier:{ "U11-U12": 1975, "U13-U14": 2435 },
+    seniorPremier:{ "U15-U19": 2125 },
+    juniorElite:  { "U11-U12": 2200, "U13-U14": 3115 },
+    seniorElite:  { "U15-U19": 2930 }
   },
 
 /* ===================================================================
@@ -46,23 +54,11 @@ var UMOJA = {
   useTestTeams: false,
   testTeams: [
     { id:"test-u14-boys-elite", displayName:"TEST — U14 Boys Elite",
-      ageGroup:"U14", gender:"Boys", tier:"elite", programFee:3500, active:true }
+      ageGroup:"U14", gender:"Boys", tier:"juniorElite", programFee:3115, active:true }
   ],
 
 /* ===================================================================
-   5. KIT
-   =================================================================== */
-  kit: { price: 350, cycleYears: 2 },
-
-/* ===================================================================
-   6. SEASON-ENDING INJURY REFUND
-   =================================================================== */
-  seiRefund: {
-    processingDays: "3–5 business days"
-  },
-
-/* ===================================================================
-   7. SEASON TRAVEL
+   5. SEASON TRAVEL
 
    Per-team travel data, keyed by team id. A team with no entry here
    shows a "not published yet" state rather than a guess.
@@ -95,13 +91,12 @@ var UMOJA = {
   travel: {},
 
 /* ===================================================================
-   8. WHERE SUBMISSIONS GO
+   6. WHERE SUBMISSIONS GO
    =================================================================== */
   submit: {
     email: "office@umojasoka.com",
     refundEmail: "finance@umojasoka.com",
     endpoints: {
-      seiRefund:    "https://formspree.io/f/mrpgavbe",
       seasonTravel: "https://formspree.io/f/mnpqbynd"
     }
   }
@@ -119,16 +114,6 @@ UMOJA.teamById = function(id){
   var list = this.activeTeams();
   for (var i=0; i<list.length; i++) if (list[i].id === id) return list[i];
   return null;
-};
-
-UMOJA.seasonRefund = function(programFee, injuryISO){
-  var s = new Date(this.season.start + 'T00:00:00'),
-      e = new Date(this.season.end   + 'T00:00:00'),
-      d = new Date(injuryISO         + 'T00:00:00');
-  var share = (e - d) / (e - s);
-  if (share > 1) share = 1;
-  if (share < 0) share = 0;
-  return { share: share, refund: Math.round(programFee * share) };
 };
 
 UMOJA.reference = function(prefix){

@@ -672,23 +672,13 @@
 
 <section class="pagehero"><div class="pagehero-bg"></div><div class="pagehero-crest" aria-hidden="true"></div>
   <div class="wrap"><div class="crumb"><a href="index.html">Home</a><span>/</span><a href="resources.html">Resources</a><span>/</span>Join Umoja</div>
-  <h1>Join Umoja</h1><p class="sub">Tryouts, evaluations, age groups, and the paperwork that gets a player onto the field.</p></div>
+  <h1>Join Umoja</h1><p class="sub">Tryouts, evaluations, and the paperwork that gets a player onto the field.</p></div>
 </section>
 <section class="band resource-section"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Start Here</span><h2 style="margin-top:12px">Ready to play?</h2></div>
-  <div class="resource-grid three">
+  <div class="resource-grid">
     <article class="resource-card"><span class="rk">Tryouts</span><h3>Come to Tryouts</h3><p>See the current tryout schedule, what to expect, and how to get on the list.</p><div class="rlinks"><a href="tryouts.html">Tryouts <span>&rarr;</span></a></div></article>
     <article class="resource-card"><span class="rk">Year-Round Entry</span><h3>Request an Evaluation</h3><p>Outside the main tryout window, players can still ask to be evaluated when roster rules allow.</p><div class="rlinks"><a href="https://app.playmetrics.com/signup?clubToken=TG9naW4tQ2x1Yi52MS0zMTM0LTE3OTQwODUyMjl8czYydVBoTW9OK1BNN2RBSFYzQnkwcFptQUJBREhXZkx3QllTbkZuWXNrTT0=&amp;program_id=121071" target="_blank" rel="noopener">Request an Evaluation <span>&rarr;</span></a></div></article>
-    <article class="resource-card"><span class="rk">Not Sure Where You Fit?</span><h3>Find Your Age Group</h3><p>Youth soccer age groups are based on the player's full birth date. Use the finder below before you register.</p><div class="rlinks"><a href="#age-group">Use the Finder <span>&darr;</span></a></div></article>
-  </div>
-</div></section>
-<section class="band resource-section alt age-section" id="age-group"><div class="wrap">
-  <div class="age-layout">
-    <div class="sec-head"><span class="eyebrow">Age Group Finder</span><h2 style="margin-top:12px">Find the right age group.</h2><p class="resource-intro">For 2026–27, US Club Soccer age groups run August 1 through July 31. Enter the player's full birth date so the cutoff is handled correctly.</p></div>
-    <div class="finder">
-      <div class="finder-row"><div><label for="birthdate">Player birth date</label><input id="birthdate" type="date" aria-describedby="finder-note"></div></div>
-      <p class="ans" id="finder-ans">Enter a birth date.</p><p class="note" id="finder-note">Placement on a specific team is a separate soccer decision.</p>
-    </div>
   </div>
 </div></section>
 <section class="band resource-section"><div class="wrap">
@@ -728,7 +718,6 @@
           <a href="scholarship.html">Scholarships</a>
           <a href="tryouts.html">Tryouts</a>
           <a href="season-travel.html">Season Travel</a>
-          <a href="sei-refund.html">Injury Refund</a>
         </div>
         <div class="foot-col"><h5>Support Umoja</h5>
           <a href="give.html">Give</a>
@@ -780,79 +769,7 @@ var TRYOUT_WINDOW = "closed";
 })();
 </script>
 
-<script>
-(function(){
-  var input=document.getElementById('birthdate'), ans=document.getElementById('finder-ans'), note=document.getElementById('finder-note');
-  if(!input) return;
 
-  var groups=[
-    ['U6','2020-08-01','2021-07-31'],
-    ['U7','2019-08-01','2020-07-31'],
-    ['U8','2018-08-01','2019-07-31'],
-    ['U9','2017-08-01','2018-07-31'],
-    ['U10','2016-08-01','2017-07-31'],
-    ['U11','2015-08-01','2016-07-31'],
-    ['U12','2014-08-01','2015-07-31'],
-    ['U13','2013-08-01','2014-07-31'],
-    ['U14','2012-08-01','2013-07-31'],
-    ['U15','2011-08-01','2012-07-31'],
-    ['U16','2010-08-01','2011-07-31'],
-    ['U17','2009-08-01','2010-07-31'],
-    ['U18','2008-08-01','2009-07-31'],
-    ['U19','2007-08-01','2008-07-31']
-  ];
-
-  function draw(){
-    var dob=input.value;
-    if(!dob){
-      ans.innerHTML='Enter a birth date.';
-      note.textContent='Placement on a specific team is a separate soccer decision.';
-      return;
-    }
-
-    /* Some browsers fire input events while a date is still being typed (for example,
-       a temporary year of 0002). Do not calculate until the year is plausibly complete. */
-    var parts=dob.split('-');
-    var year=Number(parts[0]);
-    if(parts.length!==3 || !/^\d{4}$/.test(parts[0]) || year<1900 || year>2100){
-      ans.innerHTML='Finish entering the birth date.';
-      note.textContent='We’ll show the age group once the full date is entered.';
-      return;
-    }
-
-    if(dob>'2021-07-31'){
-      ans.innerHTML='That player is <span class="g">younger than U6</span>.';
-      note.textContent='Umoja’s youth pathway begins at U6. Contact us and we can help with the right next step.';
-      return;
-    }
-
-    if(dob<'2007-08-01'){
-      ans.innerHTML='That player is <span class="g">older than Umoja’s U18/19 youth group</span>.';
-      note.textContent='Contact us about the appropriate older-player opportunity.';
-      return;
-    }
-
-    for(var i=0;i<groups.length;i++){
-      var g=groups[i];
-      if(dob>=g[1] && dob<=g[2]){
-        var display=(g[0]==='U18'||g[0]==='U19')?'U18/19':g[0];
-        ans.innerHTML='For 2026–27, start with <span class="g">'+display+'</span>.';
-        note.textContent=(display==='U18/19')
-          ? 'Umoja combines the U18 and U19 range. A player born August 1, 2007 or later can still fall within this youth group.'
-          : 'Age group tells us where to start. Team and program placement depend on player level and roster availability.';
-        return;
-      }
-    }
-
-    ans.innerHTML='Please <span class="g">contact Umoja</span>.';
-    note.textContent='We could not match that birth date to the current youth age-group table.';
-  }
-
-  input.addEventListener('change',draw);
-  input.addEventListener('input',draw);
-  draw();
-})();
-</script>
 
 <script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="AdD5518_6oF76HJB6Oj_d";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();

@@ -254,3 +254,69 @@ Evolution replaces Development (not Premier). Launch: Evolution + Elite.
 - Transportation: carpool-match emails each season; two vans on set
   routes from 2027–28, seats reserved for scholarship players.
 - Sample and example data switched to boys teams; travel sample is Elite.
+
+
+================================================================
+OCTOBER 13, 2026 — SPRING 2027 / 2027–28 PROGRAM GUIDE UPDATE
+================================================================
+
+PROGRAMS, AGES, PRICES
+- index.html, tryouts.html: ages now "Spring 2027: boys U12, U14 and U17.
+  The U23 UPSL team is by invitation. From August 2027: boys U6–U19."
+  "Over 50 players" removed. Home pathway ladder now shows the spring
+  teams (U23 UPSL, U17 Senior Elite, U12/U14 Junior Premier, U12
+  Evolution) instead of Momentum "Playing now" / Elite "Forming".
+- programs.html: rebuilt. Spring 2027 lineup (five teams, training,
+  fees), then 2027–28 Momentum, Junior Elite (U11–U14) and Senior Elite
+  (U15–U19) with guide age bands, training weeks and sessions.
+- pricing.html: rebuilt. Spring 2027 fees for all five teams; spring
+  Momentum prices removed; 2027–28 Momentum $1,335, Junior Elite
+  $2,200 / $3,115, Senior Elite $2,930. New "what the fee covers" text.
+  Added payment plans, refund policy, how to join, and "Every Spring
+  2027 player is on full scholarship."
+- All kit prices removed (pricing, scholarship, umoja-data.js, internal
+  brief). Kit prices will come from the store.
+- fund-a-player.html, umoja-data.js, season-travel-preview.html: fee
+  tables updated to the new prices.
+- about.html, recruiting.html (+ form placeholders): team names match
+  the guides.
+
+TRYOUTS
+- contact.html, index.html, programs.html: "Spring 2027 tryouts:
+  December 2026. Season runs January–May 2027." plus the late-May 2027
+  tryouts / August 2027 season line.
+
+SCHOLARSHIPS
+- scholarship.html: calculator and its scripts removed. Four award
+  levels, shared costs, free items, automatic-qualifier list added.
+  Lodging and rides to training removed.
+- financial-support.html: calculator card, van routes/carpools and the
+  injury refund tool replaced (award levels, scholarship-player
+  benefits, refund policy).
+- join.html: age-group finder removed.
+- sei-refund.html DELETED; "Injury Refund" removed from every footer.
+- privacy.html: calculator section removed.
+- scholarship-application.html: support line updated.
+
+SPONSORS
+- sponsors.html: two tracks, Academy (Kickoff, Impact, Playmaker, One
+  Elite Place $4,769, Academy Scholarship Partner $14,307) and UPSL
+  (Golden Boot, Legend). No livestream on academy levels. Two Principal
+  Jersey Partners, one per track, two-year terms. Official Partner
+  designation included and non-exclusive. Enquiry form level list
+  updated. Sponsor email is now fundraising@umojasoka.com (also on
+  contact.html and partners.html).
+
+FOLLOW-UP (same day)
+- programs.html and pricing.html: the 2027–28 section now shows all
+  eight programs from the Boys Program Guide (Foundations, Rec,
+  Momentum, Evolution, Junior Premier, Senior Premier, Junior Elite,
+  Senior Elite) with ages, training, season length, play and fees.
+- fund-a-player.html, umoja-data.js, season-travel-preview.html: fee
+  tables carry all eight programs.
+- pricing.html: Junior/Senior Premier merged into one "Premier" dropdown
+  and Junior/Senior Elite into one "Elite" dropdown, each showing Junior
+  and Senior side by side. Both rows use the home page "Playing now"
+  card style: dark card, thin border and a faint wash of colour from the
+  left. Elite is gold; Premier is blue (--premier in the page's last
+  <head> style block).
