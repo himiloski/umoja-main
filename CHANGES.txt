@@ -264,7 +264,7 @@ PROGRAMS, AGES, PRICES
 - index.html, tryouts.html: ages now "Spring 2027: boys U12, U14 and U17.
   The U23 UPSL team is by invitation. From August 2027: boys U6–U19."
   "Over 50 players" removed. Home pathway ladder now shows the spring
-  teams (U23 UPSL, U17 Senior Elite, U12/U14 Junior Premier, U12
+  teams (U23 UPSL, U17 Elite, U12/U14 Premier, U12
   Evolution) instead of Momentum "Playing now" / Elite "Forming".
 - programs.html: rebuilt. Spring 2027 lineup (five teams, training,
   fees), then 2027–28 Momentum, Junior Elite (U11–U14) and Senior Elite
@@ -318,5 +318,12 @@ FOLLOW-UP (same day)
   and Junior/Senior Elite into one "Elite" dropdown, each showing Junior
   and Senior side by side. Both rows use the home page "Playing now"
   card style: dark card, thin border and a faint wash of colour from the
-  left. Elite is gold; Premier is blue (--premier in the page's last
+  left. Elite is gold; Premier is silver (--premier in the page's last
   <head> style block).
+- Programs and Pricing merged into one "Programs & Pricing" page
+  (pricing.html). Each dropdown now also says what the level is like.
+  programs.html is a redirect to pricing.html (old #anchors still land
+  on the right dropdown and open it). Nav and footer show one
+  "Programs & Pricing" link on every page; all old Programs links point
+  to the merged page.
+- Spring team names shortened: U12 Premier, U14 Premier, U17 Elite.

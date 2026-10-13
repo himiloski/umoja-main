@@ -23,8 +23,8 @@ var UMOJA = {
    2. PUBLISHED PROGRAM FEES — reference
    =================================================================== */
   fees: {
-    spring2027: { "U12 Evolution": 825, "U12 Junior Premier": 988, "U14 Junior Premier": 1218,
-                  "U17 Senior Elite": 1465, "U23 UPSL": 1252 },
+    spring2027: { "U12 Evolution": 825, "U12 Premier": 988, "U14 Premier": 1218,
+                  "U17 Elite": 1465, "U23 UPSL": 1252 },
     foundations:  { "U6-U8": 415 },
     rec:          { "per 12-week season": 190, "both seasons": 380 },
     momentum:     { "U9-U19": 1335 },
