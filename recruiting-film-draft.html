@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recruiting — Resources — Umoja Soccer Club</title>
@@ -882,14 +883,14 @@ body.resource-polish .resource-grid .u-reveal:nth-child(7){transition-delay:.28s
     </div></header>
 
 <section class="pagehero"><div class="pagehero-bg"></div><div class="pagehero-crest" aria-hidden="true"></div>
-  <div class="wrap"><div class="crumb"><a href="index.html">Home</a><span>/</span><a href="resources.html">Resources</a><span>/</span><a href="recruiting-resources.html">Recruiting</a><span>/</span>Academic Update</div>
-  <h1>Academic Update</h1><p class="sub">Keep recruiting-relevant school and academic information current.</p></div>
+  <div class="wrap"><div class="crumb"><a href="index.html">Home</a><span>/</span><a href="resources.html">Resources</a><span>/</span><a href="recruiting-resources.html">Recruiting</a><span>/</span>Film &amp; Highlights</div>
+  <h1>Film &amp; Highlights</h1><p class="sub">Send new film or replace an old recruiting video link.</p></div>
 </section>
 <section class="band resource-section"><div class="wrap"><div class="form-shell">
   <a class="form-back" href="recruiting-resources.html">&larr; Back to Recruiting</a>
   <form class="recruiting-form form-card" action="https://formspree.io/f/xwlkrrjz" method="POST">
-    <input type="hidden" name="form_type" value="Academic Update">
-    <input type="hidden" name="_subject" value="Umoja Recruiting — Academic Update">
+    <input type="hidden" name="form_type" value="Film &amp; Highlights">
+    <input type="hidden" name="_subject" value="Umoja Recruiting — Film &amp; Highlights">
     
 <div class="form-section"><h2>Who is sending this?</h2><p class="hint">A player or parent/guardian can submit an update. Give us at least one way to follow up.</p>
 <div class="form-grid">
@@ -899,21 +900,20 @@ body.resource-polish .resource-grid .u-reveal:nth-child(7){transition-delay:.28s
   <div class="field"><label for="contact_phone">Phone <span class="optional">(email or phone required)</span></label><input id="contact_phone" name="contact_phone" type="tel" autocomplete="tel"></div>
 </div></div>
     
-<div class="form-section"><h2>Academic update</h2><p class="hint">Use this for recruiting-relevant academic information. Do not upload a transcript here.</p>
+<div class="form-section"><h2>Film submission</h2><p class="hint">Send links rather than uploading video files. You can submit a new reel, replace an old one, or add full-match film.</p>
 <div class="form-grid">
-  <div class="field"><label for="school">School <span class="required-mark">*</span></label><input id="school" name="school" required></div>
-  <div class="field"><label for="grad_year">Graduation year <span class="required-mark">*</span></label><input id="grad_year" name="graduation_year" type="number" min="2026" max="2045" required></div>
-  <div class="field"><label for="gpa">Current GPA <span class="optional">(optional)</span></label><input id="gpa" name="gpa" inputmode="decimal" placeholder="Example: 3.7"></div>
-  <div class="field"><label for="gpa_type">GPA type / scale <span class="optional">(optional)</span></label><input id="gpa_type" name="gpa_type_scale" placeholder="Example: weighted, 4.0 scale"></div>
-  <div class="field"><label for="sat">SAT <span class="optional">(optional)</span></label><input id="sat" name="sat_score" inputmode="numeric"></div>
-  <div class="field"><label for="act">ACT <span class="optional">(optional)</span></label><input id="act" name="act_score" inputmode="decimal"></div>
-  <div class="field"><label for="psat">PSAT / PreACT <span class="optional">(optional)</span></label><input id="psat" name="pretest_score"></div>
-  <div class="field"><label for="class_rank">Class rank <span class="optional">(optional)</span></label><input id="class_rank" name="class_rank" placeholder="Example: 42 of 310"></div>
-  <div class="field full"><label for="academic_honors">Academic honors / coursework <span class="optional">(optional)</span></label><textarea id="academic_honors" name="academic_honors_coursework" placeholder="AP/IB/dual enrollment, honor roll, academic awards, etc."></textarea></div>
-  <div class="field full"><label for="academic_notes">Anything else that changed? <span class="optional">(optional)</span></label><textarea id="academic_notes" name="academic_notes"></textarea></div>
+  <div class="field"><label for="team">Current Umoja team <span class="optional">(if known)</span></label><input id="team" name="team"></div>
+  <div class="field"><label for="film_type">Film type <span class="required-mark">*</span></label><select id="film_type" name="film_type" required><option value="">Choose one</option><option>Highlight reel</option><option>Full match</option><option>Match clips / clip collection</option><option>Goalkeeper reel</option><option>Other</option></select></div>
+  <div class="field full"><label for="film_url">Video link <span class="required-mark">*</span></label><input id="film_url" name="film_url" type="url" required placeholder="https://"></div>
+  <div class="field"><label for="match_date">Match / video date <span class="optional">(optional)</span></label><input id="match_date" name="match_date" type="date"></div>
+  <div class="field"><label for="opponent">Opponent / event <span class="optional">(optional)</span></label><input id="opponent" name="opponent_event"></div>
+  <div class="field"><label for="film_action">What should we do with it? <span class="required-mark">*</span></label><select id="film_action" name="film_action" required><option value="">Choose one</option><option>Add this film</option><option>Replace my current highlight reel</option><option>Keep both old and new links</option><option>I am not sure — please review it</option></select></div>
+  <div class="field"><label for="jersey_info">How to find you in the film <span class="optional">(optional)</span></label><input id="jersey_info" name="jersey_info" placeholder="Jersey number, kit color, position"></div>
+  <div class="field full"><label for="extra_links">Additional film links <span class="optional">(optional)</span></label><textarea id="extra_links" name="additional_film_links" placeholder="One link per line is easiest."></textarea></div>
+  <div class="field full"><label for="film_notes">Notes for Umoja <span class="optional">(optional)</span></label><textarea id="film_notes" name="film_notes"></textarea></div>
 </div></div>
     <div class="privacy-note"><strong>Keep sensitive documents in the right place.</strong> Do not submit passwords, financial records, transcripts, medical information, immigration documents, or other sensitive files here. If Umoja needs a document, staff will tell you how to provide it securely.</div>
-    <div class="submit-row"><button class="btn btn-gold" type="submit">Submit academic update &rarr;</button><p class="fine">Only send information you want Umoja to use in the recruiting process. You can submit another update anytime something changes.</p></div>
+    <div class="submit-row"><button class="btn btn-gold" type="submit">Submit film update &rarr;</button><p class="fine">Only send information you want Umoja to use in the recruiting process. You can submit another update anytime something changes.</p></div>
   </form>
 </div></div></section>
 <section class="cstrip"><div class="wrap">
