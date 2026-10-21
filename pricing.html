@@ -1035,13 +1035,6 @@ html:not(.js) .acc-body{overflow:visible}
           <li><a href="scholarship.html">Scholarships</a></li>
           <li><a href="tryouts.html">Tryouts</a></li>
           </ul></li>
-        <li class="has-sub"><a href="recruiting.html">Recruiting<span class="caret">&#9660;</span></a>
-          <ul class="submenu">
-          <li><a href="recruiting.html">Recruiting Hub</a></li>
-          <li><a href="player-profiles.html">Player Profiles</a></li>
-          <li><a href="where-to-see-us.html">Where to See Us</a></li>
-          <li><a href="player-spotlights.html">Player Spotlights</a></li>
-          </ul></li>
         <li class="has-sub"><a href="resources.html">Resources<span class="caret">&#9660;</span></a>
           <ul class="submenu">
           <li><a href="join.html">Join Umoja</a></li>
@@ -1056,7 +1049,6 @@ html:not(.js) .acc-body{overflow:visible}
           <ul class="submenu">
           <li><a href="give.html">Give</a></li>
           <li><a href="umoja-circle.html">Umoja Circle</a></li>
-          <li><a href="campaign.html">Home Ground</a></li>
           <li><a href="sponsors.html">Sponsors</a></li>
           </ul></li>
         <li class="m-only"><a href="tryouts.html" id="nav-cta-m"></a></li>
@@ -1083,6 +1075,16 @@ html:not(.js) .acc-body{overflow:visible}
     <p><strong>Every Spring 2027 player is on full scholarship.</strong> Financial aid is available across every Umoja program. Selection happens first and never involves your finances. If a player belongs at a level, cost is not what decides whether they play there.</p>
     <a href="scholarship.html">Learn about financial aid <span>&rarr;</span></a>
   </div>
+  <!-- PROGRAM GUIDE PLACEHOLDER: upload the PDF to the site root as umoja-program-guide.pdf and this box appears on its own. Edit the wording below as you like. -->
+  <div class="aidnote" id="program-guide" style="display:none">
+    <p><strong>Program guide.</strong> The full details for every program in one document.</p>
+    <a href="umoja-program-guide.pdf" target="_blank" rel="noopener">Download the guide (PDF) <span>&rarr;</span></a>
+  </div>
+  <script>
+  fetch('umoja-program-guide.pdf',{method:'HEAD'}).then(function(r){
+    if(r.ok && /pdf/i.test(r.headers.get('content-type')||'')) document.getElementById('program-guide').style.display='';
+  }).catch(function(){});
+  </script>
 <div class="fam perform">
     <div class="fam-in">
       <div class="fam-tag"><span class="idx">01</span><h2>Spring 2027</h2>
@@ -1385,23 +1387,15 @@ html:not(.js) .acc-body{overflow:visible}
           <a href="about.html">Our Story</a>
           <a href="staff.html">Leadership &amp; Board</a>
         </div>
-        <div class="foot-col"><h5>Recruiting</h5>
-          <a href="recruiting.html">Recruiting Hub</a>
-          <a href="player-profiles.html">Player Profiles</a>
-          <a href="where-to-see-us.html">Where to See Us</a>
-          <a href="player-spotlights.html">Player Spotlights</a>
-        </div>
         <div class="foot-col"><h5>Play</h5>
           <a href="pricing.html">Programs &amp; Pricing</a>
           <a href="scholarship.html">Scholarships</a>
           <a href="tryouts.html">Tryouts</a>
-          <a href="season-travel.html">Season Travel</a>
         </div>
         <div class="foot-col"><h5>Support Umoja</h5>
           <a href="give.html">Give</a>
           <a href="umoja-circle.html">Umoja Circle</a>
           <a href="sponsors.html">Sponsors</a>
-          <a href="campaign.html">Home Ground</a>
           <a href="contact.html">Contact</a>
         </div>
         <div class="foot-col"><h5>Reach Us</h5>
