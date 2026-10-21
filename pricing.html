@@ -1066,10 +1066,37 @@ html:not(.js) .acc-body{overflow:visible}
   <h1>Programs &amp; Pricing</h1><p class="sub">Every Umoja program, what it asks of a player, and what it costs. Spring is a half season at half the annual fee.</p></div>
 </section>
 
+<style>
+.pt-wrap{margin-top:26px}
+.pt-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 18px;margin:0 0 10px}
+.pt-h h3{font-family:"Anton",sans-serif;text-transform:uppercase;font-weight:400;font-size:1.35rem;letter-spacing:.01em;margin:0;color:var(--white)}
+.pt-h p{margin:0;color:var(--gray-2);font-size:.9rem;font-weight:300}
+table.ptable{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;table-layout:fixed}
+.ptable thead th:nth-child(1){width:34%}.ptable thead th:nth-child(2){width:13%}.ptable thead th:nth-child(4){width:18%}
+.ptable th,.ptable td{text-align:left;padding:13px 14px 13px 0;border-top:1px solid var(--line);vertical-align:top;font-weight:300;color:var(--gray)}
+.ptable thead th{border-top:0;padding-top:0;font-size:.66rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--gray-2)}
+.ptable tbody th{color:var(--white);font-weight:600}
+.ptable .pn{display:block}
+.ptable .pnote{display:block;color:var(--gray-2);font-weight:300;font-size:.82rem;margin-top:2px}
+.ptable .pf{color:var(--gold);font-weight:600;white-space:nowrap;text-align:right;padding-right:0}
+.ptable thead th:last-child{text-align:right;padding-right:0}
+.ptable .pf small{display:block;color:var(--gray-2);font-weight:300;font-size:.76rem}
+.ptable tr:target th,.ptable tr:target td{background:rgba(245,194,5,.06)}
+.pt-covers{margin-top:30px;padding:18px 20px;border:1px solid var(--line);color:var(--gray);font-weight:300}
+.pt-covers b{color:var(--white);font-weight:600}
+@media(max-width:760px){
+  .ptable thead{display:none}
+  table.ptable,.ptable tbody{display:block;width:100%;min-width:0}
+  .ptable tr{display:grid;grid-template-columns:1fr auto;gap:4px 14px;padding:14px 0;border-top:1px solid var(--line)}
+  .ptable th,.ptable td{border:0;padding:0}
+  .ptable tbody th{grid-column:1}
+  .ptable .pf{grid-column:2;grid-row:1 / span 3}
+  .ptable td[data-l="Ages"],.ptable td[data-l="Training"]{grid-column:1;font-size:.9rem}
+}
+</style>
 <section class="s-sec"><div class="wrap">
   <h2>Spring 2027 and the 2027&ndash;28 season.</h2>
-  <p class="lede">Five Umoja teams open for the spring 2027 season: U12 Evolution, U12 Premier, U14 Premier, U17 Elite and U23 UPSL.</p>
-  <p style="margin-top:12px;color:var(--gray);font-weight:300">Youth teams play tournaments and friendlies; the UPSL team plays the UPSL Division 1 spring season. The U23 UPSL team is by invitation. All eight programs open in August 2027 for the 2027&ndash;28 season. Pick a level to see what it is like and what it costs.</p>
+  <p class="lede">Five Umoja teams open for the spring 2027 season. All programs open in August 2027 for the 2027&ndash;28 season.</p>
   <p style="margin-top:12px">Everyone is welcome at our tryouts. Player placement is subject to coach evaluation.</p>
   <div class="aidnote reveal">
     <p><strong>Every Spring 2027 player is on full scholarship.</strong> Financial aid is available across every Umoja program. Selection happens first and never involves your finances. If a player belongs at a level, cost is not what decides whether they play there.</p>
@@ -1085,264 +1112,44 @@ html:not(.js) .acc-body{overflow:visible}
     if(r.ok && /pdf/i.test(r.headers.get('content-type')||'')) document.getElementById('program-guide').style.display='';
   }).catch(function(){});
   </script>
-<div class="fam perform">
-    <div class="fam-in">
-      <div class="fam-tag"><span class="idx">01</span><h2>Spring 2027</h2>
-        <p>Five teams, January to May 2027. Spring is a half season at half the annual fee.</p></div>
-      <div class="fam-rows">
-<details class="acc" id="evolution">
-        <summary>
-          <span class="hd"><h3>U12 Evolution</h3><p class="line">The third tier.</p></span>
-          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
-        </summary>
-        <div class="acc-body"><div class="acc-inner">
-          <h4>The program</h4>
-          <p>Two 60-minute sessions a week, January to May. Tournaments and friendlies.</p>
-          <h4>What it&rsquo;s like</h4>
-          <p class="sep">The coach builds a team that can play a tournament weekend and still look like itself. Success is a player who keeps his decisions simple under more pressure. Playing time is equal.</p>
-          <h4>Program fee</h4>
-          <div class="fee"><div class="brow"><span class="ag">U12</span><span class="pr">$825<small>/ spring</small></span></div></div>
-          <p class="feenote">Spring is a half season at half the annual fee.</p>
-          <h4>What the fee covers</h4>
-          <p class="sep">League fees and player registration are included. Tournament entry, team travel, hotels, meals, uniforms and kit, and personal equipment are shared separately before the season.</p>
-        </div></div>
-      </details><details class="acc" id="junior-premier">
-        <summary>
-          <span class="hd"><h3>U12 Premier</h3><p class="line">Football beyond the local market.</p></span>
-          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
-        </summary>
-        <div class="acc-body"><div class="acc-inner">
-          <h4>The program</h4>
-          <p>Three 60-minute sessions a week, January to May. Tournaments and friendlies.</p>
-          <h4>What it&rsquo;s like</h4>
-          <p class="sep">The step up is the standard of play and the competition. The coach selects by level of play, and minutes are not the measure of a good season.</p>
-          <h4>Program fee</h4>
-          <div class="fee"><div class="brow"><span class="ag">U12</span><span class="pr">$994<small>/ spring</small></span></div></div>
-          <p class="feenote">Spring is a half season at half the annual fee.</p>
-          <h4>What the fee covers</h4>
-          <p class="sep">League fees and player registration are included. Tournament entry, team travel, hotels, meals, uniforms and kit, and personal equipment are shared separately before the season.</p>
-        </div></div>
-      </details><details class="acc" id="premier-u14">
-        <summary>
-          <span class="hd"><h3>U14 Premier</h3><p class="line">Football beyond the local market.</p></span>
-          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
-        </summary>
-        <div class="acc-body"><div class="acc-inner">
-          <h4>The program</h4>
-          <p>Three 75-minute sessions a week, January to May. Tournaments and friendlies.</p>
-          <h4>What it&rsquo;s like</h4>
-          <p class="sep">The step up is the standard of play and the competition. The coach selects by level of play, and minutes are not the measure of a good season.</p>
-          <h4>Program fee</h4>
-          <div class="fee"><div class="brow"><span class="ag">U14</span><span class="pr">$1,225<small>/ spring</small></span></div></div>
-          <p class="feenote">Spring is a half season at half the annual fee.</p>
-          <h4>What the fee covers</h4>
-          <p class="sep">League fees and player registration are included. Tournament entry, team travel, hotels, meals, uniforms and kit, and personal equipment are shared separately before the season.</p>
-        </div></div>
-      </details><details class="acc" id="spring-senior-elite">
-        <summary>
-          <span class="hd"><h3>U17 Elite</h3><p class="line">The top of the club.</p></span>
-          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
-        </summary>
-        <div class="acc-body"><div class="acc-inner">
-          <h4>The program</h4>
-          <p>Four 105-minute sessions a week, January to May. Tournaments and friendlies.</p>
-          <h4>What it&rsquo;s like</h4>
-          <p class="sep">Coaches hold a standard visibly above Premier, with a fourth session every week. Success is keeping a place on the team by level of play, and playing time is earned.</p>
-          <h4>Program fee</h4>
-          <div class="fee"><div class="brow"><span class="ag">U17</span><span class="pr">$1,540<small>/ spring</small></span></div></div>
-          <p class="feenote">Spring is a half season at half the annual fee.</p>
-          <h4>What the fee covers</h4>
-          <p class="sep">League fees and player registration are included. Tournament entry, team travel, hotels, meals, uniforms and kit, and personal equipment are shared separately before the season.</p>
-        </div></div>
-      </details><details class="acc" id="upsl">
-        <summary>
-          <span class="hd"><h3>U23 UPSL</h3><p class="line">By invitation.</p></span>
-          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
-        </summary>
-        <div class="acc-body"><div class="acc-inner">
-          <h4>The program</h4>
-          <p>Four 2-hour sessions a week. UPSL Division 1, spring season. The U23 UPSL team is by invitation.</p>
-          <h4>What it&rsquo;s like</h4>
-          <p class="sep">The U23 UPSL team is invite only. Players join by invitation from the club.</p>
-          <h4>Program fee</h4>
-          <div class="fee"><div class="brow"><span class="ag">U23</span><span class="pr">$1,324<small>/ spring</small></span></div></div>
-          <p class="feenote">Spring is a half season at half the annual fee.</p>
-          <h4>What the fee covers</h4>
-          <p class="sep">League fees and player registration are included. Tournament entry, team travel, hotels, meals, uniforms and kit, and personal equipment are shared separately before the season.</p>
-        </div></div>
-      </details>
-      </div>
-    </div>
-  </div>
-<div class="fam perform">
-    <div class="fam-in">
-      <div class="fam-tag"><span class="idx">02</span><h2>2027&ndash;28</h2>
-        <p>All eight youth programs open in August 2027 for the 2027&ndash;28 season, alongside the U23 UPSL team and adult teams.</p></div>
-      <div class="fam-rows">
-<details class="acc" id="foundations">
-        <summary>
-          <span class="hd"><h3>Foundations</h3><p class="line">First touches, taught properly.</p></span>
-          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
-        </summary>
-        <div class="acc-body"><div class="acc-inner">
-          <h4>The program</h4>
-          <p>Two 60-min sessions a week. A Saturday game each week, on teams of 8.</p>
-          <p class="acc-note">24 weeks. Ages U6 &ndash; U8.</p>
-          <h4>What it&rsquo;s like</h4>
-          <p class="sep">Coaches teach the first touches and keep every child eager to come back. Success is a child who can receive the ball, dribble it, and stay in a small game. Every child gets equal time in the group.</p>
-          <h4>Program fee</h4>
-          <div class="fee"><div class="brow"><span class="ag">U6 &ndash; U8</span><span class="pr">$438<small>/ season</small></span></div></div>
-          <p class="feenote">Full 2027&ndash;28 season, from August 2027.</p>
-          <h4>What the fee covers</h4>
-          <p class="sep">League fees and player registration are included. Tournament entry, team travel, hotels, meals, uniforms and kit, and personal equipment are shared separately before the season.</p>
-        </div></div>
-      </details><details class="acc" id="rec">
-        <summary>
-          <span class="hd"><h3>Rec</h3><p class="line">Soccer on your own terms.</p></span>
-          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
-        </summary>
-        <div class="acc-body"><div class="acc-inner">
-          <h4>The program</h4>
-          <p>Two 60-min sessions a week. 8 games a season with volunteer coaches. One optional tournament, $58 extra.</p>
-          <p class="acc-note">Two 12-week seasons, fall and spring. Ages U9 &ndash; U19.</p>
-          <h4>What it&rsquo;s like</h4>
-          <p class="sep">Rec adds matches. The coach fields a team that plays its matches and keeps players coming back. Success is a player who can hold a position for a full match. Playing time is equal.</p>
-          <h4>Program fee</h4>
-          <div class="fee"><div class="brow"><span class="ag">U9 &ndash; U19</span><span class="pr">$190<small>/ 12-week season</small></span></div><div class="brow"><span class="ag">Both seasons</span><span class="pr">$380<small>/ year</small></span></div></div>
-          <p class="feenote">Families choose one season ($190) or both ($380). Full 2027&ndash;28 season, from August 2027.</p>
-          <h4>What the fee covers</h4>
-          <p class="sep">League fees and player registration are included. Tournament entry, team travel, hotels, meals, uniforms and kit, and personal equipment are shared separately before the season.</p>
-        </div></div>
-      </details><details class="acc" id="momentum">
-        <summary>
-          <span class="hd"><h3>Momentum</h3><p class="line">Competitive soccer, close to home.</p></span>
-          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
-        </summary>
-        <div class="acc-body"><div class="acc-inner">
-          <h4>The program</h4>
-          <p>Momentum (2027&ndash;2028): about 20 matches and 2 tournaments. Two 60-minute sessions a week.</p>
-          <p class="acc-note">30 weeks. Ages U9 &ndash; U19.</p>
-          <h4>What it&rsquo;s like</h4>
-          <p class="sep">The coach builds a group that is hard to play against at home. Success is a player who trains well, keeps the ball under light pressure, and contributes in matches. Playing time is equal.</p>
-          <p class="acc-note"><b>Right for you if</b> your player wants competitive soccer and steady development without a travel-heavy schedule.</p>
-          <h4>Program fee</h4>
-          <div class="fee"><div class="brow"><span class="ag">U9 &ndash; U19</span><span class="pr">$1,335<small>/ season</small></span></div></div>
-          <p class="feenote">Full 2027&ndash;28 season, from August 2027.</p>
-          <h4>What the fee covers</h4>
-          <p class="sep">League fees and player registration are included. Tournament entry, team travel, hotels, meals, uniforms and kit, and personal equipment are shared separately before the season.</p>
-        </div></div>
-      </details><details class="acc" id="evolution-2027">
-        <summary>
-          <span class="hd"><h3>Evolution</h3><p class="line">The third tier.</p></span>
-          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
-        </summary>
-        <div class="acc-body"><div class="acc-inner">
-          <h4>The program</h4>
-          <p>U9&ndash;12: two 60-min sessions a week. U13&ndash;14: two 75-min sessions. U15&ndash;19: three 75-min sessions. 20 matches &amp; 2 tournaments.</p>
-          <p class="acc-note">40 weeks. Ages U9 &ndash; U19.</p>
-          <h4>What it&rsquo;s like</h4>
-          <p class="sep">The coach builds a team that can play a tournament weekend and still look like itself. Success is a player who keeps his decisions simple under more pressure. Playing time is equal.</p>
-          <h4>Program fee</h4>
-          <div class="fee"><div class="brow"><span class="ag">U9 &ndash; U19</span><span class="pr">$1,650<small>/ season</small></span></div></div>
-          <p class="feenote">Full 2027&ndash;28 season, from August 2027.</p>
-          <h4>What the fee covers</h4>
-          <p class="sep">League fees and player registration are included. Tournament entry, team travel, hotels, meals, uniforms and kit, and personal equipment are shared separately before the season.</p>
-        </div></div>
-      </details><details class="acc tier-premier" id="premier">
-        <summary>
-          <span class="hd"><h3>Premier</h3><p class="line">Football beyond the local market. Junior and Senior.</p></span>
-          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
-        </summary>
-        <div class="acc-body"><div class="acc-inner">
-          <div class="tier-split">
-            <div class="tier-half" id="junior-premier-2027">
-              <p class="tier-sub">Junior Premier <span>U11&ndash;U14</span></p>
-              <p class="tier-like">The step up is the standard of play and the competition. The coach selects by level of play, and minutes are not the measure of a good season.</p>
-              <p>U11&ndash;12: three 60-min sessions a week. U13&ndash;14: three 75-min sessions. 16 friendlies. U11&ndash;12: 3 tournaments. U13&ndash;14: 1.</p>
-              <p class="acc-note">40 weeks.</p>
-              <div class="fee"><div class="brow"><span class="ag">U11 &ndash; U12</span><span class="pr">$1,987<small>/ season</small></span></div><div class="brow"><span class="ag">U13 &ndash; U14</span><span class="pr">$2,450<small>/ season</small></span></div></div>
-            </div>
-            <div class="tier-half" id="senior-premier">
-              <p class="tier-sub">Senior Premier <span>U15&ndash;U19</span></p>
-              <p class="tier-like">The same standard as Junior Premier at the older ages. The coach selects by level of play, and minutes are not the measure of a good season.</p>
-              <p>Three 90-min sessions a week. 16 friendlies &amp; 1 tournament. U18 and U19 play as one age group.</p>
-              <p class="acc-note">28 weeks.</p>
-              <div class="fee"><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$2,125<small>/ season</small></span></div></div>
-            </div>
-          </div>
-          <p class="feenote">Full 2027&ndash;28 season, from August 2027.</p>
-          <h4>What the fee covers</h4>
-          <p class="sep">League fees and player registration are included. Tournament entry, team travel, hotels, meals, uniforms and kit, and personal equipment are shared separately before the season.</p>
-                  </div></div>
-      </details><details class="acc tier-elite" id="elite">
-        <summary>
-          <span class="hd"><h3>Elite</h3><p class="line">The top of the club. Junior and Senior.</p></span>
-          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
-        </summary>
-        <div class="acc-body"><div class="acc-inner">
-          <div class="tier-split">
-            <div class="tier-half" id="junior-elite">
-              <p class="tier-sub">Junior Elite <span>U11&ndash;U14</span></p>
-              <p class="tier-like">Coaches hold a standard visibly above Premier. Success is keeping a place on the team by level of play, and playing time is earned.</p>
-              <p>U11&ndash;12: three 60-min sessions a week. U13&ndash;14: three 90-min sessions. 16 friendlies. U13 also plays a UPSL Academy league season. U11&ndash;12: 3 tournaments. U13&ndash;14: 2.</p>
-              <p class="acc-note">40&ndash;43 weeks.</p>
-              <div class="fee"><div class="brow"><span class="ag">U11 &ndash; U12</span><span class="pr">$2,353<small>/ season</small></span></div><div class="brow"><span class="ag">U13 &ndash; U14</span><span class="pr">$3,331<small>/ season</small></span></div></div>
-            </div>
-            <div class="tier-half" id="senior-elite">
-              <p class="tier-sub">Senior Elite <span>U15&ndash;U19</span></p>
-              <p class="tier-like">The strongest schedule we can assemble and a national showcase calendar, with a fourth session every week. Built so a player can be recruited out of Umoja without ever having to leave it &mdash; a family should not need to buy their way into a bigger club to be seen.</p>
-              <p>Four 105-min sessions a week. 16 friendlies &amp; 3 tournaments. U15 and U17 also play a UPSL Academy league season.</p>
-              <p class="acc-note">43 weeks.</p>
-              <div class="fee"><div class="brow"><span class="ag">U15 &ndash; U19</span><span class="pr">$3,079<small>/ season</small></span></div></div>
-            </div>
-          </div>
-          <p class="acc-note"><b>Right for you if</b> your player intends to play beyond Umoja and is ready for the commitment that requires.</p>
-          <p class="feenote">Full 2027&ndash;28 season, from August 2027.</p>
-          <h4>What the fee covers</h4>
-          <p class="sep">League fees and player registration are included. Tournament entry, team travel, hotels, meals, uniforms and kit, and personal equipment are shared separately before the season.</p>
-                  </div></div>
-      </details><details class="acc" id="upsl-2027">
-        <summary>
-          <span class="hd"><h3>U23 UPSL</h3><p class="line">By invitation.</p></span>
-          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
-        </summary>
-        <div class="acc-body"><div class="acc-inner">
-          <h4>The program</h4>
-          <p>Four 2-hour sessions a week. 10 league games a season.</p>
-          <p class="acc-note">Two seasons, 30 weeks. Ages U23.</p>
-          <h4>What it&rsquo;s like</h4>
-          <p class="sep">The U23 UPSL team is invite only. Players join by invitation from the club.</p>
-          <h4>Program fee</h4>
-          <div class="fee"><div class="brow"><span class="ag">U23</span><span class="pr">$2,647<small>/ year</small></span></div></div>
-          <p class="feenote">Full 2027&ndash;28 season, from August 2027.</p>
-          <h4>What the fee covers</h4>
-          <p class="sep">League fees and player registration are included. Tournament entry, team travel, hotels, meals, uniforms and kit, and personal equipment are shared separately before the season.</p>
-        </div></div>
-      </details><details class="acc" id="adult">
-        <summary>
-          <span class="hd"><h3>Adult</h3><p class="line">League games only.</p></span>
-          <span class="pricebox"><span class="chev" aria-hidden="true"></span></span>
-        </summary>
-        <div class="acc-body"><div class="acc-inner">
-          <h4>The program</h4>
-          <p>League games only, in the Sons of Pitches FC league. One optional tournament, $52 extra.</p>
-          <p class="acc-note">Two 8-game seasons. Ages 18+.</p>
-          <h4>What it&rsquo;s like</h4>
-          <p class="sep">Adult teams play their league games. No training sessions.</p>
-          <h4>Program fee</h4>
-          <div class="fee"><div class="brow"><span class="ag">18+</span><span class="pr">$184<small>/ year</small></span></div></div>
-          <p class="feenote">Full 2027&ndash;28 season.</p>
-          <h4>What the fee covers</h4>
-          <p class="sep">League fees and player registration are included. Tournament entry, team travel, hotels, meals, uniforms and kit, and personal equipment are shared separately before the season.</p>
-        </div></div>
-      </details>
-      </div>
-    </div>
+
+  <div class="pt-wrap">
+    <div class="pt-h"><h3>Spring 2027</h3><p>January to May 2027. A half season at half the annual fee.</p></div>
+    <table class="ptable">
+      <thead><tr><th scope="col">Program</th><th scope="col">Ages</th><th scope="col">Training</th><th scope="col">Fee</th></tr></thead>
+      <tbody>
+      <tr id="evolution"><th scope="row"><span class="pn">U12 Evolution</span></th><td data-l="Ages">U12</td><td data-l="Training">Two 60-min sessions a week</td><td data-l="Fee" class="pf">$825<small>/ spring</small></td></tr>
+      <tr id="junior-premier"><th scope="row"><span class="pn">U12 Premier</span></th><td data-l="Ages">U12</td><td data-l="Training">Three 60-min sessions a week</td><td data-l="Fee" class="pf">$994<small>/ spring</small></td></tr>
+      <tr id="premier-u14"><th scope="row"><span class="pn">U14 Premier</span></th><td data-l="Ages">U14</td><td data-l="Training">Three 75-min sessions a week</td><td data-l="Fee" class="pf">$1,225<small>/ spring</small></td></tr>
+      <tr id="spring-senior-elite"><th scope="row"><span class="pn">U17 Elite</span></th><td data-l="Ages">U17</td><td data-l="Training">Four 105-min sessions a week</td><td data-l="Fee" class="pf">$1,540<small>/ spring</small></td></tr>
+      <tr id="upsl"><th scope="row"><span class="pn">U23 UPSL</span><span class="pnote">By invitation</span></th><td data-l="Ages">U23</td><td data-l="Training">Four 2-hour sessions a week</td><td data-l="Fee" class="pf">$1,324<small>/ spring</small></td></tr>
+      </tbody>
+    </table>
   </div>
 
+  <div class="pt-wrap" style="margin-top:44px">
+    <div class="pt-h"><h3>2027&ndash;28</h3><p>Full season, from August 2027.</p></div>
+    <table class="ptable">
+      <thead><tr><th scope="col">Program</th><th scope="col">Ages</th><th scope="col">Training</th><th scope="col">Fee</th></tr></thead>
+      <tbody>
+      <tr id="foundations"><th scope="row"><span class="pn">Foundations</span></th><td data-l="Ages">U6&ndash;U8</td><td data-l="Training">Two 60-min sessions a week, plus a Saturday game</td><td data-l="Fee" class="pf">$438<small>/ season</small></td></tr>
+      <tr id="rec"><th scope="row"><span class="pn">Rec</span><span class="pnote">Fall and spring, 12 weeks each. Optional tournament, $58 extra.</span></th><td data-l="Ages">U9&ndash;U19</td><td data-l="Training">Two 60-min sessions a week, 8 games</td><td data-l="Fee" class="pf">$190<small>/ season &middot; $380 both</small></td></tr>
+      <tr id="momentum"><th scope="row"><span class="pn">Momentum</span></th><td data-l="Ages">U9&ndash;U19</td><td data-l="Training">Two 60-min sessions a week</td><td data-l="Fee" class="pf">$1,335<small>/ season</small></td></tr>
+      <tr id="evolution-2027"><th scope="row"><span class="pn">Evolution</span></th><td data-l="Ages">U9&ndash;U19</td><td data-l="Training">Two or three sessions a week, by age</td><td data-l="Fee" class="pf">$1,650<small>/ season</small></td></tr>
+      <tr id="premier"><th scope="row"><span class="pn">Junior Premier</span></th><td data-l="Ages">U11&ndash;U12</td><td data-l="Training">Three 60-min sessions a week</td><td data-l="Fee" class="pf">$1,987<small>/ season</small></td></tr>
+      <tr id="junior-premier-2027"><th scope="row"><span class="pn">Junior Premier</span></th><td data-l="Ages">U13&ndash;U14</td><td data-l="Training">Three 75-min sessions a week</td><td data-l="Fee" class="pf">$2,450<small>/ season</small></td></tr>
+      <tr id="senior-premier"><th scope="row"><span class="pn">Senior Premier</span></th><td data-l="Ages">U15&ndash;U19</td><td data-l="Training">Three 90-min sessions a week</td><td data-l="Fee" class="pf">$2,125<small>/ season</small></td></tr>
+      <tr id="elite"><th scope="row"><span class="pn">Junior Elite</span></th><td data-l="Ages">U11&ndash;U12</td><td data-l="Training">Three 60-min sessions a week</td><td data-l="Fee" class="pf">$2,353<small>/ season</small></td></tr>
+      <tr id="junior-elite"><th scope="row"><span class="pn">Junior Elite</span></th><td data-l="Ages">U13&ndash;U14</td><td data-l="Training">Three 90-min sessions a week</td><td data-l="Fee" class="pf">$3,331<small>/ season</small></td></tr>
+      <tr id="senior-elite"><th scope="row"><span class="pn">Senior Elite</span></th><td data-l="Ages">U15&ndash;U19</td><td data-l="Training">Four 105-min sessions a week</td><td data-l="Fee" class="pf">$3,079<small>/ season</small></td></tr>
+      <tr id="upsl-2027"><th scope="row"><span class="pn">U23 UPSL</span><span class="pnote">By invitation</span></th><td data-l="Ages">U23</td><td data-l="Training">Four 2-hour sessions a week</td><td data-l="Fee" class="pf">$2,647<small>/ year</small></td></tr>
+      <tr id="adult"><th scope="row"><span class="pn">Adult</span><span class="pnote">League games only. Optional tournament, $52 extra.</span></th><td data-l="Ages">18+</td><td data-l="Training">No training sessions</td><td data-l="Fee" class="pf">$184<small>/ year</small></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="pt-covers"><b>What the fee covers.</b> League fees and player registration are included. Tournament entry, team travel, hotels, meals, uniforms and kit, and personal equipment are shared separately before the season.</p>
 </div></section>
-
-
 
 <section class="s-sec"><div class="wrap">
   <h2>Payment plans.</h2>
