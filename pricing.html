@@ -1067,22 +1067,32 @@ html:not(.js) .acc-body{overflow:visible}
 </section>
 
 <style>
-.lvl .fam-tag .idx{display:block}
-.lv-body{min-width:0}
-.lv-like{color:var(--gray);font-weight:300;margin:0 0 12px;max-width:64ch}
-.lv-fit{color:var(--gray-2);font-weight:300;font-size:.92rem;margin:0 0 14px;max-width:64ch}
+.lv-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px}
+.lv{position:relative;background:var(--ink);padding:clamp(26px,3.2vw,40px);display:flex;flex-direction:column;min-width:0;transition:background .25s var(--ease)}
+.lv:hover{background:var(--ink-1)}
+.lv-anchor{position:absolute;top:-120px}
+.lv-top{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:18px}
+.lv-num{font-family:"Anton",sans-serif;font-size:clamp(2.4rem,4.4vw,3.4rem);line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--gold)}
+.lv-ages{font-size:.66rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gray-2);border:1px solid var(--line);padding:6px 10px}
+.lv h3{font-family:"Anton",sans-serif;text-transform:uppercase;font-weight:400;font-size:clamp(1.7rem,3vw,2.2rem);line-height:.95;letter-spacing:.005em;color:var(--white);margin:0}
+.lv-tag{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:10px 0 18px}
+.lv-desc{color:var(--gray);font-weight:300;font-size:.97rem;line-height:1.6;margin:0;max-width:52ch}
+.lv-fit{color:var(--gray-2);font-weight:300;font-size:.88rem;line-height:1.55;margin:14px 0 0;max-width:52ch;padding-left:14px;border-left:1px solid var(--gold)}
 .lv-fit b{color:var(--white);font-weight:600}
-.offers{display:grid;gap:0;margin-top:8px;border-top:1px solid var(--line)}
-.offer{padding:16px 0;border-bottom:1px solid var(--line-2)}
-.offer:last-child{border-bottom:0}
-.of-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:6px}
-.of-season{font-size:.64rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-2)}
-.of-season.now{color:var(--gold)}
-.of-ages{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:1.15rem;line-height:1;color:var(--white);letter-spacing:.02em}
-.offer p{color:var(--gray);font-weight:300;margin:0;max-width:62ch;font-size:.97rem}
-.offer .of-note{color:var(--gray-2);font-size:.86rem;margin-top:4px}
-.fee-guide{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 28px}
-.fee-guide p{max-width:60ch}
+.lv-foot{margin-top:auto;padding-top:24px}
+.lv-chip{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gray-2)}
+.lv-chip.now{color:var(--ink);background:var(--gold);padding:6px 10px}
+.lv-chip:not(.now)::before{content:"";display:inline-block;width:14px;height:1px;background:var(--gray-2);vertical-align:middle;margin-right:8px}
+.guide{margin-top:clamp(40px,5vw,64px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px 40px;align-items:center;padding:clamp(26px,3.4vw,44px);background:var(--ink-2);border:1px solid var(--line);border-top:2px solid var(--gold)}
+.guide .k{font-size:.66rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+.guide h3{font-family:"Anton",sans-serif;text-transform:uppercase;font-weight:400;font-size:clamp(1.6rem,3vw,2.1rem);line-height:1;color:var(--white);margin:0 0 12px}
+.guide p.d{color:var(--gray);font-weight:300;margin:0;max-width:58ch}
+.guide p.s{color:var(--gray-2);font-weight:300;font-size:.84rem;margin:12px 0 0;max-width:62ch}
+.guide-btn{display:inline-flex;align-items:center;gap:.6em;background:var(--gold);color:var(--ink);font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:16px 26px;white-space:nowrap;transition:background .25s var(--ease),transform .25s var(--ease)}
+.guide-btn:hover{background:var(--gold-2);transform:translateY(-2px)}
+.guide-btn:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+@media(max-width:860px){.lv-grid{grid-template-columns:1fr}.guide{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.lv,.guide-btn{transition:none}.guide-btn:hover{transform:none}}
 </style>
 <section class="s-sec"><div class="wrap">
   <h2>Spring 2027 and the 2027&ndash;28 season.</h2>
@@ -1092,120 +1102,83 @@ html:not(.js) .acc-body{overflow:visible}
     <p><strong>Every Spring 2027 player is on full scholarship.</strong> Financial aid is available across every Umoja program. Selection happens first and never involves your finances. If a player belongs at a level, cost is not what decides whether they play there.</p>
     <a href="scholarship.html">Learn about financial aid <span>&rarr;</span></a>
   </div>
-<div class="fam lvl" id="foundations">
-    <div class="fam-in">
-      <div class="fam-tag"><span class="idx">01</span><h2>Foundations</h2><p>First touches, taught properly.</p></div>
-      <div class="lv-body">
-        <p class="lv-like">Coaches teach the first touches and keep every child eager to come back. Success is a child who can receive the ball, dribble it, and stay in a small game. Every child gets equal time in the group.</p>
-        
-        <div class="offers">
-        <div class="offer"><div class="of-head"><span class="of-season">2027&ndash;28</span><span class="of-ages">U6&ndash;U8</span></div><p>Two 60-min sessions a week. A Saturday game each week, on teams of 8.</p><p class="of-note">24 weeks.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-<div class="fam lvl" id="rec">
-    <div class="fam-in">
-      <div class="fam-tag"><span class="idx">02</span><h2>Rec</h2><p>Soccer on your own terms.</p></div>
-      <div class="lv-body">
-        <p class="lv-like">Rec adds matches. The coach fields a team that plays its matches and keeps players coming back. Success is a player who can hold a position for a full match. Playing time is equal.</p>
-        
-        <div class="offers">
-        <div class="offer"><div class="of-head"><span class="of-season">2027&ndash;28</span><span class="of-ages">U9&ndash;U19</span></div><p>Two 60-min sessions a week. 8 games a season with volunteer coaches. One optional tournament.</p><p class="of-note">Two 12-week seasons, fall and spring. Families choose one season or both.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-<div class="fam lvl" id="momentum">
-    <div class="fam-in">
-      <div class="fam-tag"><span class="idx">03</span><h2>Momentum</h2><p>Competitive soccer, close to home.</p></div>
-      <div class="lv-body">
-        <p class="lv-like">The coach builds a group that is hard to play against at home. Success is a player who trains well, keeps the ball under light pressure, and contributes in matches. Playing time is equal.</p>
-        <p class="lv-fit"><b>Right for you if</b> your player wants competitive soccer and steady development without a travel-heavy schedule.</p>
-        <div class="offers">
-        <div class="offer"><div class="of-head"><span class="of-season">2027&ndash;28</span><span class="of-ages">U9&ndash;U19</span></div><p>Two 60-minute sessions a week. About 20 matches and 2 tournaments.</p><p class="of-note">30 weeks.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-<div class="fam lvl" id="evolution">
-    <div class="fam-in">
-      <div class="fam-tag"><span class="idx">04</span><h2>Evolution</h2><p>The third tier.</p></div>
-      <div class="lv-body">
-        <p class="lv-like">The coach builds a team that can play a tournament weekend and still look like itself. Success is a player who keeps his decisions simple under more pressure. Playing time is equal.</p>
-        
-        <div class="offers">
-        <div class="offer"><div class="of-head"><span class="of-season now">Spring 2027</span><span class="of-ages">U12</span></div><p>Two 60-minute sessions a week, January to May. Tournaments and friendlies.</p></div>
-        <div class="offer"><div class="of-head"><span class="of-season">2027&ndash;28</span><span class="of-ages">U9&ndash;U19</span></div><p>U9&ndash;12: two 60-min sessions a week. U13&ndash;14: two 75-min sessions. U15&ndash;19: three 75-min sessions.</p><p>20 matches &amp; 2 tournaments.</p><p class="of-note">40 weeks.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-<span id="junior-premier"></span><div class="fam lvl" id="premier">
-    <div class="fam-in">
-      <div class="fam-tag"><span class="idx">05</span><h2>Premier</h2><p>Football beyond the local market. Junior and Senior.</p></div>
-      <div class="lv-body">
-        <p class="lv-like">The step up is the standard of play and the competition. The coach selects by level of play, and minutes are not the measure of a good season.</p>
-        
-        <div class="offers">
-        <div class="offer"><div class="of-head"><span class="of-season now">Spring 2027</span><span class="of-ages">U12</span></div><p>Three 60-min sessions a week, January to May. Tournaments and friendlies.</p></div>
-        <div class="offer"><div class="of-head"><span class="of-season now">Spring 2027</span><span class="of-ages">U14</span></div><p>Three 75-min sessions a week, January to May. Tournaments and friendlies.</p></div>
-        <div class="offer"><div class="of-head"><span class="of-season">2027&ndash;28 &middot; Junior Premier</span><span class="of-ages">U11&ndash;U12</span></div><p>Three 60-min sessions a week. 16 friendlies &amp; 3 tournaments.</p><p class="of-note">40 weeks.</p></div>
-        <div class="offer"><div class="of-head"><span class="of-season">2027&ndash;28 &middot; Junior Premier</span><span class="of-ages">U13&ndash;U14</span></div><p>Three 75-min sessions a week. 16 friendlies &amp; 1 tournament.</p><p class="of-note">40 weeks.</p></div>
-        <div class="offer"><div class="of-head"><span class="of-season">2027&ndash;28 &middot; Senior Premier</span><span class="of-ages">U15&ndash;U19</span></div><p>Three 90-min sessions a week. 16 friendlies &amp; 1 tournament. U18 and U19 play as one age group.</p><p class="of-note">28 weeks. The same standard as Junior Premier at the older ages.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-<span id="spring-senior-elite"></span><div class="fam lvl" id="elite">
-    <div class="fam-in">
-      <div class="fam-tag"><span class="idx">06</span><h2>Elite</h2><p>The top of the club. Junior and Senior.</p></div>
-      <div class="lv-body">
-        <p class="lv-like">Coaches hold a standard visibly above Premier. Success is keeping a place on the team by level of play, and playing time is earned.</p>
-        <p class="lv-like">Senior Elite brings the strongest schedule we can assemble and a national showcase calendar, with a fourth session every week. Built so a player can be recruited out of Umoja without ever having to leave it &mdash; a family should not need to buy their way into a bigger club to be seen.</p>
-        <p class="lv-fit"><b>Right for you if</b> your player intends to play beyond Umoja and is ready for the commitment that requires.</p>
-        <div class="offers">
-        <div class="offer"><div class="of-head"><span class="of-season now">Spring 2027</span><span class="of-ages">U17</span></div><p>Four 105-min sessions a week, January to May. Tournaments and friendlies.</p></div>
-        <div class="offer"><div class="of-head"><span class="of-season">2027&ndash;28 &middot; Junior Elite</span><span class="of-ages">U11&ndash;U12</span></div><p>Three 60-min sessions a week. 16 friendlies &amp; 3 tournaments.</p><p class="of-note">40&ndash;43 weeks.</p></div>
-        <div class="offer"><div class="of-head"><span class="of-season">2027&ndash;28 &middot; Junior Elite</span><span class="of-ages">U13&ndash;U14</span></div><p>Three 90-min sessions a week. 16 friendlies &amp; 2 tournaments. U13 also plays a UPSL Academy league season.</p><p class="of-note">40&ndash;43 weeks.</p></div>
-        <div class="offer"><div class="of-head"><span class="of-season">2027&ndash;28 &middot; Senior Elite</span><span class="of-ages">U15&ndash;U19</span></div><p>Four 105-min sessions a week. 16 friendlies &amp; 3 tournaments. U15 and U17 also play a UPSL Academy league season.</p><p class="of-note">43 weeks.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-<div class="fam lvl" id="upsl">
-    <div class="fam-in">
-      <div class="fam-tag"><span class="idx">07</span><h2>U23 UPSL</h2><p>By invitation.</p></div>
-      <div class="lv-body">
-        <p class="lv-like">The U23 UPSL team is invite only. Players join by invitation from the club.</p>
-        
-        <div class="offers">
-        <div class="offer"><div class="of-head"><span class="of-season now">Spring 2027</span><span class="of-ages">U23</span></div><p>Four 2-hour sessions a week. UPSL Division 1, spring season.</p></div>
-        <div class="offer"><div class="of-head"><span class="of-season">2027&ndash;28</span><span class="of-ages">U23</span></div><p>Four 2-hour sessions a week. 10 league games a season.</p><p class="of-note">Two seasons, 30 weeks.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-<div class="fam lvl" id="adult">
-    <div class="fam-in">
-      <div class="fam-tag"><span class="idx">08</span><h2>Adult</h2><p>League games only.</p></div>
-      <div class="lv-body">
-        <p class="lv-like">Adult teams play their league games. No training sessions.</p>
-        
-        <div class="offers">
-        <div class="offer"><div class="of-head"><span class="of-season">2027&ndash;28</span><span class="of-ages">18+</span></div><p>League games only, in the Sons of Pitches FC league. One optional tournament.</p><p class="of-note">Two 8-game seasons.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div></section>
 
-<section class="s-sec" id="fees"><div class="wrap">
-  <h2>Program fees.</h2>
-  <div class="fee-guide">
-    <p>Every program&rsquo;s fee is in the fee guide. Spring is a half season at half the annual fee. League fees and player registration are included. Tournament entry, team travel, hotels, meals, uniforms and kit, and personal equipment are shared separately before the season.</p>
-    <!-- PLACEHOLDER: upload the fee guide to the site root as umoja-program-guide.pdf and this button opens it. -->
-    <a class="btn btn-gold" href="umoja-program-guide.pdf" target="_blank" rel="noopener">Open the fee guide (PDF) <span class="a">&rarr;</span></a>
+  <div class="lv-grid">
+    <article class="lv" id="foundations">
+      <div class="lv-top"><span class="lv-num">01</span><span class="lv-ages">U6&ndash;U8</span></div>
+      <h3>Foundations</h3>
+      <p class="lv-tag">First touches, taught properly.</p>
+      <p class="lv-desc">Coaches teach the first touches and keep every child eager to come back. Success is a child who can receive the ball, dribble it, and stay in a small game. Every child gets equal time in the group.</p>
+      
+      <div class="lv-foot"><span class="lv-chip">From August 2027</span></div>
+    </article>
+    <article class="lv" id="rec">
+      <div class="lv-top"><span class="lv-num">02</span><span class="lv-ages">U9&ndash;U19</span></div>
+      <h3>Rec</h3>
+      <p class="lv-tag">Soccer on your own terms.</p>
+      <p class="lv-desc">Rec adds matches. The coach fields a team that plays its matches and keeps players coming back. Success is a player who can hold a position for a full match. Playing time is equal.</p>
+      
+      <div class="lv-foot"><span class="lv-chip">From August 2027</span></div>
+    </article>
+    <article class="lv" id="momentum">
+      <div class="lv-top"><span class="lv-num">03</span><span class="lv-ages">U9&ndash;U19</span></div>
+      <h3>Momentum</h3>
+      <p class="lv-tag">Competitive soccer, close to home.</p>
+      <p class="lv-desc">The coach builds a group that is hard to play against at home. Success is a player who trains well, keeps the ball under light pressure, and contributes in matches. Playing time is equal.</p>
+      <p class="lv-fit"><b>Right for you if</b> your player wants competitive soccer and steady development without a travel-heavy schedule.</p>
+      <div class="lv-foot"><span class="lv-chip">From August 2027</span></div>
+    </article>
+    <article class="lv" id="evolution">
+      <div class="lv-top"><span class="lv-num">04</span><span class="lv-ages">U9&ndash;U19</span></div>
+      <h3>Evolution</h3>
+      <p class="lv-tag">The third tier.</p>
+      <p class="lv-desc">The coach builds a team that can play a tournament weekend and still look like itself. Success is a player who keeps his decisions simple under more pressure. Playing time is equal.</p>
+      
+      <div class="lv-foot"><span class="lv-chip now">Spring 2027</span></div>
+    </article>
+    <article class="lv" id="premier"><span id="junior-premier" class="lv-anchor"></span>
+      <div class="lv-top"><span class="lv-num">05</span><span class="lv-ages">U11&ndash;U19</span></div>
+      <h3>Premier</h3>
+      <p class="lv-tag">Football beyond the local market.</p>
+      <p class="lv-desc">The step up is the standard of play and the competition. The coach selects by level of play, and minutes are not the measure of a good season.</p>
+      
+      <div class="lv-foot"><span class="lv-chip now">Spring 2027</span></div>
+    </article>
+    <article class="lv" id="elite"><span id="spring-senior-elite" class="lv-anchor"></span>
+      <div class="lv-top"><span class="lv-num">06</span><span class="lv-ages">U11&ndash;U19</span></div>
+      <h3>Elite</h3>
+      <p class="lv-tag">The top of the club.</p>
+      <p class="lv-desc">Coaches hold a standard visibly above Premier. Success is keeping a place on the team by level of play, and playing time is earned.</p>
+      <p class="lv-fit"><b>Right for you if</b> your player intends to play beyond Umoja and is ready for the commitment that requires.</p>
+      <div class="lv-foot"><span class="lv-chip now">Spring 2027</span></div>
+    </article>
+    <article class="lv" id="upsl">
+      <div class="lv-top"><span class="lv-num">07</span><span class="lv-ages">U23</span></div>
+      <h3>U23 UPSL</h3>
+      <p class="lv-tag">By invitation.</p>
+      <p class="lv-desc">The U23 UPSL team is invite only. Players join by invitation from the club.</p>
+      
+      <div class="lv-foot"><span class="lv-chip now">Spring 2027</span></div>
+    </article>
+    <article class="lv" id="adult">
+      <div class="lv-top"><span class="lv-num">08</span><span class="lv-ages">18+</span></div>
+      <h3>Adult</h3>
+      <p class="lv-tag">League games only.</p>
+      <p class="lv-desc">Adult teams play their league games. No training sessions.</p>
+      
+      <div class="lv-foot"><span class="lv-chip">From August 2027</span></div>
+    </article>
+  </div>
+
+  <div class="guide" id="fees">
+    <div>
+      <p class="k">Program guide</p>
+      <h3>Schedules and fees.</h3>
+      <p class="d">Every program by age group: training sessions, matches, season length and fees.</p>
+      <p class="s">Spring is a half season at half the annual fee. League fees and player registration are included. Tournament entry, team travel, hotels, meals, uniforms and kit, and personal equipment are shared separately before the season.</p>
+    </div>
+    <!-- PLACEHOLDER: upload the guide to the site root as umoja-program-guide.pdf and this button opens it. -->
+    <a class="guide-btn" href="umoja-program-guide.pdf" target="_blank" rel="noopener">Open the guide (PDF) <span aria-hidden="true">&rarr;</span></a>
   </div>
 </div></section>
 
