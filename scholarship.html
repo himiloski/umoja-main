@@ -854,68 +854,107 @@
       </div>
     </div></header><section class="pagehero"><div class="pagehero-bg"></div><div class="pagehero-crest" aria-hidden="true"></div>
   <div class="wrap"><div class="crumb"><a href="index.html">Home</a><span>/</span>Scholarships</div>
-  <h1>Scholarships</h1><p class="sub">Your player is selected on ability. Support is then applied to the program fee, and kit, travel and tournament entry are shared at the same percentage.</p></div>
+  <h1>Scholarships</h1><p class="sub">Coaches place every player first. A scholarship is then applied as a percentage of the program fee.</p></div>
 </section>
 
-<section class="s-sec"><div class="wrap">
-  <p class="lede">Placement comes first. A coach decides which team a player belongs on, and that conversation does not involve your finances at all. Support is applied afterwards, against the published price. Kit, travel and tournament entry are shared at the same percentage as your scholarship.</p>
-  <p class="s-note">Same coaches. Same kit. Same hotel, same meals. <b>The only difference between two players at Umoja is who pays the bill</b>, and nobody else in the club ever knows which is which.</p>
+<style>
+.sc-sec{padding:clamp(40px,5vw,64px) 0;border-top:1px solid var(--line-2)}
+.sc-sec h2{font-family:"Anton",sans-serif;text-transform:uppercase;font-weight:400;font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1;color:var(--white);margin:0 0 10px}
+.sc-sec .intro{color:var(--gray);font-weight:300;max-width:62ch;margin:0}
+.sc-label{font-size:.66rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+.sc-spring{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 28px;padding:20px 24px;border:1px solid var(--line);border-left:2px solid var(--gold);background:var(--ink-1)}
+.sc-spring p{margin:0;color:var(--gray);font-weight:300}
+.sc-spring b{color:var(--white);font-weight:600}
+.sc-grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.sc-grid > *{background:var(--ink);padding:clamp(22px,2.6vw,32px);min-width:0}
+.sc-steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sc-num{display:block;font-family:"Anton",sans-serif;font-size:2.6rem;line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--gold);margin-bottom:16px}
+.sc-steps h3,.sc-cols h3{font-family:"Anton",sans-serif;text-transform:uppercase;font-weight:400;font-size:1.25rem;line-height:1;color:var(--white);margin:0 0 10px;letter-spacing:.01em}
+.sc-steps p,.sc-cols p{color:var(--gray);font-weight:300;font-size:.95rem;line-height:1.6;margin:0}
+.sc-levels{grid-template-columns:repeat(4,minmax(0,1fr))}
+.sc-pct{display:block;font-family:"Anton",sans-serif;font-size:clamp(2.4rem,4.6vw,3.4rem);line-height:.9;color:var(--white)}
+.sc-cols p.sc-label{color:var(--gold);font-size:.66rem;font-weight:800;margin:0 0 10px}
+.sc-levels .pays{color:var(--gray);font-weight:300;font-size:.92rem;margin:12px 0 0}
+.sc-cols{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sc-list{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.sc-list li{background:var(--ink);padding:16px 20px;color:var(--white);font-size:.95rem;font-weight:400}
+.sc-after{color:var(--gray-2);font-weight:300;font-size:.92rem;margin:18px 0 0;max-width:62ch}
+.sc-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.sc-btn{display:inline-flex;align-items:center;gap:.6em;font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:16px 26px;border:1px solid var(--gold);transition:background .25s var(--ease),color .25s var(--ease)}
+.sc-btn.solid{background:var(--gold);color:var(--ink)}
+.sc-btn.solid:hover{background:var(--gold-2);border-color:var(--gold-2)}
+.sc-btn.line{color:var(--gold)}
+.sc-btn.line:hover{background:rgba(245,194,5,.08)}
+.sc-btn:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+@media(max-width:900px){.sc-levels{grid-template-columns:repeat(2,minmax(0,1fr))}.sc-list{grid-template-columns:repeat(2,minmax(0,1fr))}.sc-list li:last-child:nth-child(odd){grid-column:1 / -1}}
+@media(max-width:460px){.sc-list li:last-child:nth-child(odd){grid-column:auto}}
+@media(max-width:700px){.sc-steps,.sc-cols{grid-template-columns:1fr}}
+@media(max-width:460px){.sc-list{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.sc-btn{transition:none}}
+</style>
+
+<section class="sc-sec" style="border-top:0"><div class="wrap">
+  <div class="sc-spring">
+    <p><b>Spring 2027.</b> Every player on a Spring 2027 team is on a full scholarship.</p>
+    <a class="sc-btn line" href="pricing.html">Programs &amp; Pricing <span aria-hidden="true">&rarr;</span></a>
+  </div>
 </div></section>
 
-<section class="s-sec" id="levels"><div class="wrap">
-  <h2>Four award levels.</h2>
-  <p>Umoja uses four levels: full, 75%, 50% and 25%. If your numbers don&rsquo;t tell the whole story, ask, and we can raise the award.</p>
-  <ul class="s-defs">
-    <li><span class="t">Full</span><p class="d">Your family pays nothing.</p></li>
-    <li><span class="t">75%</span><p class="d">Your family pays 25% of the fee.</p></li>
-    <li><span class="t">50%</span><p class="d">Your family pays 50% of the fee.</p></li>
-    <li><span class="t">25%</span><p class="d">Your family pays 75% of the fee.</p></li>
-  </ul>
-  <p class="s-note"><b>Shared costs.</b> Kit, travel and tournament entry are shared at the same percentage as your scholarship.</p>
-  <p class="s-note"><b>Free for scholarship players.</b> Meals (including on trips), snacks, cleats and gear are free for scholarship players.</p>
+<section class="sc-sec" id="how"><div class="wrap">
+  <p class="sc-label">How it works</p>
+  <h2>Placement first, support second.</h2>
+  <div class="sc-grid sc-steps">
+    <div><span class="sc-num">01</span><h3>Try out</h3><p>Coaches decide which team fits your player. Your finances are never part of that decision.</p></div>
+    <div><span class="sc-num">02</span><h3>Apply</h3><p>Apply for a scholarship through PlayMetrics. Families on the list below qualify for a full scholarship automatically.</p></div>
+    <div><span class="sc-num">03</span><h3>Award applied</h3><p>Your award is applied to the program fee. Kit, travel and tournament entry are shared at the same percentage.</p></div>
+  </div>
 </div></section>
 
-<section class="s-sec" id="qualify"><div class="wrap">
+<section class="sc-sec" id="levels"><div class="wrap">
+  <p class="sc-label">Award levels</p>
+  <h2>Four levels.</h2>
+  <div class="sc-grid sc-levels">
+    <div><span class="sc-pct">100%</span><p class="pays">Your family pays nothing.</p></div>
+    <div><span class="sc-pct">75%</span><p class="pays">Your family pays 25% of the fee.</p></div>
+    <div><span class="sc-pct">50%</span><p class="pays">Your family pays 50% of the fee.</p></div>
+    <div><span class="sc-pct">25%</span><p class="pays">Your family pays 75% of the fee.</p></div>
+  </div>
+  <div class="sc-grid sc-cols">
+    <div><h3>Shared at your percentage</h3><p>Kit, travel and tournament entry.</p></div>
+    <div><h3>Free for every scholarship player</h3><p>Meals, including meals on trips. Snacks, cleats and gear.</p></div>
+  </div>
+  <p class="sc-after">If your award does not match your situation, tell us. We can raise it.</p>
+</div></section>
+
+<section class="sc-sec" id="qualify"><div class="wrap">
+  <p class="sc-label">Automatic qualification</p>
   <h2>Who qualifies automatically.</h2>
-  <p>A family receiving or in any of these qualifies for a full scholarship, with no income questions:</p>
-  <ul class="s-points">
+  <p class="intro">A family receiving or in any of the following qualifies for a full scholarship. There are no income questions. We ask to see the card or letter once.</p>
+  <ul class="sc-list">
     <li>Free or reduced-price lunch</li>
     <li>SNAP</li>
     <li>TANF</li>
-    <li>Medicaid/PeachCare</li>
+    <li>Medicaid or PeachCare</li>
     <li>WIC</li>
     <li>Head Start</li>
     <li>Refugee resettlement within 5 years</li>
     <li>Foster care</li>
     <li>Homeless or temporary housing</li>
   </ul>
-  <p style="margin-top:18px">Other families apply with their household size and income.</p>
+  <p class="sc-after">All other families apply with their household size and income.</p>
 </div></section>
 
-<section class="s-statement"><div class="wrap">
-  <p>Your child made the team.<br><em>We&rsquo;ve got you.</em></p>
-  <p class="by">Support is applied by need against the published price. Nobody else in the club ever knows which families receive it.</p>
-</div></section>
-
-
-<section class="s-sec"><div class="wrap">
-  <h2>Four things worth knowing.</h2>
-  <ul class="s-defs">
-    <li><span class="t">Never selection</span><p class="d">Your player is placed on the team that fits them. That conversation happens first and does not involve your finances at all.</p></li>
-    <li><span class="t">Often no income</span><p class="d">Free or reduced-price lunch, SNAP, TANF, Medicaid/PeachCare, WIC, Head Start, refugee resettlement within 5 years, foster care, and homeless or temporary housing each qualify a family on their own. We ask to see the card or letter once and that is the end of it.</p></li>
-    <li><span class="t">Four levels</span><p class="d">Umoja uses four levels: full, 75%, 50% and 25%. <b>If your numbers don&rsquo;t tell the whole story, ask, and we can raise the award.</b></p></li>
-    <li><span class="t">Reviewed often</span><p class="d">Awards are reviewed each year, and sooner if something changes. A job lost in October does not have to wait until next season.</p></li>
-  </ul>
-</div></section>
-
-<section class="s-sec last"><div class="wrap">
-  <h2>Your privacy.</h2>
-  <p>When you do apply, we ask for what is needed to make an award and nothing more. No home visit, no interview about your spending, no proving hardship twice. And the word scholarship never appears on a roster, a receipt, or anything another family can see.</p>
-  <div class="s-cta">
-    <a class="btn btn-gold" href="tryouts.html">Come to tryouts <span class="a">&rarr;</span></a>
-    <a class="btn btn-ghost" href="pricing.html">See the prices <span class="a">&rarr;</span></a>
+<section class="sc-sec" id="privacy"><div class="wrap">
+  <div class="sc-grid sc-cols" style="margin-top:0">
+    <div><p class="sc-label">Reviews</p><h3>Reviewed every year</h3><p>Awards are reviewed each season, and sooner if your situation changes.</p></div>
+    <div><p class="sc-label">Privacy</p><h3>Private by default</h3><p>We ask only for what we need to make an award. There are no home visits or interviews. Scholarships never appear on a roster, a receipt, or anything another family can see.</p></div>
+  </div>
+  <div class="sc-cta">
+    <a class="sc-btn solid" href="tryouts.html">Tryouts <span aria-hidden="true">&rarr;</span></a>
+    <a class="sc-btn line" href="contact.html">Questions <span aria-hidden="true">&rarr;</span></a>
   </div>
 </div></section>
+
 <footer><div class="wrap">
       <div class="foot-top">
         <div class="foot-brand">
