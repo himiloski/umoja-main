@@ -1075,6 +1075,16 @@ html:not(.js) .acc-body{overflow:visible}
     <p><strong>Every Spring 2027 player is on full scholarship.</strong> Financial aid is available across every Umoja program. Selection happens first and never involves your finances. If a player belongs at a level, cost is not what decides whether they play there.</p>
     <a href="scholarship.html">Learn about financial aid <span>&rarr;</span></a>
   </div>
+  <!-- PROGRAM GUIDE PLACEHOLDER: upload the PDF to the site root as umoja-program-guide.pdf and this box appears on its own. Edit the wording below as you like. -->
+  <div class="aidnote" id="program-guide" style="display:none">
+    <p><strong>Program guide.</strong> The full details for every program in one document.</p>
+    <a href="umoja-program-guide.pdf" target="_blank" rel="noopener">Download the guide (PDF) <span>&rarr;</span></a>
+  </div>
+  <script>
+  fetch('umoja-program-guide.pdf',{method:'HEAD'}).then(function(r){
+    if(r.ok && /pdf/i.test(r.headers.get('content-type')||'')) document.getElementById('program-guide').style.display='';
+  }).catch(function(){});
+  </script>
 <div class="fam perform">
     <div class="fam-in">
       <div class="fam-tag"><span class="idx">01</span><h2>Spring 2027</h2>
