@@ -802,7 +802,7 @@
 <style>
 /* ── GIVE MENU — two grouped columns ───────────────────────────────
    Six links that all looked alike were really two families: giving to
-   the club, and organisations that want a relationship with it. The
+   the club, and organizations that want a relationship with it. The
    dropdown is split accordingly, which also halves its height. */
 .submenu-cols{display:flex;left:auto;right:-22px;min-width:0;padding:14px 0}
 .submenu-cols>.sub-col{flex:0 0 auto;min-width:196px}
@@ -924,7 +924,7 @@
   <div class="pt-form">
     <p class="pt-lbl">Start a conversation</p>
     <h2>Tell us what your organization does.</h2>
-    <p class="intro">This is an enquiry, not an agreement. We will read it properly, come back to you, and work out together whether there is something real here.</p>
+    <p class="intro">This is an inquiry, not an agreement. We will read it properly, come back to you, and work out together whether there is something real here.</p>
     <div id="pt-form-mount"></div>
   </div>
 </div></section>
@@ -963,7 +963,7 @@
         </div>
       </div>
       <div class="foot-bot">
-        <p>&copy; 2026 Umoja Soccer Club, Inc. &middot; A 501(c)(3) nonprofit organization &middot; Clarkston, Georgia</p>
+        <p>&copy; 2026 Umoja Soccer Club, Inc. &middot; A 501(c)(3) nonprofit organization &middot; Clarkston, Georgia &middot; <a href="privacy.html">Privacy</a></p>
         <span class="tag">US Club Soccer Sanctioned</span>
       </div>
     </div></footer>
@@ -997,16 +997,16 @@ var TRYOUT_WINDOW = "closed";
 
 <script>
 /* ===================================================================
-   PARTNERSHIP ENQUIRY — collaboration, not sponsorship.
+   PARTNERSHIP INQUIRY — collaboration, not sponsorship.
 
    ── CONNECT A BACKEND HERE ────────────────────────────────────────
-   endpoint  the URL this form POSTs to. Sponsorship enquiries go to a
+   endpoint  the URL this form POSTs to. Sponsorship inquiries go to a
              different inbox (see sponsors.html) on purpose — these are
              different conversations and different agreements.
              While it is null the form opens a prefilled email so an
-             enquiry is never lost.
+             inquiry is never lost.
 
-   This is an ENQUIRY. Nothing here creates a partnership; any actual
+   This is an INQUIRY. Nothing here creates a partnership; any actual
    collaboration is set out in an agreement or memorandum of
    understanding describing what each side commits to.
    =================================================================== */
@@ -1052,7 +1052,7 @@ var PARTNERSHIP = {
   '</form>'+
   '<div id="pt-done" hidden><div class="conf">'+
     '<span class="tick" aria-hidden="true"></span>'+
-    '<h3>Thank you. We have your enquiry.</h3>'+
+    '<h3>Thank you. We have your inquiry.</h3>'+
     '<p>Someone from Umoja will follow up to talk it through. Nothing is agreed until we write it down together.</p>'+
     '<p style="margin-top:12px">You can also reach us at <a href="mailto:'+esc(C.email)+'" style="color:var(--gold)">'+esc(C.email)+'</a>.</p>'+
     '<span class="ref" id="p-ref"></span>'+
@@ -1072,8 +1072,8 @@ var PARTNERSHIP = {
     var ref='PTR-'+new Date().toISOString().slice(0,10).replace(/-/g,'')+'-'+
             Math.random().toString(36).slice(2,6).toUpperCase();
     var payload={
-      _subject:'Partnership enquiry — '+$('p-org').value.trim()+' ('+ref+')',
-      reference:ref, form:'Partnership / collaboration enquiry',
+      _subject:'Partnership inquiry — '+$('p-org').value.trim()+' ('+ref+')',
+      reference:ref, form:'Partnership / collaboration inquiry',
       name:$('p-name').value.trim(), organization:$('p-org').value.trim(),
       email:$('p-email').value.trim(), phone:$('p-phone').value.trim(),
       areaOfInterest:$('p-area').value,
