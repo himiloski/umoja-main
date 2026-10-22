@@ -832,6 +832,13 @@ html{scroll-padding-top:120px}
   position:relative;border-bottom:1px solid var(--line-2)}
 .pt-terms li::before{content:"";position:absolute;left:0;top:25px;width:9px;height:1.5px;background:var(--gold)}
 .pt-terms li b{color:var(--white);font-weight:600}
+.pt-more{max-width:72ch;border-bottom:1px solid var(--line)}
+.pt-more > summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:16px 0 16px 20px;color:var(--white);font-weight:600;font-size:.98rem}
+.pt-more > summary::-webkit-details-marker{display:none}
+.pt-more .chev{font-size:.72rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--gray-2)}
+.pt-more:hover .chev,.pt-more[open] .chev{color:var(--gold)}
+.pt-more .pt-terms{margin:0;border-top:none}
 </style>
 </head><body>
 <div class="utility"><div class="wrap">
@@ -889,15 +896,9 @@ html{scroll-padding-top:120px}
   <p class="lede">Put your business behind talent that deserves to be developed.</p>
   <p>Umoja is an emerging Clarkston soccer club building a full player pathway from U6 to U19, with one of the most deliberate access models in youth soccer underneath it. Sponsorship runs on two tracks, Academy and UPSL, and a business may support the club with money, with goods and services, or with both.</p>
   <div class="pt-ctas">
-    <a class="btn btn-gold" href="#build">See the packages <span class="a">&darr;</span></a>
+    <a class="btn btn-gold" href="#academy">See the packages <span class="a">&darr;</span></a>
     <a class="btn btn-line" href="#start">Start a sponsorship inquiry <span class="a">&rarr;</span></a>
   </div>
-</div></section>
-
-<section class="pt-sec" id="build"><div class="wrap">
-  <p class="pt-lbl">Annual sponsorship &middot; two tracks</p>
-  <h2>Academy and UPSL.</h2>
-  <p>Umoja sponsorship runs on two tracks. The Academy track is family-facing recognition for the youth club. The UPSL track is match-day sponsorship of our U23 men&rsquo;s team, which begins UPSL play in Spring 2027: the jersey, the warm-ups and the livestream. Larger and custom partnerships are available too.</p>
 </div></section>
 
 <section class="pt-sec" id="academy"><div class="wrap">
@@ -945,7 +946,7 @@ html{scroll-padding-top:120px}
   </details>
   <details class="pt-level">
     <summary><span class="nm">One Elite Place</span><span class="amt">$5,000</span>
-      <p class="say">Everything in Playmaker, plus a $5,000 scholarship contribution to Academy scholarships. No player is named.</p><span class="chev">What it includes</span></summary>
+      <p class="say">Everything in Playmaker, plus a $5,000 scholarship contribution to Academy scholarships.</p><span class="chev">What it includes</span></summary>
     <div class="body">
       <p class="h">Everything in Playmaker, plus</p>
       <ul>
@@ -956,7 +957,7 @@ html{scroll-padding-top:120px}
   </details>
   <details class="pt-level">
     <summary><span class="nm">Academy Scholarship Partner</span><span class="amt">$15,000</span>
-      <p class="say">Everything in One Elite Place, plus a $15,000 scholarship contribution and scholarship-partner recognition. No player is named.</p><span class="chev">What it includes</span></summary>
+      <p class="say">Everything in One Elite Place, plus a $15,000 scholarship contribution and scholarship-partner recognition.</p><span class="chev">What it includes</span></summary>
     <div class="body">
       <p class="h">Everything in One Elite Place, plus</p>
       <ul>
@@ -1006,7 +1007,6 @@ html{scroll-padding-top:120px}
   </details>
   </div>
 
-  <p class="pt-note"><b>About the apparel placements.</b> Golden Boot and Legend placements depend on production timing, available inventory, league and competition rules, and what our uniform provider allows. We will tell you honestly what is possible before you commit to anything. Livestream recognition applies to the games Umoja streams; no number of posts, views, reach or livestream audience is promised.</p>
 </div></section>
 
 <section class="pt-sec"><div class="wrap">
@@ -1062,7 +1062,6 @@ html{scroll-padding-top:120px}
     <div><span class="c">Travel</span><span class="s">Hotel and travel support</span></div>
     <div><span class="c">Something else</span><span class="s">If it is useful, we want to hear it</span></div>
   </div>
-  <p class="pt-note"><b>Agreed in writing first.</b> For an in-kind sponsorship, the goods or services, the need or expense they cover, their agreed value and the delivery dates are agreed in writing with Umoja before recognition begins. The two Academy scholarship contributions, One Elite Place and Academy Scholarship Partner, are paid in cash.</p>
   <div class="pt-hg">
     <p><strong style="color:var(--white);font-weight:600">Want to give goods with no benefits attached?</strong> That is a charitable gift, and a simpler route.</p>
     <a href="in-kind-gift.html">Offer an in-kind gift &rarr;</a>
@@ -1075,11 +1074,17 @@ html{scroll-padding-top:120px}
   <ul class="pt-terms">
     <li><b>Who can sponsor.</b> Pubs, restaurants, markets and other retailers may sponsor under their approved business identity. Recognition may not promote age-restricted products. Umoja excludes alcohol, cannabis, tobacco and vaping brands or product promotions, and gambling, sports betting, adult entertainment and weapons businesses. Umoja approves every sponsor before signing.</li>
     <li><b>Term.</b> Every sponsorship lasts 12 months (two years for the Principal Jersey Partners) and does not renew automatically.</li>
-    <li><b>Social media.</b> After a clear welcome as a sponsor, your logo appears at Umoja&rsquo;s discretion in normal team coverage. No number of posts, posting schedule, views, reach or livestream audience is promised.</li>
-    <li><b>Scholarships.</b> Scholarship contributions support full or partial Academy scholarships covering program fees, kit and travel. Full travel coverage is not guaranteed, and recipients remain anonymous.</li>
-    <li><b>Your agreement.</b> The final sponsorship agreement and its attached Schedule A &mdash; Sponsorship Details confirm the specific commitments and placements.</li>
-    <li><b>Tax status.</b> Umoja Soccer Club, Inc. is a Georgia nonprofit corporation recognized by the IRS as tax-exempt under Section 501(c)(3). Umoja does not represent that any particular portion of a sponsorship is tax-deductible; sponsors should consult their own tax advisor.</li>
   </ul>
+  <details class="pt-more">
+    <summary>Sponsorship terms<span class="chev">Read the terms</span></summary>
+    <ul class="pt-terms">
+      <li><b>Visibility.</b> After a clear welcome as a sponsor, your logo appears at Umoja&rsquo;s discretion in normal team coverage. Livestream recognition applies to the games Umoja streams. No number of posts, posting schedule, views, reach or livestream audience is promised.</li>
+      <li><b>Apparel placements.</b> Golden Boot and Legend placements depend on production timing, available inventory, league and competition rules, and what our uniform provider allows. We will tell you honestly what is possible before you commit to anything.</li>
+      <li><b>In-kind sponsorship.</b> The goods or services, the need or expense they cover, their agreed value and the delivery dates are agreed in writing with Umoja before recognition begins. The two Academy scholarship contributions, One Elite Place and Academy Scholarship Partner, are paid in cash.</li>
+      <li><b>Your agreement.</b> The final sponsorship agreement and its attached Schedule A &mdash; Sponsorship Details confirm the specific commitments and placements.</li>
+      <li><b>Tax status.</b> Umoja Soccer Club, Inc. is a Georgia nonprofit corporation recognized by the IRS as tax-exempt under Section <span style="white-space:nowrap">501(c)(3)</span>. Umoja does not represent that any particular portion of a sponsorship is tax-deductible; sponsors should consult their own tax advisor.</li>
+    </ul>
+  </details>
 </div></section>
 
 <section class="pt-sec last" id="start"><div class="wrap">
