@@ -3,3 +3,52 @@
 # /playmetrics is now a real page (playmetrics.html) with kid-friendly sign-up steps.
 /playmetrics   /playmetrics.html  200
 /PlayMetrics   /playmetrics  301
+
+# Pages not in use. Anyone opening them directly is sent to the homepage.
+# To bring a page back, delete its two lines below.
+/campaign-draft.html  /  302!
+/campaign-draft  /  302!
+/development.html  /  302!
+/development  /  302!
+/fund-a-player.html  /  302!
+/fund-a-player  /  302!
+/international-clearance-draft.html  /  302!
+/international-clearance-draft  /  302!
+/our-standard.html  /  302!
+/our-standard  /  302!
+/partners.html  /  302!
+/partners  /  302!
+/player-profiles-draft.html  /  302!
+/player-profiles-draft  /  302!
+/player-spotlights-draft.html  /  302!
+/player-spotlights-draft  /  302!
+/pricing-draft.html  /  302!
+/pricing-draft  /  302!
+/programs-draft.html  /  302!
+/programs-draft  /  302!
+/recruiting-academics-draft.html  /  302!
+/recruiting-academics-draft  /  302!
+/recruiting-college-interests-draft.html  /  302!
+/recruiting-college-interests-draft  /  302!
+/recruiting-draft.html  /  302!
+/recruiting-draft  /  302!
+/recruiting-film-draft.html  /  302!
+/recruiting-film-draft  /  302!
+/recruiting-help-draft.html  /  302!
+/recruiting-help-draft  /  302!
+/recruiting-opportunity-draft.html  /  302!
+/recruiting-opportunity-draft  /  302!
+/recruiting-profile-update-draft.html  /  302!
+/recruiting-profile-update-draft  /  302!
+/registration-draft.html  /  302!
+/registration-draft  /  302!
+/scholarship-application.html  /  302!
+/scholarship-application  /  302!
+/season-travel-draft.html  /  302!
+/season-travel-draft  /  302!
+/sei-refund-draft.html  /  302!
+/sei-refund-draft  /  302!
+/transportation-carpools-draft.html  /  302!
+/transportation-carpools-draft  /  302!
+/where-to-see-us-draft.html  /  302!
+/where-to-see-us-draft  /  302!
