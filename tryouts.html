@@ -1062,20 +1062,9 @@
           <li><a href="scholarship.html">Scholarships</a></li>
           <li><a href="tryouts.html" class="active">Tryouts</a></li>
           </ul></li>
-        <li class="has-sub"><a href="resources.html">Resources<span class="caret">&#9660;</span></a>
-          <ul class="submenu">
-          <li><a href="join.html">Join Umoja</a></li>
-          <li><a href="financial-support.html">Financial Support</a></li>
-          <li><a href="travel.html">Travel</a></li>
-          <li><a href="health-safety.html">Health &amp; Safety</a></li>
-          <li><a href="recruiting-resources.html">Recruiting Support</a></li>
-          <li><a href="volunteer.html">Volunteer</a></li>
-          <li><a href="help-policies.html">Help &amp; Policies</a></li>
-          </ul></li>
         <li class="has-sub"><a href="give.html">Give<span class="caret">&#9660;</span></a>
           <ul class="submenu">
           <li><a href="give.html">Give</a></li>
-          <li><a href="umoja-circle.html">Umoja Circle</a></li>
           <li><a href="sponsors.html">Sponsors</a></li>
           </ul></li>
         <li class="m-only"><a href="tryouts.html" id="nav-cta-m"></a></li>
@@ -1091,133 +1080,165 @@
     </div></header>
 <section class="pagehero"><div class="pagehero-bg"></div><div class="pagehero-crest" aria-hidden="true"></div>
   <div class="wrap"><div class="crumb"><a href="index.html">Home</a><span>/</span>Tryouts</div>
-  <h1>Tryouts</h1><p class="sub">Session board, what to bring, and how to register. You do not need to know which program fits before you come.</p></div>
+  <h1>Tryouts</h1><p class="sub">Tryouts are free and open to every player.</p></div>
 </section>
 
-<section class="s-sec"><div class="wrap">
-  <div class="ty-bar">
-    <div class="ty-state"><span class="lamp" id="tk-lamp"></span><span class="txt" id="tk-state"></span></div>
-    <div class="ty-do">
-      <a class="btn btn-gold" id="tk-cta" href="tryouts.html"></a>
-      <a class="btn btn-ghost" href="#board">Sessions <span class="a">&darr;</span></a>
+<style>
+.ty-sec{padding:clamp(40px,5vw,64px) 0;border-top:1px solid var(--line-2)}
+.ty-sec h2{font-family:"Anton",sans-serif;text-transform:uppercase;font-weight:400;font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1;color:var(--white);margin:0 0 10px}
+.ty-label{font-size:.66rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+.ty-intro{color:var(--gray);font-weight:300;max-width:62ch;margin:0}
+.ty-grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.ty-grid > *{background:var(--ink);padding:clamp(22px,2.8vw,36px);min-width:0}
+.ty-seasons{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ty-season .tag{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:6px 10px;margin-bottom:16px;color:var(--gray-2);border:1px solid var(--line)}
+.ty-season .tag.now{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.ty-season h3{font-family:"Anton",sans-serif;text-transform:uppercase;font-weight:400;font-size:clamp(1.6rem,3vw,2.1rem);line-height:1;color:var(--white);margin:0 0 18px}
+.ty-facts{list-style:none;margin:0;padding:0}
+.ty-facts li{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:12px;padding:11px 0;border-top:1px solid var(--line-2);font-size:.95rem}
+.ty-facts .k{font-size:.64rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-2);padding-top:3px}
+.ty-facts .v{color:var(--white)}
+.ty-facts li{margin:0;width:100%;max-width:none;line-height:1.45;min-height:0}
+.ty-facts li::before,.ty-facts li::after{content:none;display:none}
+.ty-pair p.ty-label{color:var(--gold);font-size:.66rem;font-weight:800;letter-spacing:.16em;margin:0 0 10px}
+.ty-steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ty-num{display:block;font-family:"Anton",sans-serif;font-size:2.6rem;line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--gold);margin-bottom:16px}
+.ty-steps h3,.ty-pair h3{font-family:"Anton",sans-serif;text-transform:uppercase;font-weight:400;font-size:1.25rem;line-height:1;color:var(--white);margin:0 0 10px;letter-spacing:.01em}
+.ty-steps p,.ty-pair p{color:var(--gray);font-weight:300;font-size:.95rem;line-height:1.6;margin:0}
+.ty-steps a,.ty-pair a.inl{color:var(--gold)}
+.ty-pair{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ty-pair .ty-label{margin-bottom:10px}
+.ty-bring{list-style:none;margin:6px 0 0;padding:0}
+.ty-bring li{position:relative;padding:8px 0 8px 24px;color:var(--white);font-size:.97rem}
+.ty-bring li::before{content:"";position:absolute;left:0;top:1.15em;width:12px;height:2px;background:var(--gold)}
+.ty-btn{display:inline-flex;align-items:center;gap:.6em;font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:16px 26px;border:1px solid var(--gold);transition:background .25s var(--ease)}
+.ty-btn.solid{background:var(--gold);color:var(--ink)}
+.ty-btn.solid:hover{background:var(--gold-2);border-color:var(--gold-2)}
+.ty-btn.line{color:var(--gold)}
+.ty-btn.line:hover{background:rgba(245,194,5,.08)}
+.ty-btn:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+.ty-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.ty-pair .ty-cta{margin-top:20px}
+.ty-table-wrap{overflow-x:auto;margin-top:24px;border:1px solid var(--line)}
+.ty-table{width:100%;border-collapse:collapse;min-width:560px;font-variant-numeric:tabular-nums}
+.ty-table th,.ty-table td{text-align:left;padding:13px 16px;border-top:1px solid var(--line-2);color:var(--gray);font-weight:300;font-size:.95rem}
+.ty-table thead th{border-top:0;font-size:.64rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-2)}
+.ty-table td:first-child{color:var(--white);font-weight:600}
+@media(max-width:760px){.ty-seasons,.ty-steps,.ty-pair{grid-template-columns:1fr}}
+@media(max-width:640px){
+  .ty-table-wrap{overflow:visible;border:0}
+  .ty-table{min-width:0}
+  .ty-table thead{display:none}
+  .ty-table,.ty-table tbody{display:block}
+  .ty-table tr{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;padding:16px 18px;border:1px solid var(--line);margin-bottom:-1px}
+  .ty-table td{border:0;padding:0;font-size:.92rem}
+  .ty-table td:first-child{grid-row:1 / span 4;font-family:"Anton",sans-serif;font-weight:400;font-size:1.5rem;line-height:1;padding-right:6px}
+  .ty-table td:nth-child(2){color:var(--white);font-weight:600}
+  .ty-table td:nth-child(3)::before{content:"Check-in ";color:var(--gray-2)}
+}
+@media(prefers-reduced-motion:reduce){.ty-btn{transition:none}}
+</style>
+
+<section class="ty-sec" style="border-top:0"><div class="wrap">
+  <p class="ty-label">Dates</p>
+  <h2>Two tryout windows.</h2>
+  <div class="ty-grid ty-seasons">
+    <div class="ty-season">
+      <span class="tag now">Next</span>
+      <h3>Spring 2027</h3>
+      <ul class="ty-facts">
+        <li><span class="k">Tryouts</span><span class="v">December 2026</span></li>
+        <li><span class="k">Season</span><span class="v">January to May 2027</span></li>
+        <li><span class="k">Teams</span><span class="v">U12 Evolution, U12 Premier, U14 Premier, U17 Elite. U23 UPSL by invitation.</span></li>
+      </ul>
+    </div>
+    <div class="ty-season">
+      <span class="tag">After that</span>
+      <h3>2027&ndash;28</h3>
+      <ul class="ty-facts">
+        <li><span class="k">Tryouts</span><span class="v">Late May 2027</span></li>
+        <li><span class="k">Season</span><span class="v">Starts August 2027</span></li>
+        <li><span class="k">Teams</span><span class="v">Boys U6&ndash;U19, every program.</span></li>
+      </ul>
     </div>
   </div>
-  <p class="s-note" style="margin-top:18px">Spring 2027: boys U12, U14 and U17. The U23 UPSL team is by invitation. From August 2027: boys U6&ndash;U19.</p>
-  <p class="s-note">Clarkston, Georgia &middot; Free to try out &middot; Bring boots and water</p>
+  <div class="ty-cta">
+    <a class="ty-btn solid" href="https://app.playmetrics.com/signup?clubToken=TG9naW4tQ2x1Yi52MS0zMTM0LTE3OTQwODUyMjl8czYydVBoTW9OK1BNN2RBSFYzQnkwcFptQUJBREhXZkx3QllTbkZuWXNrTT0=&amp;program_id=120909" target="_blank" rel="noopener">Register for tryouts <span aria-hidden="true">&rarr;</span></a>
+  </div>
 </div></section>
 
-<section class="s-sec" id="board"><div class="wrap">
-  <h2>Session board</h2>
-  <p class="lede">Dates, check-in times and fields for the current window.</p>
-  <div class="brd-filters" id="brd-filters" hidden>
-    <div class="bf"><span class="lbl">Program</span><div class="set" data-f="gender"></div></div>
-    <div class="bf"><span class="lbl">Age group</span><div class="set" data-f="age"></div></div>
-    <button type="button" class="bf-clear" id="brd-clear">Clear</button>
-  </div>
+<section class="ty-sec" id="sessions" hidden><div class="wrap">
+  <p class="ty-label">Sessions</p>
+  <h2>Session times.</h2>
+  <p class="ty-intro">Arrive at check-in time.</p>
+  <div class="ty-table-wrap"><table class="ty-table">
+    <thead><tr><th>Age group</th><th>Date</th><th>Check-in</th><th>Session</th><th>Field</th></tr></thead>
+    <tbody id="sessions-rows"></tbody>
+  </table></div>
+</div></section>
 
-  <div class="brd" id="brd" hidden>
-    <div class="brd-head">
-      <span>Age group</span><span>Date</span><span>Check-in</span><span>Session</span><span>Location</span><span>Status</span>
+<section class="ty-sec"><div class="wrap">
+  <p class="ty-label">How it works</p>
+  <h2>Three steps.</h2>
+  <div class="ty-grid ty-steps">
+    <div><span class="ty-num">01</span><h3>Register</h3><p>Register your player in PlayMetrics at <a href="/playmetrics">umojasoka.com/playmetrics</a>.</p></div>
+    <div><span class="ty-num">02</span><h3>Try out</h3><p>Coaches evaluate players in real soccer situations. You do not need to know which level fits before you come.</p></div>
+    <div><span class="ty-num">03</span><h3>Accept the invite</h3><p>Team invitations go out in PlayMetrics. Accept yours there.</p></div>
+  </div>
+</div></section>
+
+<section class="ty-sec last"><div class="wrap">
+  <div class="ty-grid ty-pair" style="margin-top:0">
+    <div>
+      <p class="ty-label">What to bring</p>
+      <h3>On the day</h3>
+      <ul class="ty-bring">
+        <li>Soccer gear</li>
+        <li>Water</li>
+        <li>Arrive at check-in time</li>
+      </ul>
     </div>
-    <div id="brd-rows"></div>
-  </div>
-
-  <div class="ops-empty" id="brd-empty">
-    <h3>No sessions posted yet</h3>
-    <p>Dates, check-in times and fields appear here the moment they are confirmed. If your player needs a look before then, ask us and we will arrange one.</p>
-    <a class="btn btn-gold" id="brd-empty-cta" href="#">Request an evaluation <span class="a">&rarr;</span></a>
-  </div>
-
-  <p class="brd-note" id="brd-note" hidden>Arrive at check-in time, not session time. Sessions run in all weather unless we contact you directly.</p>
-</div></section>
-
-<section class="s-sec"><div class="wrap">
-  <h2 id="reg-h"></h2>
-  <p id="reg-d"></p>
-  <div class="s-cta">
-    <a class="btn btn-gold" id="reg-cta" href="#"></a>
-    <a class="btn btn-ghost" id="reg-alt" href="#"></a>
-  </div>
-</div></section>
-
-<section class="s-statement"><div class="wrap">
-  <p>Show up.<br>Play your game.<br><em>We&rsquo;ll help figure out the rest.</em></p>
-  <p class="by">You do not need club experience, and you do not need to know which level fits. That is what the evaluation is for.</p>
-</div></section>
-
-
-<section class="s-sec"><div class="wrap">
-  <h2>Your tryout pass</h2>
-  <p>Pick your session and the pass fills in with the date, check-in time and field. Screenshot it and save it to your phone.</p>
-  <div class="pass-build">
-    <div class="pass-form" id="pass-form">
-      <p class="pf-intro">Fill these two in and your pass is ready to screenshot.</p>
-      <label class="fld"><span class="lb">Player name</span>
-        <input type="text" id="pf-name" autocomplete="off" placeholder="First and last name"></label>
-      <label class="fld"><span class="lb">Session</span>
-        <select id="pf-session"></select></label>
-      <p class="pf-note" id="pf-note"></p>
+    <div>
+      <p class="ty-label">Cost</p>
+      <h3>Free to try out</h3>
+      <p>Selection never involves your finances. Every Spring 2027 player is on a full scholarship.</p>
+      <div class="ty-cta"><a class="ty-btn line" href="scholarship.html">Scholarships <span aria-hidden="true">&rarr;</span></a></div>
     </div>
-
-    <div class="pass" id="pass" role="img" aria-label="Your tryout pass">
-      <div class="pass-hd"><span class="m">Tryout Pass</span><span class="s">Umoja SC</span></div>
-      <div class="pass-body">
-        <div class="pass-row">
-          <div class="pass-f"><p class="k">Player</p><p class="v blank" id="pv-name">&mdash; &mdash; &mdash;</p></div>
-          <div class="pass-f"><p class="k">Age group</p><p class="v blank" id="pv-age">&mdash; &mdash;</p></div>
-        </div>
-        <div class="pass-row">
-          <div class="pass-f"><p class="k">Session</p><p class="v blank" id="pv-session">&mdash; &mdash;</p></div>
-          <div class="pass-f"><p class="k">Date</p><p class="v blank" id="pv-date">&mdash; &mdash;</p></div>
-        </div>
-        <div class="pass-row">
-          <div class="pass-f"><p class="k">Check-in</p><p class="v big blank" id="pv-checkin">--:--</p></div>
-          <div class="pass-f"><p class="k">Field</p><p class="v blank" id="pv-field">&mdash;</p></div>
-        </div>
-        <div class="pass-cut"></div>
-      </div>
-      <div class="pass-ft">
-        <span class="code" aria-hidden="true"></span>
-        <span class="note">Your session details</span>
-      </div>
+  </div>
+  <div class="ty-grid ty-pair">
+    <div>
+      <p class="ty-label">Missed tryouts</p>
+      <h3>Request an evaluation</h3>
+      <p>Players can be evaluated outside the tryout windows when roster rules allow.</p>
+      <div class="ty-cta"><a class="ty-btn line" href="https://app.playmetrics.com/signup?clubToken=TG9naW4tQ2x1Yi52MS0zMTM0LTE3OTQwODUyMjl8czYydVBoTW9OK1BNN2RBSFYzQnkwcFptQUJBREhXZkx3QllTbkZuWXNrTT0=&amp;program_id=121071" target="_blank" rel="noopener">Request an evaluation <span aria-hidden="true">&rarr;</span></a></div>
     </div>
-
-    <div class="pass-say">
-      <h3>One screenshot, everything you need on the day.</h3>
-      <p>Pick your session and the pass fills in with the date, check-in time and field, straight from the board above.</p>
-      <p>Screenshot it and save it to your phone. Check-in is by name against the roster, so this is your copy of the details rather than a ticket.</p>
-      <p class="pf-warn" id="pf-warn" hidden></p>
+    <div>
+      <p class="ty-label">Programs</p>
+      <h3>See every level</h3>
+      <p>What each level is like and who it is for.</p>
+      <div class="ty-cta"><a class="ty-btn line" href="pricing.html">Programs &amp; Pricing <span aria-hidden="true">&rarr;</span></a></div>
     </div>
   </div>
 </div></section>
 
-<section class="s-sec"><div class="wrap">
-  <h2>What happens.</h2>
-  <ul class="s-steps">
-    <li><span class="t">Register</span><span class="d">Tell us who your player is.</span></li>
-    <li><span class="t">Arrive</span><span class="d">Check in and get your session information.</span></li>
-    <li><span class="t">Play</span><span class="d">Coaches evaluate players in real soccer situations.</span></li>
-    <li><span class="t">Hear from us</span><span class="d">We&rsquo;ll give you a clear next step.</span></li>
-  </ul>
-  <p class="s-note">You do not have to choose the perfect Umoja level before you come. Players are evaluated and Umoja recommends the environment that fits. <a class="go" href="pricing.html" style="margin-left:6px">See our programs &rarr;</a></p>
-</div></section>
+<script>
+/* TRYOUT SESSIONS
+   Add one line per session. While this list is empty, the Sessions
+   section stays hidden. Example:
+   { age: "U12", date: "Sat, Dec 12", checkIn: "8:30 am", session: "9:00 to 10:30 am", field: "Field 2" },
+*/
+var TRYOUT_SESSIONS = [
+];
+(function(){
+  if(!TRYOUT_SESSIONS.length) return;
+  var esc=function(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
+  document.getElementById('sessions-rows').innerHTML = TRYOUT_SESSIONS.map(function(r){
+    return '<tr><td>'+esc(r.age)+'</td><td>'+esc(r.date)+'</td><td>'+esc(r.checkIn)+'</td><td>'+esc(r.session)+'</td><td>'+esc(r.field)+'</td></tr>';
+  }).join('');
+  document.getElementById('sessions').hidden=false;
+})();
+</script>
 
-<section class="s-sec"><div class="wrap">
-  <h2>Before you leave home.</h2>
-  <ul class="s-check" id="leave-list"></ul>
-</div></section>
-
-<section class="s-sec"><div class="wrap">
-  <h2>Don&rsquo;t self-select out because of cost.</h2>
-  <p>Financial need does not determine whether a player is selected, and Umoja offers substantial assistance for families who need it.</p>
-  <a class="go" href="scholarship.html">See scholarships &rarr;</a>
-</div></section>
-
-<section class="s-sec last"><div class="wrap">
-  <h2>Tryouts closed? You can still knock.</h2>
-  <p>Umoja can evaluate players outside the main tryout period when roster and competition rules allow. We cannot promise a roster place, but the door is not bolted shut between windows.</p>
-  <a class="btn btn-gold" style="margin-top:18px" href="https://app.playmetrics.com/signup?clubToken=TG9naW4tQ2x1Yi52MS0zMTM0LTE3OTQwODUyMjl8czYydVBoTW9OK1BNN2RBSFYzQnkwcFptQUJBREhXZkx3QllTbkZuWXNrTT0=&amp;program_id=121071" target="_blank" rel="noopener">Request an evaluation <span class="a">&rarr;</span></a>
-</div></section>
 <footer><div class="wrap">
       <div class="foot-top">
         <div class="foot-brand">
@@ -1238,7 +1259,6 @@
         </div>
         <div class="foot-col"><h5>Support Umoja</h5>
           <a href="give.html">Give</a>
-          <a href="umoja-circle.html">Umoja Circle</a>
           <a href="sponsors.html">Sponsors</a>
           <a href="contact.html">Contact</a>
         </div>
@@ -1263,256 +1283,7 @@ burger.addEventListener('click',function(){var o=menu.classList.toggle('open');b
 menu.addEventListener('click',function(e){if(e.target.tagName==='A'&&!e.target.querySelector('.caret')){menu.classList.remove('open');burger.classList.remove('open');}});
 </script>
 
-<script>
-/* ===================================================================
-   TRYOUTS — OPERATIONS SETTINGS
-   One block runs the whole page. Nothing below invents a date, a field,
-   a time or a fee.
 
-   status        "open"   -> gold lamp, "Tryouts open",
-                             primary button reads REGISTER FOR TRYOUTS
-                 "closed" -> grey lamp, "Main tryout window closed",
-                             primary button reads REQUEST AN EVALUATION
-                 Switch this one word each season.
-
-   registerUrl   where REGISTER goes. Leave null and it opens an email,
-                 so the button is never dead.
-
-   sessions      the board. Ships empty, so the page shows "no sessions
-                 posted yet" until real ones are added.
-
-     { age:"U13",              // shown large
-       gender:"Boys",          // "Boys" | "Girls" — drives a filter chip
-       date:"Sat 16 Jan",      // written how you want it read
-       checkIn:"8:30 am",
-       session:"9:00 – 10:30 am",
-       location:"Field 2",
-       status:"open"           // open | few | full | done
-     }
-
-   bring         the before-you-leave checklist. Only confirmed items.
-   =================================================================== */
-/* The two PlayMetrics destinations. Every button on this page reads
-   from these, so changing one here changes it everywhere.
-     REGISTER_URL  used while the tryout window is OPEN
-     EVAL_URL      used while it is CLOSED, and kept available all year
-                   for a family who missed the dates or cannot attend */
-var REGISTER_URL = "https://app.playmetrics.com/signup?clubToken=TG9naW4tQ2x1Yi52MS0zMTM0LTE3OTQwODUyMjl8czYydVBoTW9OK1BNN2RBSFYzQnkwcFptQUJBREhXZkx3QllTbkZuWXNrTT0=&program_id=120909";
-var EVAL_URL     = "https://app.playmetrics.com/signup?clubToken=TG9naW4tQ2x1Yi52MS0zMTM0LTE3OTQwODUyMjl8czYydVBoTW9OK1BNN2RBSFYzQnkwcFptQUJBREhXZkx3QllTbkZuWXNrTT0=&program_id=121071";
-
-var TRYOUTS = {
-  season: "2027–28 Player Evaluations",
-  who: "Spring 2027: boys U12, U14 and U17. The U23 UPSL team is by invitation. From August 2027: boys U6–U19.",
-  status: "closed",
-  registerUrl: null,
-  contactEmail: "registrar@umojasoka.com",
-  sessions: [],
-  bring: [
-    "Registration complete",
-    "Soccer gear",
-    "Water",
-    "Know your check-in time",
-    "Know your field"
-  ]
-};
-/* =============== end of settings — logic below ==================== */
-
-(function(){
-  var T=TRYOUTS, open = String(T.status).toLowerCase()==='open';
-  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){
-    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
-  function mail(s){ return 'mailto:'+T.contactEmail+'?subject='+encodeURIComponent(s); }
-  function set(id,txt){ var e=document.getElementById(id); if(e) e.textContent=txt; }
-
-  /* ---- ticket header ---- */
-  set('tk-season', T.season||'');
-  set('tk-sub', T.season||'');
-  set('tk-who', T.who||'');
-  var lamp=document.getElementById('tk-lamp'), cta=document.getElementById('tk-cta');
-  set('tk-state', open ? 'Tryouts open' : 'Main tryout window closed');
-  if(lamp) lamp.className = open ? 'lamp' : 'lamp off';
-  if(cta){
-    cta.innerHTML = (open ? 'Register for tryouts' : 'Request an evaluation')+' <span class="a">&rarr;</span>';
-    cta.href = open ? REGISTER_URL : EVAL_URL;
-  }
-  /* registration step — same TRYOUTS.status and registerUrl as the
-     button at the top, so there is one place to change it. */
-  (function(){
-    var h=document.getElementById('reg-h'), dsc=document.getElementById('reg-d'),
-        cta=document.getElementById('reg-cta'), alt=document.getElementById('reg-alt');
-    if(!h) return;
-    if(open){
-      h.textContent='Found a session that works? Register for it.';
-      dsc.textContent='Registration takes a couple of minutes. Once it is done, build your pass below and screenshot it.';
-      cta.textContent='Register for tryouts';
-      cta.href = REGISTER_URL;
-      alt.textContent='Ask a question first';
-      alt.href = mail('Question about tryouts');
-    } else {
-      h.textContent='Registration opens when the next window does.';
-      dsc.textContent='If your player needs a look before then, ask us and we will arrange one. We do not make families wait for a date to be seen.';
-      cta.textContent='Request an evaluation';
-      cta.href = EVAL_URL;
-      alt.textContent='Tell me when it opens';
-      alt.href = mail('Tell me when tryouts open');
-    }
-    [cta,alt].forEach(function(b){ b.innerHTML=b.textContent+' <span class="a">&rarr;</span>'; });
-  })();
-
-  /* step 01 of the sixty-second strip points at the same place */
-  (function(){
-    var a=document.getElementById('sixty-reg'), cue=document.getElementById('sixty-reg-cue');
-    if(!a) return;
-    if(open){ a.href = REGISTER_URL; cue.textContent='Register \u2192'; }
-    else    { a.href = mail('Request an evaluation');                cue.textContent='Request an evaluation \u2192'; }
-  })();
-
-  var ec=document.getElementById('brd-empty-cta'); if(ec) ec.href=EVAL_URL;
-  var kc=document.getElementById('knock-cta');     if(kc) kc.href=EVAL_URL;
-  set('knock-state', open ? 'Window open' : 'Window closed');
-
-  /* ---- before you leave ---- */
-  var ll=document.getElementById('leave-list');
-  if(ll) ll.innerHTML=(T.bring||[]).map(function(b){
-    return '<li>'+esc(b)+'</li>'; }).join('');
-
-  /* ---- the tryout pass -------------------------------------------
-     Reads the same T.sessions the board is built from, so the pass can
-     never show a date or field the board disagrees with. Entirely
-     client-side: nothing is stored and nothing is sent. It is the
-     family's copy of their session details, not proof of registration
-     — check-in is by name against the roster. */
-  (function(){
-    var form=document.getElementById('pass-form'), sel=document.getElementById('pf-session'),
-        name=document.getElementById('pf-name'), rt=document.getElementById('pass-rt'),
-        note=document.getElementById('pf-note'), warn=document.getElementById('pf-warn');
-    if(!form) return;
-    var F={ name:'pv-name', age:'pv-age', session:'pv-session',
-            date:'pv-date', checkin:'pv-checkin', field:'pv-field' };
-    function put(id,val,blank){
-      var el=document.getElementById(id); if(!el) return;
-      el.textContent = val || blank;
-      el.classList.toggle('blank', !val);
-      el.classList.toggle('filled', !!val);
-    }
-    var list=(T.sessions||[]);
-    if(!list.length){
-      sel.innerHTML='<option value="">No sessions posted yet</option>';
-      sel.disabled=true; name.disabled=true;
-      if(rt) rt.textContent='Ready when sessions post';
-      if(note) note.textContent='';
-      warn.textContent='Your pass fills in as soon as the session dates are published. Nothing to do yet.';
-      warn.hidden=false;
-      return;
-    }
-    if(rt) rt.textContent='Fill it in and screenshot it';
-    if(note) note.textContent='Nothing here is saved or sent. It only draws the card above.';
-    sel.innerHTML='<option value="">Choose your session</option>'+list.map(function(s,i){
-      var bits=[s.age, s.gender, s.date].filter(Boolean).join(' \u00b7 ');
-      return '<option value="'+i+'">'+esc(bits)+'</option>'; }).join('');
-
-    function draw(){
-      var s = sel.value==='' ? null : list[+sel.value];
-      put(F.name, name.value.trim(), '\u2014 \u2014 \u2014');
-      put(F.age,      s ? [s.age,s.gender].filter(Boolean).join(' ') : '', '\u2014 \u2014');
-      put(F.session,  s ? (s.title || s.session || '') : '', '\u2014 \u2014');
-      put(F.date,     s ? s.date : '', '\u2014 \u2014');
-      put(F.checkin,  s ? s.checkIn : '', '--:--');
-      put(F.field,    s ? (s.location || '') : '', '\u2014');
-      if(s && String(s.status||'').toLowerCase()==='full'){
-        warn.textContent='That session is full. Pick another, or ask us and we will find your player a place.';
-        warn.hidden=false;
-      } else if(s && String(s.status||'').toLowerCase()==='done'){
-        warn.textContent='That session has already run. Pick another if your player still needs a look.';
-        warn.hidden=false;
-      } else warn.hidden=true;
-    }
-    sel.addEventListener('change',draw);
-    name.addEventListener('input',draw);
-    draw();
-  })();
-
-  /* ---- barcode on the pass (decorative) ---- */
-  var code=document.querySelector('.pass-ft .code');
-  if(code){
-    var h=[16,26,11,22,14,26,9,19,24,12,26,15,21,10,25,13];
-    code.innerHTML=h.map(function(v){ return '<i style="height:'+v+'px"></i>'; }).join('');
-  }
-
-  /* ---- session board ---- */
-  var brd=document.getElementById('brd'), rows=document.getElementById('brd-rows'),
-      empty=document.getElementById('brd-empty'), count=document.getElementById('brd-count'),
-      filters=document.getElementById('brd-filters'), note=document.getElementById('brd-note');
-  if(!brd) return;
-  var active={gender:null,age:null};
-
-  function uniq(key){
-    var out=[]; (T.sessions||[]).forEach(function(s){
-      if(s[key] && out.indexOf(s[key])<0) out.push(s[key]); });
-    return out;
-  }
-  function buildFilters(){
-    if(!T.sessions.length){ filters.hidden=true; return; }
-    filters.hidden=false;
-    [['gender','gender'],['age','age']].forEach(function(p){
-      var box=filters.querySelector('[data-f="'+p[0]+'"]'), vals=uniq(p[1]);
-      box.innerHTML=vals.map(function(v){
-        return '<button type="button" class="chip" data-k="'+p[0]+'" data-v="'+esc(v)+'" aria-pressed="false">'+esc(v)+'</button>';
-      }).join('');
-      box.parentNode.hidden = vals.length<2;
-    });
-  }
-  function match(s){
-    if(active.gender && s.gender!==active.gender) return false;
-    if(active.age && s.age!==active.age) return false;
-    return true;
-  }
-  var LABEL={open:'Open',few:'Few spaces',full:'Full',done:'Completed'};
-  function row(s){
-    var st=(s.status||'open').toLowerCase();
-    return '<div class="brd-row">'+
-      '<span class="ag">'+esc(s.age||'')+(s.gender?'<small>'+esc(s.gender)+'</small>':'')+'</span>'+
-      '<span class="cell" data-k="Date">'+esc(s.date||'')+'</span>'+
-      '<span class="ck" data-k="Check-in">'+esc(s.checkIn||'—')+'</span>'+
-      '<span class="cell'+(s.session?'':' dim')+'" data-k="Session">'+esc(s.session||'—')+'</span>'+
-      '<span class="cell'+(s.location?'':' dim')+'" data-k="Location">'+esc(s.location||'To be confirmed')+'</span>'+
-      '<span class="tag '+st+'">'+(LABEL[st]||'Open')+'</span></div>';
-  }
-  function draw(){
-    if(!T.sessions.length){
-      brd.hidden=true; empty.hidden=false; if(note) note.hidden=true; if(count) count.textContent=''; return;
-    }
-    var list=T.sessions.filter(match);
-    note.hidden=false;
-    if(!list.length){
-      brd.hidden=true; empty.hidden=false;
-      var h3=empty.querySelector('h3'); if(h3) h3.textContent='No sessions match those filters';
-      if(count) count.textContent='0 of '+T.sessions.length;
-      return;
-    }
-    empty.hidden=true; brd.hidden=false;
-    rows.innerHTML=list.map(row).join('');
-    if(count) count.textContent = list.length===T.sessions.length
-      ? T.sessions.length+(T.sessions.length===1?' session':' sessions')
-      : list.length+' of '+T.sessions.length;
-  }
-  filters.addEventListener('click',function(e){
-    var b=e.target.closest('.chip'); if(!b) return;
-    var k=b.dataset.k;
-    active[k] = active[k]===b.dataset.v ? null : b.dataset.v;
-    filters.querySelectorAll('.chip[data-k="'+k+'"]').forEach(function(x){
-      x.setAttribute('aria-pressed', x.dataset.v===active[k] ? 'true' : 'false'); });
-    draw();
-  });
-  document.getElementById('brd-clear').addEventListener('click',function(){
-    active={gender:null,age:null};
-    filters.querySelectorAll('.chip').forEach(function(x){ x.setAttribute('aria-pressed','false'); });
-    draw();
-  });
-
-  buildFilters(); draw();
-})();
-</script>
 <script>
 /* Seasonal navigation CTA. "open" during the main tryout window. */
 var TRYOUT_WINDOW = "closed";
