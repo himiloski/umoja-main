@@ -977,16 +977,48 @@ html{scroll-padding-top:120px}
 <section class="pt-sec" id="upsl"><div class="wrap">
   <p class="pt-lbl">Track 2 &middot; UPSL</p>
   <h2>UPSL match-day sponsorship.</h2>
-  <p>Our U23 team begins UPSL Division 1 play in Spring 2027. Home games will be streamed live, with sponsors on screen. Each level stands on its own. <b style="color:var(--white);font-weight:600">Every UPSL level includes</b> your logo and link on the Umoja website, permission to identify as an Umoja sponsor, your name on the livestream sponsor slide before and after games, and your logo in the halftime livestream rotation.</p>
+  <p>Our U23 team begins UPSL Division 1 play in Spring 2027. Home games will be streamed live, with sponsors on screen. Each level includes the website and livestream benefits of the levels below it; apparel placements belong only to their own level. <b style="color:var(--white);font-weight:600">Every UPSL level includes</b> your name on the livestream sponsor slide before and after games, recognition on the Umoja website, and permission to identify as an Umoja sponsor.</p>
   <div class="pt-levels">
+  <details class="pt-level">
+    <summary><span class="nm">Sideline</span><span class="amt">$750</span>
+      <p class="say"><span style="color:var(--gold);font-weight:600">No limit.</span> Open to businesses, families and individuals.</p><span class="chev">What it includes</span></summary>
+    <div class="body">
+      <p class="h">Included</p>
+      <ul>
+        <li>Your name listed on the Umoja website</li>
+        <li>Your name on the livestream sponsor slide before and after games</li>
+        <li>Permission to identify as an Umoja sponsor</li>
+      </ul>
+    </div>
+  </details>
+  <details class="pt-level">
+    <summary><span class="nm">Matchday</span><span class="amt">$1,500</span>
+      <p class="say"><span style="color:var(--gold);font-weight:600">Limited to 4 sponsors.</span> Your logo on match day.</p><span class="chev">What it includes</span></summary>
+    <div class="body">
+      <p class="h">Everything in Sideline, plus</p>
+      <ul>
+        <li>Your logo and link on the Umoja website</li>
+        <li>Your logo in the halftime livestream rotation</li>
+      </ul>
+    </div>
+  </details>
+  <details class="pt-level">
+    <summary><span class="nm">Game Changer</span><span class="amt">$3,000</span>
+      <p class="say"><span style="color:var(--gold);font-weight:600">Limited to 4 sponsors.</span> Your logo on screen while the game is played.</p><span class="chev">What it includes</span></summary>
+    <div class="body">
+      <p class="h">Everything in Matchday, plus</p>
+      <ul>
+        <li>Logo rotating on screen during livestreamed play</li>
+      </ul>
+    </div>
+  </details>
   <details class="pt-level">
     <summary><span class="nm">Golden Boot</span><span class="amt">$5,000</span>
       <p class="say"><span style="color:var(--gold);font-weight:600">Limited to 3 sponsors.</span> A premium spot on the UPSL match jersey.</p><span class="chev">What it includes</span></summary>
     <div class="body">
-      <p class="h">Every UPSL level, plus</p>
+      <p class="h">Everything in Game Changer, plus</p>
       <ul>
         <li>Premium match-jersey logo placement</li>
-        <li>Logo rotating on screen during livestreamed play</li>
       </ul>
       <p class="fine"><span style="color:var(--white);font-weight:600">Three placements exist in total &mdash; two on the back of the jersey, one on the sleeve.</span> Which one is yours is confirmed with you before anything is printed.</p>
     </div>
@@ -995,10 +1027,9 @@ html{scroll-padding-top:120px}
     <summary><span class="nm">Legend</span><span class="amt">$10,000</span>
       <p class="say"><span style="color:var(--gold);font-weight:600">Limited to 4 sponsors.</span> Your logo on training tops or pregame warm-ups.</p><span class="chev">What it includes</span></summary>
     <div class="body">
-      <p class="h">Every UPSL level, plus</p>
+      <p class="h">Everything in Game Changer, plus</p>
       <ul>
         <li>Premium training-top or pregame-warmup logo placement</li>
-        <li>Logo rotating on screen during livestreamed play</li>
         <li>Official Partner designation, included and non-exclusive: the &ldquo;Official [Category] Partner of Umoja&rdquo; title for your marketing</li>
         <li>Midyear sponsorship performance update, with available examples of your visibility, relevant content results and livestream placements</li>
       </ul>
@@ -1030,11 +1061,10 @@ html{scroll-padding-top:120px}
     <summary><span class="nm">UPSL Principal Jersey Partner</span><span class="amt">Inquire</span>
       <p class="say"><span style="color:var(--gold);font-weight:600">One partner only.</span> The front of every UPSL match jersey, for two years.</p><span class="chev">What it includes</span></summary>
     <div class="body">
-      <p class="h">Every UPSL level, plus</p>
+      <p class="h">Everything in Game Changer, plus</p>
       <ul>
         <li>Your logo on the front of every UPSL match jersey</li>
         <li>&ldquo;Presented by&rdquo; slide before every livestreamed game</li>
-        <li>Logo rotating on screen during livestreamed play</li>
         <li>The title UPSL Principal Jersey Partner of Umoja Soccer Club</li>
       </ul>
       <p class="fine">A two-year partnership, matched to the life of our match kit.</p>
@@ -1191,7 +1221,7 @@ var SPONSORSHIP = {
   '<form id="pt-form" novalidate>'+
     '<div class="pt-two">'+
       '<label class="fld"><span class="lb">Name <i>*</i></span><input type="text" id="p-name" autocomplete="name" required></label>'+
-      '<label class="fld"><span class="lb">Business or organization <i>*</i></span><input type="text" id="p-org" autocomplete="organization" required></label>'+
+      '<label class="fld"><span class="lb">Business, organization or family name <i>*</i></span><input type="text" id="p-org" autocomplete="organization" required></label>'+
     '</div>'+
     '<div class="pt-two">'+
       '<label class="fld"><span class="lb">Email <i>*</i></span><input type="email" id="p-email" autocomplete="email" required></label>'+
@@ -1210,6 +1240,8 @@ var SPONSORSHIP = {
         '<option>Academy Scholarship Partner — $15,000</option>'+
         '<option>Academy Principal Jersey Partner</option></optgroup>'+
         '<optgroup label="UPSL">'+
+        '<option>Sideline — $750</option><option>Matchday — $1,500</option>'+
+        '<option>Game Changer — $3,000</option>'+
         '<option>Golden Boot — $5,000</option><option>Legend — $10,000</option>'+
         '<option>UPSL Principal Jersey Partner</option></optgroup>'+
         '<option>Custom or larger partnership</option>'+
