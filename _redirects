@@ -4,6 +4,12 @@
 /playmetrics   /playmetrics.html  200
 /PlayMetrics   /playmetrics  301
 
+# Renamed pages (Oct 26 2026). Old links still work.
+/pricing.html  /programs  301
+/pricing  /programs  301
+/scholarship.html  /scholarships  301
+/scholarship  /scholarships  301
+
 # Pages not in use. Anyone opening them directly is sent to the homepage.
 # To bring a page back, delete its two lines below.
 /campaign-draft.html  /  302!
