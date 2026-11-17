@@ -148,6 +148,7 @@ async function act(fn) {
 }
 
 // ---------------- payroll logic ----------------
+const isSample = (e) => /^test\b/i.test(e?.name || "");
 const activeTeam = () => Object.values(S.employees).filter((e) => e.status === "active").sort((a, b) => a.name.localeCompare(b.name));
 const finalRuns = () => Object.values(S.runs).filter((r) => r.status === "final")
   .sort((a, b) => (a.payDate < b.payDate ? -1 : a.payDate > b.payDate ? 1 : (a.finalizedAt || "") < (b.finalizedAt || "") ? -1 : 1));
@@ -273,12 +274,13 @@ function todos() {
     if (!i.pay && !anyPay) continue;
     const d = daysUntil(i.due); t.push({ level: d < 0 ? "bad" : d <= 7 ? "warn" : "ok", title: i.what, detail: `${i.where}, due ${nice(i.due)}${i.amount ? `, ${money(i.amount)}` : ""}.`, go: i.pay ? "taxes/pay" : "taxes/calendar" });
   }
-  for (const e of activeTeam()) {
-    const left = ONBOARD.filter((it) => !obDone(e, it)); if (!left.length) continue;
-    const dues = left.map((it) => it.due && it.due(e)).filter(Boolean).sort(); const late = dues.some((d) => daysUntil(d) < 0);
-    t.push({ level: late ? "bad" : "warn", title: `Finish onboarding ${e.name}`, detail: `${left.map((it) => it.label).join(", ")}${dues.length ? `. ${late ? "Overdue since" : "Due"} ${nice(dues[0])}` : ""}.`, go: `team/${e.id}`, tab: "onboarding" });
+  const unfinished = activeTeam().filter((e) => !isSample(e) && obCount(e) < ONBOARD.length);
+  if (unfinished.length) {
+    const dues = unfinished.flatMap((e) => ONBOARD.filter((it) => it.due && !obDone(e, it)).map((it) => it.due(e))).filter(Boolean).sort();
+    const late = dues.length && daysUntil(dues[0]) < 0; const one = unfinished.length === 1 ? unfinished[0] : null;
+    t.push({ level: late ? "bad" : "warn", title: one ? `Finish onboarding ${one.name}` : `Finish onboarding for ${unfinished.length} people`, detail: dues.length ? `${late ? "Overdue since" : "Next item due"} ${nice(dues[0])}.` : "Tax forms or payment method still missing.", go: one ? `team/${one.id}` : "team", tab: one ? "onboarding" : undefined });
   }
-  for (const c of Object.values(S.contractors)) if (!c.w9 && S.cpay.some((p) => p.contractorId === c.id)) t.push({ level: "warn", title: `Get a W-9 from ${c.name}`, detail: "Needed before filing their 1099.", go: "contractors" });
+  for (const c of Object.values(S.contractors)) if (!isSample(c) && !c.w9 && S.cpay.some((p) => p.contractorId === c.id)) t.push({ level: "warn", title: `Get a W-9 from ${c.name}`, detail: "Needed before filing their 1099.", go: "contractors" });
   if (np) { const ny = +np.payDate.slice(0, 4); if (!rates(ny)) t.push({ level: "bad", title: `${ny} tax tables needed`, detail: `Ask Claude to add the ${ny} rates before paying anyone in ${ny}.`, go: "settings/rates" }); }
   if (!st.gaDolAccount) t.push({ level: "ok", title: "Add your GA DOL account number", detail: "Enter it in Settings when Georgia sends it.", go: "settings/company" });
   const order = { bad: 0, warn: 1, ok: 2 };
@@ -313,27 +315,27 @@ VIEWS.home = () => {
   const y = String(new Date().getFullYear()); const yr = finalRuns().filter((r) => r.payDate.slice(0, 4) === y).map((r) => totals(r.results || {}));
   const sum = (k) => r2(yr.reduce((s, t) => s + (t[k] || 0), 0));
   const hour = new Date().getHours(); const greet = hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : "Good evening";
-  const nC = Object.keys(S.contractors).length;
-  return `<p class="hello">${greet}, Juliana</p>` + head("Home") +
+  const nC = Object.keys(S.contractors).length; const shown = S.allTodos ? list : list.slice(0, 5);
+  return head(`${greet}, Juliana`) +
     `<div class="cols"><div>
       ${np ? `<div class="next-pay"><div class="small" style="color:var(--chalk)">${np.state === "draft" ? "Payroll in progress" : np.state === "late" ? "Payroll is late" : "Next payroll"}</div>
         <div class="when">${weekday(np.payDate)}, ${niceShort(np.payDate)}</div>
         <p>Work from ${nice(np.periodStart)} to ${nice(np.periodEnd)}</p>
         <div class="row"><button class="btn" data-start="${np.payDate}">${np.state === "draft" ? "Continue payroll" : "Run payroll"}</button><button class="btn secondary" data-go="payroll">All payrolls</button></div></div>`
       : `<div class="next-pay"><div class="when">Set up your pay schedule</div><p>Your payrolls will line up here on their own.</p><button class="btn" data-go="settings/schedule">Set it up</button></div>`}
-      <div class="panel"><h2>To do</h2>${list.length ? `<ul class="todo">${list.map((t) => `<li><span class="dot ${t.level}"></span><div><div class="t">${esc(t.title)}</div><div class="d">${esc(t.detail)}</div></div><button class="btn quiet" data-go="${t.go}" ${t.tab ? `data-tab="${t.tab}"` : ""}>Open</button></li>`).join("")}</ul>` : `<p class="empty">You’re all caught up.</p>`}</div>
+      <div class="panel"><h2>To do</h2>${list.length ? `<ul class="todo">${shown.map((t) => `<li><span class="dot ${t.level}"></span><div><div class="t">${esc(t.title)}</div><div class="d">${esc(t.detail)}</div></div><button class="btn quiet" data-go="${t.go}" ${t.tab ? `data-tab="${t.tab}"` : ""}>Open</button></li>`).join("")}</ul>${list.length > 5 ? `<button class="more" id="moretodo">${S.allTodos ? "Show fewer" : `Show all ${list.length}`}</button>` : ""}` : `<p class="empty">You’re all caught up.</p>`}</div>
     </div><div>
-      <div class="panel"><h2>Payroll cost</h2>${runs.length ? `<div class="bars">${runs.map((r) => { const v = bankTotal(totals(r.results || {})); return `<div class="bar"><span class="v">${money0(v)}</span><i style="height:${Math.max(3, (v / max) * 100)}%"></i><span class="l">${niceShort(r.payDate)}</span></div>`; }).join("")}</div>` : `<p class="empty">Your finished payrolls show up here.</p>`}</div>
+      ${!runs.length ? `<div class="panel"><h2>${y} so far</h2><p class="empty">Costs and trends show up here after your first payroll.</p></div>` : `<div class="panel"><h2>Payroll cost</h2>${runs.length ? `<div class="bars">${runs.map((r) => { const v = bankTotal(totals(r.results || {})); return `<div class="bar"><span class="v">${money0(v)}</span><i style="height:${Math.max(3, (v / max) * 100)}%"></i><span class="l">${niceShort(r.payDate)}</span></div>`; }).join("")}</div>` : `<p class="empty">Your finished payrolls show up here.</p>`}</div>
       <div class="panel"><h2>${y} so far</h2><div class="stats">
         <div class="stat"><div class="label">Total payroll cost</div><div class="num">${money0(yr.reduce((s, t) => s + bankTotal(t), 0))}</div></div>
         <div class="stat"><div class="label">Team’s gross pay</div><div class="num">${money0(sum("gross"))}</div></div>
         <div class="stat"><div class="label">Umoja’s own taxes</div><div class="num">${money0(r2(sum("ssEr") + sum("medEr") + sum("suta")))}</div></div>
         <div class="stat"><div class="label">Payrolls run</div><div class="num">${yr.length}</div></div>
-      </div></div>
+      </div></div>`}
       <div class="panel tint"><h2>Team</h2><p class="small" style="margin:0 0 10px">${activeTeam().length} active team member${activeTeam().length === 1 ? "" : "s"}${nC ? `, ${nC} contractor${nC === 1 ? "" : "s"}` : ""}.</p><button class="btn secondary" data-go="team">Open team</button></div>
     </div></div>`;
 };
-BIND.home = () => $$("[data-start]").forEach((b) => b.addEventListener("click", () => startRegular(b.dataset.start)));
+BIND.home = () => { $$("[data-start]").forEach((b) => b.addEventListener("click", () => startRegular(b.dataset.start))); $("#moretodo")?.addEventListener("click", () => { S.allTodos = !S.allTodos; render(); }); };
 
 // ----- Payroll -----
 function startRegular(payDate) {
@@ -364,7 +366,6 @@ function runFlow() {
   if (step === 1) {
     if (run.kind === "off_cycle") h += `<div class="panel"><div class="grid"><div><label for="r-pd">Pay date</label><input type="date" id="r-pd" value="${esc(run.payDate)}"></div><div><label for="r-ps">Work period start</label><input type="date" id="r-ps" value="${esc(run.periodStart)}"></div><div><label for="r-pe">Work period end</label><input type="date" id="r-pe" value="${esc(run.periodEnd)}"></div></div>
       <label class="inline-check" style="margin-top:14px"><input type="checkbox" id="r-flat" ${run.options?.bonusFlat ? "checked" : ""}> Withhold federal tax on bonuses at the flat 22% rate</label></div>`;
-    if (Object.keys(res || {}).length) h += `<div class="panel tint"><div class="spread"><div><div class="small muted">So far, Umoja needs</div><div style="font-size:24px;font-weight:700">${money(bankTotal(t))}</div></div><div class="small muted">${Object.keys(res).length} of ${activeTeam().length} people on this payroll</div></div></div>`;
     const team = Object.values(S.employees).filter((e) => e.status === "active" || run.lines[e.id]).sort((a, b) => a.name.localeCompare(b.name));
     for (const e of team) {
       const lines = (run.lines[e.id] || {}).items || [];
@@ -384,7 +385,9 @@ function runFlow() {
           <div><label for="m-${e.id}">Reimbursement (not taxed)</label><input id="m-${e.id}" type="number" min="0" step="0.01" data-extra="reimb" data-e="${e.id}" value="${esc(reimb?.amount || "")}"></div></div>
       </div></div>`;
     }
-    h += `<div class="row" style="margin-top:6px"><button class="btn" id="toreview" ${R && Object.keys(res || {}).length ? "" : "disabled"}>Continue to review</button><button class="btn danger" id="deldraft">Delete this payroll</button></div>`;
+    const n = Object.keys(res || {}).length;
+    h += `<div class="runbar"><div><div class="label">${n ? `${n} ${n === 1 ? "person" : "people"} · Umoja needs` : "Add hours to see the total"}</div><div class="num">${money(bankTotal(t))}</div></div>
+      <div class="row"><button class="btn quiet" id="deldraft">Delete this payroll</button><button class="btn" id="toreview" ${R && n ? "" : "disabled"}>Continue to review</button></div></div>`;
     return h;
   }
   h += scoreboard(t) + `<div class="panel"><h2>What each person gets</h2><table><tr><th>Team member</th><th class="n">Gross pay</th><th class="n">Taxes withheld</th><th class="n">Reimbursement</th><th class="n">Take-home</th><th>Paid by</th></tr>
@@ -535,7 +538,7 @@ VIEWS.team = () => (S.sub ? personView(S.sub) : teamList());
 function teamList() {
   const all = Object.values(S.employees).sort((a, b) => (a.status !== "active") - (b.status !== "active") || a.name.localeCompare(b.name));
   return head("Team", "Everyone on Umoja’s payroll. Social Security and bank account numbers are never stored here.", `<button class="btn" id="addperson">Add a team member</button>`) +
-    `<div class="panel">${all.length ? `<table><tr><th>Name</th><th>Role</th><th>Rate</th><th>Onboarding</th><th>Status</th></tr>${all.map((e) => `<tr class="click" data-go="team/${e.id}" data-tab="overview"><td><div class="person"><span class="avatar">${initials(e.name)}</span><div><strong>${esc(e.name)}</strong><div class="small muted">${esc(e.email)}</div></div></div></td><td>${esc(e.title || "—")}</td><td>${e.rate !== "" ? money(e.rate) + "/hr" : "—"}</td><td><span class="progress"><i style="width:${(obCount(e) / ONBOARD.length) * 100}%"></i></span> <span class="small muted">${obCount(e)} of ${ONBOARD.length}</span></td><td>${e.status === "active" ? '<span class="pill ok">Active</span>' : `<span class="pill plain">Left ${nice(e.dismissedOn)}</span>`}</td></tr>`).join("")}</table>` : `<p class="empty">No team members yet.</p>`}</div>`;
+    `<div class="panel">${all.length ? `<table><tr><th>Name</th><th>Role</th><th>Rate</th><th>Onboarding</th><th>Status</th></tr>${all.map((e) => `<tr class="click" data-go="team/${e.id}" data-tab="overview"><td><div class="person"><span class="avatar">${initials(e.name)}</span><div><strong>${esc(e.name)}</strong>${isSample(e) ? ' <span class="pill plain">Sample</span>' : ""}<div class="small muted">${esc(e.email)}</div></div></div></td><td>${esc(e.title || "—")}</td><td>${e.rate !== "" ? money(e.rate) + "/hr" : "—"}</td><td><span class="progress"><i style="width:${(obCount(e) / ONBOARD.length) * 100}%"></i></span> <span class="small muted">${obCount(e)} of ${ONBOARD.length}</span></td><td>${e.status === "active" ? '<span class="pill ok">Active</span>' : `<span class="pill plain">Left ${nice(e.dismissedOn)}</span>`}</td></tr>`).join("")}</table>` : `<p class="empty">No team members yet.</p>`}</div>`;
 }
 function personView(id) {
   const e = S.employees[id]; if (!e) return `<p class="empty">That team member wasn’t found.</p>`;
