@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Umoja Payroll</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<section id="signin" class="signin hidden" aria-label="Sign in">
+  <form id="signin-form" class="signin-box">
+    <h1>Umoja Payroll</h1>
+    <p>Umoja Soccer Club, Inc.</p>
+    <label for="si-email">Email</label>
+    <input id="si-email" type="email" autocomplete="username" required value="juliana.hill@umojasoka.com">
+    <label for="si-pass">Password</label>
+    <input id="si-pass" type="password" autocomplete="current-password" required>
+    <button class="btn" type="submit">Sign in</button>
+    <div class="form-error" id="si-error" role="alert"></div>
+  </form>
+</section>
+
+<section id="setpass" class="signin hidden" aria-label="Choose a password">
+  <form id="setpass-form" class="signin-box">
+    <h1>Choose your password</h1>
+    <p>This replaces the temporary one. Use at least 12 characters.</p>
+    <label for="sp-1">New password</label>
+    <input id="sp-1" type="password" autocomplete="new-password" minlength="12" required>
+    <label for="sp-2">Type it again</label>
+    <input id="sp-2" type="password" autocomplete="new-password" minlength="12" required>
+    <button class="btn" type="submit">Save password</button>
+    <div class="form-error" id="sp-error" role="alert"></div>
+  </form>
+</section>
+
+<div id="app" class="shell hidden">
+  <aside class="side">
+    <div class="brand">Umoja<span>Payroll</span></div>
+    <nav class="nav" id="nav" aria-label="Sections"></nav>
+    <div class="side-foot"><div id="who"></div><button id="signout" type="button">Sign out</button></div>
+  </aside>
+  <main class="main" id="view" tabindex="-1"></main>
+</div>
+
+<dialog id="dlg"></dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<script src="engine.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
