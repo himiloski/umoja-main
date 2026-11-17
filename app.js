@@ -262,7 +262,6 @@ const obCount = (e) => ONBOARD.filter((it) => obDone(e, it)).length;
 
 function todos() {
   const st = settings(); const t = [];
-  if (!st.payFrequency || ((st.payFrequency === "weekly" || st.payFrequency === "biweekly") && !st.firstPayDate)) t.push({ level: "warn", title: "Set up your pay schedule", detail: "Tell the site how often coaches are paid and one pay date.", go: "settings/schedule" });
   if (!st.gaFrequency) t.push({ level: "warn", title: "Set your Georgia filing frequency", detail: "It’s shown in your Georgia Tax Center account.", go: "settings/company" });
   const np = nextPayroll();
   if (np) { const d = daysUntil(np.payDate); if (d <= 7) t.push({ level: d < 0 ? "bad" : "warn", title: np.state === "draft" ? "Finish payroll" : "Run payroll", detail: `Pay date ${weekday(np.payDate)}, ${nice(np.payDate)}${d < 0 ? ` (${-d} day${d === -1 ? "" : "s"} late)` : d === 0 ? " (today)" : ` (in ${d} day${d === 1 ? "" : "s"})`}.`, go: "payroll" }); }
