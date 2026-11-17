@@ -4,6 +4,9 @@
 /playmetrics   /playmetrics.html  200
 /PlayMetrics   /playmetrics  301
 
+# Payroll (Nov 17 2026): always open with the trailing slash.
+/payroll  /payroll/  301
+
 # Renamed pages (Oct 26 2026). Old links still work.
 /pricing.html  /programs  301
 /pricing  /programs  301
