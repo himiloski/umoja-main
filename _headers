@@ -1,7 +1,0 @@
-# Payroll is private to Juliana's sign-in; keep it out of search engines and frames.
-/payroll/*
-  X-Robots-Tag: noindex, nofollow
-  X-Frame-Options: DENY
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: no-referrer
-  Cache-Control: no-cache
