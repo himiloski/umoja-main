@@ -840,6 +840,22 @@ html{scroll-padding-top:120px}
 .pt-more:hover .chev,.pt-more[open] .chev{color:var(--gold)}
 .pt-more .pt-terms{margin:0;border-top:none}
 </style>
+<style>
+.pj{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,5vw,64px);border:1px solid var(--gold);border-top-width:2px;
+  background:var(--ink-1);padding:clamp(30px,4.5vw,54px)}
+.pj h2{font-size:clamp(1.9rem,4.2vw,3rem);margin:0 0 18px}
+.pj-amt{font-family:"Anton",sans-serif;color:var(--gold);font-size:1.6rem;line-height:1;margin:0 0 16px}
+.pj-amt small{font-family:"Archivo",sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-2);margin-left:6px}
+.pj-say{color:var(--gray);font-weight:300;font-size:1.02rem;margin:0 0 28px;max-width:40ch}
+.pj-inc{border-left:1px solid var(--line);padding-left:clamp(24px,4vw,48px)}
+.pj-h{font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 6px}
+.pj-inc ul{list-style:none;margin:0;padding:0}
+.pj-inc li{color:var(--white);font-weight:300;font-size:1rem;padding:12px 0 12px 22px;position:relative;border-bottom:1px solid var(--line-2)}
+.pj-inc li::before{content:"";position:absolute;left:0;top:23px;width:10px;height:1.5px;background:var(--gold)}
+.pj-fine{color:var(--gray-2);font-weight:300;font-size:.9rem;margin:16px 0 0;max-width:46ch}
+.pj-custom{margin-top:28px}
+@media(max-width:860px){.pj{grid-template-columns:1fr}.pj-inc{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:26px}}
+</style>
 </head><body>
 <div class="utility"><div class="wrap">
   <span>Clarkston, Georgia <span class="dot">&bull;</span> Youth Soccer <span class="dot">&bull;</span> Est. 2025</span>
@@ -883,7 +899,8 @@ html{scroll-padding-top:120px}
   <p class="k">Community Partners</p>
   <h1>Partner with Umoja</h1>
   <p class="lede">Put your business behind talent that deserves to be developed.</p>
-  <p>Umoja is an emerging Clarkston soccer club building a full player pathway from U6 to U19, with one of the most deliberate access models in youth soccer underneath it. A business may support the club with money, with goods and services, or with both.</p>
+  <p>Most clubs take on a traditional decision-making model built around the typical American family, which by default serves that typical family best. Our club exists to serve every American family, and families who may have just started calling America home.</p>
+  <p>We are building a tent big enough to hold every type of player, by providing equitable access to coaching, development, and support. Our partners are who make our mission possible.</p>
   <div class="pt-ctas">
     <a class="btn btn-gold" href="#academy">See the packages <span class="a">&darr;</span></a>
     <a class="btn btn-line" href="#start">Start a partnership inquiry <span class="a">&rarr;</span></a>
@@ -964,27 +981,26 @@ html{scroll-padding-top:120px}
   </div>
 </div></section>
 
-<section class="pt-sec"><div class="wrap">
-  <p class="pt-lbl">Principal Jersey Partner</p>
-  <h2>One front-of-shirt partner.</h2>
-  <p>One partner holds the front of the academy match jersey for a two-year term.</p>
-  <div class="pt-levels">
-  <details class="pt-level">
-    <summary><span class="nm">Academy Principal Jersey Partner</span><span class="amt">Inquire</span>
-      <p class="say"><span style="color:var(--gold);font-weight:600">One partner only.</span> The front of every academy match jersey, for two years.</p><span class="chev">What it includes</span></summary>
-    <div class="body">
-      <p class="h">Everything in Playmaker, plus</p>
+<section class="pt-sec" id="jersey"><div class="wrap">
+  <div class="pj">
+    <div class="pj-main">
+      <h2>Principal Jersey Partner</h2>
+      <p class="pj-amt">$20,000 <small>a year</small></p>
+      <p class="pj-say">One partner only. The front of every academy match jersey, for two years.</p>
+      <a class="btn btn-gold" href="#start">Start this partnership <span class="a">&rarr;</span></a>
+    </div>
+    <div class="pj-inc">
+      <p class="pj-h">Includes</p>
       <ul>
+        <li>Everything in Playmaker</li>
         <li>Your logo on the front of every academy match jersey</li>
         <li>The title Academy Principal Jersey Partner of Umoja Soccer Club</li>
       </ul>
-      <p class="fine">A two-year partnership, matched to the life of our match kit. Separate from the Academy scholarship levels. The same eligibility applies as on every level; see <a href="#terms" style="color:var(--gold)">Before you partner with us</a>.</p>
+      <p class="pj-fine">A two-year partnership, matched to the life of our match kit. Separate from the scholarship levels.</p>
     </div>
-  </details>
   </div>
-  <p style="margin-top:22px">Umoja can also build a custom major partnership for a company that wants to give above these levels, underwrite a specific area of the club, or talk about category exclusivity. There is no published price for this &mdash; it starts as a conversation.</p>
-  <div class="pt-hg">
-    <p>Tell us what you have in mind and we will put something together.</p>
+  <div class="pt-hg pj-custom">
+    <p>Umoja can also build a custom major partnership for a company that wants to give above these levels, underwrite a specific area of the club, or talk about category exclusivity. There is no published price. It starts as a conversation.</p>
     <a href="#start">Start the conversation &rarr;</a>
   </div>
 </div></section>
@@ -1148,7 +1164,7 @@ var SPONSORSHIP = {
         '<option>Kickoff — $500</option><option>Impact — $1,000</option>'+
         '<option>Playmaker — $2,500</option><option>Scholarship Supporter — $5,000</option>'+
         '<option>Academy Scholarship Partner — $15,000</option>'+
-        '<option>Academy Principal Jersey Partner</option></optgroup>'+
+        '<option>Academy Principal Jersey Partner — $20,000 a year</option></optgroup>'+
         '<option>Custom or larger partnership</option>'+
         '<option>In-kind only</option>'+
         '<option>Not sure yet</option></select></label>'+
