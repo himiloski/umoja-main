@@ -1056,6 +1056,115 @@ html:not(.js) .acc-body{overflow:visible}
 </section>
 
 <style>
+/* Player Development Pyramid: the page's lead feature */
+.dp{position:relative;overflow:hidden;padding:clamp(72px,9vw,120px) 0 clamp(64px,8vw,110px);background:var(--ink-1);border-bottom:1px solid var(--line-2)}
+.dp-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(48% 52% at 50% 62%,rgba(245,194,5,.075),transparent 70%)}
+.dp .wrap{position:relative;z-index:2}
+.dp-copy{text-align:center;max-width:760px;margin:0 auto}
+.dp-copy .eyebrow{margin-bottom:22px}
+.dp-copy h2{font-size:clamp(2.4rem,5.4vw,4.2rem);line-height:.98;margin:0}
+.dp-copy .dp-sub{font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.03em;color:var(--gold);font-size:clamp(1.05rem,2vw,1.45rem);line-height:1.15;margin:18px 0 0}
+.dp-rule{width:56px;height:2px;background:var(--gold);margin:28px auto 24px;opacity:.7}
+.dp-copy p.d{color:var(--gray);font-weight:300;font-size:clamp(1rem,1.3vw,1.1rem);line-height:1.65;max-width:60ch;margin:0 auto}
+.dp-fig{margin:clamp(40px,5.5vw,72px) auto 0;max-width:820px}
+.dp-stage{position:relative;width:100%;aspect-ratio:1000/940;container-type:inline-size}
+.dp-stage svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.dp-lbl{position:absolute;transform:translate(-50%,-50%);text-align:center;pointer-events:none;margin:0}
+.dp-lbl b{display:block;font-family:"Anton",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.02em;line-height:1;color:var(--white);font-size:clamp(14px,4cqw,36px);white-space:nowrap}
+.dp-lbl i{display:block;font-style:normal;font-weight:800;text-transform:uppercase;letter-spacing:.16em;line-height:1.2;margin-top:clamp(5px,.9cqw,10px);font-size:clamp(9px,1.45cqw,12.5px);color:var(--gray)}
+.dp-lbl.t3 b{color:var(--ink)}.dp-lbl.t3 i{color:#3b3100}
+.dp-lbl.t2 i{color:#F8DA60}
+.dp-lbl.path{width:30%}
+.dp-lbl.path b{white-space:normal;color:var(--gold);font-size:clamp(13px,3.3cqw,29px);line-height:1.02}
+.dp-lbl.pro{width:68%}
+.dp-lbl.pro b{color:var(--ink);font-size:clamp(16px,4.6cqw,40px)}
+.dp-lbl.acad b{font-size:clamp(11px,1.9cqw,16px);letter-spacing:.2em;font-family:"Archivo",sans-serif;font-weight:800;color:var(--white)}
+.dp-lbl.acad i{color:var(--gray-2);margin-top:clamp(3px,.6cqw,6px)}
+.dp-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.dp svg .arw{fill:none;stroke:var(--gold);stroke-width:2.2}
+.dp svg .hd{fill:var(--gold)}
+/* Entrance: the academy settles first, then the pathways, then the top. */
+@media (prefers-reduced-motion:no-preference){
+  .dp.js .s1,.dp.js .s2,.dp.js .s3,.dp.js .s4{opacity:0;transition:opacity 1s var(--ease)}
+  .dp.js .dp-tier{transform:translateY(16px);transition:opacity 1s var(--ease),transform 1.1s var(--ease)}
+  .dp.js.in .s1,.dp.js.in .s2,.dp.js.in .s3,.dp.js.in .s4{opacity:1}.dp.js.in .dp-tier{transform:none}
+  .dp.js .s2{transition-delay:.55s}.dp.js .s3{transition-delay:1.05s}.dp.js .s4{transition-delay:1.5s}
+  .dp.js .t1{transition-delay:.05s}.dp.js .t2{transition-delay:.2s}.dp.js .t3{transition-delay:.35s}
+}
+.dp-copy h2 span{display:block}
+@media(max-width:520px){.dp .wrap{padding:0 16px}.dp-lbl.acad i{display:none}.dp-lbl.path i{letter-spacing:.08em;white-space:nowrap}}
+</style>
+<section class="dp" id="development-pyramid" aria-labelledby="dp-title"><div class="dp-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="dp-copy">
+      <span class="eyebrow">Player Development Pyramid</span>
+      <h2 id="dp-title">One foundation.<span> Multiple pathways.</span></h2>
+      <p class="dp-sub">Development is structured. Progression is individual.</p>
+      <div class="dp-rule" aria-hidden="true"></div>
+      <p class="d">Our academy provides a continuous developmental pathway from U10 through U19, while supporting opportunities for players to progress into professional club academies from U13 onward, based on individual readiness, ability and potential.</p>
+    </div>
+
+    <figure class="dp-fig">
+      <div class="dp-stage">
+        <svg viewBox="0 0 1000 940" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="dpGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8DA60"/><stop offset="1" stop-color="#F5C205"/></linearGradient>
+            <linearGradient id="dpCore" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B320C"/><stop offset="1" stop-color="#27220F"/></linearGradient>
+            <linearGradient id="dpBase" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2827"/><stop offset="1" stop-color="#1F1D1C"/></linearGradient>
+          </defs>
+
+          <!-- Professional Football -->
+          <rect class="s4" x="140" y="20" width="720" height="110" fill="url(#dpGold)"/>
+
+          <!-- Pathway blocks: outside Umoja, so outlined rather than filled -->
+          <g class="s3">
+            <rect x="140" y="200" width="330" height="140" fill="rgba(245,194,5,.06)" stroke="#F5C205" stroke-width="1.6"/>
+            <rect x="530" y="200" width="330" height="140" fill="rgba(245,194,5,.06)" stroke="#F5C205" stroke-width="1.6"/>
+          </g>
+
+          <!-- The Umoja Academy -->
+          <rect class="s1" x="110" y="450" width="780" height="465" fill="rgba(19,18,17,.55)" stroke="rgba(237,234,227,.16)" stroke-width="1.2"/>
+          <polygon class="s1 dp-tier t1" points="230,777 770,777 840,885 160,885" fill="url(#dpBase)" stroke="rgba(237,234,227,.14)" stroke-width="1.2"/>
+          <polygon class="s1 dp-tier t2" points="305,661 695,661 765,769 235,769" fill="url(#dpCore)" stroke="rgba(245,194,5,.38)" stroke-width="1.2"/>
+          <polygon class="s1 dp-tier t3" points="380,545 620,545 690,653 310,653" fill="url(#dpGold)"/>
+
+          <!-- Five arrows -->
+          <g class="s2">
+            <line class="arw" x1="305" y1="450" x2="305" y2="356"/><path class="hd" d="M296 358 L305 342 L314 358 Z"/>
+            <line class="arw" x1="695" y1="450" x2="695" y2="356"/><path class="hd" d="M686 358 L695 342 L704 358 Z"/>
+          </g>
+          <g class="s4">
+            <line class="arw" x1="305" y1="200" x2="305" y2="146"/><path class="hd" d="M296 148 L305 132 L314 148 Z"/>
+            <line class="arw" x1="695" y1="200" x2="695" y2="146"/><path class="hd" d="M686 148 L695 132 L704 148 Z"/>
+          </g>
+          <g class="s3">
+            <line class="arw" x1="476" y1="270" x2="512" y2="270"/><path class="hd" d="M510 261 L526 270 L510 279 Z"/>
+          </g>
+        </svg>
+
+        <p class="dp-lbl pro s4" style="left:50%;top:7.98%"><b>Professional Football</b></p>
+        <p class="dp-lbl path s3" style="left:30.5%;top:28.72%"><b>Professional Academies</b><i>From U13</i></p>
+        <p class="dp-lbl path s3" style="left:69.5%;top:28.72%"><b>Collegiate Soccer</b><i>Post-secondary</i></p>
+        <p class="dp-lbl acad s1" style="left:50%;top:52.34%"><b>The Umoja Academy</b><i>U10&ndash;U19</i></p>
+        <p class="dp-lbl t3 s1" style="left:50%;top:63.72%"><b>Competition</b><i>U16&ndash;U19</i></p>
+        <p class="dp-lbl t2 s1" style="left:50%;top:76.06%"><b>Core Development</b><i>U13&ndash;U15</i></p>
+        <p class="dp-lbl t1 s1" style="left:50%;top:88.40%"><b>Foundation</b><i>U10&ndash;U12</i></p>
+      </div>
+      <figcaption class="dp-sr">The Umoja Academy has three phases: Foundation, U10 to U12; Core Development, U13 to U15; and Competition, U16 to U19. From the academy, players can progress to professional academies, from U13, or to collegiate soccer, after secondary school. Players can also move from a professional academy to collegiate soccer. Both pathways lead to professional football.</figcaption>
+    </figure>
+  </div>
+</section>
+<script>
+(function(){
+  var s=document.querySelector('.dp'); if(!s||!('IntersectionObserver' in window)) return;
+  s.classList.add('js');
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ s.classList.add('in'); io.disconnect(); } }); },{threshold:.2});
+  io.observe(s);
+})();
+</script>
+
+
+<style>
 .lv-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px}
 .lv{position:relative;background:var(--ink);padding:clamp(26px,3.2vw,40px);display:flex;flex-direction:column;min-width:0;transition:background .25s var(--ease)}
 .lv:hover{background:var(--ink-1)}
@@ -1080,10 +1189,11 @@ html:not(.js) .acc-body{overflow:visible}
 .guide-btn{display:inline-flex;align-items:center;gap:.6em;background:var(--gold);color:var(--ink);font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:16px 26px;white-space:nowrap;transition:background .25s var(--ease),transform .25s var(--ease)}
 .guide-btn:hover{background:var(--gold-2);transform:translateY(-2px)}
 .guide-btn:focus-visible{outline:2px solid var(--white);outline-offset:3px}
-@media(max-width:860px){.lv-grid{grid-template-columns:1fr}.guide{grid-template-columns:1fr}}
+.lv-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:860px){.lv-grid,.lv-grid.three{grid-template-columns:1fr}.guide{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.lv,.guide-btn{transition:none}.guide-btn:hover{transform:none}}
 </style>
-<section class="s-sec"><div class="wrap">
+<section class="s-sec" style="position:relative"><span id="academy" class="lv-anchor"></span><span id="elite" class="lv-anchor"></span><span id="evolution" class="lv-anchor"></span><span id="momentum" class="lv-anchor"></span><span id="foundations" class="lv-anchor"></span><span id="rec" class="lv-anchor"></span><span id="adult" class="lv-anchor"></span><div class="wrap">
   <h2>Spring 2027 and the 2027&ndash;28 season.</h2>
   <p class="lede">Three Umoja teams play the spring 2027 season: U12, U14 and U19. From August 2027 the academy grows to about 150 players, U10 to U19.</p>
   <p style="margin-top:12px">Everyone is welcome at our tryouts. Player placement is subject to coach evaluation.</p>
@@ -1092,6 +1202,7 @@ html:not(.js) .acc-body{overflow:visible}
     <a href="scholarships.html">What every player receives <span>&rarr;</span></a>
   </div>
 
+  <div class="pc" id="spring-programs" role="region" aria-roledescription="carousel" aria-label="Spring 2027 programs">
   <div class="lv-grid">
     <article class="lv" id="u12-u14"><span id="junior-premier" class="lv-anchor"></span><span id="premier" class="lv-anchor"></span>
       <div class="lv-top"><span class="lv-num">01</span><span class="lv-ages">U12 &amp; U14</span></div>
@@ -1107,34 +1218,8 @@ html:not(.js) .acc-body{overflow:visible}
       <p class="lv-desc">Four two-hour sessions a week, February to May. Eight friendlies, a Georgia tournament, a Georgia college showcase and recruiting support.</p>
       <div class="lv-foot"><span class="lv-chip now">Spring 2027</span></div>
     </article>
-    <article class="lv" id="academy"><span id="elite" class="lv-anchor"></span><span id="evolution" class="lv-anchor"></span><span id="momentum" class="lv-anchor"></span><span id="foundations" class="lv-anchor"></span><span id="rec" class="lv-anchor"></span><span id="adult" class="lv-anchor"></span>
-      <div class="lv-top"><span class="lv-num">03</span><span class="lv-ages">U10&ndash;U19</span></div>
-      <h3>The full academy</h3>
-      <p class="lv-tag">About 150 players.</p>
-      <p class="lv-desc">U10&ndash;U12 train three 60-minute sessions a week, U13&ndash;U14 three 90-minute sessions, and U15&ndash;U19 four 105-minute sessions. Every team has its own coach for its own session.</p>
-      <div class="lv-foot"><span class="lv-chip">From August 2027</span></div>
-    </article>
-    <article class="lv" id="independent">
-      <div class="lv-top"><span class="lv-num">04</span><span class="lv-ages">Every team</span></div>
-      <h3>Independent by design</h3>
-      <p class="lv-tag">Our own calendar.</p>
-      <p class="lv-desc">Umoja does not play in a league. We arrange matches with opponents directly and choose our own tournaments and college showcases.</p>
-      <div class="lv-foot"><span class="lv-chip">Every season</span></div>
-    </article>
-    <article class="lv" id="beyond">
-      <div class="lv-top"><span class="lv-num">05</span><span class="lv-ages">Every player</span></div>
-      <h3>Beyond the field</h3>
-      <p class="lv-tag">Study hall comes first.</p>
-      <p class="lv-desc">A 30&ndash;60 minute study period before every session with volunteer tutors and retired teachers, homework first. Career sessions, help planning for college, training or work, and summer activities.</p>
-      <div class="lv-foot"><span class="lv-chip">Every season</span></div>
-    </article>
-    <article class="lv" id="recruiting">
-      <div class="lv-top"><span class="lv-num">06</span><span class="lv-ages">Older players</span></div>
-      <h3>College recruiting</h3>
-      <p class="lv-tag">Seen by the right coaches.</p>
-      <p class="lv-desc">Direct relationships with college coaches, Umoja recruiting events, college showcases and game film.</p>
-      <div class="lv-foot"><span class="lv-chip">U15&ndash;U19</span></div>
-    </article>
+  </div>
+
   </div>
 
   <div class="guide" id="fees">
@@ -1148,15 +1233,215 @@ html:not(.js) .acc-body{overflow:visible}
   </div>
 </div></section>
 
+<style>
+/* Spring program carousel. Without JavaScript the programs stay in the grid above. */
+.pc{margin-top:34px}
+.pc .lv-grid{margin-top:0}
+.pc.on .pc-view{position:relative;overflow:hidden;border:1px solid var(--line);background:var(--ink);touch-action:pan-y}
+.pc.on .lv-grid{display:flex;gap:0;background:none;border:0;margin:0;will-change:transform;transition:transform 1.25s cubic-bezier(.72,0,.2,1)}
+.pc.on .lv-grid.snap{transition:none}
+.pc.on .lv{flex:0 0 100%;display:grid;grid-template-columns:minmax(150px,.36fr) minmax(0,1fr);grid-template-rows:auto 1fr auto;column-gap:clamp(28px,5vw,72px);padding:clamp(32px,4.6vw,60px) clamp(28px,5vw,68px);min-height:clamp(260px,26vw,320px);background:radial-gradient(70% 120% at 0% 100%,rgba(245,194,5,.05),transparent 60%),var(--ink)}
+.pc.on .lv:hover{background:radial-gradient(70% 120% at 0% 100%,rgba(245,194,5,.05),transparent 60%),var(--ink)}
+.pc.on .lv-top{grid-column:1;grid-row:1/4;flex-direction:column;align-items:flex-start;justify-content:space-between;margin:0;padding-right:clamp(20px,3vw,40px);border-right:1px solid var(--line)}
+.pc.on .lv-num{font-size:clamp(4.6rem,9vw,7.6rem);line-height:.8}
+.pc.on .lv h3,.pc.on .lv-tag,.pc.on .lv-desc,.pc.on .lv-fit{grid-column:2}
+.pc.on .lv h3{font-size:clamp(2rem,4vw,3rem);align-self:end}
+.pc.on .lv-desc{font-size:clamp(1rem,1.3vw,1.1rem);max-width:56ch}
+.pc.on .lv-foot{grid-column:2;padding-top:26px}
+/* the arriving program settles in after the slide */
+@media (prefers-reduced-motion:no-preference){
+  .pc.on .lv h3,.pc.on .lv-tag,.pc.on .lv-desc,.pc.on .lv-foot{transition:opacity .8s var(--ease) .55s,transform .9s var(--ease) .55s}
+  .pc.on .lv:not(.cur) h3,.pc.on .lv:not(.cur) .lv-tag,.pc.on .lv:not(.cur) .lv-desc,.pc.on .lv:not(.cur) .lv-foot{opacity:.25;transform:translateX(18px);transition-delay:0s}
+}
+.pc-bar{display:none}
+.pc.on .pc-bar{display:flex;align-items:stretch;justify-content:space-between;gap:18px;margin-top:18px}
+.pc-tabs{display:grid;grid-template-columns:repeat(var(--n,6),minmax(0,1fr));gap:10px;flex:1;list-style:none;margin:0;padding:0}
+.pc-tab{position:relative;display:block;width:100%;text-align:left;background:none;border:0;color:var(--gray-2);cursor:pointer;padding:14px 0 4px;font:inherit}
+.pc-tab::before,.pc-tab .pr{content:"";position:absolute;left:0;top:0;height:2px;width:100%;background:var(--line)}
+.pc-tab .pr{background:var(--gold);transform-origin:left;transform:scaleX(0)}
+.pc-tab.done .pr{transform:scaleX(1);opacity:.35}
+.pc-tab .n{display:block;font-family:"Anton",sans-serif;font-size:.95rem;letter-spacing:.06em;color:inherit;transition:color .3s var(--ease)}
+.pc-tab .t{display:block;font-size:.64rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;margin-top:4px;line-height:1.35;transition:color .3s var(--ease)}
+.pc-tab:hover,.pc-tab.cur{color:var(--white)}.pc-tab.cur .n{color:var(--gold)}
+.pc-tab:focus-visible,.pc-btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.pc-ctl{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.pc-btn{width:46px;height:46px;display:grid;place-items:center;background:none;border:1px solid var(--line);color:var(--white);cursor:pointer;transition:border-color .25s var(--ease),color .25s var(--ease),background .25s var(--ease)}
+.pc-btn:hover{border-color:var(--gold);color:var(--gold)}
+.pc-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8}
+.pc-btn .ic-play{display:none}.pc.stopped .pc-btn .ic-play{display:block}.pc.stopped .pc-btn .ic-pause{display:none}
+.pc-count{font-family:"Anton",sans-serif;font-size:.95rem;letter-spacing:.08em;color:var(--gray-2);min-width:62px;text-align:center}
+.pc-count b{color:var(--white);font-weight:400}
+.pc-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(max-width:860px){
+  .pc.on .lv{grid-template-columns:1fr;grid-template-rows:none;min-height:0}
+  .pc.on .lv-top{grid-row:auto;flex-direction:row;align-items:flex-end;border-right:0;padding:0 0 22px;margin-bottom:22px;border-bottom:1px solid var(--line)}
+  .pc.on .lv-num{font-size:3.4rem}
+  .pc.on .lv h3,.pc.on .lv-tag,.pc.on .lv-desc,.pc.on .lv-fit,.pc.on .lv-foot{grid-column:1}
+  .pc-tabs{gap:6px}
+  .pc-tab .t{display:none}
+}
+@media(max-width:520px){
+  .pc.on .pc-bar{flex-direction:column;gap:14px}
+  .pc-ctl{justify-content:space-between}
+}
+</style>
+<script>
+/* Spring program carousel: one program at a time, a long pause on each,
+   a slow slide between them. Loops, pauses on hover, focus or touch, and
+   never moves on its own for visitors who ask for reduced motion. */
+(function(){
+  var root=document.getElementById('spring-programs'); if(!root) return;
+  var track=root.querySelector('.lv-grid'), slides=[].slice.call(track.children), n=slides.length;
+  if(n<2) return;
+  var DWELL=9000, SLIDE=1250;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* frame */
+  var view=document.createElement('div'); view.className='pc-view';
+  track.parentNode.insertBefore(view,track); view.appendChild(track);
+  var live=document.createElement('div'); live.className='pc-sr'; live.setAttribute('aria-live','polite'); root.appendChild(live);
+
+  /* the clone of the first program sits after the last, so the loop never runs backwards */
+  var clone=slides[0].cloneNode(true);
+  clone.removeAttribute('id'); [].forEach.call(clone.querySelectorAll('[id]'),function(e){e.removeAttribute('id');});
+  clone.setAttribute('aria-hidden','true'); clone.classList.add('clone'); track.appendChild(clone);
+
+  slides.forEach(function(s,k){ s.setAttribute('role','group'); s.setAttribute('aria-roledescription','program'); s.setAttribute('aria-label',(k+1)+' of '+n); });
+
+  /* controls */
+  var bar=document.createElement('div'); bar.className='pc-bar';
+  var tabs=document.createElement('div'); tabs.className='pc-tabs'; tabs.style.setProperty('--n',n); tabs.setAttribute('role','group'); tabs.setAttribute('aria-label','Choose a program');
+  var tabEls=slides.map(function(s,k){
+    var b=document.createElement('button'); b.type='button'; b.className='pc-tab';
+    var title=(s.querySelector('h3')||{}).textContent||('Program '+(k+1));
+    b.innerHTML='<span class="pr"></span><span class="n">'+String(k+1).padStart(2,'0')+'</span><span class="t"></span>';
+    b.querySelector('.t').textContent=title; b.setAttribute('aria-label',title);
+    b.addEventListener('click',function(){ user(); go(k); });
+    tabs.appendChild(b); return b;
+  });
+  var ctl=document.createElement('div'); ctl.className='pc-ctl';
+  ctl.innerHTML='<button type="button" class="pc-btn pc-prev" aria-label="Previous program"><svg viewBox="0 0 16 16"><path d="M10 3 5 8l5 5"/></svg></button>'+
+    '<span class="pc-count" aria-hidden="true"><b>01</b> / '+String(n).padStart(2,'0')+'</span>'+
+    '<button type="button" class="pc-btn pc-next" aria-label="Next program"><svg viewBox="0 0 16 16"><path d="m6 3 5 5-5 5"/></svg></button>'+
+    '<button type="button" class="pc-btn pc-play" aria-label="Pause the programs"><svg class="ic-pause" viewBox="0 0 16 16"><path d="M5.5 3v10M10.5 3v10"/></svg><svg class="ic-play" viewBox="0 0 16 16"><path d="M5 3l8 5-8 5z"/></svg></button>';
+  bar.appendChild(tabs); bar.appendChild(ctl); root.appendChild(bar);
+  var countB=ctl.querySelector('.pc-count b'), playBtn=ctl.querySelector('.pc-play');
+  root.classList.add('on');
+
+  var i=0, busy=false, stopped=reduce, holds={}, elapsed=0, last=0, raf=0, touchTimer=0;
+
+  function paint(){
+    var k=i%n;
+    slides.concat(clone).forEach(function(s,j){
+      var cur=(j===i); s.classList.toggle('cur',cur);
+      if(s!==clone){ if(cur){ s.removeAttribute('aria-hidden'); s.inert=false; } else { s.setAttribute('aria-hidden','true'); s.inert=true; } }
+    });
+    tabEls.forEach(function(t,j){ t.classList.toggle('cur',j===k); t.classList.toggle('done',j<k); t.setAttribute('aria-current',j===k?'true':'false'); if(j!==k) t.querySelector('.pr').style.transform=''; });
+    countB.textContent=String(k+1).padStart(2,'0');
+  }
+  function place(snap){
+    if(snap){ track.classList.add('snap'); }
+    track.style.transform='translateX('+(-100*i)+'%)';
+    if(snap){ void track.offsetWidth; track.classList.remove('snap'); }
+  }
+  function go(k,opts){
+    opts=opts||{};
+    if(busy && !opts.force) return;
+    if(k<0){ i=n; place(true); k=n-1; }          /* step back from the first: jump to the clone, then slide */
+    if(k===i){ return; }
+    i=k; elapsed=0; paint();
+    if(reduce||opts.snap){ place(true); if(i===n){ i=0; place(true); paint(); } return; }
+    busy=true; place(false);
+    setTimeout(function(){ busy=false; if(i===n){ i=0; place(true); paint(); } }, SLIDE+40);
+    if(!opts.auto) live.textContent=(slides[i%n].querySelector('h3')||{}).textContent||'';
+  }
+  function running(){ return !stopped && !Object.keys(holds).some(function(h){return holds[h];}); }
+  function tick(t){
+    raf=requestAnimationFrame(tick);
+    var dt=last?Math.min(t-last,100):0; last=t;
+    if(!running()||busy) return;
+    elapsed+=dt;
+    var pr=tabEls[i%n].querySelector('.pr'); pr.style.transform='scaleX('+Math.min(elapsed/DWELL,1)+')';
+    if(elapsed>=DWELL){ go(i+1,{auto:true}); }
+  }
+  function hold(why,on){ holds[why]=on; }
+  function user(){ elapsed=0; }
+  function setStopped(v){
+    stopped=v; root.classList.toggle('stopped',v);
+    playBtn.setAttribute('aria-label',v?'Play the programs':'Pause the programs');
+    if(v) tabEls[i%n].querySelector('.pr').style.transform='';
+  }
+
+  ctl.querySelector('.pc-prev').addEventListener('click',function(){ user(); go(i-1); });
+  ctl.querySelector('.pc-next').addEventListener('click',function(){ user(); go(i+1); });
+  playBtn.addEventListener('click',function(){ setStopped(!stopped); elapsed=0; });
+  root.addEventListener('mouseenter',function(){ hold('hover',true); });
+  root.addEventListener('mouseleave',function(){ hold('hover',false); });
+  root.addEventListener('focusin',function(e){ var kb=true; try{ kb=e.target.matches(':focus-visible'); }catch(x){} if(kb) hold('focus',true); });
+  root.addEventListener('focusout',function(e){ if(!root.contains(e.relatedTarget)) hold('focus',false); });
+  root.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'){ e.preventDefault(); user(); go(i+1); }
+    else if(e.key==='ArrowLeft'){ e.preventDefault(); user(); go(i-1); }
+  });
+  document.addEventListener('visibilitychange',function(){ hold('hidden',document.hidden); last=0; });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ es.forEach(function(e){ hold('offscreen',!e.isIntersecting); }); },{threshold:.5}).observe(view);
+  }
+
+  /* swipe */
+  var sx=0, sy=0, dx=0, drag=false, w=1;
+  view.addEventListener('pointerdown',function(e){ if(e.pointerType==='mouse'||busy) return; drag=true; sx=e.clientX; sy=e.clientY; dx=0; w=view.offsetWidth||1; hold('touch',true); clearTimeout(touchTimer); });
+  view.addEventListener('pointermove',function(e){
+    if(!drag) return; dx=e.clientX-sx;
+    if(Math.abs(e.clientY-sy)>Math.abs(dx)&&Math.abs(dx)<10){ return; }
+    track.classList.add('snap'); track.style.transform='translateX(calc('+(-100*i)+'% + '+dx+'px))';
+  });
+  function end(){
+    if(!drag) return; drag=false; track.classList.remove('snap');
+    if(dx<-50){ user(); go(i+1); } else if(dx>50){ user(); go(i-1); } else { place(false); }
+    touchTimer=setTimeout(function(){ hold('touch',false); }, DWELL);  /* touch counts as interaction: wait a full pause before moving on */
+  }
+  view.addEventListener('pointerup',end); view.addEventListener('pointercancel',end);
+
+  /* links like programs.html#u19 open that program */
+  function fromHash(){
+    var id=decodeURIComponent((location.hash||'').slice(1)); if(!id) return;
+    var el=document.getElementById(id); if(!el||!track.contains(el)) return;
+    var s=el.closest('.lv'), k=slides.indexOf(s); if(k<0) return;
+    setStopped(true); go(k,{snap:true,force:true});
+  }
+  window.addEventListener('hashchange',fromHash);
+
+  setStopped(stopped); paint(); place(true); fromHash();
+  raf=requestAnimationFrame(tick);
+})();
+</script>
+
 <section class="s-sec"><div class="wrap">
-  <h2>What the academy asks.</h2>
-  <p>A place at Umoja is a long-term commitment, from the club and from the player.</p>
-  <ul class="s-defs">
-    <li><span class="t">Attendance</span><p class="d">Every study hall, practice and match, unless the coach has advance notice or there is an emergency.</p></li>
-    <li><span class="t">Study hall</span><p class="d">A 30&ndash;60 minute study period before every training session. Homework comes first.</p></li>
-    <li><span class="t">Commitment</span><p class="d">Once admitted, a player&rsquo;s place continues from season to season while he keeps to these expectations.</p></li>
-    <li><span class="t">Placement</span><p class="d">Players are placed by age and level of play and can move between groups during the season.</p></li>
-  </ul>
+  <h2>How the academy works.</h2>
+  <div class="lv-grid three">
+    <article class="lv" id="independent">
+      <div class="lv-top"><span class="lv-num">01</span><span class="lv-ages">Every team</span></div>
+      <h3>Independent by design</h3>
+      <p class="lv-tag">Our own calendar.</p>
+      <p class="lv-desc">Umoja does not play in a league. We arrange matches with opponents directly and choose our own tournaments and college showcases.</p>
+      <div class="lv-foot"><span class="lv-chip">Every season</span></div>
+    </article>
+    <article class="lv" id="beyond">
+      <div class="lv-top"><span class="lv-num">02</span><span class="lv-ages">Every player</span></div>
+      <h3>Beyond the field</h3>
+      <p class="lv-tag">Study hall comes first.</p>
+      <p class="lv-desc">A 30&ndash;60 minute study period before every session with volunteer tutors and retired teachers, homework first. Career sessions, help planning for college, training or work, and summer activities.</p>
+      <div class="lv-foot"><span class="lv-chip">Every season</span></div>
+    </article>
+    <article class="lv" id="recruiting">
+      <div class="lv-top"><span class="lv-num">03</span><span class="lv-ages">Older players</span></div>
+      <h3>College recruiting</h3>
+      <p class="lv-tag">Seen by the right coaches.</p>
+      <p class="lv-desc">Direct relationships with college coaches, Umoja recruiting events, college showcases and game film.</p>
+      <div class="lv-foot"><span class="lv-chip">U15&ndash;U19</span></div>
+    </article>
+  </div>
 </div></section>
 
 <section class="s-sec"><div class="wrap">
