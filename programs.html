@@ -1189,10 +1189,11 @@ html:not(.js) .acc-body{overflow:visible}
 .guide-btn{display:inline-flex;align-items:center;gap:.6em;background:var(--gold);color:var(--ink);font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:16px 26px;white-space:nowrap;transition:background .25s var(--ease),transform .25s var(--ease)}
 .guide-btn:hover{background:var(--gold-2);transform:translateY(-2px)}
 .guide-btn:focus-visible{outline:2px solid var(--white);outline-offset:3px}
-@media(max-width:860px){.lv-grid{grid-template-columns:1fr}.guide{grid-template-columns:1fr}}
+.lv-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:860px){.lv-grid,.lv-grid.three{grid-template-columns:1fr}.guide{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.lv,.guide-btn{transition:none}.guide-btn:hover{transform:none}}
 </style>
-<section class="s-sec"><div class="wrap">
+<section class="s-sec" style="position:relative"><span id="academy" class="lv-anchor"></span><span id="elite" class="lv-anchor"></span><span id="evolution" class="lv-anchor"></span><span id="momentum" class="lv-anchor"></span><span id="foundations" class="lv-anchor"></span><span id="rec" class="lv-anchor"></span><span id="adult" class="lv-anchor"></span><div class="wrap">
   <h2>Spring 2027 and the 2027&ndash;28 season.</h2>
   <p class="lede">Three Umoja teams play the spring 2027 season: U12, U14 and U19. From August 2027 the academy grows to about 150 players, U10 to U19.</p>
   <p style="margin-top:12px">Everyone is welcome at our tryouts. Player placement is subject to coach evaluation.</p>
@@ -1418,30 +1419,23 @@ html:not(.js) .acc-body{overflow:visible}
 
 <section class="s-sec"><div class="wrap">
   <h2>How the academy works.</h2>
-  <div class="lv-grid">
-    <article class="lv" id="academy"><span id="elite" class="lv-anchor"></span><span id="evolution" class="lv-anchor"></span><span id="momentum" class="lv-anchor"></span><span id="foundations" class="lv-anchor"></span><span id="rec" class="lv-anchor"></span><span id="adult" class="lv-anchor"></span>
-      <div class="lv-top"><span class="lv-num">01</span><span class="lv-ages">U10&ndash;U19</span></div>
-      <h3>The full academy</h3>
-      <p class="lv-tag">About 150 players.</p>
-      <p class="lv-desc">U10&ndash;U12 train three 60-minute sessions a week, U13&ndash;U14 three 90-minute sessions, and U15&ndash;U19 four 105-minute sessions. Every team has its own coach for its own session.</p>
-      <div class="lv-foot"><span class="lv-chip">From August 2027</span></div>
-    </article>
+  <div class="lv-grid three">
     <article class="lv" id="independent">
-      <div class="lv-top"><span class="lv-num">02</span><span class="lv-ages">Every team</span></div>
+      <div class="lv-top"><span class="lv-num">01</span><span class="lv-ages">Every team</span></div>
       <h3>Independent by design</h3>
       <p class="lv-tag">Our own calendar.</p>
       <p class="lv-desc">Umoja does not play in a league. We arrange matches with opponents directly and choose our own tournaments and college showcases.</p>
       <div class="lv-foot"><span class="lv-chip">Every season</span></div>
     </article>
     <article class="lv" id="beyond">
-      <div class="lv-top"><span class="lv-num">03</span><span class="lv-ages">Every player</span></div>
+      <div class="lv-top"><span class="lv-num">02</span><span class="lv-ages">Every player</span></div>
       <h3>Beyond the field</h3>
       <p class="lv-tag">Study hall comes first.</p>
       <p class="lv-desc">A 30&ndash;60 minute study period before every session with volunteer tutors and retired teachers, homework first. Career sessions, help planning for college, training or work, and summer activities.</p>
       <div class="lv-foot"><span class="lv-chip">Every season</span></div>
     </article>
     <article class="lv" id="recruiting">
-      <div class="lv-top"><span class="lv-num">04</span><span class="lv-ages">Older players</span></div>
+      <div class="lv-top"><span class="lv-num">03</span><span class="lv-ages">Older players</span></div>
       <h3>College recruiting</h3>
       <p class="lv-tag">Seen by the right coaches.</p>
       <p class="lv-desc">Direct relationships with college coaches, Umoja recruiting events, college showcases and game film.</p>
