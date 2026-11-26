@@ -1201,7 +1201,7 @@ html:not(.js) .acc-body{overflow:visible}
     <a href="scholarships.html">What every player receives <span>&rarr;</span></a>
   </div>
 
-  <div class="pc" id="spring-programs" role="region" aria-roledescription="carousel" aria-label="Spring 2027 and 2027&ndash;28 programs">
+  <div class="pc" id="spring-programs" role="region" aria-roledescription="carousel" aria-label="Spring 2027 programs">
   <div class="lv-grid">
     <article class="lv" id="u12-u14"><span id="junior-premier" class="lv-anchor"></span><span id="premier" class="lv-anchor"></span>
       <div class="lv-top"><span class="lv-num">01</span><span class="lv-ages">U12 &amp; U14</span></div>
@@ -1216,34 +1216,6 @@ html:not(.js) .acc-body{overflow:visible}
       <p class="lv-tag">Spring 2027.</p>
       <p class="lv-desc">Four two-hour sessions a week, February to May. Eight friendlies, a Georgia tournament, a Georgia college showcase and recruiting support.</p>
       <div class="lv-foot"><span class="lv-chip now">Spring 2027</span></div>
-    </article>
-    <article class="lv" id="academy"><span id="elite" class="lv-anchor"></span><span id="evolution" class="lv-anchor"></span><span id="momentum" class="lv-anchor"></span><span id="foundations" class="lv-anchor"></span><span id="rec" class="lv-anchor"></span><span id="adult" class="lv-anchor"></span>
-      <div class="lv-top"><span class="lv-num">03</span><span class="lv-ages">U10&ndash;U19</span></div>
-      <h3>The full academy</h3>
-      <p class="lv-tag">About 150 players.</p>
-      <p class="lv-desc">U10&ndash;U12 train three 60-minute sessions a week, U13&ndash;U14 three 90-minute sessions, and U15&ndash;U19 four 105-minute sessions. Every team has its own coach for its own session.</p>
-      <div class="lv-foot"><span class="lv-chip">From August 2027</span></div>
-    </article>
-    <article class="lv" id="independent">
-      <div class="lv-top"><span class="lv-num">04</span><span class="lv-ages">Every team</span></div>
-      <h3>Independent by design</h3>
-      <p class="lv-tag">Our own calendar.</p>
-      <p class="lv-desc">Umoja does not play in a league. We arrange matches with opponents directly and choose our own tournaments and college showcases.</p>
-      <div class="lv-foot"><span class="lv-chip">Every season</span></div>
-    </article>
-    <article class="lv" id="beyond">
-      <div class="lv-top"><span class="lv-num">05</span><span class="lv-ages">Every player</span></div>
-      <h3>Beyond the field</h3>
-      <p class="lv-tag">Study hall comes first.</p>
-      <p class="lv-desc">A 30&ndash;60 minute study period before every session with volunteer tutors and retired teachers, homework first. Career sessions, help planning for college, training or work, and summer activities.</p>
-      <div class="lv-foot"><span class="lv-chip">Every season</span></div>
-    </article>
-    <article class="lv" id="recruiting">
-      <div class="lv-top"><span class="lv-num">06</span><span class="lv-ages">Older players</span></div>
-      <h3>College recruiting</h3>
-      <p class="lv-tag">Seen by the right coaches.</p>
-      <p class="lv-desc">Direct relationships with college coaches, Umoja recruiting events, college showcases and game film.</p>
-      <div class="lv-foot"><span class="lv-chip">U15&ndash;U19</span></div>
     </article>
   </div>
 
@@ -1282,7 +1254,7 @@ html:not(.js) .acc-body{overflow:visible}
 }
 .pc-bar{display:none}
 .pc.on .pc-bar{display:flex;align-items:stretch;justify-content:space-between;gap:18px;margin-top:18px}
-.pc-tabs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;flex:1;list-style:none;margin:0;padding:0}
+.pc-tabs{display:grid;grid-template-columns:repeat(var(--n,6),minmax(0,1fr));gap:10px;flex:1;list-style:none;margin:0;padding:0}
 .pc-tab{position:relative;display:block;width:100%;text-align:left;background:none;border:0;color:var(--gray-2);cursor:pointer;padding:14px 0 4px;font:inherit}
 .pc-tab::before,.pc-tab .pr{content:"";position:absolute;left:0;top:0;height:2px;width:100%;background:var(--line)}
 .pc-tab .pr{background:var(--gold);transform-origin:left;transform:scaleX(0)}
@@ -1304,7 +1276,7 @@ html:not(.js) .acc-body{overflow:visible}
   .pc.on .lv-top{grid-row:auto;flex-direction:row;align-items:flex-end;border-right:0;padding:0 0 22px;margin-bottom:22px;border-bottom:1px solid var(--line)}
   .pc.on .lv-num{font-size:3.4rem}
   .pc.on .lv h3,.pc.on .lv-tag,.pc.on .lv-desc,.pc.on .lv-fit,.pc.on .lv-foot{grid-column:1}
-  .pc-tabs{grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+  .pc-tabs{gap:6px}
   .pc-tab .t{display:none}
 }
 @media(max-width:520px){
@@ -1337,7 +1309,7 @@ html:not(.js) .acc-body{overflow:visible}
 
   /* controls */
   var bar=document.createElement('div'); bar.className='pc-bar';
-  var tabs=document.createElement('div'); tabs.className='pc-tabs'; tabs.setAttribute('role','group'); tabs.setAttribute('aria-label','Choose a program');
+  var tabs=document.createElement('div'); tabs.className='pc-tabs'; tabs.style.setProperty('--n',n); tabs.setAttribute('role','group'); tabs.setAttribute('aria-label','Choose a program');
   var tabEls=slides.map(function(s,k){
     var b=document.createElement('button'); b.type='button'; b.className='pc-tab';
     var title=(s.querySelector('h3')||{}).textContent||('Program '+(k+1));
@@ -1443,6 +1415,40 @@ html:not(.js) .acc-body{overflow:visible}
   raf=requestAnimationFrame(tick);
 })();
 </script>
+
+<section class="s-sec"><div class="wrap">
+  <h2>How the academy works.</h2>
+  <div class="lv-grid">
+    <article class="lv" id="academy"><span id="elite" class="lv-anchor"></span><span id="evolution" class="lv-anchor"></span><span id="momentum" class="lv-anchor"></span><span id="foundations" class="lv-anchor"></span><span id="rec" class="lv-anchor"></span><span id="adult" class="lv-anchor"></span>
+      <div class="lv-top"><span class="lv-num">01</span><span class="lv-ages">U10&ndash;U19</span></div>
+      <h3>The full academy</h3>
+      <p class="lv-tag">About 150 players.</p>
+      <p class="lv-desc">U10&ndash;U12 train three 60-minute sessions a week, U13&ndash;U14 three 90-minute sessions, and U15&ndash;U19 four 105-minute sessions. Every team has its own coach for its own session.</p>
+      <div class="lv-foot"><span class="lv-chip">From August 2027</span></div>
+    </article>
+    <article class="lv" id="independent">
+      <div class="lv-top"><span class="lv-num">02</span><span class="lv-ages">Every team</span></div>
+      <h3>Independent by design</h3>
+      <p class="lv-tag">Our own calendar.</p>
+      <p class="lv-desc">Umoja does not play in a league. We arrange matches with opponents directly and choose our own tournaments and college showcases.</p>
+      <div class="lv-foot"><span class="lv-chip">Every season</span></div>
+    </article>
+    <article class="lv" id="beyond">
+      <div class="lv-top"><span class="lv-num">03</span><span class="lv-ages">Every player</span></div>
+      <h3>Beyond the field</h3>
+      <p class="lv-tag">Study hall comes first.</p>
+      <p class="lv-desc">A 30&ndash;60 minute study period before every session with volunteer tutors and retired teachers, homework first. Career sessions, help planning for college, training or work, and summer activities.</p>
+      <div class="lv-foot"><span class="lv-chip">Every season</span></div>
+    </article>
+    <article class="lv" id="recruiting">
+      <div class="lv-top"><span class="lv-num">04</span><span class="lv-ages">Older players</span></div>
+      <h3>College recruiting</h3>
+      <p class="lv-tag">Seen by the right coaches.</p>
+      <p class="lv-desc">Direct relationships with college coaches, Umoja recruiting events, college showcases and game film.</p>
+      <div class="lv-foot"><span class="lv-chip">U15&ndash;U19</span></div>
+    </article>
+  </div>
+</div></section>
 
 <section class="s-sec"><div class="wrap">
   <h2>What the academy asks.</h2>
