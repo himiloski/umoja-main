@@ -96,7 +96,7 @@ var UMOJA = {
    6. WHERE SUBMISSIONS GO
    =================================================================== */
   submit: {
-    email: "office@umojasoka.com",
+    email: "info@umojasoka.com",
     refundEmail: "finance@umojasoka.com",
     endpoints: {
       seasonTravel: "https://formspree.io/f/mnpqbynd"
