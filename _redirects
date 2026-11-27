@@ -4,6 +4,11 @@
 /playmetrics   /playmetrics.html  200
 /PlayMetrics   /playmetrics  301
 
+# The Umoja Circle replaced the Give page (Nov 27 2026). Old giving links still work.
+# Archived copy of the old page: project archive, give.html (live before The Umoja Circle, 2026-11-27).
+/give.html  /circle  301!
+/give  /circle  301!
+
 # Renamed pages (Oct 26 2026). Old links still work.
 /pricing.html  /programs  301
 /pricing  /programs  301
