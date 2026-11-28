@@ -1,0 +1,889 @@
+{
+ "_note": "PREVIEW SNAPSHOT of draft products, read from the Shopify Admin API on 2026-11-28 (collection 'heritage', in Shopify's collection order). Used only while SHOP_CONFIG.mode is 'preview'. In live mode the shop reads Shopify directly and ignores this file. Delete at launch.",
+ "snapshotAt": "2026-11-28T03:40:00Z",
+ "collections": [
+  {
+   "handle": "heritage",
+   "title": "Heritage Collection",
+   "descriptionHtml": "<p>Vintage football culture meets everyday streetwear. Discover the inaugural Umoja Heritage Collection, inspired by our club, our community and the beautiful game.</p>",
+   "products": [
+    {
+     "id": "gid://shopify/Product/15541475901716",
+     "title": "The Heritage Tee",
+     "handle": "snow-washed-oversized-cotton-t-shirt-1",
+     "descriptionHtml": "Elevate your look with this oversized tee, made from 250 GSM cotton. Featuring a vintage wash and relaxed fit, it brings a bold, distressed vibe to your casual wardrobe. Personalize it with our on-demand printing for a unique touch.<h3>Features</h3><div>- Effects: Snow Wash / Washed</div><div>- Fit: Loose</div><div>- Neckline: Round Neck / O-Neck</div><div>- Sleeve Style: Drop Shoulder</div><div>- Sleeve Length: Short Sleeve</div><div>- Season: Summer</div><div>- Style: Casual / Street</div><h3>Care Instructions</h3><div>- Machine wash at 30°C (gentle cycle)</div><div>- Do not bleach</div><div>- Tumble dry low</div><div>- Iron at low temperature, avoid ironing on print</div><div>- Do not dry clean</div><h3>Fabric</h3><div>- Material: 100% cotton</div><div>- Fabric Weight: 250 gsm (7.4 oz)</div><div>- Thickness: Moderate</div><div>- Elasticity: Slight Stretch</div><div>- Breathability: Moderate</div><table id=\"size-guide\"><tbody><tr><td></td><td colspan=\"2\">S</td><td colspan=\"2\">M</td><td colspan=\"2\">L</td><td colspan=\"2\">XL</td><td colspan=\"2\">2XL</td><td colspan=\"2\">3XL</td></tr><tr><td></td><td>inch</td><td>cm</td><td>inch</td><td>cm</td><td>inch</td><td>cm</td><td>inch</td><td>cm</td><td>inch</td><td>cm</td><td>inch</td><td>cm</td></tr><tr><td>Length</td><td>27.56</td><td>70</td><td>28.35</td><td>72</td><td>29.13</td><td>74</td><td>29.92</td><td>76</td><td>30.71</td><td>78</td><td>31.10</td><td>79</td></tr><tr><td>Shoulder</td><td>20.87</td><td>53</td><td>21.65</td><td>55</td><td>22.44</td><td>57</td><td>23.23</td><td>59</td><td>24.02</td><td>61</td><td>24.80</td><td>63</td></tr><tr><td>Chest</td><td>22.05</td><td>56</td><td>22.83</td><td>58</td><td>23.62</td><td>60</td><td>24.41</td><td>62</td><td>25.20</td><td>64</td><td>26.38</td><td>67</td></tr><tr><td>Sleeve length</td><td>8.19</td><td>20.8</td><td>8.46</td><td>21.5</td><td>8.74</td><td>22.2</td><td>9.02</td><td>22.9</td><td>9.29</td><td>23.6</td><td>9.29</td><td>23.6</td></tr></tbody></table>",
+     "tags": [],
+     "options": [
+      {
+       "name": "Color",
+       "values": [
+        "Black"
+       ]
+      },
+      {
+       "name": "Size",
+       "values": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+       ]
+      }
+     ],
+     "images": [
+      {
+       "url": "https://cdn.shopify.com/s/files/1/1046/9838/0564/files/529feee3b65b4946b23967421492646a.png?v=1795835556",
+       "altText": "",
+       "width": 1400,
+       "height": 1400
+      },
+      {
+       "url": "https://cdn.shopify.com/s/files/1/1046/9838/0564/files/c064fe4b537b44ebb075d7066f21a1c9.png?v=1795835556",
+       "altText": "",
+       "width": 1400,
+       "height": 1400
+      }
+     ],
+     "variants": [
+      {
+       "id": "gid://shopify/ProductVariant/68330004873492",
+       "title": "Black / S",
+       "availableForSale": true,
+       "price": {
+        "amount": "40.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330004906260",
+       "title": "Black / M",
+       "availableForSale": true,
+       "price": {
+        "amount": "40.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330004939028",
+       "title": "Black / L",
+       "availableForSale": true,
+       "price": {
+        "amount": "40.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330004971796",
+       "title": "Black / XL",
+       "availableForSale": true,
+       "price": {
+        "amount": "40.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330005004564",
+       "title": "Black / 2XL",
+       "availableForSale": true,
+       "price": {
+        "amount": "40.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "2XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330005037332",
+       "title": "Black / 3XL",
+       "availableForSale": true,
+       "price": {
+        "amount": "40.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "3XL"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "gid://shopify/Product/15541475770644",
+     "title": "The Heritage Crewneck",
+     "handle": "heavyweight-essential-sweatshirt",
+     "descriptionHtml": "<p>Vintage collegiate lettering and signature black-and-yellow stripes meet a heavyweight sweatshirt in a warm cream tone. A timeless layer inspired by football supporter culture.</p><p>Part of the inaugural Umoja Heritage Collection.</p>",
+     "tags": [],
+     "options": [
+      {
+       "name": "Color",
+       "values": [
+        "Apricot"
+       ]
+      },
+      {
+       "name": "Size",
+       "values": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+       ]
+      }
+     ],
+     "images": [
+      {
+       "url": "https://cdn.shopify.com/s/files/1/1046/9838/0564/files/8e37de832af7484fb02f376f16b5e177.png?v=1795835544",
+       "altText": "",
+       "width": 1400,
+       "height": 1400
+      },
+      {
+       "url": "https://cdn.shopify.com/s/files/1/1046/9838/0564/files/a970973317234b80a39f8411ae70d0cd.png?v=1795835544",
+       "altText": "",
+       "width": 1400,
+       "height": 1400
+      }
+     ],
+     "variants": [
+      {
+       "id": "gid://shopify/ProductVariant/68330003923220",
+       "title": "Apricot / S",
+       "availableForSale": true,
+       "price": {
+        "amount": "55.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Apricot"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330003955988",
+       "title": "Apricot / M",
+       "availableForSale": true,
+       "price": {
+        "amount": "55.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Apricot"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330003988756",
+       "title": "Apricot / L",
+       "availableForSale": true,
+       "price": {
+        "amount": "55.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Apricot"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330004021524",
+       "title": "Apricot / XL",
+       "availableForSale": true,
+       "price": {
+        "amount": "55.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Apricot"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330004054292",
+       "title": "Apricot / 2XL",
+       "availableForSale": true,
+       "price": {
+        "amount": "55.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Apricot"
+        },
+        {
+         "name": "Size",
+         "value": "2XL"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "gid://shopify/Product/15541475737876",
+     "title": "The Panther Stripe Tee",
+     "handle": "snow-washed-oversized-cotton-t-shirt",
+     "descriptionHtml": "Elevate your look with this oversized tee, made from 250 GSM cotton. Featuring a vintage wash and relaxed fit, it brings a bold, distressed vibe to your casual wardrobe. Personalize it with our on-demand printing for a unique touch.<h3>Features</h3><div>- Effects: Snow Wash / Washed</div><div>- Fit: Loose</div><div>- Neckline: Round Neck / O-Neck</div><div>- Sleeve Style: Drop Shoulder</div><div>- Sleeve Length: Short Sleeve</div><div>- Season: Summer</div><div>- Style: Casual / Street</div><h3>Care Instructions</h3><div>- Machine wash at 30°C (gentle cycle)</div><div>- Do not bleach</div><div>- Tumble dry low</div><div>- Iron at low temperature, avoid ironing on print</div><div>- Do not dry clean</div><h3>Fabric</h3><div>- Material: 100% cotton</div><div>- Fabric Weight: 250 gsm (7.4 oz)</div><div>- Thickness: Moderate</div><div>- Elasticity: Slight Stretch</div><div>- Breathability: Moderate</div><table id=\"size-guide\"><tbody><tr><td></td><td colspan=\"2\">S</td><td colspan=\"2\">M</td><td colspan=\"2\">L</td><td colspan=\"2\">XL</td><td colspan=\"2\">2XL</td><td colspan=\"2\">3XL</td></tr><tr><td></td><td>inch</td><td>cm</td><td>inch</td><td>cm</td><td>inch</td><td>cm</td><td>inch</td><td>cm</td><td>inch</td><td>cm</td><td>inch</td><td>cm</td></tr><tr><td>Length</td><td>27.56</td><td>70</td><td>28.35</td><td>72</td><td>29.13</td><td>74</td><td>29.92</td><td>76</td><td>30.71</td><td>78</td><td>31.10</td><td>79</td></tr><tr><td>Shoulder</td><td>20.87</td><td>53</td><td>21.65</td><td>55</td><td>22.44</td><td>57</td><td>23.23</td><td>59</td><td>24.02</td><td>61</td><td>24.80</td><td>63</td></tr><tr><td>Chest</td><td>22.05</td><td>56</td><td>22.83</td><td>58</td><td>23.62</td><td>60</td><td>24.41</td><td>62</td><td>25.20</td><td>64</td><td>26.38</td><td>67</td></tr><tr><td>Sleeve length</td><td>8.19</td><td>20.8</td><td>8.46</td><td>21.5</td><td>8.74</td><td>22.2</td><td>9.02</td><td>22.9</td><td>9.29</td><td>23.6</td><td>9.29</td><td>23.6</td></tr></tbody></table>",
+     "tags": [],
+     "options": [
+      {
+       "name": "Color",
+       "values": [
+        "Black"
+       ]
+      },
+      {
+       "name": "Size",
+       "values": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+       ]
+      }
+     ],
+     "images": [
+      {
+       "url": "https://cdn.shopify.com/s/files/1/1046/9838/0564/files/9242de54be054909ada5bdfa19239547.png?v=1795835535",
+       "altText": "",
+       "width": 1400,
+       "height": 1400
+      },
+      {
+       "url": "https://cdn.shopify.com/s/files/1/1046/9838/0564/files/b9e9bf4b3f844e48b168ccfbcd16db30.png?v=1795835535",
+       "altText": "",
+       "width": 1400,
+       "height": 1400
+      }
+     ],
+     "variants": [
+      {
+       "id": "gid://shopify/ProductVariant/68330002809108",
+       "title": "Black / S",
+       "availableForSale": true,
+       "price": {
+        "amount": "40.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330002841876",
+       "title": "Black / M",
+       "availableForSale": true,
+       "price": {
+        "amount": "40.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330002874644",
+       "title": "Black / L",
+       "availableForSale": true,
+       "price": {
+        "amount": "40.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330002907412",
+       "title": "Black / XL",
+       "availableForSale": true,
+       "price": {
+        "amount": "40.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330002940180",
+       "title": "Black / 2XL",
+       "availableForSale": true,
+       "price": {
+        "amount": "40.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "2XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330002972948",
+       "title": "Black / 3XL",
+       "availableForSale": true,
+       "price": {
+        "amount": "40.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "3XL"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "gid://shopify/Product/15541475606804",
+     "title": "The Heritage Hoodie",
+     "handle": "essential-oversized-boxy-fit-fleece-hoodie",
+     "descriptionHtml": "<p>A relaxed fleece hoodie in a warm cream tone, featuring vintage collegiate lettering, our official crest, signature stripes and an asymmetric Breaking Barriers sleeve graphic.</p><p>Part of the inaugural Umoja Heritage Collection.</p>",
+     "tags": [],
+     "options": [
+      {
+       "name": "Color",
+       "values": [
+        "Apricot"
+       ]
+      },
+      {
+       "name": "Size",
+       "values": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+       ]
+      }
+     ],
+     "images": [
+      {
+       "url": "https://cdn.shopify.com/s/files/1/1046/9838/0564/files/3ff4aa9ef4d149da8beae9b8c8e26800.png?v=1795835521",
+       "altText": "",
+       "width": 1400,
+       "height": 1400
+      },
+      {
+       "url": "https://cdn.shopify.com/s/files/1/1046/9838/0564/files/06dd67e8ecde4d75ab28cf5f2df100f3.png?v=1795835521",
+       "altText": "",
+       "width": 1400,
+       "height": 1400
+      }
+     ],
+     "variants": [
+      {
+       "id": "gid://shopify/ProductVariant/68330000974100",
+       "title": "Apricot / S",
+       "availableForSale": true,
+       "price": {
+        "amount": "65.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Apricot"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330001006868",
+       "title": "Apricot / M",
+       "availableForSale": true,
+       "price": {
+        "amount": "65.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Apricot"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330001039636",
+       "title": "Apricot / L",
+       "availableForSale": true,
+       "price": {
+        "amount": "65.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Apricot"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330001072404",
+       "title": "Apricot / XL",
+       "availableForSale": true,
+       "price": {
+        "amount": "65.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Apricot"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68330001105172",
+       "title": "Apricot / 2XL",
+       "availableForSale": true,
+       "price": {
+        "amount": "65.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Apricot"
+        },
+        {
+         "name": "Size",
+         "value": "2XL"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "gid://shopify/Product/15541475377428",
+     "title": "The Retro No. 12 Jersey",
+     "handle": "unisex-striped-boxy-soccer-jersey",
+     "descriptionHtml": "<p>A nod to classic football culture. Tonal black stripes, a contrasting white collar, the Umoja crest and a retro cream-and-gold No. 12 make this relaxed supporter jersey a matchday staple.</p><p>Part of the inaugural Umoja Heritage Collection.</p>",
+     "tags": [],
+     "options": [
+      {
+       "name": "Color",
+       "values": [
+        "Black"
+       ]
+      },
+      {
+       "name": "Size",
+       "values": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+       ]
+      }
+     ],
+     "images": [
+      {
+       "url": "https://cdn.shopify.com/s/files/1/1046/9838/0564/files/6061a739145f4bbe89c549f3f0469a54.png?v=1795835505",
+       "altText": "",
+       "width": 1400,
+       "height": 1400
+      },
+      {
+       "url": "https://cdn.shopify.com/s/files/1/1046/9838/0564/files/2386d61491484ec2be21b334f2139683.png?v=1795835505",
+       "altText": "",
+       "width": 1400,
+       "height": 1400
+      }
+     ],
+     "variants": [
+      {
+       "id": "gid://shopify/ProductVariant/68329993634068",
+       "title": "Black / S",
+       "availableForSale": true,
+       "price": {
+        "amount": "45.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68329993666836",
+       "title": "Black / M",
+       "availableForSale": true,
+       "price": {
+        "amount": "45.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68329993699604",
+       "title": "Black / L",
+       "availableForSale": true,
+       "price": {
+        "amount": "45.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68329993732372",
+       "title": "Black / XL",
+       "availableForSale": true,
+       "price": {
+        "amount": "45.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68329993765140",
+       "title": "Black / 2XL",
+       "availableForSale": true,
+       "price": {
+        "amount": "45.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black"
+        },
+        {
+         "name": "Size",
+         "value": "2XL"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "gid://shopify/Product/15541474754836",
+     "title": "The Heritage Varsity Jacket",
+     "handle": "two-tone-fleeced-varsity-jacket",
+     "descriptionHtml": "<p>Classic collegiate style meets football culture. The Heritage Varsity Jacket pairs contrasting sleeves and striped trim with Umoja's official crest, understated chest lettering and a bold Clarkston, Georgia back graphic.</p><p>Part of the inaugural Umoja Heritage Collection.</p>",
+     "tags": [],
+     "options": [
+      {
+       "name": "Color",
+       "values": [
+        "Black with White"
+       ]
+      },
+      {
+       "name": "Size",
+       "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+       ]
+      }
+     ],
+     "images": [
+      {
+       "url": "https://cdn.shopify.com/s/files/1/1046/9838/0564/files/ea8871d608c8490ab688a6343e69e5b0.png?v=1795835452",
+       "altText": "",
+       "width": 1400,
+       "height": 1400
+      },
+      {
+       "url": "https://cdn.shopify.com/s/files/1/1046/9838/0564/files/5435be2efae542b582f9cf5ff93bc7b0.png?v=1795835452",
+       "altText": "",
+       "width": 1400,
+       "height": 1400
+      }
+     ],
+     "variants": [
+      {
+       "id": "gid://shopify/ProductVariant/68329985900820",
+       "title": "Black with White / XS",
+       "availableForSale": true,
+       "price": {
+        "amount": "85.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black with White"
+        },
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68329985933588",
+       "title": "Black with White / S",
+       "availableForSale": true,
+       "price": {
+        "amount": "85.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black with White"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68329985966356",
+       "title": "Black with White / M",
+       "availableForSale": true,
+       "price": {
+        "amount": "85.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black with White"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68329985999124",
+       "title": "Black with White / L",
+       "availableForSale": true,
+       "price": {
+        "amount": "85.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black with White"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68329986031892",
+       "title": "Black with White / XL",
+       "availableForSale": true,
+       "price": {
+        "amount": "85.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black with White"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/68329986064660",
+       "title": "Black with White / 2XL",
+       "availableForSale": true,
+       "price": {
+        "amount": "85.00",
+        "currencyCode": "USD"
+       },
+       "selectedOptions": [
+        {
+         "name": "Color",
+         "value": "Black with White"
+        },
+        {
+         "name": "Size",
+         "value": "2XL"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
