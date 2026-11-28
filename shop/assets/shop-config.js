@@ -38,5 +38,9 @@ window.SHOP_CONFIG = {
      the sign-in page. Leave blank until accounts are switched on. */
   accountUrl: "",
 
+  /* The Umoja Circle (supporter membership, run on Givebutter). /give works
+     today and redirects to /circle once the Circle page is live. */
+  circleUrl: "/give",
+
   contactEmail: "info@umojasoka.com"
 };

@@ -73,18 +73,31 @@
 
 <div class="stripe" aria-hidden="true"></div>
 
-<section class="band">
+<section class="circle-inv" id="circle" aria-labelledby="circle-h">
   <div class="wrap">
-    <div>
-      <span class="eyebrow">Shop &amp; support</span>
-      <h2 style="margin:16px 0 16px">Wear the crest. <span style="color:var(--gold)">Back the club.</span></h2>
-      <p>The Umoja Circle is our supporter membership, with its own rewards for members. Shop orders and Circle membership are separate: buying here doesn&rsquo;t make you a member, and Circle rewards aren&rsquo;t sold in the shop.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px"><a class="btn btn-gold" href="/give">Join The Umoja Circle</a><a class="btn btn-line" href="/">Visit the club</a></div>
+    <div class="ci-copy">
+      <span class="eyebrow">Members only</span>
+      <h2 id="circle-h">The Umoja <span class="g">Circle</span></h2>
+      <p class="lede">Our supporter membership. Members back the academy every month and earn exclusive Circle pieces through their membership. Those pieces are never sold in this shop.</p>
+      <div class="ci-actions"><a class="btn btn-gold" href="/give" data-circle-link>Join The Umoja Circle</a><a class="btn btn-line" href="/give#rewards" data-circle-link>How rewards work</a></div>
+      <p class="small" style="margin-top:18px">Shop orders and Circle membership are separate. Buying from the shop doesn&rsquo;t make you a member.</p>
     </div>
-    <div class="promise">
+    <div class="ci-cards">
+      <div class="ci-card"><span class="k">Join</span><h3>From $10 a month</h3><p>Seven membership levels, monthly or annual, through our secure Givebutter page.</p></div>
+      <div class="ci-card"><span class="k">Earn</span><h3>Members-only pieces</h3><p>Exclusive Circle merchandise arrives as a membership reward. You never pay for a reward you&rsquo;ve earned.</p></div>
+      <div class="ci-card"><span class="k">Founding</span><h3>Before Aug 1, 2027</h3><p>Join in the founding season to be recognized as a Founding Member.</p></div>
+      <div class="ci-lock" aria-hidden="true"><img src="/shop/assets/crest.png" alt=""><span>Circle exclusive<br><b>Members only</b></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap" style="grid-template-columns:1fr;padding-top:40px;padding-bottom:56px">
+    <div class="promise" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));display:grid">
       <div><h3>Made to order</h3><p>Each piece is made for you by our production partner after you order.</p></div>
       <div><h3>Secure checkout</h3><p>Payments, receipts and order updates are handled by Shopify.</p></div>
       <div><h3>Delivery &amp; returns</h3><p>Shipping options and costs show at checkout. <a href="/shop/help" style="color:var(--gold)">Read the details</a>.</p></div>
+      <div><h3>Back to the club</h3><p>Programs, tryouts and community partners. <a href="/" style="color:var(--gold)">Visit umojasoka.com</a>.</p></div>
     </div>
   </div>
 </section>

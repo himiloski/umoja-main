@@ -220,7 +220,7 @@
       (LIVE ? "" : '<div class="preview-bar"><b>Preview</b> Draft products from Shopify. The bag works; checkout is switched off until launch.</div>') +
       '<header class="s-head"><div class="wrap">' +
         '<a class="s-brand" href="/shop/"><img src="/shop/assets/crest.png" alt="" width="38" height="38"><span>Umoja<small>Club Shop</small></span></a>' +
-        '<nav class="s-nav" aria-label="Shop"><a href="/shop/#collection"' + cur("home") + ' data-coll-link>Heritage</a><a href="/shop/#collection">Shop all</a><a href="/shop/help"' + cur("help") + '>Delivery &amp; returns</a></nav>' +
+        '<nav class="s-nav" aria-label="Shop"><a href="/shop/#collection"' + cur("home") + ' data-coll-link>Heritage</a><a href="/shop/#collection">Shop all</a><a href="/shop/help"' + cur("help") + '>Delivery &amp; returns</a><a href="' + esc(C.circleUrl || "/give") + '">The Umoja Circle</a></nav>' +
         '<div class="s-tools">' +
           '<a class="s-club" href="/">&larr; Club site</a>' +
           (C.accountUrl ? '<a class="icon-btn" href="' + esc(C.accountUrl) + '" aria-label="Your account">' + ICON_USER + '</a>' : "") +
@@ -231,6 +231,7 @@
           '<a href="/shop/#collection">Heritage<small>Drop 01, the inaugural collection</small></a>' +
           '<a href="/shop/help">Delivery &amp; returns</a>' +
           (C.accountUrl ? '<a href="' + esc(C.accountUrl) + '">Your account<small>Orders and addresses</small></a>' : "") +
+          '<a href="' + esc(C.circleUrl || "/give") + '">The Umoja Circle<small>Supporter membership with members-only rewards</small></a>' +
           '<a href="/">Back to the club<small>umojasoka.com</small></a>' +
         '</nav></header>';
     while (head.firstChild) document.body.insertBefore(head.lastChild, document.body.firstChild);
@@ -240,7 +241,7 @@
     foot.innerHTML = '<div class="stripe thin" aria-hidden="true"></div><div class="wrap">' +
       '<div><img src="/shop/assets/crest.png" alt="Umoja Soccer Club crest" width="64" height="64" style="margin-bottom:14px"><p style="margin:0;max-width:22em">The official shop of Umoja Soccer Club. Clarkston, Georgia. Breaking Barriers. Building Champions.</p></div>' +
       '<div><h4>Shop</h4><a href="/shop/#collection">Heritage Collection</a><a href="/shop/help">Delivery &amp; returns</a><a href="/shop/help#sizing">Sizing</a>' + (C.accountUrl ? '<a href="' + esc(C.accountUrl) + '">Your account</a>' : "") + '</div>' +
-      '<div><h4>The club</h4><a href="/">umojasoka.com</a><a href="/programs">The Academy</a><a href="/give">The Umoja Circle</a><a href="/sponsors">Community partners</a></div>' +
+      '<div><h4>The club</h4><a href="/">umojasoka.com</a><a href="/programs">The Academy</a><a href="' + esc(C.circleUrl || "/give") + '">The Umoja Circle</a><a href="/sponsors">Community partners</a></div>' +
       '<div><h4>Help</h4><a href="mailto:' + esc(C.contactEmail) + '">' + esc(C.contactEmail) + '</a><a href="/contact">Contact the club</a><a href="/privacy">Privacy</a></div>' +
       '<div class="legal"><span>&copy; ' + new Date().getFullYear() + ' Umoja Soccer Club, Inc. A 501(c)(3) nonprofit.</span><span>Secure checkout by Shopify</span></div></div>';
     document.body.appendChild(foot);
@@ -401,6 +402,7 @@
           '<div class="price" id="price">' + money(p.minPrice, p.currency) + '</div>' + optsHtml +
           '<div class="add-row"><button class="btn btn-gold block" type="button" id="add">Select a size</button></div>' +
           '<div class="assure"><div><b>Made for you</b>Made to order</div><div><b>Secure</b>Shopify checkout</div><div><b>Club</b>Proceeds to Umoja</div></div>' +
+          '<a class="circle-note" href="' + esc(C.circleUrl || "/give") + '"><img src="/shop/assets/crest.png" alt="" width="34" height="34"><span><b>Members of The Umoja Circle</b> earn exclusive pieces that are never sold in the shop. Join from $10 a month.</span><i aria-hidden="true">&rarr;</i></a>' +
           reviewNotes(p, d) +
           '<div class="acc">' +
             '<details open><summary>Details</summary><div class="in">' + (d.intro || "<p>Part of the Umoja Club Shop.</p>") + '</div></details>' +
@@ -516,6 +518,11 @@
   document.addEventListener("DOMContentLoaded", function () {
     var page = document.body.getAttribute("data-page");
     chrome(page);
+    /* Circle links follow circleUrl in the config, keeping any #section. */
+    $$("[data-circle-link]").forEach(function (a) {
+      var h = a.getAttribute("href"), i = h.indexOf("#");
+      a.setAttribute("href", (C.circleUrl || "/give") + (i > -1 ? h.slice(i) : ""));
+    });
     renderBag();
     Bag.load().then(renderBag);
     if (page === "home") initHome();

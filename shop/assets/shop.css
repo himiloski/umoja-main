@@ -278,3 +278,25 @@ h1,h2,h3{font-family:var(--head);font-weight:400;text-transform:uppercase;letter
 @media(min-width:960px){.m-buy{display:none}}
 .pdp>*{min-width:0}
 @media(max-width:600px){.badge-drop{width:72px;height:72px;right:4px;font-size:12px}.badge-drop b{font-size:26px}}
+
+/* The Umoja Circle invitation */
+.circle-inv{position:relative;overflow:hidden;border-top:1px solid var(--line-dark);background:radial-gradient(800px 420px at 100% 0%,rgba(245,194,5,.12),transparent 60%),var(--ink)}
+.circle-inv .wrap{display:grid;gap:34px;padding-top:clamp(56px,8vw,110px);padding-bottom:clamp(56px,8vw,110px)}
+.circle-inv h2{font-size:clamp(44px,7vw,88px);margin:16px 0 18px}
+.circle-inv h2 .g{color:var(--gold)}
+.ci-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.ci-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ci-card{background:var(--ink-2);border:1px solid var(--line-dark);border-radius:var(--radius);padding:20px}
+.ci-card .k{font:800 10px/1 var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.ci-card h3{font-size:22px;margin:10px 0 8px}
+.ci-card p{margin:0;font-size:14px;color:var(--gray)}
+.ci-lock{display:flex;align-items:center;gap:14px;border:1.5px dashed rgba(245,194,5,.55);border-radius:var(--radius);padding:18px;background:repeating-linear-gradient(135deg,rgba(245,194,5,.05) 0 10px,transparent 10px 20px)}
+.ci-lock img{width:52px;height:52px;filter:grayscale(.2)}
+.ci-lock span{font:700 11px/1.4 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--gray)}
+.ci-lock b{color:var(--gold);font-size:14px}
+@media(min-width:900px){.circle-inv .wrap{grid-template-columns:1fr 1fr;align-items:center}}
+@media(max-width:560px){.ci-cards{grid-template-columns:1fr}}
+.circle-note{display:flex;align-items:center;gap:12px;margin:12px 0 4px;padding:12px 14px;border:1px solid rgba(245,194,5,.35);border-radius:var(--radius);text-decoration:none;font-size:13px;color:var(--gray);background:rgba(245,194,5,.05)}
+.circle-note b{color:var(--cream)}
+.circle-note i{margin-left:auto;color:var(--gold);font-style:normal;font-size:18px}
+.circle-note:hover{border-color:var(--gold)}
