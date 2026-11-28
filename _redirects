@@ -4,6 +4,12 @@
 /playmetrics   /playmetrics.html  200
 /PlayMetrics   /playmetrics  301
 
+# Umoja Club Shop (Shopify storefront). Product pages share one template.
+/shop/p/*  /shop/product.html  200
+/shop/help  /shop/help.html  200
+/store  /shop/  301
+/merch  /shop/  301
+
 # Renamed pages (Oct 26 2026). Old links still work.
 /pricing.html  /programs  301
 /pricing  /programs  301
