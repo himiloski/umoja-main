@@ -71,7 +71,11 @@
       currency: (variants[0] && variants[0].price.currencyCode) || "USD"
     };
   }
-  function visible(p) { return (p.tags || []).indexOf(C.hiddenTag) === -1; }
+  function visible(p) {
+    if ((p.tags || []).indexOf(C.hiddenTag) > -1) return false;
+    if ((C.hiddenHandles || []).indexOf(p.handle) > -1) return false;
+    return true;
+  }
 
   var catalogPromise = null;
   function loadCatalog() {

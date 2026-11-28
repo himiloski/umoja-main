@@ -37,6 +37,9 @@ window.SHOP_CONFIG = {
      sold here, even if they are published by mistake. */
   hiddenTag: "circle-exclusive",
   hiddenCollectionPrefix: "circle",
+  /* Extra belt and braces: these exact products are member-only and are
+     never shown, whatever their tags or collections. */
+  hiddenHandles: ["exclusive-umoja-circle-shirt"],
 
   /* Shopify customer accounts (order history, addresses). Shopify hosts
      the sign-in page. Leave blank until accounts are switched on. */
