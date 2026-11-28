@@ -6,7 +6,13 @@
 (function () {
   "use strict";
   var C = window.SHOP_CONFIG || {};
-  var LIVE = C.mode === "live";
+  /* CHECKOUT: real Shopify checkout is offered only when this is true.
+     API: true once products and cart are coming live from Shopify's
+     Storefront API. Until products are Active and published to the Headless
+     channel, Shopify returns none and the shop falls back to the snapshot. */
+  var CHECKOUT = C.checkoutEnabled === true;
+  var API = false;
+  var SOURCE_NOTE = "";
   var BAG_KEY = "umoja-shop-bag-v1";        /* preview bag (local only) */
   var CART_KEY = "umoja-shop-cart-id-v1";   /* live Shopify cart id */
 
@@ -70,16 +76,24 @@
   var catalogPromise = null;
   function loadCatalog() {
     if (catalogPromise) return catalogPromise;
-    if (!LIVE) {
-      catalogPromise = fetch("/shop/preview-catalog.json", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) {
+    function snapshot(reason) {
+      API = false; SOURCE_NOTE = reason;
+      return fetch("/shop/preview-catalog.json", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) {
         return shape(d.collections.map(function (c) { return { handle: c.handle, title: c.title, descriptionHtml: c.descriptionHtml, products: c.products.map(normProduct) }; }));
       });
+    }
+    if (C.dataSource === "snapshot" || !C.storeDomain) {
+      catalogPromise = snapshot("snapshot");
     } else {
       catalogPromise = gql("query Shop { collections(first: 30) { nodes { handle title descriptionHtml products(first: 100) { nodes { " + P_FIELDS + " } } } } }")
         .then(function (d) {
-          return shape(d.collections.nodes.map(function (c) { return { handle: c.handle, title: c.title, descriptionHtml: c.descriptionHtml, products: c.products.nodes.map(normProduct) }; }));
-        });
+          var cat = shape(d.collections.nodes.map(function (c) { return { handle: c.handle, title: c.title, descriptionHtml: c.descriptionHtml, products: c.products.nodes.map(normProduct) }; }));
+          if (!cat.products.length) return snapshot("empty");
+          API = true; SOURCE_NOTE = "live"; return cat;
+        })
+        .catch(function (err) { if (window.console) console.warn("Shopify Storefront API:", err); return snapshot("error"); });
     }
+    catalogPromise.then(function () { document.dispatchEvent(new CustomEvent("shop:source")); });
     return catalogPromise;
   }
   /* Keep only collections with products we can show, in the configured order. */
@@ -102,7 +116,7 @@
   function loadProduct(handle) {
     return loadCatalog().then(function (cat) {
       var found = cat.products.filter(function (p) { return p.handle === handle; })[0];
-      if (found || !LIVE) return { product: found || null, catalog: cat };
+      if (found || !API) return { product: found || null, catalog: cat };
       return gql("query P($h: String!) { product(handle: $h) { " + P_FIELDS + " } }", { h: handle }).then(function (d) {
         var p = d.product ? normProduct(d.product) : null;
         return { product: p && visible(p) ? p : null, catalog: cat };
@@ -166,7 +180,7 @@
   var Bag = {
     state: { lines: [], count: 0, subtotal: 0, currency: "USD", checkoutUrl: null },
     load: function () {
-      if (!LIVE) { Bag.state = Bag._local(); return Promise.resolve(Bag.state); }
+      if (!API) { Bag.state = Bag._local(); return Promise.resolve(Bag.state); }
       var id = localStorage.getItem(CART_KEY);
       if (!id) return Promise.resolve(Bag.state);
       return gql("query C($id: ID!) { cart(id: $id) { " + CART_Q + " } }", { id: id }).then(function (d) {
@@ -181,7 +195,7 @@
     },
     _save: function (lines) { localStorage.setItem(BAG_KEY, JSON.stringify(lines)); Bag.state = Bag._local(); return Promise.resolve(Bag.state); },
     add: function (product, variant, qty) {
-      if (!LIVE) {
+      if (!API) {
         var lines = Bag._local().lines, hit = lines.filter(function (l) { return l.variantId === variant.id; })[0];
         if (hit) hit.qty += qty; else lines.push({ id: variant.id, variantId: variant.id, qty: qty, title: product.title, handle: product.handle, variantTitle: variant.title, price: variant.price, currency: variant.currency, image: variant.image || (product.images[0] && product.images[0].url) });
         return Bag._save(lines);
@@ -196,7 +210,7 @@
       });
     },
     setQty: function (lineId, qty) {
-      if (!LIVE) {
+      if (!API) {
         var lines = Bag._local().lines.map(function (l) { if (l.id === lineId) l.qty = qty; return l; }).filter(function (l) { return l.qty > 0; });
         return Bag._save(lines);
       }
@@ -217,7 +231,7 @@
     var cur = function (p) { return page === p ? ' aria-current="page"' : ""; };
     var head = document.createElement("div");
     head.innerHTML =
-      (LIVE ? "" : '<div class="preview-bar"><b>Preview</b> Draft products from Shopify. The bag works; checkout is switched off until launch.</div>') +
+      (CHECKOUT ? "" : '<div class="preview-bar"><b>Preview</b> <span id="src-note">Loading from Shopify\u2026</span></div>') +
       '<header class="s-head"><div class="wrap">' +
         '<a class="s-brand" href="/shop/"><img src="/shop/assets/crest.png" alt="" width="38" height="38"><span>Umoja<small>Club Shop</small></span></a>' +
         '<nav class="s-nav" aria-label="Shop"><a href="/shop/#collection"' + cur("home") + ' data-coll-link>Heritage</a><a href="/shop/#collection">Shop all</a><a href="/shop/help"' + cur("help") + '>Delivery &amp; returns</a><a href="' + esc(C.circleUrl || "/give") + '">The Umoja Circle</a></nav>' +
@@ -260,7 +274,7 @@
       if (e.target.closest("[data-close-bag]")) closeBag();
     });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeBag(); });
-    if (!LIVE) { var m = document.createElement("meta"); m.name = "robots"; m.content = "noindex, nofollow"; document.head.appendChild(m); }
+    if (!CHECKOUT) { var m = document.createElement("meta"); m.name = "robots"; m.content = "noindex, nofollow"; document.head.appendChild(m); }
   }
   var lastFocus = null;
   function openBag() {
@@ -290,7 +304,7 @@
     }).join("");
     foot.innerHTML = '<div class="d-sum"><span>Subtotal</span><span>' + money(s.subtotal, s.currency) + '</span></div>' +
       '<p class="small">Shipping, taxes and discount codes are added at checkout.</p>' +
-      (LIVE && s.checkoutUrl
+      (CHECKOUT && API && s.checkoutUrl
         ? '<a class="btn btn-gold block" href="' + esc(s.checkoutUrl) + '">Secure checkout</a>'
         : '<button class="btn btn-gold block" type="button" aria-disabled="true" data-preview-checkout>Checkout opens at launch</button>');
   }
@@ -353,7 +367,7 @@
   }
 
   function reviewNotes(p, d) {
-    if (LIVE) return "";
+    if (CHECKOUT) return "";
     var notes = [];
     if (/on-demand printing|personalize it/i.test(d.intro)) notes.push("This description is the supplier's stock text. Replace it with Heritage copy in Shopify.");
     if (!d.size) notes.push("No size chart in Shopify for this product yet. Restore the supplier's chart in the product description and it appears here automatically.");
@@ -503,7 +517,7 @@
 
   function initHelp() {
     var ship = $("#policy-shipping"), ret = $("#policy-returns");
-    if (!LIVE) {
+    if (!API) {
       ship.innerHTML = '<div class="review">Shopify has no shipping policy yet. Write it in Shopify (Settings &gt; Policies) and it appears here automatically at launch.</div>';
       ret.innerHTML = '<div class="review">Shopify has no refund policy yet. Write it in Shopify (Settings &gt; Policies) and it appears here automatically at launch.</div>';
       return;
@@ -513,6 +527,16 @@
       ret.innerHTML = d.shop.refundPolicy ? '<div class="policy">' + d.shop.refundPolicy.body + '</div>' : "";
     }).catch(function () {});
   }
+
+  document.addEventListener("shop:source", function () {
+    var n = document.getElementById("src-note"); if (!n) return;
+    n.textContent = {
+      live: "Live data from Shopify. The bag is a real Shopify cart; checkout is switched off until launch.",
+      empty: "Connected to Shopify. Products are still drafts, so this shows a snapshot of them. Checkout is off.",
+      error: "Couldn\u2019t reach Shopify just now, so this shows a snapshot of the products. Checkout is off.",
+      snapshot: "Snapshot of the draft products. Checkout is off."
+    }[SOURCE_NOTE] || "";
+  });
 
   /* ---------------- boot ---------------- */
   document.addEventListener("DOMContentLoaded", function () {
@@ -524,9 +548,9 @@
       a.setAttribute("href", (C.circleUrl || "/give") + (i > -1 ? h.slice(i) : ""));
     });
     renderBag();
-    Bag.load().then(renderBag);
+    loadCatalog().then(function () { return Bag.load(); }).then(renderBag);
     if (page === "home") initHome();
     if (page === "product") initProduct();
-    if (page === "help") initHelp();
+    if (page === "help") loadCatalog().then(initHelp);
   });
 })();

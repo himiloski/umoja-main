@@ -1,24 +1,28 @@
 /* ------------------------------------------------------------------
    UMOJA CLUB SHOP: the one file to edit when the shop goes live.
 
-   mode
-     "preview"  Shows the draft Heritage products from preview-catalog.json
-                (a snapshot of Shopify). The bag works, checkout is switched
-                off, and search engines are told not to index the shop.
-     "live"     Reads products, prices and stock straight from Shopify and
-                sends shoppers to Shopify's secure checkout.
+   checkoutEnabled
+     false  PREVIEW. Gold preview bar, checkout button switched off,
+            search engines told not to index the shop.
+     true   LAUNCH. Shoppers go to Shopify's secure checkout. Only switch
+            this on after Juliana approves the launch.
 
-   To launch: publish the products to the Headless sales channel in
-   Shopify, paste the channel's PUBLIC Storefront token below, set mode to
-   "live", and remove the /shop lines from _redirects if any were added.
-   The public token is designed to sit in browser code. Never paste the
-   private token here.
+   dataSource
+     "shopify"   Read products and run the bag through Shopify's Storefront
+                 API (Headless channel "Umoja Club Shop Headless"). If
+                 Shopify returns no products, for example because they are
+                 still drafts, the shop shows preview-catalog.json instead.
+     "snapshot"  Always show preview-catalog.json.
+
+   The token below is the Headless channel's PUBLIC Storefront token,
+   which is designed to sit in browser code. Never paste the private token.
 ------------------------------------------------------------------- */
 window.SHOP_CONFIG = {
-  mode: "preview",
+  checkoutEnabled: false,
+  dataSource: "shopify",
 
   storeDomain: "u0kspi-sv.myshopify.com",
-  storefrontToken: "",          /* Headless channel > public access token */
+  storefrontToken: "2dc97c20650c12ff445d43df14e0f473",   /* Headless channel, public token */
   apiVersion: "2026-10",
 
   /* Collections, in the order they appear in the shop menu. Only
