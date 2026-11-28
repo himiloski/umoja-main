@@ -576,6 +576,21 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
 }
 @media(prefers-reduced-motion:reduce){.ring-hero .spin,.mcard .shine,.found-dot{animation:none}.rv{opacity:1;transform:none}}
 
+/* placeholder labels + heritage (public shop) */
+.ph-note{margin-top:46px;padding:14px 18px;border:1px dashed rgba(248,218,96,.55);border-radius:12px;background:rgba(248,218,96,.05);color:var(--gray);font-size:.9rem}
+.ph-note b{color:var(--banner)}
+.coll-grid{margin-top:22px}
+.ph-badge{position:absolute;top:12px;left:12px;font-size:.58rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--banner);border:1px dashed var(--banner);border-radius:99px;padding:3px 9px;background:rgba(12,11,10,.7)}
+.heritage{background:var(--terrace)}
+.her-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.her-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.her{display:block;border-radius:var(--r);overflow:hidden;background:var(--ink-2);border:1px solid var(--line);transition:transform .25s var(--ease),border-color .2s}
+.her:hover{transform:translateY(-3px);border-color:rgba(245,194,5,.5)}
+.her-img{aspect-ratio:1;background:#EDEAE3;display:grid;place-items:center}
+.her-img img{width:100%;height:100%;object-fit:contain}
+.her b{display:block;padding:16px 18px;font-family:"Anton",sans-serif;font-weight:400;text-transform:uppercase;font-size:1.2rem;letter-spacing:.02em}
+@media(max-width:640px){.her-grid{grid-template-columns:1fr 1fr}.her-grid .her:last-child{grid-column:1/-1}}
+
 
 </style>
 </head><body>
@@ -625,6 +640,7 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
         <li class="has-sub"><a href="/circle" class="active">Give<span class="caret">&#9660;</span></a>
           <ul class="submenu">
           <li><a href="/circle" class="active">The Umoja Circle</a></li>
+          <li><a href="/shop/">Club Shop</a></li>
           <li><a href="/sponsors.html">Community Partners</a></li>
           </ul></li>
         <li class="m-only"><a href="/tryouts.html" id="nav-cta-m"></a></li>
@@ -751,22 +767,23 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
       </svg>
     </div>
     <div class="scarf-cap">
-      <div><h3>The 2027 Founding Edition</h3><p>Concept art. The first Circle scarf goes to eligible members who join in the founding season, and it will never be made again.</p></div>
-      <span class="draft-tag pv-only">Concept, final design after costing</span>
+      <div><h3>The 2027 Founding Edition</h3><p>The first Circle scarf goes to eligible members who join in the founding season, and it will never be made again.</p></div>
+      <span class="draft-tag">Placeholder art</span>
     </div>
 
+    <p class="ph-note"><b>Exclusive member merchandise is in development.</b> The artwork in this section is a placeholder, and final product photos will replace it.</p>
     <div class="coll-grid">
-      <article class="coll rv"><div class="art"><svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="86" fill="url(#goldfoil)"/><circle cx="100" cy="100" r="76" fill="#131211"/><g style="color:#F5C205"><use href="#uc-mark" x="30" y="30" width="140" height="140"/></g><path d="M56 36 Q100 20 144 36" stroke="#fff" stroke-opacity=".25" stroke-width="4" fill="none" stroke-linecap="round"/></svg></div>
+      <article class="coll rv"><div class="art"><span class="ph-badge">Placeholder</span><svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="86" fill="url(#goldfoil)"/><circle cx="100" cy="100" r="76" fill="#131211"/><g style="color:#F5C205"><use href="#uc-mark" x="30" y="30" width="140" height="140"/></g><path d="M56 36 Q100 20 144 36" stroke="#fff" stroke-opacity=".25" stroke-width="4" fill="none" stroke-linecap="round"/></svg></div>
         <div class="meta"><div class="k">Starting XI and up</div><h4>Annual enamel pin</h4><p>A new hard-enamel pin each membership year. Line them up season after season.</p></div></article>
-      <article class="coll rv"><div class="art"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M70 30 L40 42 L18 78 L44 92 L52 80 L52 176 L148 176 L148 80 L156 92 L182 78 L160 42 L130 30 Q100 52 70 30Z" fill="#1d1b1a" stroke="#3a3632" stroke-width="2"/><path d="M18 78 L44 92 L48 86 L23 72Z M182 78 L156 92 L152 86 L177 72Z" fill="#F5C205"/><path d="M70 30 Q100 52 130 30" stroke="#F5C205" stroke-width="4" fill="none"/><g style="color:#F5C205"><use href="#uc-mark" x="80" y="70" width="40" height="40"/></g><rect x="52" y="160" width="96" height="5" fill="#F5C205"/></svg></div>
+      <article class="coll rv"><div class="art"><span class="ph-badge">Placeholder</span><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M70 30 L40 42 L18 78 L44 92 L52 80 L52 176 L148 176 L148 80 L156 92 L182 78 L160 42 L130 30 Q100 52 70 30Z" fill="#1d1b1a" stroke="#3a3632" stroke-width="2"/><path d="M18 78 L44 92 L48 86 L23 72Z M182 78 L156 92 L152 86 L177 72Z" fill="#F5C205"/><path d="M70 30 Q100 52 130 30" stroke="#F5C205" stroke-width="4" fill="none"/><g style="color:#F5C205"><use href="#uc-mark" x="80" y="70" width="40" height="40"/></g><rect x="52" y="160" width="96" height="5" fill="#F5C205"/></svg></div>
         <div class="meta"><div class="k">Starting XI and up</div><h4>Circle T-shirt</h4><p>Ink cotton, gold Circle mark, stripe hem. Members only.</p></div></article>
-      <article class="coll rv"><div class="art"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M60 26 L28 40 L10 80 L36 92 L46 78 L46 178 L154 178 L154 78 L164 92 L190 80 L172 40 L140 26 Q100 44 60 26Z" fill="#131211" stroke="#F5C205" stroke-width="2"/><path d="M60 26 Q100 44 140 26" stroke="#F5C205" stroke-width="5" fill="none"/><text x="100" y="82" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="12" letter-spacing="3" fill="#F5C205">YOUR NAME</text><text x="100" y="150" text-anchor="middle" font-family="Anton,sans-serif" font-size="64" fill="#F5C205">12</text></svg></div>
+      <article class="coll rv"><div class="art"><span class="ph-badge">Placeholder</span><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M60 26 L28 40 L10 80 L36 92 L46 78 L46 178 L154 178 L154 78 L164 92 L190 80 L172 40 L140 26 Q100 44 60 26Z" fill="#131211" stroke="#F5C205" stroke-width="2"/><path d="M60 26 Q100 44 140 26" stroke="#F5C205" stroke-width="5" fill="none"/><text x="100" y="82" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="12" letter-spacing="3" fill="#F5C205">YOUR NAME</text><text x="100" y="150" text-anchor="middle" font-family="Anton,sans-serif" font-size="64" fill="#F5C205">12</text></svg></div>
         <div class="meta"><div class="k">Champion and up</div><h4>Personalized Umoja jersey</h4><p>Your name, your number, in club colors.</p></div></article>
-      <article class="coll rv"><div class="art"><svg viewBox="0 0 200 200" aria-hidden="true"><rect x="28" y="40" width="144" height="110" rx="4" fill="#F3EEE2"/><rect x="34" y="46" width="132" height="98" fill="none" stroke="#b8962a" stroke-width="1.5"/><rect x="28" y="40" width="144" height="6" fill="#F5C205"/><text x="100" y="72" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="6.5" letter-spacing="2" fill="#8a6d00">THE UMOJA CIRCLE</text><text x="100" y="92" text-anchor="middle" font-family="Anton,sans-serif" font-size="17" fill="#131211">FOUNDING MEMBER</text><path d="M66 108 H134" stroke="#b8962a"/><text x="100" y="104" text-anchor="middle" font-family="Anton,sans-serif" font-size="10" fill="#131211">NO. 0001</text><text x="100" y="124" text-anchor="middle" font-family="Archivo,sans-serif" font-size="6" fill="#4b4740">Season 2027</text><g style="color:#9a7a00"><use href="#uc-mark" x="140" y="114" width="26" height="26"/></g></svg></div>
+      <article class="coll rv"><div class="art"><span class="ph-badge">Placeholder</span><svg viewBox="0 0 200 200" aria-hidden="true"><rect x="28" y="40" width="144" height="110" rx="4" fill="#F3EEE2"/><rect x="34" y="46" width="132" height="98" fill="none" stroke="#b8962a" stroke-width="1.5"/><rect x="28" y="40" width="144" height="6" fill="#F5C205"/><text x="100" y="72" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="6.5" letter-spacing="2" fill="#8a6d00">THE UMOJA CIRCLE</text><text x="100" y="92" text-anchor="middle" font-family="Anton,sans-serif" font-size="17" fill="#131211">FOUNDING MEMBER</text><path d="M66 108 H134" stroke="#b8962a"/><text x="100" y="104" text-anchor="middle" font-family="Anton,sans-serif" font-size="10" fill="#131211">NO. 0001</text><text x="100" y="124" text-anchor="middle" font-family="Archivo,sans-serif" font-size="6" fill="#4b4740">Season 2027</text><g style="color:#9a7a00"><use href="#uc-mark" x="140" y="114" width="26" height="26"/></g></svg></div>
         <div class="meta"><div class="k">Every Founding Member</div><h4>Founding certificate</h4><p>Digital for every Founding Member, printed and personalized at Captain and up.</p></div></article>
-      <article class="coll rv"><div class="art"><svg viewBox="0 0 200 200" aria-hidden="true"><rect x="52" y="22" width="96" height="140" rx="3" fill="#131211" stroke="#3a3632"/><rect x="52" y="22" width="96" height="8" fill="#F5C205"/><text x="100" y="56" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="6" letter-spacing="2" fill="#F5C205">MATCHDAY</text><text x="100" y="84" text-anchor="middle" font-family="Anton,sans-serif" font-size="20" fill="#EDEAE3">UMOJA</text><text x="100" y="100" text-anchor="middle" font-family="Anton,sans-serif" font-size="9" fill="#9C9992">ACADEMY 2027</text><g style="color:#F5C205"><use href="#uc-mark" x="78" y="110" width="44" height="44"/></g><rect x="58" y="168" width="96" height="10" rx="2" fill="#2a2724"/></svg></div>
+      <article class="coll rv"><div class="art"><span class="ph-badge">Placeholder</span><svg viewBox="0 0 200 200" aria-hidden="true"><rect x="52" y="22" width="96" height="140" rx="3" fill="#131211" stroke="#3a3632"/><rect x="52" y="22" width="96" height="8" fill="#F5C205"/><text x="100" y="56" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="6" letter-spacing="2" fill="#F5C205">MATCHDAY</text><text x="100" y="84" text-anchor="middle" font-family="Anton,sans-serif" font-size="20" fill="#EDEAE3">UMOJA</text><text x="100" y="100" text-anchor="middle" font-family="Anton,sans-serif" font-size="9" fill="#9C9992">ACADEMY 2027</text><g style="color:#F5C205"><use href="#uc-mark" x="78" y="110" width="44" height="44"/></g><rect x="58" y="168" width="96" height="10" rx="2" fill="#2a2724"/></svg></div>
         <div class="meta"><div class="k">Every member, digital</div><h4>Matchday programs</h4><p>Members-only digital programs with lineups, stories and club notes.</p></div></article>
-      <article class="coll rv"><div class="art"><svg viewBox="0 0 200 200" aria-hidden="true"><rect x="40" y="34" width="120" height="140" rx="4" fill="#1d1b1a" stroke="#3a3632"/><rect x="40" y="34" width="10" height="140" fill="#F5C205"/><text x="106" y="80" text-anchor="middle" font-family="Anton,sans-serif" font-size="24" fill="#EDEAE3">2027</text><text x="106" y="98" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="7" letter-spacing="2.4" fill="#F5C205">SEASON YEARBOOK</text><g style="color:#F5C205"><use href="#uc-mark" x="80" y="110" width="52" height="52"/></g></svg></div>
+      <article class="coll rv"><div class="art"><span class="ph-badge">Placeholder</span><svg viewBox="0 0 200 200" aria-hidden="true"><rect x="40" y="34" width="120" height="140" rx="4" fill="#1d1b1a" stroke="#3a3632"/><rect x="40" y="34" width="10" height="140" fill="#F5C205"/><text x="106" y="80" text-anchor="middle" font-family="Anton,sans-serif" font-size="24" fill="#EDEAE3">2027</text><text x="106" y="98" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="7" letter-spacing="2.4" fill="#F5C205">SEASON YEARBOOK</text><g style="color:#F5C205"><use href="#uc-mark" x="80" y="110" width="52" height="52"/></g></svg></div>
         <div class="meta"><div class="k">Every member, digital</div><h4>Season yearbook</h4><p>The whole season in one download, at the end of every year.</p></div></article>
     </div>
 
@@ -790,6 +807,25 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
           <div class="dig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="6"/><path d="m8 14-2 8 6-3 6 3-2-8"/></svg><span><b>Founding certificate</b>For every Founding Member</span></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HERITAGE (public shop) ============ -->
+<section class="c-sec heritage" id="shop" aria-labelledby="h-h">
+  <div class="wrap">
+    <div class="her-head">
+      <div>
+        <span class="c-eyebrow">Club Shop &middot; Open to everyone</span>
+        <h2 id="h-h" class="c-h2">The Heritage <em>Collection</em></h2>
+        <p class="c-lede">Club wear for everyone, available in the Umoja Club Shop. This is separate from membership rewards, which are made only for Circle members and never sold.</p>
+      </div>
+      <a href="/shop/" class="c-btn ghost">Shop the collection <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <div class="her-grid">
+      <a class="her" href="/shop/"><div class="her-img"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/1046/9838/0564/files/ea8871d608c8490ab688a6343e69e5b0.png?v=1795835452&amp;width=800" alt="Umoja Heritage Collection jacket"></div><b>Jacket</b></a>
+      <a class="her" href="/shop/"><div class="her-img"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/1046/9838/0564/files/3ff4aa9ef4d149da8beae9b8c8e26800.png?v=1795835521&amp;width=800" alt="Umoja Heritage Collection hoodie"></div><b>Hoodie</b></a>
+      <a class="her" href="/shop/"><div class="her-img"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/1046/9838/0564/files/6061a739145f4bbe89c549f3f0469a54.png?v=1795835505&amp;width=800" alt="Umoja Heritage Collection jersey"></div><b>Jersey</b></a>
     </div>
   </div>
 </section>
@@ -978,6 +1014,7 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
         </div>
         <div class="foot-col"><h5>Support Umoja</h5>
           <a href="/circle">The Umoja Circle</a>
+          <a href="/shop/">Club Shop</a>
           <a href="/sponsors.html">Community Partners</a>
           <a href="/contact.html">Contact</a>
         </div>

@@ -577,6 +577,21 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
 }
 @media(prefers-reduced-motion:reduce){.ring-hero .spin,.mcard .shine,.found-dot{animation:none}.rv{opacity:1;transform:none}}
 
+/* placeholder labels + heritage (public shop) */
+.ph-note{margin-top:46px;padding:14px 18px;border:1px dashed rgba(248,218,96,.55);border-radius:12px;background:rgba(248,218,96,.05);color:var(--gray);font-size:.9rem}
+.ph-note b{color:var(--banner)}
+.coll-grid{margin-top:22px}
+.ph-badge{position:absolute;top:12px;left:12px;font-size:.58rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--banner);border:1px dashed var(--banner);border-radius:99px;padding:3px 9px;background:rgba(12,11,10,.7)}
+.heritage{background:var(--terrace)}
+.her-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.her-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.her{display:block;border-radius:var(--r);overflow:hidden;background:var(--ink-2);border:1px solid var(--line);transition:transform .25s var(--ease),border-color .2s}
+.her:hover{transform:translateY(-3px);border-color:rgba(245,194,5,.5)}
+.her-img{aspect-ratio:1;background:#EDEAE3;display:grid;place-items:center}
+.her-img img{width:100%;height:100%;object-fit:contain}
+.her b{display:block;padding:16px 18px;font-family:"Anton",sans-serif;font-weight:400;text-transform:uppercase;font-size:1.2rem;letter-spacing:.02em}
+@media(max-width:640px){.her-grid{grid-template-columns:1fr 1fr}.her-grid .her:last-child{grid-column:1/-1}}
+
 /* ---------- CIRCLE LOUNGE (Phase 2 design preview) ---------- */
 .lg{display:grid;grid-template-columns:260px minmax(0,1fr);max-width:1320px;margin:0 auto;padding:0 28px 90px;gap:36px}
 .lg-side{min-width:0;position:sticky;top:110px;align-self:start;padding-top:36px}
@@ -681,6 +696,16 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
 @media(max-width:900px){.lg{grid-template-columns:1fr;gap:0}.lg-side{position:static;padding-top:24px}.lg-side nav ul{display:flex;overflow-x:auto;gap:6px;padding-bottom:6px}.lg-side nav a{white-space:nowrap;border:1px solid var(--line)}.two,.rw-grid{grid-template-columns:1fr}.mg-grid{grid-template-columns:1fr 1fr}.vote-grid{grid-template-columns:1fr}}
 @media(max-width:560px){.col-grid{grid-template-columns:1fr 1fr}.mg-grid{grid-template-columns:1fr}.lg-hero,.lg-sec{padding:20px}.lg{padding:0 16px 70px}.vids{grid-template-columns:1fr}}
 
+.ship{margin-top:24px;padding-top:22px;border-top:1px solid var(--line-2)}
+.ship h3{font-size:1.1rem;margin-bottom:12px}
+.pv-chip{font-family:"Archivo",sans-serif;font-size:.58rem;font-weight:800;letter-spacing:.16em;color:var(--banner);border:1px dashed var(--banner);border-radius:99px;padding:3px 8px;vertical-align:middle;margin-left:6px}
+.sh-row{display:grid;grid-template-columns:1fr auto 220px;gap:14px;align-items:center;padding:12px 14px;border-radius:10px;background:var(--terrace);margin-bottom:8px}
+.sh-row b{display:block;font-size:.9rem}.sh-row small{font-size:.72rem;color:var(--gray-2)}
+.st{font-size:.64rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:99px;border:1px solid var(--line);color:var(--gray-2);white-space:nowrap}
+.st.del{background:rgba(245,194,5,.14);border-color:var(--gold);color:var(--gold)}
+.trk{font-size:.72rem;color:var(--gray-2);text-align:right}
+@media(max-width:700px){.sh-row{grid-template-columns:1fr}.trk{text-align:left}}
+
 </style>
 </head><body>
 <a href="#main" style="position:absolute;left:-9999px;top:0" onfocus="this.style.left='8px'" onblur="this.style.left='-9999px'">Skip to content</a>
@@ -728,6 +753,7 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
         <li class="has-sub"><a href="/circle" class="active">Give<span class="caret">&#9660;</span></a>
           <ul class="submenu">
           <li><a href="/circle" class="active">The Umoja Circle</a></li>
+          <li><a href="/shop/">Club Shop</a></li>
           <li><a href="/sponsors.html">Community Partners</a></li>
           </ul></li>
         <li class="m-only"><a href="/tryouts.html" id="nav-cta-m"></a></li>
@@ -822,6 +848,13 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
             <li>Annual club reception invitation<small>Club calendar</small></li>
           </ul>
         </div>
+      </div>
+
+      <div class="ship">
+        <h3>My rewards &middot; shipments <span class="pv-chip">Preview</span></h3>
+        <div class="sh-row"><div><b>Physical welcome package</b><small>Earned after payment 3 &middot; complimentary, no purchase needed</small></div><span class="st del">Delivered</span><span class="trk">Tracking 9400 0000 0000 SAMPLE</span></div>
+        <div class="sh-row"><div><b>Captain annual package</b><small>Earns at payment 6 &middot; claimed once per membership year</small></div><span class="st">Not yet earned</span><span class="trk">&nbsp;</span></div>
+        <p class="fine" style="margin-top:10px">In the live Lounge, rewards come from Givebutter payment records, ship through the club's fulfillment partners, and each reward can be claimed once per membership year.</p>
       </div>
     </section>
 
@@ -923,6 +956,7 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
         </div>
         <div class="foot-col"><h5>Support Umoja</h5>
           <a href="/circle">The Umoja Circle</a>
+          <a href="/shop/">Club Shop</a>
           <a href="/sponsors.html">Community Partners</a>
           <a href="/contact.html">Contact</a>
         </div>
