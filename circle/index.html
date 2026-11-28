@@ -591,6 +591,16 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
 .her b{display:block;padding:16px 18px;font-family:"Anton",sans-serif;font-weight:400;text-transform:uppercase;font-size:1.2rem;letter-spacing:.02em}
 @media(max-width:640px){.her-grid{grid-template-columns:1fr 1fr}.her-grid .her:last-child{grid-column:1/-1}}
 
+/* founding edition stage (replaces scarf, Nov 28 2026) */
+.fe-stage{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:46px}
+.fe-card{transform:rotate(-3deg)}
+.fe-cert{transform:rotate(2deg)}
+.fe-card .mcard .tname{font-size:clamp(1.4rem,3.4vw,2.6rem)}
+.coll-grid{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1080px){.coll-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.fe-stage{grid-template-columns:1fr;gap:28px}}
+@media(max-width:640px){.coll-grid{grid-template-columns:1fr}}
+
 
 </style>
 </head><body>
@@ -666,7 +676,7 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
       <span class="c-eyebrow">Umoja Soccer Club Supporters</span>
       <h1 id="hero-h"><span class="the">The Umoja</span>Circle</h1>
       <div class="tag">One club. <span>One community.</span> A shared future.</div>
-      <p class="lede">Umoja is a free-to-play football academy in Clarkston, Georgia, opening its doors in August 2027. The Circle is its supporter community: people everywhere who love the game and want to see what it can become. Join, wear the scarf, and help build the club from day one.</p>
+      <p class="lede">Umoja is a free-to-play football academy in Clarkston, Georgia, opening its doors in August 2027. The Circle is its supporter community: people everywhere who love the game and want to see what it can become. Join, take your number, and help build the club from day one.</p>
       <div class="ctas">
         <a href="#join" class="c-btn">Join the Circle <span aria-hidden="true">&rarr;</span></a>
         <a href="#founding" class="c-btn ghost">Become a Founding Member</a>
@@ -687,7 +697,7 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
     <h2 id="man-h" class="big rv">Every great club starts with the people in the stands. <em>This is ours.</em></h2>
     <div class="pillars">
       <div class="pillar rv"><div class="n">01</div><h3>Belong</h3><p>A membership card with your number on it, the Circle Insider every month, and a club that keeps you close to everything it is building.</p></div>
-      <div class="pillar rv"><div class="n">02</div><h3>Collect</h3><p>A new members-only scarf every season, plus pins, certificates and digital collectibles that build into a collection over the years.</p></div>
+      <div class="pillar rv"><div class="n">02</div><h3>Collect</h3><p>A numbered membership card, founding-edition pieces, certificates and digital collectibles that build into a collection over the years.</p></div>
       <div class="pillar rv"><div class="n">03</div><h3>Build</h3><p>Your membership is unrestricted support for a free academy. Coaching, fields, kits and rides for players who take part at no cost.</p></div>
     </div>
   </div>
@@ -746,41 +756,26 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
   <div class="wrap">
     <span class="c-eyebrow">The collection</span>
     <h2 id="col-h" class="c-h2">Wear it. <em>Keep it.</em> Collect the seasons.</h2>
-    <p class="c-lede">Every season brings a new Circle scarf, made only for members and never sold in a shop. Each edition is different. Every one belongs to the same family.</p>
+    <p class="c-lede">Members-only pieces you will not find in a shop. Every season has its own edition, and the founding season's is made once and never again.</p>
 
-    <div class="scarf-stage" aria-label="Concept art: The 2027 Founding Edition Circle scarf">
-      <svg viewBox="0 0 1200 200" role="img" aria-label="Concept scarf: ink body, gold and bone stripes at each end, THE UMOJA CIRCLE knitted in gold across the middle, Founding Edition 2027">
-        <g stroke="#E6DFCC" stroke-width="3" stroke-linecap="round" opacity=".85">
-          <path d="M44 42 L8 42 M44 58 L4 58 M44 74 L10 74 M44 90 L6 90 M44 106 L9 106 M44 122 L5 122 M44 138 L10 138 M44 154 L6 154"/>
-          <path d="M1156 42 L1192 42 M1156 58 L1196 58 M1156 74 L1190 74 M1156 90 L1194 90 M1156 106 L1191 106 M1156 122 L1195 122 M1156 138 L1190 138 M1156 154 L1194 154"/>
-        </g>
-        <rect x="40" y="30" width="1120" height="140" rx="6" fill="#131211"/>
-        <g>
-          <rect x="40" y="30" width="72" height="140" fill="#F5C205"/><rect x="112" y="30" width="14" height="140" fill="#F3EEE2"/><rect x="126" y="30" width="10" height="140" fill="#131211"/><rect x="136" y="30" width="34" height="140" fill="#F5C205"/><rect x="170" y="30" width="10" height="140" fill="#F3EEE2"/>
-          <rect x="1088" y="30" width="72" height="140" fill="#F5C205"/><rect x="1074" y="30" width="14" height="140" fill="#F3EEE2"/><rect x="1064" y="30" width="10" height="140" fill="#131211"/><rect x="1030" y="30" width="34" height="140" fill="#F5C205"/><rect x="1020" y="30" width="10" height="140" fill="#F3EEE2"/>
-        </g>
-        <rect x="180" y="42" width="840" height="4" fill="#F5C205"/><rect x="180" y="154" width="840" height="4" fill="#F5C205"/>
-        <g style="color:#F5C205"><use href="#uc-mark" x="196" y="58" width="84" height="84"/><use href="#uc-mark" x="920" y="58" width="84" height="84"/></g>
-        <text x="600" y="120" text-anchor="middle" font-family="Anton,sans-serif" font-size="66" fill="#F5C205" textLength="560" lengthAdjust="spacingAndGlyphs">THE UMOJA CIRCLE</text>
-        <text x="600" y="146" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="13" letter-spacing="7" fill="#F3EEE2">FOUNDING EDITION &#183; 2027</text>
-        <rect x="40" y="30" width="1120" height="140" rx="6" fill="url(#knit)"/>
-      </svg>
+    <div class="fe-stage" aria-label="The 2027 Founding Edition: numbered founding card and founding certificate">
+      <div class="fe-card"><div class="mcard" data-tier="champion"><span class="arm" aria-hidden="true"></span><span class="shine" aria-hidden="true"></span>
+        <div class="row"><div class="mk"><svg viewBox="0 0 200 200"><use href="#uc-mark"/></svg></div><span class="fm">Founding Member</span></div>
+        <div><div class="club">The Umoja Circle &middot; 2027 Founding Edition</div><div class="tname">Founding Member</div><div class="who">Your name</div></div>
+        <div class="row" style="align-items:flex-end"><div class="no"><small>Member No.</small>0001</div><div class="gl">&#9733;</div></div></div></div>
+      <div class="fe-cert"><div class="cert" style="margin:0"><div class="ck">The Umoja Circle &#183; 2027 Founding Edition</div><div class="ct">Founding Member</div><div class="cto">This certifies that</div><div class="cname">Your name</div><div class="cmsg">joined The Umoja Circle in its founding season, as Member No. 0001.</div><div class="cfrom">Umoja Soccer Club &#183; Clarkston, Georgia</div><svg class="seal" viewBox="0 0 200 200" aria-hidden="true"><use href="#uc-mark"/></svg></div></div>
     </div>
     <div class="scarf-cap">
-      <div><h3>The 2027 Founding Edition</h3><p>The first Circle scarf goes to eligible members who join in the founding season, and it will never be made again.</p></div>
+      <div><h3>The 2027 Founding Edition</h3><p>Every Founding Member gets a numbered founding card and certificate in a design used only this season. Eligible levels add founding-edition pieces like the Circle T-shirt and personalized jersey. None of it will be made again.</p></div>
       <span class="draft-tag">Placeholder art</span>
     </div>
 
     <p class="ph-note"><b>Exclusive member merchandise is in development.</b> The artwork in this section is a placeholder, and final product photos will replace it.</p>
     <div class="coll-grid">
-      <article class="coll rv"><div class="art"><span class="ph-badge">Placeholder</span><svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="86" fill="url(#goldfoil)"/><circle cx="100" cy="100" r="76" fill="#131211"/><g style="color:#F5C205"><use href="#uc-mark" x="30" y="30" width="140" height="140"/></g><path d="M56 36 Q100 20 144 36" stroke="#fff" stroke-opacity=".25" stroke-width="4" fill="none" stroke-linecap="round"/></svg></div>
-        <div class="meta"><div class="k">Starting XI and up</div><h4>Annual enamel pin</h4><p>A new hard-enamel pin each membership year. Line them up season after season.</p></div></article>
       <article class="coll rv"><div class="art"><span class="ph-badge">Placeholder</span><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M70 30 L40 42 L18 78 L44 92 L52 80 L52 176 L148 176 L148 80 L156 92 L182 78 L160 42 L130 30 Q100 52 70 30Z" fill="#1d1b1a" stroke="#3a3632" stroke-width="2"/><path d="M18 78 L44 92 L48 86 L23 72Z M182 78 L156 92 L152 86 L177 72Z" fill="#F5C205"/><path d="M70 30 Q100 52 130 30" stroke="#F5C205" stroke-width="4" fill="none"/><g style="color:#F5C205"><use href="#uc-mark" x="80" y="70" width="40" height="40"/></g><rect x="52" y="160" width="96" height="5" fill="#F5C205"/></svg></div>
         <div class="meta"><div class="k">Starting XI and up</div><h4>Circle T-shirt</h4><p>Ink cotton, gold Circle mark, stripe hem. Members only.</p></div></article>
       <article class="coll rv"><div class="art"><span class="ph-badge">Placeholder</span><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M60 26 L28 40 L10 80 L36 92 L46 78 L46 178 L154 178 L154 78 L164 92 L190 80 L172 40 L140 26 Q100 44 60 26Z" fill="#131211" stroke="#F5C205" stroke-width="2"/><path d="M60 26 Q100 44 140 26" stroke="#F5C205" stroke-width="5" fill="none"/><text x="100" y="82" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="12" letter-spacing="3" fill="#F5C205">YOUR NAME</text><text x="100" y="150" text-anchor="middle" font-family="Anton,sans-serif" font-size="64" fill="#F5C205">12</text></svg></div>
         <div class="meta"><div class="k">Champion and up</div><h4>Personalized Umoja jersey</h4><p>Your name, your number, in club colors.</p></div></article>
-      <article class="coll rv"><div class="art"><span class="ph-badge">Placeholder</span><svg viewBox="0 0 200 200" aria-hidden="true"><rect x="28" y="40" width="144" height="110" rx="4" fill="#F3EEE2"/><rect x="34" y="46" width="132" height="98" fill="none" stroke="#b8962a" stroke-width="1.5"/><rect x="28" y="40" width="144" height="6" fill="#F5C205"/><text x="100" y="72" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="6.5" letter-spacing="2" fill="#8a6d00">THE UMOJA CIRCLE</text><text x="100" y="92" text-anchor="middle" font-family="Anton,sans-serif" font-size="17" fill="#131211">FOUNDING MEMBER</text><path d="M66 108 H134" stroke="#b8962a"/><text x="100" y="104" text-anchor="middle" font-family="Anton,sans-serif" font-size="10" fill="#131211">NO. 0001</text><text x="100" y="124" text-anchor="middle" font-family="Archivo,sans-serif" font-size="6" fill="#4b4740">Season 2027</text><g style="color:#9a7a00"><use href="#uc-mark" x="140" y="114" width="26" height="26"/></g></svg></div>
-        <div class="meta"><div class="k">Every Founding Member</div><h4>Founding certificate</h4><p>Digital for every Founding Member, printed and personalized at Captain and up.</p></div></article>
       <article class="coll rv"><div class="art"><span class="ph-badge">Placeholder</span><svg viewBox="0 0 200 200" aria-hidden="true"><rect x="52" y="22" width="96" height="140" rx="3" fill="#131211" stroke="#3a3632"/><rect x="52" y="22" width="96" height="8" fill="#F5C205"/><text x="100" y="56" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="6" letter-spacing="2" fill="#F5C205">MATCHDAY</text><text x="100" y="84" text-anchor="middle" font-family="Anton,sans-serif" font-size="20" fill="#EDEAE3">UMOJA</text><text x="100" y="100" text-anchor="middle" font-family="Anton,sans-serif" font-size="9" fill="#9C9992">ACADEMY 2027</text><g style="color:#F5C205"><use href="#uc-mark" x="78" y="110" width="44" height="44"/></g><rect x="58" y="168" width="96" height="10" rx="2" fill="#2a2724"/></svg></div>
         <div class="meta"><div class="k">Every member, digital</div><h4>Matchday programs</h4><p>Members-only digital programs with lineups, stories and club notes.</p></div></article>
       <article class="coll rv"><div class="art"><span class="ph-badge">Placeholder</span><svg viewBox="0 0 200 200" aria-hidden="true"><rect x="40" y="34" width="120" height="140" rx="4" fill="#1d1b1a" stroke="#3a3632"/><rect x="40" y="34" width="10" height="140" fill="#F5C205"/><text x="106" y="80" text-anchor="middle" font-family="Anton,sans-serif" font-size="24" fill="#EDEAE3">2027</text><text x="106" y="98" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="7" letter-spacing="2.4" fill="#F5C205">SEASON YEARBOOK</text><g style="color:#F5C205"><use href="#uc-mark" x="80" y="110" width="52" height="52"/></g></svg></div>
@@ -802,7 +797,7 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
           <div class="dig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><span><b>Wallpapers</b>Phone and desktop, every season</span></div>
           <div class="dig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 3 14 9-14 9V3z"/></svg><span><b>Behind the scenes</b>Videos from inside the club</span></div>
           <div class="dig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8v18L3 13z"/><path d="M7 13v6"/></svg><span><b>First to know</b>Early access to club announcements</span></div>
-          <div class="dig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m8 12 3 3 5-6"/></svg><span><b>Design votes</b>Help choose the next scarf and merch</span></div>
+          <div class="dig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m8 12 3 3 5-6"/></svg><span><b>Design votes</b>Help choose future merch designs</span></div>
           <div class="dig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3h12l4 4v14H4z"/><path d="M8 11h8M8 15h8"/></svg><span><b>Matchday programs</b>Digital editions for members</span></div>
           <div class="dig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="6"/><path d="m8 14-2 8 6-3 6 3-2-8"/></svg><span><b>Founding certificate</b>For every Founding Member</span></div>
         </div>
@@ -976,7 +971,7 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
       <details><summary>Is my membership tax-deductible?</summary><p>Umoja Soccer Club, Inc. is a 501(c)(3) nonprofit. Your membership is deductible to the extent allowed by law, which means the amount you give minus the fair market value of any goods or services you receive. Your receipt will show that value. Members who choose digital only receive a receipt that reflects it.</p></details>
       <details><summary>What does Founding Member status include?</summary><p>Everyone who joins before August 1, 2027 is a Founding Member for life, with a founding number assigned in order of joining. The designation stays with you permanently, even if your paid membership ends. Paid membership benefits continue while your membership is active.</p></details>
       <details><summary>How do gift memberships work?</summary><p>Gift memberships are annual. You choose the level and we send a digital gift certificate on the date you pick. The recipient activates their membership with their own shipping details, and gift memberships made before August 1, 2027 carry founding status.</p></details>
-      <details><summary>What can members vote on?</summary><p>Members help choose things like scarf and merchandise designs. These votes are just for fun. They do not create voting rights in the nonprofit corporation, governance rights or any ownership interest.</p></details>
+      <details><summary>What can members vote on?</summary><p>Members help choose things like merchandise designs. These votes are just for fun. They do not create voting rights in the nonprofit corporation, governance rights or any ownership interest.</p></details>
       <details><summary>Refunds?</summary><p>If something is not right, email us within 30 days of a payment and we will refund it, as long as that payment's physical rewards have not shipped yet.</p></details>
       <details><summary>How is my information used?</summary><p>Payments are handled securely by Givebutter. Umoja never sees or stores your card details. We never sell or share member information, and your name only appears in public with your permission. We do not identify individual players or scholarship recipients in member content.</p></details>
     </div>
@@ -1096,10 +1091,10 @@ window.CIRCLE = window.CIRCLE || {
   var TIERS = [
     {id:"fan",       name:"The Fan",          m:10,   g:"F",  hook:"Your card, your number, and the Circle Insider every month.",
       b:["Digital membership card","Exclusive Circle newsletter","Early access to club merchandise"]},
-    {id:"twelfth",   name:"The Twelfth",      m:25,   g:"12", hook:"The twelfth player. Scarf around your neck, name on the wall.",
-      b:["Annual exclusive Circle scarf","Personalized welcome letter","Optional recognition on the supporter wall"]},
-    {id:"xi",        name:"The Starting XI",  m:50,   g:"XI", hook:"In the lineup, with a pin, a Circle tee and member events.",
-      b:["Annual collectible enamel pin","Exclusive Circle T-shirt","Invitations to member events"]},
+    {id:"twelfth",   name:"The Twelfth",      m:25,   g:"12", hook:"The twelfth player. A personal welcome and your name on the wall.",
+      b:["Personalized welcome letter","Optional recognition on the supporter wall"]},
+    {id:"xi",        name:"The Starting XI",  m:50,   g:"XI", hook:"In the lineup, with a Circle tee and member events.",
+      b:["Exclusive Circle T-shirt","Invitations to member events"]},
     {id:"captain",   name:"The Captain",      m:100,  g:"C",  hook:"Wear the armband. Premium package and the annual reception.",
       b:["Annual premium merchandise package","Personalized membership certificate","Invitation to the annual club reception"]},
     {id:"champion",  name:"The Champion",     m:250,  g:"★", hook:"Your own Umoja jersey and a seat at the leadership briefing.",
@@ -1109,7 +1104,7 @@ window.CIRCLE = window.CIRCLE || {
     {id:"legacy",    name:"The Legacy",       m:1000, g:"L",  hook:"Part of the club's story for good.",
       b:["Annual personalized commemorative gift","Private annual meeting with club leadership","Distinguished legacy recognition"]}
   ];
-  var DIGITAL = ["Personalized digital membership card","The Circle Insider newsletter","Phone and desktop wallpapers","Digital season yearbook","Behind-the-scenes videos","Early access to club announcements","Digital matchday programs","Votes on scarf and merch designs"];
+  var DIGITAL = ["Personalized digital membership card","The Circle Insider newsletter","Phone and desktop wallpapers","Digital season yearbook","Behind-the-scenes videos","Early access to club announcements","Digital matchday programs","Votes on merchandise designs"];
   var MILESTONES = [[10,"The First Ten"],[50,"Building the Community"],[100,"The Founding Hundred"],[250,"Growing Together"],[500,"Halfway There"],[1000,"One Thousand Strong"]];
 
   var state = {mode:"monthly", tier:"twelfth"};

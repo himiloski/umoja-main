@@ -592,6 +592,16 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
 .her b{display:block;padding:16px 18px;font-family:"Anton",sans-serif;font-weight:400;text-transform:uppercase;font-size:1.2rem;letter-spacing:.02em}
 @media(max-width:640px){.her-grid{grid-template-columns:1fr 1fr}.her-grid .her:last-child{grid-column:1/-1}}
 
+/* founding edition stage (replaces scarf, Nov 28 2026) */
+.fe-stage{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:46px}
+.fe-card{transform:rotate(-3deg)}
+.fe-cert{transform:rotate(2deg)}
+.fe-card .mcard .tname{font-size:clamp(1.4rem,3.4vw,2.6rem)}
+.coll-grid{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1080px){.coll-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.fe-stage{grid-template-columns:1fr;gap:28px}}
+@media(max-width:640px){.coll-grid{grid-template-columns:1fr}}
+
 /* ---------- CIRCLE LOUNGE (Phase 2 design preview) ---------- */
 .lg{display:grid;grid-template-columns:260px minmax(0,1fr);max-width:1320px;margin:0 auto;padding:0 28px 90px;gap:36px}
 .lg-side{min-width:0;position:sticky;top:110px;align-self:start;padding-top:36px}
@@ -641,7 +651,7 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
 .a1{background:linear-gradient(135deg,#1f1d1a,#000)}
 .a2{background:radial-gradient(80% 60% at 50% 30%,rgba(245,194,5,.3),#0b0a09)}.a2 span{font-family:"Anton",sans-serif;font-size:2rem;color:var(--bone)}
 .a3{background:var(--bone);color:var(--ink);text-align:center}.a3 em{font-style:normal;font-family:"Anton",sans-serif;font-size:1.1rem;line-height:1}.a3 small{position:absolute;bottom:14px;left:0;right:0;font-size:.62rem;font-weight:800;letter-spacing:.1em;color:#8a6d00}
-.a4{background:#131211}.a4 i{position:absolute;inset:30% 0;background:repeating-linear-gradient(90deg,var(--gold) 0 18px,var(--bone) 18px 22px,var(--ink) 22px 30px)}
+.a4{background:#131211}.a4 i{position:absolute;inset:28% 22%;background:var(--ink);border:2px solid var(--gold);border-radius:6px 6px 2px 2px}
 .a5{background:#1d1b1a;border-left:8px solid var(--gold)}.a5 span{font-family:"Anton",sans-serif;font-size:1.8rem}
 .a6{background:radial-gradient(circle,#2a2724,#121110)}
 .ci.lock .ca{filter:grayscale(1) brightness(.55)}
@@ -844,7 +854,7 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
           <ul class="chk">
             <li>Annual premium merchandise package<small>After payment 6</small></li>
             <li>Personalized membership certificate<small>After payment 6</small></li>
-            <li>2027 Founding Edition scarf<small>After payment 6</small></li>
+            <li>Founding-edition Circle T-shirt<small>After payment 6</small></li>
             <li>Annual club reception invitation<small>Club calendar</small></li>
           </ul>
         </div>
@@ -865,9 +875,9 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
         <div class="ci"><div class="ca a1"><svg viewBox="0 0 200 200"><use href="#uc-mark"/></svg></div><b>2027 Founding card</b><span>Digital card &middot; Earned</span></div>
         <div class="ci"><div class="ca a2"><span>7:30</span></div><b>Wallpaper set 01</b><span>Phone and desktop &middot; Earned</span></div>
         <div class="ci"><div class="ca a3"><em>FOUNDING<br>MEMBER</em><small>No. 0042</small></div><b>Founding certificate</b><span>Digital &middot; Earned</span></div>
-        <div class="ci lock"><div class="ca a4"><i></i></div><b>2027 Founding scarf</b><span>Physical &middot; After payment 6</span></div>
+        <div class="ci lock"><div class="ca a4"><i></i></div><b>Founding Circle tee</b><span>Physical &middot; After payment 6</span></div>
         <div class="ci lock"><div class="ca a5"><span>2027</span></div><b>Season yearbook</b><span>Digital &middot; End of season</span></div>
-        <div class="ci lock"><div class="ca a6"><svg viewBox="0 0 200 200"><use href="#uc-mark"/></svg></div><b>2027 enamel pin</b><span>Physical &middot; After payment 6</span></div>
+        <div class="ci lock"><div class="ca a6"><svg viewBox="0 0 200 200"><use href="#uc-mark"/></svg></div><b>Matchday programs</b><span>Digital &middot; From August 2027</span></div>
       </div>
     </section>
 
@@ -877,7 +887,7 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
         <div class="sec-h"><h2>The Circle Insider</h2><span>Monthly newsletter archive</span></div>
         <ul class="issues">
           <li><span class="ino">01</span><div><b>Sample issue: Welcome to the founding season</b><small>Monthly &middot; sample title</small></div><span class="arr">&rarr;</span></li>
-          <li><span class="ino">02</span><div><b>Sample issue: Scarf design vote opens</b><small>Monthly &middot; sample title</small></div><span class="arr">&rarr;</span></li>
+          <li><span class="ino">02</span><div><b>Sample issue: Merch design vote opens</b><small>Monthly &middot; sample title</small></div><span class="arr">&rarr;</span></li>
           <li><span class="ino">03</span><div><b>Sample issue: Quarterly club update</b><small>Quarterly &middot; sample title</small></div><span class="arr">&rarr;</span></li>
         </ul>
       </section>
@@ -892,12 +902,8 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
 
     <!-- VOTE -->
     <section id="vote" class="lg-sec">
-      <div class="sec-h"><h2>Design vote: 2028 Circle scarf</h2><span>Sample vote &middot; just for fun</span></div>
-      <div class="vote-grid" role="radiogroup" aria-label="Scarf concepts">
-        <button type="button" class="vo" role="radio" aria-checked="false"><svg viewBox="0 0 300 70"><rect width="300" height="70" fill="#131211"/><rect width="40" height="70" fill="#F5C205"/><rect x="260" width="40" height="70" fill="#F5C205"/><rect x="46" width="8" height="70" fill="#F3EEE2"/><rect x="246" width="8" height="70" fill="#F3EEE2"/><text x="150" y="44" text-anchor="middle" font-family="Anton,sans-serif" font-size="24" fill="#F5C205">UMOJA CIRCLE</text><rect width="300" height="70" fill="url(#knit)"/></svg><b>Concept A &middot; Terrace</b></button>
-        <button type="button" class="vo" role="radio" aria-checked="false"><svg viewBox="0 0 300 70"><rect width="300" height="70" fill="#F5C205"/><rect y="0" width="300" height="10" fill="#131211"/><rect y="60" width="300" height="10" fill="#131211"/><text x="150" y="45" text-anchor="middle" font-family="Anton,sans-serif" font-size="24" fill="#131211">ONE CLUB</text><rect width="300" height="70" fill="url(#knit)"/></svg><b>Concept B &middot; Gold Day</b></button>
-        <button type="button" class="vo" role="radio" aria-checked="false"><svg viewBox="0 0 300 70"><rect width="300" height="70" fill="#F3EEE2"/><g fill="#131211"><rect x="0" width="20" height="70"/><rect x="30" width="10" height="70"/><rect x="260" width="10" height="70"/><rect x="280" width="20" height="70"/></g><text x="150" y="45" text-anchor="middle" font-family="Anton,sans-serif" font-size="24" fill="#131211">CLARKSTON</text><rect width="300" height="70" fill="url(#knit)"/></svg><b>Concept C &middot; Bone</b></button>
-      </div>
+      <div class="sec-h"><h2>Design vote: next Circle T-shirt</h2><span>Sample vote &middot; just for fun</span></div>
+      <div class="vote-grid" role="radiogroup" aria-label="T-shirt concepts"><button type="button" class="vo" role="radio" aria-checked="false"><svg viewBox="0 0 300 160"><rect width="300" height="160" fill="#141210"/><path d="M120 18 L96 28 L80 58 L98 68 L104 58 L104 146 L196 146 L196 58 L202 68 L220 58 L204 28 L180 18 Q150 36 120 18Z" fill="#131211" stroke="#3a3632"/><path d="M80 58 L98 68 L101 62 L84 52Z M220 58 L202 68 L199 62 L216 52Z" fill="#F5C205"/><g style="color:#F5C205"><use href="#uc-mark" x="132" y="48" width="36" height="36"/></g></svg><b>Concept A &middot; Ink</b></button><button type="button" class="vo" role="radio" aria-checked="false"><svg viewBox="0 0 300 160"><rect width="300" height="160" fill="#141210"/><path d="M120 18 L96 28 L80 58 L98 68 L104 58 L104 146 L196 146 L196 58 L202 68 L220 58 L204 28 L180 18 Q150 36 120 18Z" fill="#F5C205" stroke="#3a3632"/><path d="M80 58 L98 68 L101 62 L84 52Z M220 58 L202 68 L199 62 L216 52Z" fill="#131211"/><g style="color:#131211"><use href="#uc-mark" x="132" y="48" width="36" height="36"/></g></svg><b>Concept B &middot; Gold</b></button><button type="button" class="vo" role="radio" aria-checked="false"><svg viewBox="0 0 300 160"><rect width="300" height="160" fill="#141210"/><path d="M120 18 L96 28 L80 58 L98 68 L104 58 L104 146 L196 146 L196 58 L202 68 L220 58 L204 28 L180 18 Q150 36 120 18Z" fill="#F3EEE2" stroke="#3a3632"/><path d="M80 58 L98 68 L101 62 L84 52Z M220 58 L202 68 L199 62 L216 52Z" fill="#131211"/><g style="color:#9a7a00"><use href="#uc-mark" x="132" y="48" width="36" height="36"/></g></svg><b>Concept C &middot; Bone</b></button></div>
       <p class="fine">Design votes are recreational. They do not create voting rights in the nonprofit corporation, governance rights or ownership interests.</p>
     </section>
 
