@@ -602,6 +602,13 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
 @media(max-width:760px){.fe-stage{grid-template-columns:1fr;gap:28px}}
 @media(max-width:640px){.coll-grid{grid-template-columns:1fr}}
 
+/* real product photo card (Founding Member Tee) */
+.coll .art.photo{background:#EDEAE3;overflow:hidden}
+.coll .art.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .4s var(--ease)}
+.coll .art.photo .bk{opacity:0}
+.coll-photo:hover .art.photo .bk,.coll-photo:focus-within .art.photo .bk{opacity:1}
+.coll-photo:hover .art.photo .f{opacity:0}
+
 /* ---------- CIRCLE LOUNGE (Phase 2 design preview) ---------- */
 .lg{display:grid;grid-template-columns:260px minmax(0,1fr);max-width:1320px;margin:0 auto;padding:0 28px 90px;gap:36px}
 .lg-side{min-width:0;position:sticky;top:110px;align-self:start;padding-top:36px}

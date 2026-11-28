@@ -601,6 +601,13 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
 @media(max-width:760px){.fe-stage{grid-template-columns:1fr;gap:28px}}
 @media(max-width:640px){.coll-grid{grid-template-columns:1fr}}
 
+/* real product photo card (Founding Member Tee) */
+.coll .art.photo{background:#EDEAE3;overflow:hidden}
+.coll .art.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .4s var(--ease)}
+.coll .art.photo .bk{opacity:0}
+.coll-photo:hover .art.photo .bk,.coll-photo:focus-within .art.photo .bk{opacity:1}
+.coll-photo:hover .art.photo .f{opacity:0}
+
 
 </style>
 </head><body>
@@ -770,10 +777,10 @@ dialog.co::backdrop{background:rgba(6,5,5,.78);backdrop-filter:blur(6px)}
       <span class="draft-tag">Placeholder art</span>
     </div>
 
-    <p class="ph-note"><b>Exclusive member merchandise is in development.</b> The artwork in this section is a placeholder, and final product photos will replace it.</p>
+    <p class="ph-note"><b>Exclusive member merchandise is in development.</b> The Founding Member Tee is shown in its product photos. The other artwork is a placeholder, and final product photos will replace it.</p>
     <div class="coll-grid">
-      <article class="coll rv"><div class="art"><span class="ph-badge">Placeholder</span><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M70 30 L40 42 L18 78 L44 92 L52 80 L52 176 L148 176 L148 80 L156 92 L182 78 L160 42 L130 30 Q100 52 70 30Z" fill="#1d1b1a" stroke="#3a3632" stroke-width="2"/><path d="M18 78 L44 92 L48 86 L23 72Z M182 78 L156 92 L152 86 L177 72Z" fill="#F5C205"/><path d="M70 30 Q100 52 130 30" stroke="#F5C205" stroke-width="4" fill="none"/><g style="color:#F5C205"><use href="#uc-mark" x="80" y="70" width="40" height="40"/></g><rect x="52" y="160" width="96" height="5" fill="#F5C205"/></svg></div>
-        <div class="meta"><div class="k">Starting XI and up</div><h4>Circle T-shirt</h4><p>Ink cotton, gold Circle mark, stripe hem. Members only.</p></div></article>
+      <article class="coll rv coll-photo"><div class="art photo"><img loading="lazy" class="f" src="https://cdn.shopify.com/s/files/1/1046/9838/0564/files/69f4fd86e3f644968f944e7f90ba394f.png?v=1795884708&amp;width=800" alt="The Umoja Circle Founding Member Tee, front: club crest on the chest"><img loading="lazy" class="bk" src="https://cdn.shopify.com/s/files/1/1046/9838/0564/files/0f23dd65b50e43c6858693fd9d068df6.png?v=1795884708&amp;width=800" alt="The Umoja Circle Founding Member Tee, back: founding-season graphic"></div>
+        <div class="meta"><div class="k">Starting XI and up</div><h4>Founding Member Tee</h4><p>Club crest on the chest, Circle sleeve lettering and a founding-season graphic on the back. Heavyweight snow-washed black cotton, oversized fit. Members only.</p></div></article>
       <article class="coll rv"><div class="art"><span class="ph-badge">Placeholder</span><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M60 26 L28 40 L10 80 L36 92 L46 78 L46 178 L154 178 L154 78 L164 92 L190 80 L172 40 L140 26 Q100 44 60 26Z" fill="#131211" stroke="#F5C205" stroke-width="2"/><path d="M60 26 Q100 44 140 26" stroke="#F5C205" stroke-width="5" fill="none"/><text x="100" y="82" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="12" letter-spacing="3" fill="#F5C205">YOUR NAME</text><text x="100" y="150" text-anchor="middle" font-family="Anton,sans-serif" font-size="64" fill="#F5C205">12</text></svg></div>
         <div class="meta"><div class="k">Champion and up</div><h4>Personalized Umoja jersey</h4><p>Your name, your number, in club colors.</p></div></article>
       <article class="coll rv"><div class="art"><span class="ph-badge">Placeholder</span><svg viewBox="0 0 200 200" aria-hidden="true"><rect x="52" y="22" width="96" height="140" rx="3" fill="#131211" stroke="#3a3632"/><rect x="52" y="22" width="96" height="8" fill="#F5C205"/><text x="100" y="56" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="6" letter-spacing="2" fill="#F5C205">MATCHDAY</text><text x="100" y="84" text-anchor="middle" font-family="Anton,sans-serif" font-size="20" fill="#EDEAE3">UMOJA</text><text x="100" y="100" text-anchor="middle" font-family="Anton,sans-serif" font-size="9" fill="#9C9992">ACADEMY 2027</text><g style="color:#F5C205"><use href="#uc-mark" x="78" y="110" width="44" height="44"/></g><rect x="58" y="168" width="96" height="10" rx="2" fill="#2a2724"/></svg></div>
